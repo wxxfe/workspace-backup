@@ -1,0 +1,139 @@
+{
+  "_comments": [
+    "editor: 使用什么编辑器打开.shuttle.json文件（可选值：default, nano, vi, vim或其他可在终端编辑文件的命令）",
+    "launch_at_login: 是否自动启用shuttle(可选值: true, false)",
+    "terminal: 设置执行命令的默认终端（可选值：Terminal.app, iTerm）",
+    "iTerm_verison: 当terminal参数设置为iTerm时必填（可选值：stable, nightly）",
+    "default_theme: 设置终端主题",
+    "open_in: 命令窗口展示方式（可选值：tab, new）",
+    "show_ssh_config_hosts: 是否解析ssh config，并显示对应的主机到菜单列表中（可选值：true, false）",
+    "ssh_config_ignore_hosts: 在ssh config需要忽略显示在菜单的主机数组（值为主机名）",
+    "ssh_config_ignore_keywords: 在ssh config需要忽略的关键字",
+    "如果要将~/.ssh/config中的主机显示到菜单中， 可以这样定义主机的Host值：Host work/servers/web01: 表示web01会出现在shuttle的work菜单下servers子菜单下(一种方便的目录层级定义方式)。",
+    "也可以使用另外一种方式：",
+    "Host web01",
+    "# shuttle.name = work/servers/web01",
+    "HostName user@web01.example.com",
+    "自定义命令配置是定义在.shuttle.json中的hosts键值中，其值为一个数组，每个item为一个对象，结构如下：{ 菜单名: xxx (对象或数组) }",
+    "对象包含字段有：",
+    "cmd: 需要执行的命令",
+    "name: 菜单名",
+    "inTerminal: 命令执行窗口模式（可选值：new, tab, current）",
+    "theme: 终端主题",
+    "title: 终端显示标题(缺失时使用name作为标题)"
+  ],
+  "editor": "default",
+  "launch_at_login": true,
+  "terminal": "iTerm",
+  "iTerm_version": "nightly",
+  "default_theme": "Homebrew",
+  "open_in": "tab",
+  "show_ssh_config_hosts": true,
+  "ssh_config_ignore_hosts": [],
+  "ssh_config_ignore_keywords": [],
+  "hosts": [
+    {
+      "cmd": "tmuxinator start sports_website",
+      "name": "tmuxinator BFSport"
+    },
+    {
+      "git BFSport": [
+        {
+          "cmd": "cd /Users/panhezeng/workspace/BFSport && git checkout phzdev",
+          "name": "1 checkout phzdev"
+        },
+        {
+          "cmd": "git add .",
+          "name": "2 add .",
+          "inTerminal": "current"
+        },
+        {
+          "cmd": "git commit -a",
+          "name": "3 commit -a",
+          "inTerminal": "current"
+        },
+        {
+          "cmd": "git merge ybldev",
+          "name": "4 merge ybldev",
+          "inTerminal": "current"
+        },
+        {
+          "cmd": "git mergetool",
+          "name": "5 mergetool",
+          "inTerminal": "current"
+        },
+        {
+          "cmd": "git push",
+          "name": "6 push",
+          "inTerminal": "current"
+        },
+        {
+          "cmd": "git pull",
+          "name": "7 pull",
+          "inTerminal": "current"
+        }
+      ]
+    },
+    {
+      "cmd": "cd /Users/panhezeng/workspace/BFSport && grunt",
+      "name": "grunt BFSport"
+    },
+    {
+      "cmd": "ssh panhezeng@192.168.200.192",
+      "name": "ssh BFSport"
+    },
+    {
+      "cd dir": [
+        {
+          "cmd": "cd /Users/panhezeng",
+          "name": "panhezeng ~"
+        },
+        {
+          "cmd": "cd /Users/panhezeng/workspace",
+          "name": "workspace"
+        },
+        {
+          "cmd": "cd /Users/panhezeng/workspace/BFSport",
+          "name": "BFSport"
+        },
+        {
+          "cmd": "cd /usr/local/etc",
+          "name": "etc"
+        }
+      ]
+    },
+    {
+      "config editor": [
+        {
+          "cmd": "vim ~/.shuttle.json",
+          "name": "shuttle"
+        },
+        {
+          "cmd": "vim ~/.vimrc",
+          "name": "vimrc"
+        },
+        {
+          "cmd": "vim ~/.zshrc",
+          "name": "zshrc"
+        },
+        {
+          "cmd": "vim ~/.bash_profile",
+          "name": "bash_profile"
+        },
+        {
+          "cmd": "vim ~/.gitconfig",
+          "name": "gitconfig"
+        },
+        {
+          "cmd": "vim ~/.gitignore_global",
+          "name": "gitignore_global"
+        },
+        {
+          "cmd": "vim ~/.tmuxinator/sports_website.yml",
+          "name": "tmuxinator sports_website"
+        }
+
+      ]
+    }
+  ]
+}

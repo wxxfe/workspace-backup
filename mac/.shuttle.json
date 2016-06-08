@@ -48,8 +48,8 @@
           "inTerminal": "current"
         },
         {
-          "cmd": "git commit -a",
-          "name": "3 commit -a",
+          "cmd": "git add . && git commit -a",
+          "name": "3 add commit -a",
           "inTerminal": "current"
         },
         {

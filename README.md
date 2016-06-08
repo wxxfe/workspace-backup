@@ -19,7 +19,7 @@ vim ~/.ssh/config
 
 ```
 #host alias
-Host phz 
+Host github.com
     #host ip or domain name
     HostName github.com 
     #ssh连接时将自动进行添加，即可免输入yes进行known_hosts添加

@@ -30,3 +30,5 @@
 [mergetool]
 	bc3 = trus
 	bc3 = trustExitCode
+[push]
+	default = simple

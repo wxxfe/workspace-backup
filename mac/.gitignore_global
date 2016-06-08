@@ -1,3 +1,12 @@
-*~
-.DS_Store
 *.orig
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+.sass-cache/
+.idea
+dist/
+.idea
+*.swp
+*.retry
+

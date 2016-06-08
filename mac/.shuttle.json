@@ -37,7 +37,7 @@
       "name": "tmuxinator BFSport"
     },
     {
-      "git BFSport": [
+      "git": [
         {
           "cmd": "cd /Users/panhezeng/workspace/BFSport && git checkout phzdev",
           "name": "1 checkout phzdev"

@@ -18,15 +18,17 @@ vim ~/.ssh/config
 ```
 
 ```
-Host *
-#host ip or domain name ,“*”表示所有的计算机。
-HostName x
-#主机名
-StrictHostKeychecking=no
-#ssh连接时将自动进行添加，即可免输入yes进行known_hosts添加
-UserKnownHostsFile=/dev/null
-#自动更新known_hosts
-IdentityFile ~/.ssh/id_rsa_x
+#host alias
+Host phz 
+    #host ip or domain name
+    HostName github.com 
+    #ssh连接时将自动进行添加，即可免输入yes进行known_hosts添加
+    StrictHostKeychecking=no
+    #自动更新known_hosts 
+    UserKnownHostsFile=/dev/null
+    #key 
+    IdentityFile ~/.ssh/id_rsa_panhezeng_github
+
 ```
 
 ```

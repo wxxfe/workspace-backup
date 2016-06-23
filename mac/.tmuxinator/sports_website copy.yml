@@ -1,0 +1,30 @@
+name: sports_website
+root: ~/
+
+windows:
+  - editor_be:
+      layout: main-vertical   
+      root: ~/workspace/BFSport
+      panes:
+        - start this
+
+  - editor_fe:
+      layout: main-vertical   
+      root: ~/workspace/BFSport
+      panes:
+        - start this
+
+  - build:
+      layout: main-vertical
+      root: ~/workspace/BFSport
+      panes:
+        - sync project to online
+        - build static 
+        - build less
+        - sync development static
+
+  - shell:
+      - sudo vim /etc/hosts
+
+  - server_testing:
+      - ssh panhezeng@192.168.200.192

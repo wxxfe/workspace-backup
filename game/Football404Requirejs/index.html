@@ -1,0 +1,75 @@
+<!doctype html>
+<head>
+    <title>404 Not Found</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+
+    <style type="text/css">
+        *, *:before, *:after {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        body {
+            font-size: 14px;
+            background-color: #fff;
+        }
+
+        body, div, canvas {
+            image-rendering: optimizeSpeed;
+        }
+
+        #container, #info {
+            margin: 0 auto;
+            width: 550px;
+            position: relative;
+            top: 20px;
+        }
+
+        #container {
+            height: 400px;
+            background: no-repeat url("images/bg.png") 0 10px;
+        }
+
+
+        #loadingInfo {
+            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #hiloFlash{
+            margin-left: -275px;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+
+    </style>
+
+
+
+
+</head>
+
+<body>
+<div id="container">
+    <p id="loadingInfo">游戏加载中......</p>
+</div>
+<script src="src/hilo-standalone.js"></script>
+<script src="src/hilo-flash.js" data-auto="true"></script>
+
+<script data-main="src/not-found-error.js" src="src/require.js"></script>
+</body>
+
+</html>

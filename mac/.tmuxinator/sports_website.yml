@@ -1,0 +1,35 @@
+name: sports_website
+root: ~/
+
+windows:
+  - dir BFSport:
+      layout: main-vertical   
+      root: ~/workspace/BFSport
+      panes:
+        - start this
+          
+  - dir workspace:
+      layout: main-vertical   
+      root: ~/workspace
+      panes:
+        - start this
+
+  - build:
+      layout: main-vertical
+      root: ~/workspace/BFSport
+      panes:
+        - sync project to online
+        - build static 
+        - build less
+        - sync development static
+
+  - server_testing:
+      - ssh panhezeng@192.168.200.192
+
+  - dir ~:
+      layout: main-vertical   
+      root: ~
+      panes:
+        - start this
+
+

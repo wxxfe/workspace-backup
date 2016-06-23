@@ -1,0 +1,34 @@
+[alias]
+      last = log -1 --stat
+      cp = cherry-pick
+      pl = pull
+      co = checkout
+      b  = branch
+      cl = clone
+      m  = merge
+      ci = commit
+      st = status -sb
+      ps = push
+      br = branch
+      unstage = reset HEAD --
+      dc = diff --cached
+      lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
+[core]
+	excludesfile = /Users/panhezeng/.gitignore_global
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/bcomp -ro $LOCAL $REMOTE
+	path = 
+[mergetool "sourcetree"]
+	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED
+	trustExitCode = true
+[commit]
+	template = /Users/panhezeng/.gitmessage
+[diff]
+	tool = bc3
+[merge]
+	tool = bc3
+[mergetool]
+	bc3 = trus
+	bc3 = trustExitCode
+[push]
+	default = simple

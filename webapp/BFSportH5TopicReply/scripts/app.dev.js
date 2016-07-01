@@ -1,7 +1,7 @@
 /**
  * 接口前缀
  */
-var apiTopicPrefix = 'http://api.board.sports.baofeng.com/api/v1/android/topic/thread/';
+var apiTopicPrefix = 'http://api.board.sports.baofeng.com/api/v1/h5/topic/thread/';
 /**
  * 图文话题列表
  * 参数：
@@ -108,9 +108,8 @@ var sportsH5Url = 'http://sports.baofeng.com/m/topic_share/index.html';
 /**
  * 用户登录地址
  */
-var loginUrl = 'http://sso.baofeng.net/api/mlogin/default?from=sports_h5&version=1&did=&btncolor=blue&next_action=' + sportsH5Url;
+var loginUrl = 'http://sso.baofeng.net/api/mlogin/default?from=sports_h5&version=1&did=&btncolor=blue&next_action=';
 //var loginUrl = 'http://sso.baofeng.net/api/mlogin/default?from=sports_h5&version=1&did=&btncolor=blue&next_action=' + sportsH5Url + '&selfjumpurl=' + sportsH5Url;
-
 
 var Utils = {
 
@@ -143,7 +142,7 @@ var Utils = {
         if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) {
             return false;
         }
-        document.cookie = encodeURIComponent(sKey) + '=' + encodeURIComponent(sValue)+'; domain=.baofeng.com';
+        document.cookie = encodeURIComponent(sKey) + '=' + encodeURIComponent(sValue) + '; domain=.baofeng.com';
         return true;
     },
     /**
@@ -252,17 +251,27 @@ var Utils = {
         if (!DataConfig.topicTitle) DataConfig.topicTitle = Utils.docCookiesGetItem('topictitle');
         if (!DataConfig.topicId) DataConfig.topicId = Utils.docCookiesGetItem('topicid');
         if (!DataConfig.topicReplyId) DataConfig.topicReplyId = Utils.docCookiesGetItem('topicreplyid');
-        this.setInitDataCookie();
-        //Utils.docCookiesSetItem('topictitle', '');
-        // Utils.docCookiesSetItem('topicid', '');
-        //Utils.docCookiesSetItem('topicreplyid', '');
+        Utils.docCookiesSetItem('topictitle', '');
+        Utils.docCookiesSetItem('topicid', '');
+        Utils.docCookiesSetItem('topicreplyid', '');
 
         //alert(document.cookie);
     },
     setInitDataCookie: function () {
-        if (DataConfig.topicTitle) Utils.docCookiesSetItem('topictitle', DataConfig.topicTitle);
-        if (DataConfig.topicId) Utils.docCookiesSetItem('topicid', DataConfig.topicId);
-        if (DataConfig.topicReplyId) Utils.docCookiesSetItem('topicreplyid', DataConfig.topicReplyId);
+        var url = '';
+        if (DataConfig.topicId) {
+            Utils.docCookiesSetItem('topicid', DataConfig.topicId);
+            url += ('topicid=' + DataConfig.topicId);
+        }
+        if (DataConfig.topicReplyId) {
+            Utils.docCookiesSetItem('topicreplyid', DataConfig.topicReplyId);
+            url += ('&topicreplyid=' + DataConfig.topicReplyId);
+        }
+        if (DataConfig.topicTitle) {
+            Utils.docCookiesSetItem('topictitle', DataConfig.topicTitle);
+            url += ('&topictitle=' + DataConfig.topicTitle);
+        }
+        return url;
     },
     /**
      * 返回字符的字节长度（汉字算2个字节）
@@ -390,7 +399,8 @@ var DataConfig = {
     topicReplyId: Utils.urlParam('topicreplyid'),
     base64TokenUserId: '',
     initDataNum: 2,
-    initDataReadyNum: 0
+    initDataReadyNum: 0,
+    writeAnimate: true
 }
 
 
@@ -406,14 +416,14 @@ var StyleRoot = Radium.StyleRoot;
 var DownloadADComp = React.createClass({
     render: function () {
         return (
-            <div className="downloadAD">
+            <div className="downloadAD" onClick={this.downloadHandler}>
                 {StyleRulesDownloadAD}
 
                 <img src={imgPath+'logo.png'}/>
                 <h1>暴风体育</h1>
                 <p>有趣的话题，有趣的球迷</p>
 
-                <button className="downloadApp" onClick={this.downloadHandler}>立即下载</button>
+                <button className="downloadApp">立即下载</button>
                 {/*<button className="closeAD" onClick={this.props.closeHandler}><img src={imgPath+'close.png'}/>
                  </button>*/}
             </div>
@@ -500,10 +510,10 @@ ContentADComp = Radium(ContentADComp);
 var StylesAppAD = {
     row1: {
         width: '100%',
-        height: 140,
+        height: 120,
         position: 'relative',
         'border-top': '20px solid #f0f0f0',
-        'border-bottom': '20px solid #f0f0f0'
+        // 'border-bottom': '20px solid #f0f0f0'
     },
     font1: {
         position: 'absolute',
@@ -534,7 +544,7 @@ var ReplyListComp = React.createClass({
         });
 
         if (list.length > 5) {
-            list.splice(4,0,<ContentADComp />);
+            list.splice(4, 0, <ContentADComp />);
         } else {
             list.push(<ContentADComp />);
         }
@@ -552,7 +562,9 @@ var ReplyListComp = React.createClass({
  */
 var ReplyComp = React.createClass({
     getInitialState: function () {
-        return {liked: (this.props.liked && this.props.liked.indexOf(this.props.data.id) !== -1), plusMinus: 0};
+        var likedTemp = (this.props.liked && this.props.liked.indexOf(this.props.data.id) !== -1);
+        this.plusMinusFun(likedTemp);
+        return {liked: likedTemp};
     },
     render: function () {
 
@@ -582,12 +594,14 @@ var ReplyComp = React.createClass({
             timeTxt = Utils.dateFormat(new Date(data.created_at * 1000), 'MM-dd hh:mm');
         }
 
-        var imgComp1 = data.image ? <img style={StylesReply.img1} src={data.image}/> : null;
+        var imgComp1 = data.image ?
+            <img ref='contentIMG' style={StylesReply.img1} src={data.image} onError={this.imageError}/> : null;
         var txtComp1 = data.content ? <p style={StylesReply.txt1}>{decodeURI(data.content)}</p> : null;
 
+        var actualLikes = data.likes + this.plusMinus;
 
         return (
-            <div>
+            <div style={{'border-top': 'solid 20px #f0f0f0'}}>
                 <div style={StylesReply.row1}>
                     <img style={StylesReply.avatar} src={avatarUrl}/>
                     <h1 style={[StylesReply.name, StylesReply.left1]}>{decodeURI(data.nickname)}</h1>
@@ -601,7 +615,7 @@ var ReplyComp = React.createClass({
                     <button style={StylesReply.like1} onClick={this.likeHandler}>
                         <img src={imgPath+'praise'+Number(this.state.liked)+'.png'}/>
                     </button>
-                    <span style={[StylesReply.like2,StylesReply.font1]}>{data.likes + this.state.plusMinus}</span>
+                    <span style={[StylesReply.like2,StylesReply.font1]}>{actualLikes}</span>
                     {/*<button style={StylesReply.more} onClick={this.props.moreHandler}>
                      <img src={imgPath+'more' + Number(this.props.more) + '.png'}/>
                      </button>*/}
@@ -611,32 +625,24 @@ var ReplyComp = React.createClass({
     },
     likeHandler: function (e) {
         e.preventDefault();
-        //如果初始化后从本地历史数据得知已经点了赞,并且点赞数已经使用后端数据,取消赞事件应该减1,点赞则恢复用后端数据
-        //其他情况点赞加1,取消用后端数据
-        if (this.props.liked) {
-
-            if (this.state.liked) {
-                this.setState({plusMinus: -1})
-            } else {
-                this.setState({plusMinus: 0})
-            }
-
-        } else {
-            if (this.state.liked) {
-                this.setState({plusMinus: 0})
-            } else {
-                this.setState({plusMinus: 1})
-            }
-        }
 
         $.ajax({
             type: 'POST',
+            timeout: 500,
             url: apiTopicLike,
-            data: JSON.stringify({user_id: this.props.data.user_id, cancel: Number(this.state.liked)}),
+            data: {
+                id: this.props.data.id,
+                user_id: DataConfig.base64TokenUserId,
+                cancel: Number(this.state.liked)
+            },
+            success: function (data) {
+            }.bind(this),
             error: function (xhr, type) {
-                console.error(apiTopicLike);
+                console.log(apiTopicLike);
             }.bind(this)
         });
+
+        this.plusMinusFun(!this.state.liked);
 
         Utils.setLiked(this.props.data.id, !this.state.liked);
 
@@ -644,6 +650,33 @@ var ReplyComp = React.createClass({
 
         _hmt.push(['_trackEvent', 'H5话题分享', '点击点赞按钮', '点赞']);
 
+    },
+    imageError: function () {
+        var imgDOMNode = this.refs.contentIMG;
+        imgDOMNode.onerror = null;
+        imgDOMNode.src = imgPath + 'default_image.png';
+    },
+    plusMinus: 0,
+    plusMinusFun: function (liked) {
+        //如果初始化后从本地历史数据得知已经点了赞,并且点赞数已经使用后端数据,取消赞事件应该减1,点赞则恢复用后端数据
+        //其他情况点赞加1,取消用后端数据
+        // if (this.plusMinusType == 1) {
+        //     if (this.state.liked) {
+        //         this.plusMinus = -1;
+        //         //this.setState({plusMinus: -1})
+        //     } else {
+        //         this.plusMinus = 0;
+        //         //this.setState({plusMinus: 0})
+        //     }
+        // } else {
+            if (liked) {
+                this.plusMinus = 1;
+                //this.setState({plusMinus: 0})
+            } else {
+                this.plusMinus = 0;
+                // this.setState({plusMinus: 1})
+            }
+        //}
     }
 });
 ReplyComp = Radium(ReplyComp);
@@ -687,6 +720,7 @@ var StylesReply = {
         color: '#9c9c9c'
     },
     img1: {
+        'border-top': 'solid 1px #e3e3e3',
         width: '100%',
         'max-height': 1200,
         'object-fit': 'cover'
@@ -695,7 +729,7 @@ var StylesReply = {
         'border-top': 'solid 1px #e3e3e3',
         width: 708,
         margin: '0 auto',
-        padding: '34 0',
+        padding: '34px 0',
         'font-size': 38
     },
     row2: {
@@ -709,7 +743,7 @@ var StylesReply = {
         left: 22,
         width: 34,
         height: 36,
-        background: '#ffffff'
+        background: 'rgba(0, 0, 0, .0)'
     },
     like2: {
         position: 'absolute',
@@ -852,17 +886,22 @@ var WriteReplyComp = React.createClass({
     },
     componentDidMount: function () {
 
+        // if(DataConfig.writeAnimate){
+        //     //从下往上滑入
+        //     $(this.refs.box).css('transform', 'translate(0, 60%)');
+        //     //$(this.refs.box).css('transform', 'translate(0, ' + document.documentElement.clientHeight + 'px)');
+        //     $(this.refs.box).animate({
+        //         transform: 'translate(0, 0)'
+        //     }, 100);
+        // }
+
+        DataConfig.writeAnimate = true;
+
         //延时才能聚焦成功
         this.refs.txt.focus();
         setTimeout(function () {
             this.focus();
         }.bind(this.refs.txt), 100);
-
-        //从下往上滑入
-        $(this.refs.box).css('transform', 'translate(0, ' + document.documentElement.clientHeight + 'px)');
-        $(this.refs.box).animate({
-            transform: 'translate(0, 0)'
-        }, 300);
 
     },
     render: function () {
@@ -908,19 +947,24 @@ var WriteReplyComp = React.createClass({
                                    confirmHandler={this.confirmCloseHandler}/>;
         }
 
+        var noContentStyle = [StylesWriteReply.btn, StylesWriteReply.btn3];
+        if (this.state.text || this.state.imgData) noContentStyle = [StylesWriteReply.btn, StylesWriteReply.btn2];
+
         return (
-            <div ref='box' style={StylesWriteReply.box}>
-                <div style={StylesWriteReply.row1}>
-                    <button style={[StylesWriteReply.btn,StylesWriteReply.btn1]} onClick={this.closeHandler}>取消
-                    </button>
-                    <h1 style={[StylesWriteReply.title]}>回复话题</h1>
-                    <button style={[StylesWriteReply.btn,StylesWriteReply.btn2]} onClick={this.sendHandler}>发送
-                    </button>
-                </div>
+            <div style={StylesWriteReply.box}>
+                <div ref='box'>
+                    <div style={StylesWriteReply.row1}>
+                        <button style={[StylesWriteReply.btn,StylesWriteReply.btn1]} onClick={this.closeHandler}>取消
+                        </button>
+                        <h1 style={[StylesWriteReply.title]}>回复话题</h1>
+                        <button style={noContentStyle} onClick={this.sendHandler}>发送
+                        </button>
+                    </div>
                 <textarea autofocus style={StylesWriteReply.textarea} placeholder='请输入回复内容,限制1000字'
-                          value={this.state.text}
+                          value={Utils.cutStrForNum(this.state.text, 1000)}
                           onChange={this.textChangeHandler} ref='txt'></textarea>
-                {imgComp}
+                    {imgComp}
+                </div>
                 {alertComp}
             </div>
         );
@@ -935,13 +979,14 @@ var WriteReplyComp = React.createClass({
     closeAlertDelayHandler: function () {
         setTimeout(function () {
             this.setState({alert: 0, alertSendStatus: ''});
-        }.bind(this), 200);
+        }.bind(this), 1000);
     },
     confirmCloseHandler: function (refresh) {
         this.props.closeHandler(refresh);
     },
     textChangeHandler: function (e) {
-        this.setState({text: Utils.cutStrForNum(e.target.value, 1000)});
+        // this.setState({text: Utils.cutStrForNum(e.target.value, 1000)});
+        this.setState({text: e.target.value});
     },
     imgChangeHandler: function (e) {
         //var name = this.refs.uploadimg.files[0].name;
@@ -982,6 +1027,7 @@ var WriteReplyComp = React.createClass({
     },
     sendImgData: function () {
         var xhr = new XMLHttpRequest();
+        xhr.timeout = 1000;
         xhr.open('POST', apiUploadImage);
         xhr.onload = function (e) {
             if (xhr.status === 200) {
@@ -989,20 +1035,24 @@ var WriteReplyComp = React.createClass({
                 var data = JSON.parse(xhr.response);
                 if (data.errno === null || data.errno === 10000) {
                     this.sendAllData(data.data.pid);
+                    if(timeoutID){
+                        clearTimeout(timeoutID);
+                        timeoutID = undefined;
+                    }
                 } else {
-                    this.setState({alertSendStatus: AlertSendTxt.alertSend2});
+                    //this.setState({alertSendStatus: AlertSendTxt.alertSend2});
                 }
 
             } else {
                 console.log('处理其他情况');
-                this.setState({alertSendStatus: AlertSendTxt.alertSend2});
+                //this.setState({alertSendStatus: AlertSendTxt.alertSend2});
             }
         }.bind(this);
 
         xhr.onerror = function () {
             console.log('处理错误');
-            this.setState({alertSendStatus: AlertSendTxt.alertSend2});
-        };
+            //this.setState({alertSendStatus: AlertSendTxt.alertSend2});
+        }.bind(this);
 
         xhr.upload.onprogress = function (e) {
             // console.log('上传进度 var percentComplete = ((e.loaded / e.total) || 0) * 100;');
@@ -1014,12 +1064,17 @@ var WriteReplyComp = React.createClass({
 
         // 触发上传
         xhr.send(this.state.imgData.formData);
+
+        var timeoutID = setTimeout(function () {
+            if( timeoutID && this ) this.setState({alertSendStatus: AlertSendTxt.alertSend2});
+        }.bind(this), 1000);
     },
     sendAllData: function (imgpid) {
         console.log(imgpid);
 
         $.ajax({
             type: 'POST',
+            timeout: 500,
             url: apiTopicPost,
             data: {
                 user: DataConfig.base64TokenUserId,
@@ -1035,7 +1090,7 @@ var WriteReplyComp = React.createClass({
                 }
             }.bind(this),
             error: function (xhr, type) {
-                console.error(apiTopicPost);
+                console.log(apiTopicPost);
                 this.setState({alertSendStatus: AlertSendTxt.alertSend2});
             }.bind(this)
         });
@@ -1082,6 +1137,11 @@ var StylesWriteReply = {
     btn2: {
         right: 30,
         color: '#ff6c00'
+
+    },
+    btn3: {
+        right: 30,
+        color: '#9c9c9c'
 
     },
     title: {
@@ -1151,6 +1211,7 @@ var App = React.createClass({
        "shares": 0,
        "team_icon": null,
        "user_id": "123456789"
+       "key": "index"
      },...]
      * replyTop 置顶回复,数据和列表中单个一样
      * downloadADVisible 下载组件是否显示,downloadADVisible: true
@@ -1171,12 +1232,14 @@ var App = React.createClass({
         // DataConfig.topicReplyId = '1';//测试数据
 
         Utils.getInitDataCookie();
+        //Utils.setInitDataCookie();
 
         this.userGet(DataConfig.bfuid);
         this.repliesListGet(DataConfig.topicId);
         this.replyTopGet(DataConfig.topicReplyId);
 
         if (Utils.docCookiesGetItem('writeReplyVisible') === '1' && DataConfig.bfuid) {
+            DataConfig.writeAnimate = false;
             this.setState({writeReplyVisible: true});
         }
         Utils.docCookiesSetItem('writeReplyVisible', '0');
@@ -1224,7 +1287,7 @@ var App = React.createClass({
                 infoComp = <h2 style={{width: '100%', 'text-align': 'center'}}>该话题还没有其他回复，快盖楼吧!</h2>
             }
 
-            if(!(this.state.repliesList&&this.state.repliesList.length)){
+            if (!(this.state.repliesList && this.state.repliesList.length)) {
                 appADcomp = <ContentADComp />
             }
 
@@ -1268,13 +1331,21 @@ var App = React.createClass({
             page1Visible = [StylesReplyAll.pwh, visible];
         }
 
+        var titleTemp;
+        try {
+            titleTemp = Utils.b64atob(DataConfig.topicTitle);
+        }
+        catch (e) {
+            titleTemp = DataConfig.topicTitle;
+        }
+
 
         return (
             <StyleRoot style={[StylesReplyAll.pwh,visible]}>
                 <div ref='iscroll' style={page1Visible}>
                     <div style={{position: 'relative','min-height':document.documentElement.clientHeight}}>
                         {refreshInfoComp}
-                        <h1 style={[StylesReplyAll.title, StylesReplyAll.one]}>{DataConfig.topicTitle}</h1>
+                        <h1 style={[StylesReplyAll.title, StylesReplyAll.one]}>{titleTemp}</h1>
                         {replyTopComp}
                         {repliesListTitleComp}
                         {appADcomp}
@@ -1297,9 +1368,9 @@ var App = React.createClass({
             $.ajax({
                 type: 'GET',
                 url: apiTopicListMore,
-                data: {id: id, pos: this.state.repliesList.length},
+                data: {id: id, key: this.state.repliesList[this.state.repliesList.length - 1].key},
                 dataType: 'json',
-                timeout: 300,
+                timeout: 500,
                 success: function (data) {
                     if (Array.isArray(data.data.more) && data.data.more.length) {
                         var list = this.state.repliesList;
@@ -1310,7 +1381,7 @@ var App = React.createClass({
                     if (refresher) refresher.refresh();
                 }.bind(this),
                 error: function (xhr, type) {
-                    console.error(apiTopicListMore);
+                    console.log(apiTopicListMore);
                     if (refresher) refresher.refresh();
                 }.bind(this)
             });
@@ -1327,14 +1398,33 @@ var App = React.createClass({
                 url: apiTopicList,
                 data: {id: id},
                 dataType: 'json',
-                timeout: 300,
+                timeout: 500,
                 success: function (data) {
-                    if (data && data.data && data.data.list && Array.isArray(data.data.list.posts) && data.data.list.posts.length) this.setState({repliesList: data.data.list.posts});
+                    if (data && data.data && data.data.list && Array.isArray(data.data.list.posts) && data.data.list.posts.length) {
+                        //var repliesListArray = data.data.list.posts;
+                        //if(refresher){
+
+                            //var list = this.props.data.map(function (item) {
+                               // return <ReplyComp data={item} liked={Utils.getLiked()}/>;
+                            //});
+
+                            var allLiked = Utils.getLiked();
+                            var repliesListArray = data.data.list.posts.map(function (item) {
+                                if(allLiked && allLiked.indexOf(item.id) !== -1){
+                                    item.likes--;
+                                }
+
+                                return item;
+                            });
+                        //}
+                        this.setState({repliesList: repliesListArray});
+                    }
                     if (Utils.initDataReadyCheck() && !this.state.initDataReady) this.setState({initDataReady: true});
                     if (refresher) refresher.refresh();
+
                 }.bind(this),
                 error: function (xhr, type) {
-                    console.error(apiTopicList + '?id=' + id);
+                    console.log(apiTopicList + '?id=' + id);
                     if (Utils.initDataReadyCheck() && !this.state.initDataReady) this.setState({initDataReady: true});
                     if (refresher) refresher.refresh();
                 }.bind(this)
@@ -1353,13 +1443,13 @@ var App = React.createClass({
                 url: apiTopicOne,
                 data: {id: id},
                 dataType: 'json',
-                timeout: 300,
+                timeout: 500,
                 success: function (data) {
                     this.setState({replyTop: data.data.find});
                     if (Utils.initDataReadyCheck() && !this.state.initDataReady) this.setState({initDataReady: true});
                 }.bind(this),
                 error: function (xhr, type) {
-                    console.error(apiTopicOne + '?id=' + id);
+                    console.log(apiTopicOne + '?id=' + id);
                     if (Utils.initDataReadyCheck() && !this.state.initDataReady) this.setState({initDataReady: true});
                 }.bind(this)
             });
@@ -1375,14 +1465,14 @@ var App = React.createClass({
                 url: apiSportsGetUser + id,
                 //data: id,
                 dataType: 'json',
-                timeout: 300,
+                timeout: 500,
                 success: function (data) {
                     var s = data.token + ':' + id;
                     DataConfig.base64TokenUserId = Utils.b64btoa(s);
                     this.userLogin();
                 }.bind(this),
                 error: function (xhr, type) {
-                    console.error(apiSportsGetUser + id);
+                    console.log(apiSportsGetUser + id);
                 }.bind(this)
             });
 
@@ -1398,7 +1488,7 @@ var App = React.createClass({
                 nickname: Utils.b64btoa(Utils.docCookiesGetItem('bfuname'))
             },
             error: function (xhr, type) {
-                console.error(apiSportsLogin);
+                console.log(apiSportsLogin);
             }.bind(this)
         });
 
@@ -1411,7 +1501,12 @@ var App = React.createClass({
             } else {
                 //Utils.setInitDataCookie();
                 Utils.docCookiesSetItem('writeReplyVisible', '1');
-                window.location = loginUrl;
+
+                //var loginUrl = 'http://sso.baofeng.net/api/mlogin/default?from=sports_h5&version=1&did=&btncolor=blue&next_action=' + sportsH5Url + '&selfjumpurl=' + sportsH5Url;
+
+                var url = encodeURIComponent(sportsH5Url + '?' + Utils.setInitDataCookie());
+
+                window.location = loginUrl + url + '&selfjumpurl=' + url;
             }
         }
         _hmt.push(['_trackEvent', 'H5话题分享', '点击回复按钮', '回复']);
@@ -1463,7 +1558,8 @@ var StyleRulesGlobal = <Style rules={{
         color: '#888'
     },
     '.pullUp': {
-        display: 'block'
+        display: 'block',
+        height: 94
     }
 }}/>;
 var StylesReplyAll = {
@@ -1482,16 +1578,19 @@ var StylesReplyAll = {
     title: {
         'padding-left': 22,
         width: '100%',
-        height: 100,
+        'min-height': 64,
         'border-top': 'solid 1px #e3e3e3',
         'font-size': 32,
         'line-height': '100%',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        'margin-bottom': 36
     },
     one: {
         'padding-top': 36
     },
     two: {
+        'min-height': 80,
+        'margin-bottom': 0,
         'padding-top': 50,
         background: '#f0f0f0'
     },

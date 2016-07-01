@@ -90,13 +90,14 @@
           "name": "react jsx to js"
         },
         {
-          "cmd": ". venv/bin/activate",
+          "cmd": "cd /Users/panhezeng/workspace && . venv/bin/activate",
           "name": "venv activate"
         },
         {
           "cmd": "python manage.py runserver",
-          "name": "python manage.py runserver"
-        }
+          "name": "python manage.py runserver",
+          "inTerminal": "current"
+        },
         {
           "cmd": "tmuxinator start sports_website",
           "name": "tmuxinator BFSport"
@@ -112,6 +113,10 @@
         {
           "cmd": "sudo nginx -s reload && sudo nginx -t",
           "name": "nginx reload"    
+        },
+        {
+          "cmd": ". /Users/panhezeng/.ShadowsocksX/update_gfwlist.sh",
+          "name": "update_gfwlist"    
         }
       ]
     },   

@@ -64,3 +64,5 @@ htmlcov/
 .Spotlight-V100
 .Trashes
 .idea
+*.iml
+templocalnocommit.txt

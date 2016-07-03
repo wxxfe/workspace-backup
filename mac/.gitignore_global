@@ -1,15 +1,3 @@
-*.orig
-.DS_Store
-Thumbs.db
-*.log
-node_modules/
-.sass-cache/
-.idea
-dist/
-.idea
-*.swp
-*.retry
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -48,7 +36,6 @@ htmlcov/
 .ropeproject
 
 # Django stuff:
-*.log
 *.pot
 
 *.sublime-workspace
@@ -56,6 +43,15 @@ htmlcov/
 .DS_Store
 .AppleDouble
 .LSOverride
+.idea
+*.iml
+*.orig
+*.log
+node_modules/
+.sass-cache/
+*.swp
+*.retry
+Thumbs.db
 
 # Thumbnails
 ._*
@@ -63,6 +59,4 @@ htmlcov/
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
-.idea
-*.iml
 templocalnocommit.txt

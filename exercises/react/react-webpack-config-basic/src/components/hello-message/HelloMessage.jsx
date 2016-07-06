@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 
 const HelloStyle = {
   s1:{
@@ -13,6 +13,6 @@ export default class HelloMessage extends React.Component {
     super(props);
   }
   render() {
-    return <div style={Object.assign(HelloStyle.s1,HelloStyle.s2)} >Hello {this.props.name} !</div>;
+    return <div style={Object.assign({},HelloStyle.s1,HelloStyle.s2)} >Hello {this.props.name} !</div>;
   }
 }

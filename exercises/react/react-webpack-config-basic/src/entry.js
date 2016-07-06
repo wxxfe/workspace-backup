@@ -1,7 +1,7 @@
-import './css/style.css';
+import './css/style';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 
 import HelloMessage from './components/hello-message/HelloMessage';
 

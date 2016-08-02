@@ -8,3 +8,4 @@
 
 # view output
 `./node_modules/.bin/babel --presets react --watch src/ --out-dir dist/`
+

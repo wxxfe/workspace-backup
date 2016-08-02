@@ -2,6 +2,8 @@
 
 more see packge.json and webpack.config.js
 
+or
+
 `npm init -y`
 
 # install 

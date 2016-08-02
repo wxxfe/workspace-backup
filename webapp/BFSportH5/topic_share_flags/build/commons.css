@@ -1,0 +1,47 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    outline: none;
+    border: none;
+    overflow: hidden;
+}
+
+.hide {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 0;
+    height: 0;
+}
+
+#mountNode {
+    width: 750px;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+.pwh {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.centering {
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*# sourceMappingURL=commons.css.map*/

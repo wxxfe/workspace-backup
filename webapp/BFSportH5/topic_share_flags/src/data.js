@@ -377,18 +377,18 @@ export let Utils = {
  */
 export let DataEdit = {
     maskImages: [
-        './build/img/mask/1.png',
-        './build/img/mask/2.png',
-        './build/img/mask/3.png',
-        './build/img/mask/4.png',
-        './build/img/mask/5.png'
+        './img/mask/1.png',
+        './img/mask/2.png',
+        './img/mask/3.png',
+        './img/mask/4.png',
+        './img/mask/5.png'
     ],
     flagThumbnailImages: [
-        {img: './build/img/flags/1', title: '方形国旗'},
-        {img: './build/img/flags/2', title: '心星国旗'},
-        {img: './build/img/flags/3', title: '五角星'},
-        {img: './build/img/flags/4', title: '奥运五环'},
-        {img: './build/img/flags/5', title: '里约2016'}
+        {img: './img/flags/1', title: '方形国旗'},
+        {img: './img/flags/2', title: '心星国旗'},
+        {img: './img/flags/3', title: '五角星'},
+        {img: './img/flags/4', title: '奥运五环'},
+        {img: './img/flags/5', title: '里约2016'}
     ],
     text: '',
     canvasImg: '',
@@ -412,7 +412,8 @@ export let DataIndex = {
  */
 let Data = {
     topicTitle: '最美奥运脸',
-    topicId: 3,//373 3
+    // topicId: 3,
+    topicId: 373,
     topicReplyId: Utils.urlParam(URL_PARAM_NAME.replyId),
     bfuid: '',
     bfuname: '',

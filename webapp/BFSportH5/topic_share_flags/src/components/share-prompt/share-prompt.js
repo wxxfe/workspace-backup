@@ -9,6 +9,10 @@ export default class SharePrompt extends React.Component {
         closeShareHandler: React.PropTypes.func.isRequired
     }
 
+    componentDidMount() {
+        setTimeout(this.props.closeShareHandler, 2000);
+    }
+
     render() {
         return (
             <div className='sharePrompt' onClick={this.props.closeShareHandler}>

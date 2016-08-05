@@ -153,12 +153,12 @@ export default class EditTxtSend extends React.Component {
      */
     sendImgData = () => {
         //错误处理
-        let timeoutID = setTimeout(function () {
+        let timeoutID = setTimeout(()=> {
             if (timeoutID && this) this.setState({dialogContentIndex: 2});
-        }.bind(this), 800);
+        }, 2000);
 
         let xhr = new XMLHttpRequest();
-        xhr.timeout = 800;
+        // xhr.timeout = 1200;
         xhr.open('POST', API.uploadImage);
         xhr.onload = function (e) {
             if (xhr.status === 200) {

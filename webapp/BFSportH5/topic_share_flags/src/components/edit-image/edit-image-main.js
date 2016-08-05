@@ -1,6 +1,17 @@
 import * as React from 'react';
 import Slider from 'react-slick';
 
+class SliderLeftButton extends React.Component {
+    render() {
+        return <button {...this.props}><img src={require('./img/left.png')}/></button>
+    }
+}
+
+class SliderRightButton extends React.Component {
+    render() {
+        return <button {...this.props}><img src={require('./img/right.png')}/></button>
+    }
+}
 /**
  * 编辑图片区域
  */
@@ -17,11 +28,13 @@ export default class EditImageMain extends React.Component {
             infinite: true,
             slidesToShow: 1,
             slidesToScroll: 1,
-            draggable: false
+            draggable: false,
+            nextArrow: <SliderRightButton />,
+            prevArrow: <SliderLeftButton />
         };
 
         let list = this.props.data.map(function (item) {
-            return <div><img src={item}/></div>;
+            return <div><img src={require(`${item}`)}/></div>;
         });
 
         //按需求,第一个无图

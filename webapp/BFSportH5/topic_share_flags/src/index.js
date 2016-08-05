@@ -310,8 +310,8 @@ class Index extends React.Component {
     }
 
     closeShareHandler = (evnet) => {
-        evnet.preventDefault();
-        this.setState({share: false});
+        if (evnet) evnet.preventDefault();
+        if (this.state.share) this.setState({share: false});
     }
 
 }

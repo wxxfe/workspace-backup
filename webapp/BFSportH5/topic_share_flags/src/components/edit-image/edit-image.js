@@ -184,8 +184,8 @@ export default class EditImage extends React.Component {
         });
 
         //初始化画布物体,默认用第一个图
-        let imgUrl1 = DataEdit.flagThumbnailImages[0].img + 'left.png';
-        let imgUrl2 = DataEdit.flagThumbnailImages[0].img + 'right.png';
+        let imgUrl1 = require(DataEdit.flagThumbnailImages[0].img + 'left.png');
+        let imgUrl2 = require(DataEdit.flagThumbnailImages[0].img + 'right.png');
         this.creatCanvasImg(imgUrl1, {left: 200, top: 400}, 0);
         this.creatCanvasImg(imgUrl2, {left: 400, top: 400}, 1);
     }
@@ -227,8 +227,8 @@ export default class EditImage extends React.Component {
         let item0Options = getOptions(this.editCanvas.item(0));
         let item1Options = getOptions(this.editCanvas.item(1));
         this.editCanvas.clear();
-        let imgUrl1 = DataEdit.flagThumbnailImages[index].img + 'left.png';
-        let imgUrl2 = DataEdit.flagThumbnailImages[index].img + 'right.png';
+        let imgUrl1 = require(DataEdit.flagThumbnailImages[index].img + 'left.png');
+        let imgUrl2 = require(DataEdit.flagThumbnailImages[index].img + 'right.png');
         this.creatCanvasImg(imgUrl1, item0Options, 0);
         this.creatCanvasImg(imgUrl2, item1Options, 1);
     }

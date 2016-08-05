@@ -25,7 +25,7 @@ export default class EditImageBar extends React.Component {
             let selected = '';
             if (index === this.props.index) selected = 'slick-selected'
             return <div className={selected} onClick={this.props.selectedHandler}>
-                <img src={item.img + '.png'}/>
+                <img src={require(item.img + '.png')}/>
                 <div>{item.title}</div>
             </div>;
         });

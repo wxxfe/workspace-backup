@@ -125,8 +125,8 @@
 
     display: block;
 
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     padding: 0;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
@@ -181,17 +181,17 @@
     left: 20px;
 }
 
-.slick-prev:before
-{
-    content: '<';
-}
+/*.slick-prev:before*/
+/*{*/
+    /*content: '<';*/
+/*}*/
 
 .slick-next
 {
     right: 20px;
 }
 
-.slick-next:before
-{
-    content: '>';
-}
+/*.slick-next:before*/
+/*{*/
+    /*content: '〉';*/
+/*}*/

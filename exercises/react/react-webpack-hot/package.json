@@ -1,0 +1,30 @@
+{
+  "name": "react-webpack-hot",
+  "version": "1.0.0",
+  "description": "react-webpack-hot",
+  "main": "index.js",
+  "scripts": {
+    "d": "node server.dev.js",
+    "p": "npm run reset:dist && webpack -p",
+    "reset:dist": "rm -fr dist && mkdir -p dist/build && cp -r src/lib dist"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.0",
+    "css-loader": "^0.23.1",
+    "style-loader": "^0.13.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "url-loader": "^0.5.7",
+    "image-webpack-loader": "^1.8.0",
+    "html-webpack-plugin": "^2.22.0",
+    "webpack": "^1.13.1",
+    "webpack-browser-plugin": "^1.0.12",
+    "webpack-dev-server": "^1.14.1"
+  }
+}

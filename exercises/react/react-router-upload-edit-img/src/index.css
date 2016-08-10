@@ -1,0 +1,80 @@
+body {
+    background: #ededed;
+}
+
+.indexTitle {
+    padding-left: 22px;
+    width: 100%;
+    min-height: 64px;
+    border-top: solid 1px #d5d5d5;
+    font-size: 34px;
+    line-height: 100%;
+    overflow: hidden;
+    padding-bottom: 36px;
+    background: #ffffff;
+}
+
+.indexTitleOne {
+    padding-top: 36px;
+}
+
+.indexTitleTwo {
+    min-height: 80px;
+    margin-bottom: 0;
+    padding-top: 50px;
+    background: #ededed;
+}
+
+.indexTopInfo {
+    font-size: 30px;
+    line-height: 120%;
+    color: #8b8b8b;
+    padding: 20px 0px;
+    padding-left: 22px;
+    padding-right: 12px;
+    border-top: solid 1px #d5d5d5;
+    border-bottom: solid 1px #d5d5d5;
+    background: #ffffff;
+    margin-bottom: 20px;
+}
+.editBTNBox{
+    position: fixed;
+    bottom: 0;
+
+}
+.editBTN {
+    position: absolute;
+    left: 630px;
+    bottom: 165px;
+    width: 100px;
+    height: 100px;
+    background: #ff6a00;
+    border-radius: 50%;
+    text-align: center;
+
+}
+
+.editBTN > div {
+    width: 62px;
+    font-size: 30px;
+    color: #ffffff;
+    line-height: 110%;
+}
+
+.editBTN .uploadInput {
+    width: 100%;
+    height: 100%;
+    opacity: .01;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.indexInfo {
+    width: 100%;
+    text-align: center;
+    border-top: 20px solid #f0f0f0;
+}

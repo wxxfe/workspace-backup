@@ -1,0 +1,27 @@
+.adInterlude {
+    width: 100%;
+    height: 120px;
+    position: relative;
+    border-top: 1px solid #d5d5d5;
+    border-bottom: 1px solid #d5d5d5;
+    margin-top: 20px;
+    background: white;
+}
+
+.adInterlude > * {
+    position: absolute;
+    top: 38px;
+    font-size: 30px;
+    line-height: 100%;
+
+}
+
+.adInterlude > h1 {
+    left: 20px;
+    color: #ff5f00;
+}
+
+.adInterlude > span {
+    right: 20px;
+    color: #afafaf;
+}

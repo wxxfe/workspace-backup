@@ -86,10 +86,6 @@
     {
       "other":[   
         {
-          "cmd": "cd /Users/panhezeng/workspace/BFSportH5 && ./node_modules/.bin/babel --presets react public/scripts/app.dev.js --watch --out-file public/scripts/app.js",
-          "name": "react jsx to js"
-        },
-        {
           "cmd": "cd /Users/panhezeng/workspace && . venv/bin/activate",
           "name": "venv activate"
         },

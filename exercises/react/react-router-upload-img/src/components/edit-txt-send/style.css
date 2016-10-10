@@ -1,0 +1,48 @@
+.topBar {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    position: relative;
+    background: #fff;
+}
+
+.topBar > .btn-close, .topBar > .btn-send {
+    position: absolute;
+    width: 62px;
+    height: 100%;
+    font-size: 30px;
+    color: #9c9c9c;
+    background: rgba(0, 0, 0, .0);
+    z-index: 1;
+}
+
+.topBar > .btn-close {
+    left: 30px;
+}
+
+.topBar > .btn-send {
+    right: 30px;
+}
+
+
+.editTxtSend {
+    background: #ffffff;
+}
+
+.editTxtSend .textarea {
+    width: 100%;
+    height: 300px;
+    border: solid 1px #e3e3e3;
+    font-size: 28px;
+    padding: 10px;
+    background: #fff;
+}
+
+.editTxtSend .img1 {
+    width: 100%;
+    height: 750px;
+    position: relative;
+    top:-4px;
+    left: 0;
+    border: solid 2px #e3e3e3;
+}

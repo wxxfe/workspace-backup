@@ -1,0 +1,4 @@
+https://github.com/hbang/TermHere
+https://github.com/nikolaeu/NumiKit
+https://github.com/serge-rider/dbeaver
+https://github.com/oldj/SwitchHosts

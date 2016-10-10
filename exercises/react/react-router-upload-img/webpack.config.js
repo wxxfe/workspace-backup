@@ -8,9 +8,9 @@
  * 常用命令看package.json中配置的scripts,比如
  * "scripts": {
  * "d": "node server.dev.js",
- * "reset:dist": "rm -fr dist && mkdir -p dist/build && cp -r src/lib dist",
+ * "reset:dist": "rm -fr dist && mkdir -p dist/{build,lib} && cp node_modules/react/dist/react-with-addons.min.js node_modules/react-dom/dist/react-dom.min.js src/lib/js/lrz.all.bundle.js dist/lib",
  * "p": "npm run reset:dist && ./node_modules/.bin/webpack -p --display-error-details --progress --colors"
- * }
+ * },
  */
 
 
@@ -40,10 +40,7 @@ const config = {
     // 对于vendor文件,还有一种用法,就是通过externals配置,不经过webpack打包,外部直接引用。
     entry: {
         entry: [path.resolve(__dirname, 'src/entry.js')],
-        vendor1: ['react-router'],
-        vendor2: [
-            path.resolve(__dirname, 'src/lib/js/lrz.all.bundle.js')
-        ]
+        vendor1: ['react-router']
     },
 
     //输出配置
@@ -53,7 +50,7 @@ const config = {
     //chunkFilename 输出异步加载的js文件名,require.ensure() API的第三个参数是用于替换[name]的字符串，如果没有，[name]用[id]的值
     output: {
         path: path.resolve(__dirname, 'dist/build'),
-        publicPath: '/build/',
+        publicPath: './build/',
         filename: '[name].[id].[hash].js',
         chunkFilename: '[name].[id].[hash].chunk.js'
 
@@ -83,23 +80,23 @@ const config = {
             {
                 //加载css资源,默认写法loader:'style-loader!css-loader' css为Internal内部形式
                 //ExtractTextPlugin插件写法用于生成独立的css文件,用于external link形式
-                //生成的独立CSS文件中的url图片地址的publicPath,通常JS中的publicPath不一样,如果一样可以不设置
+                //生成独立CSS文件中的url图片地址的publicPath,通常和JS文件的publicPath不一样,如果一样可以不设置
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract(
                     'style-loader',
                     'css-loader',
                     {
-                        publicPath: "/"
+                        publicPath: "./"
                     }
                 )
             },
             {
-                //url-loader处理图片URL,如果图片小于limit值直接生成`base64` 格式的`dataUrl`,否则输出图片,name参数指定输出目录和图片名
+                //url-loader处理图片URL,如果图片小于limit的值(比如8192字节)则生成`base64` 格式的`dataUrl`,否则输出图片,name参数指定输出目录和图片名
                 //url-loader依赖file-loader
                 //image-webpack-loader是用来压缩图片的,主要是透明PNG
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 loaders: [
-                    'url-loader?limit=8192&name=img/[name].[hash].[ext]',
+                    'url-loader?limit=1&name=img/[name].[hash].[ext]',
                     'image-webpack-loader?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
                 ]
             },
@@ -125,7 +122,8 @@ const config = {
     //键名是require或from时的字符串,键值是js内的全局变量名
     externals: {
         'react': 'React',
-        'react-dom': 'ReactDOM'
+        'react-dom': 'ReactDOM',
+        'lrz': 'lrz'
     },
 
     plugins: [
@@ -134,26 +132,27 @@ const config = {
 
         //把entry中配置的多个js中共用代码提取生成为单个js, 多参数写法 new webpack.optimize.CommonsChunkPlugin("commons", "commons.js")
         new webpack.optimize.CommonsChunkPlugin({
-            name: ['common', 'vendor1', 'vendor2'],
+            name: ['common', 'vendor1'],
             filename: '[name].[id].[hash].js'
         }),
 
         //按需求生成HTML页面
         //template 模板位置
         //inject: 'body' js插入在body元素内部的最后
-        //chunks 对应入口文件名
+        //chunks 指定要引用的js文件，对应entry或CommonsChunkPlugin的配置，如果没有则会引用当前输出的所有非异步加载的js文件
         //filename 生成的文件名,可以带上路径
         //options参数对象的值可以自定义,比如这里的libJS
         //在模板页中可以获得和使用这些数据,可以在模板页中使用<%= JSON.stringify(htmlWebpackPlugin) %>;输出查看所有可用的数据
         new HtmlWebpackPlugin({
             template: 'src/template.html',
             inject: 'body',
-            // chunks: ['commons', 'index'],
+            // chunks: ['common', 'entry'],
             filename: '../index.html',
             title: '图片',
             libJS: [
-                '/lib/react-with-addons.min.js',
-                '/lib/react-dom.min.js'
+                './lib/react-with-addons.min.js',
+                './lib/react-dom.min.js',
+                './lib/lrz.all.bundle.js'
             ]
         })
 

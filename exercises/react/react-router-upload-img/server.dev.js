@@ -34,7 +34,8 @@ for (let prop in config.plugins) {
         obj.options.filename = String(obj.options.filename).replace('../', '');
         obj.options.libJS = [
             '/lib/js/react-with-addons.js',
-            '/lib/js/react-dom.js'
+            '/lib/js/react-dom.js',
+            '/lib/js/lrz.all.bundle.js'
         ];
         // console.log(config.plugins[prop]);
     }

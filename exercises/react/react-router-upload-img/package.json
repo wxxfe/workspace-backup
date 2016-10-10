@@ -1,11 +1,11 @@
 {
-  "name": "topic_share_flags",
+  "name": "react-router-upload-img",
   "version": "1.0.0",
   "description": "",
   "main": "./src/entry.js",
   "scripts": {
     "d": "node server.dev.js",
-    "reset:dist": "rm -fr dist && mkdir -p dist/{build,lib} && cp node_modules/react/dist/react-with-addons.min.js node_modules/react-dom/dist/react-dom.min.js dist/lib",
+    "reset:dist": "rm -fr dist && mkdir -p dist/{build,lib} && cp node_modules/react/dist/react-with-addons.min.js node_modules/react-dom/dist/react-dom.min.js src/lib/js/lrz.all.bundle.js dist/lib",
     "p": "npm run reset:dist && ./node_modules/.bin/webpack -p --display-error-details --progress --colors"
   },
   "keywords": [],

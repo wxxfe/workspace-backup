@@ -1,5 +1,5 @@
 import 'babel-polyfill';
-import lrz from '../../lib/js/lrz.all.bundle';
+import lrz from 'lrz';
 import * as React from 'react';
 import {Link, browserHistory} from 'react-router';
 import './style.css';
@@ -20,26 +20,19 @@ export default class EditImage extends React.Component {
 
     render() {
         return (
-            <div>
-                {
-                    this.props.children
-                    ||
-                    <div className='editImage'>
-                        <div className='topBar'>
-                            <div className='btn2'>传图
-                                <input className='uploadInput' type='file' capture='camera' accept='image/*' id='file'
-                                       onChange={this.uploadHandler}/>
-                            </div>
-                        </div>
-                        <div className='editImageMain'>
-                            <img className='bgImg' src={this.state.bgImg}/>
-                        </div>
-                        <Link to="/edit_txt_send">nextBtn</Link>
-                        <button className='nextBtn' onClick={this.nextHandler}>下一步</button>
+            <div className='editImage'>
+                <div className='topBar'>
+                    <div>传图
+                        <input className='uploadInput' type='file' capture='camera' accept='image/*' id='file'
+                               onChange={this.uploadHandler}/>
                     </div>
-                }
+                </div>
+                <div className='editImageMain'>
+                    <img className='bgImg' src={this.state.bgImg}/>
+                </div>
+                <Link to="/edit-txt-send">nextBtn</Link>
+                <button className='nextBtn' onClick={this.nextHandler}>下一步</button>
             </div>
-
         );
     }
 
@@ -66,7 +59,7 @@ export default class EditImage extends React.Component {
     nextHandler = (evnet) => {
         //下一步，传图后编辑文字内容
         evnet.preventDefault();
-        browserHistory.push('/edit_txt_send');
+        browserHistory.push('/edit-txt-send');
     }
 
 }

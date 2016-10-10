@@ -1,5 +1,5 @@
 export default {
-    path: 'edit-txt-send',
+    path: '/edit-txt-send',
     getComponent(nextState, cb) {
         require.ensure(
             [],

@@ -9,7 +9,7 @@ const rootRoute = {
     childRoutes: [
         {
             path: '/',
-            component: require('./components/edit-image/EditImage').default,
+            component: require('./components/App').default,
             childRoutes: [
                 //同步加载EditTxtSend组件
                 // {

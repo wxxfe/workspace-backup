@@ -1,11 +1,3 @@
-.topBar {
-    width: 100%;
-    height: 100px;
-    line-height: 100px;
-    position: relative;
-    background: #fff;
-}
-
 .topBar > .btn-close, .topBar > .btn-send {
     position: absolute;
     width: 62px;

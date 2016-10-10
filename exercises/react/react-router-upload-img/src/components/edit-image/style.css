@@ -1,3 +1,7 @@
+.topBar {
+    background: url(./img/test.jpg) no-repeat right;
+}
+
 .editImage > .nextBtn {
     color: #fff;
     width: 580px;

@@ -35,6 +35,11 @@
     {
       "git": [
         {
+          "cmd": "sh /Users/panhezeng/workspace/workspace-backup/mac/bf.sh",
+          "name": "0 暴风体育",
+          "inTerminal": "current"
+        },
+        {
           "cmd": "cd /Users/panhezeng/workspace/BFSport && git checkout phzdev",
           "name": "1 checkout phzdev"
         },

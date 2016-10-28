@@ -96,7 +96,7 @@ const config = {
                 //image-webpack-loader是用来压缩图片的,主要是透明PNG
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 loaders: [
-                    'url-loader?limit=1&name=img/[name].[hash].[ext]',
+                    'url-loader?limit=8192&name=img/[name].[hash].[ext]',
                     'image-webpack-loader?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
                 ]
             },

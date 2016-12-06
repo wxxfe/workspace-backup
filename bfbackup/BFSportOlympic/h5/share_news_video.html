@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <!-- build:css css/share.css -->
+    <link rel="stylesheet" href="src/css/share.css"/>
+    <!-- endbuild -->
+   <script>
+    !function(i,m){var d,o=i.document,e=o.documentElement,n=o.querySelector('meta[name="viewport"]'),b=o.querySelector('meta[name="flexible"]'),p=0,f=0,l=m.flexible||(m.flexible={});if(n){console.warn("将根据已有的meta标签来设置缩放比例");var j=n.getAttribute("content").match(/initial\-scale=([\d\.]+)/);if(j){f=parseFloat(j[1]);p=parseInt(1/f)}}else{if(b){var k=b.getAttribute("content");if(k){var j=k.match(/initial\-dpr=([\d\.]+)/),h=k.match(/maximum\-dpr=([\d\.]+)/);if(j){p=parseFloat(j[1]);f=parseFloat((1/p).toFixed(2))}if(h){p=parseFloat(h[1]);f=parseFloat((1/p).toFixed(2))}}}}if(!p&&!f){var q=(i.navigator.appVersion.match(/android/gi),i.navigator.appVersion.match(/iphone/gi)),a=i.devicePixelRatio;p=q?((a>=3&&(!p||p>=3))?3:(a>=2&&(!p||p>=2))?2:1):1;f=1/p}e.setAttribute("data-dpr",p);if(!n){n=o.createElement("meta");n.setAttribute("name","viewport");n.setAttribute("content","initial-scale="+f+", maximum-scale="+f+", minimum-scale="+f+", user-scalable=no");if(e.firstElementChild){e.firstElementChild.appendChild(n)}else{var c=o.createElement("div");c.appendChild(n);o.write(c.innerHTML)}}function g(){var r=e.getBoundingClientRect().width;if(r/p>540){(r=540*p)}var s=r/10;e.style.fontSize=s+"px";l.rem=i.rem=s}i.addEventListener("resize",function(){clearTimeout(d);d=setTimeout(g,300)},false);i.addEventListener("orientationchange",function(){clearTimeout(d);d=setTimeout(g,300)},false);i.addEventListener("pageshow",function(r){if(r.persisted){clearTimeout(d);d=setTimeout(g,300)}},false);if("complete"===o.readyState){o.body.style.fontSize=12*p+"px"}else{o.addEventListener("DOMContentLoaded",function(){o.body.style.fontSize=12*p+"px"},false)}g();l.dpr=i.dpr=p;l.refreshRem=g;l.rem2px=function(r){var s=parseFloat(r)*this.rem;if("string"==typeof r&&r.match(/rem$/)){s+="px"}return s};l.px2rem=function(r){var s=parseFloat(r)/this.rem;if("string"==typeof r&&r.match(/px$/)){s+="rem"}return s}}(window,window.lib||(window.lib={}));
+   </script>
+</head>
+<body>
+   <div class="news-video-container">
+       <section class="player">
+           <div class="loader pacman"><div></div><div></div><div></div><div></div><div></div>loading</div>
+           <video autoplay="" controls="" src="http://60.10.97.5:80/tyccbabfpnotohfmgztfbscrgmnysaacmrarasgp?key=940D2B981CC2DB29A17B3421E880DE07&amp;filelen=160878500" style="display: none;"></video>
+       </section>
+       <h1 class="video-title">御林军绯闻15球锋霸集锦 德甲黑又硬冲击力十足</h1>
+       <section class="desc">
+           <h2>暴风体育介绍</h2>
+           <p>暴风体育——畅快看中超！高清、不卡顿！火爆精彩的中超比赛每周与您相约，尽在暴风体育！</p>
+           <p>覆盖中超、欧洲杯、亚冠、英超、意甲、西甲、德甲等世界顶级好看的足球赛事。</p>
+           <p>创新对战模式，看比赛BiBi几句更过瘾！</p>
+           <p>独特幽默的新闻视角，全面聚合的体育资讯，优秀的编辑运营团队会给您带来不一样的体育热情与快乐！</p>
+           <p>等啥子咧，动动拇指，尽情释放我们的体育热情吧！</p>
+       </section>
+   </div>
+   <section class="download-bar">
+        <div class="logo">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAABSCAMAAADw8nOpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3NTM5MTZGOTJDOEYxMUU2QjVBNzlFQzBEOEY2QTJEMCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3NTM5MTZGQTJDOEYxMUU2QjVBNzlFQzBEOEY2QTJEMCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjc1MzkxNkY3MkM4RjExRTZCNUE3OUVDMEQ4RjZBMkQwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjc1MzkxNkY4MkM4RjExRTZCNUE3OUVDMEQ4RjZBMkQwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+qGup+AAAAwBQTFRF//LrUU5M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" alt="暴风体育" />
+            <h2>暴风体育</h2>
+            <p>畅快看体育，参与精彩互动</p>
+        </div>
+        <a class="download" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.sports.baofeng" target="_blank">立即下载</a>
+   </section>
+</body>
+</html>

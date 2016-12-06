@@ -1,0 +1,346 @@
+/**
+ * Mixins
+ * @author: Baofeng FE
+ * @time: 2016-03-08
+ */
+@import "variable";
+// =============================================
+// @des:      css reset function
+// =============================================
+.reset(){
+    a {
+        color: @link-color;
+        text-decoration: none;
+        *blur: ~"expression(this.blur())";
+    }
+    a:focus {
+        outline: none;
+        -moz-outline-style: none;
+    }
+    a:active,
+    a:hover {
+        outline: 0;
+    }
+    a:hover {
+        color: @link-hover-color;
+    }
+
+    h1 {
+        font-size: @font-size-h1;
+        margin: 0.67em 0;
+    }
+    h2 {
+        font-size: @font-size-h2;
+        margin: 0.83em 0;
+    }
+    h3 {
+        font-size: @font-size-h3;
+        margin: 1em 0;
+    }
+    h4 {
+        font-size: @font-size-h4;
+        margin: 1.33em 0;
+    }
+    h5 {
+        font-size: @font-size-h5;
+        margin: 1.67em 0;
+    }
+    h6 {
+        font-size: @font-size-h6;
+        margin: 2.33em 0;
+    }
+
+    img {
+        border: 0;
+        -ms-interpolation-mode: bicubic;
+    }
+
+    svg:not(:root) {
+        overflow: hidden;
+    }
+
+    form {
+        margin: 0;
+    }
+
+    fieldset {
+        border: 2px groove #f0f0f0;
+        margin: 0 2px;
+        padding: 0.35em 0.625em 0.75em;
+    }
+
+    legend {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        white-space: normal;
+        *margin-left: -7px;
+    }
+    button,
+    input,
+    select,
+    textarea {
+        margin: 0;
+        vertical-align: middle;
+    }
+
+    textarea {
+        overflow: auto;
+        vertical-align: top;
+    }
+
+    button {
+        padding: 0px 6px;
+        _padding: 0;
+    }
+
+    button,
+    input {
+        line-height: normal;
+    }
+
+    button,
+    html input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+        -webkit-appearance: button;
+        cursor: pointer;
+        *overflow: visible;
+    }
+
+    button[disabled],
+    input[disabled] {
+        cursor: default;
+    }
+
+    button::-moz-focus-inner,
+    input::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        box-sizing: border-box;
+        padding: 0;
+        *height: 13px;
+        *width: 13px;
+    }
+
+    input[type="search"] {
+        -webkit-appearance: textfield;
+        box-sizing: content-box;
+    }
+
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    body,div,ul,li,ol,p,h1,h2,h3,h4,h5,h6{
+        margin: 0;
+        padding: 0;
+    }
+    ul,li{
+        list-style: none;
+    }
+    html{
+        ::selection { background-color: @sports-blue; color: white; }
+        ::-moz-selection { background-color: @sports-blue; color: white; }
+    }
+}
+
+// Size
+.size(@width,@height){
+    width: @width;
+    height: @height;
+}
+.square(@size){
+    .size(@size,@size);
+}
+
+// 已知大小的容器内图片水平垂直居中
+.image-middle(){
+    img{
+        .va(middle);
+    }
+    .after{
+        .inline-block;
+        .va(middle);
+        .size(0px,100%);
+        overflow:hidden;
+    }
+}
+
+// Text vertically aligned
+// ---------------------
+.va(@direction:middle){
+	vertical-align: @direction;
+}
+
+// Text horizontal aligned
+// ---------------------
+.ta(@direction:left){
+	text-align: @direction;
+}
+
+//text
+.text-n(@p: none){
+  text-decoration: @p;
+}
+.text-c(){
+  text-align: center;
+}
+.text-l(){
+  text-align: left;
+}
+.text-r(){
+  text-align: right;
+}
+
+.text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Center-align a block level element
+// ----------------------------------
+.center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+// Background
+// -----------
+.bg(@picname, @repeat: no-repeat, @position: left top) {
+    background: url("@{imgPath}@{picname}") @repeat @position;
+}
+.bgi(@picname){
+    background-image: url("@{imgPath}@{picname}");
+}
+.bgp(@num){
+    background-position: @num;
+}
+.bgr(@repeat: no-repeat){
+    background-repeat: @repeat;
+}
+.bgc(@color){
+    background-color: @color;
+}
+.bgb(@base64){
+    background-image: url("@{base64}");
+}
+
+// Opacity
+.opacity(@opacity: 100){
+    opacity: @opacity / 100;
+    filter: ~"alpha(opacity=@{opacity})";
+}
+
+// IE7 inline-block
+// ----------------
+.ie-inline-block(){
+    *display: inline;
+    *zoom: 1;
+}
+
+.inline-block(){
+    display: inline-block;
+    .ie-inline-block();
+}
+
+.clearfix() {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+//Placeholer style
+.placeholder(@color: @input-color-placeholder) {
+  &::-moz-placeholder           { color: @color; } // Firefox
+  &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
+}
+
+//hover animate
+.animate-shadow(){
+    .transition(all .2s linear);
+    &:hover{
+        .box-shadow(0 15px 30px rgba(0,0,0,.1));
+        .translate3d(0,-2px,0);
+    }
+}
+
+.scrollbar(@scrollSize: 8px,@barColor: #333,@barBgColor: #ccc){
+    overflow-x:hidden;
+    overflow-y:auto;
+    &::-webkit-scrollbar{
+        width: @scrollSize;
+    }
+    &::-webkit-scrollbar-track-piece{
+        -webkit-border-radius: 50%;
+    }
+    &::-webkit-scrollbar-thumb:vertical{
+        height: 5px;
+        background: @barColor;
+        cursor: pointer;
+        -webkit-border-radius: @scrollSize / 2;
+    }
+    &::-webkit-scrollbar-thumb:horizontal{
+        height: @scrollSize;
+        background:#dfe1e0;
+        cursor: pointer;
+        -webkit-border-radius: @scrollSize / 2;
+    }
+    &::-webkit-scrollbar-thumb:hover{
+        background: #666;
+    }
+    &::-webkit-scrollbar-track-piece:vertical:start{}
+    &::-webkit-scrollbar-track-piece:vertical:end{}
+    &::-webkit-scrollbar-button{
+        display:none;
+    }
+    &::-webkit-scrollbar-button:vertical:end:increment{
+        display: none;
+    }
+    &::-webkit-scrollbar-track{
+        background: @barBgColor;
+        border-radius: @scrollSize / 2;
+    }
+
+    scrollbar-arrow-color:#61605d;
+    scrollbar-face-color:#818181;
+    scrollbar-darkshadow-color:#1e1d1b;
+    scrollbar-highlight-color:#818181;
+    scrollbar-3dlight-color:#1e1d1b;
+    scrollbar-shadow-color:#818181;
+    scrollbar-track-color:#4b4b4b;
+}
+
+.reset-html-font-size(){
+    @media only screen and (max-width: 320px){html{font-size: 9px;} }
+    @media only screen and (min-width: 320px) and (max-width: 352px){html{font-size: 10px;} }
+    @media only screen and (min-width: 352px) and (max-width: 384px){html{font-size: 11px;} }
+    @media only screen and (min-width: 384px) and (max-width: 416px){html{font-size: 12px;} }
+    @media only screen and (min-width: 416px) and (max-width: 448px){html{font-size: 13px;} }
+    @media only screen and (min-width: 448px) and (max-width: 480px){html{font-size: 14px;} }
+    @media only screen and (min-width: 480px) and (max-width: 512px){html{font-size: 15px;} }
+    @media only screen and (min-width: 512px) and (max-width: 544px){html{font-size: 16px;} }
+    @media only screen and (min-width: 544px) and (max-width: 576px){html{font-size: 17px;} }
+    @media only screen and (min-width: 576px) and (max-width: 608px){html{font-size: 18px;} }
+    @media only screen and (min-width: 608px) and (max-width: 640px){html{font-size: 19px;} }
+    @media only screen and (min-width: 640px){html{font-size: 20px;} }
+}

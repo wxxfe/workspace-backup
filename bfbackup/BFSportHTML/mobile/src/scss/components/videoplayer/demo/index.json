@@ -1,0 +1,8 @@
+{
+	"dependencies": ["/libs/iphone-inline-video.browser.js",
+					"/abase/util.js",
+					"/abase/index.js",
+					"/videonew/index.js",
+					"/progress/index.js",
+					"/videocontrolpanel/index.js"]
+}

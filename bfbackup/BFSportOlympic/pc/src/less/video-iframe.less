@@ -1,0 +1,78 @@
+@import 'mixins';
+@import 'lib/animate';
+@import 'lib/css3';
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+img {
+    object-fit: cover;
+
+}
+
+//播放器
+.video-player {
+    @player-height: 366px;
+    @list-width: 160px;
+    @img-height: 90px;
+
+
+    height: @player-height;
+    overflow: hidden;
+    .player {
+        .size(auto, @player-height);
+        overflow: hidden;
+        float: left;
+    }
+
+    .video-list-wrap {
+        .size(@list-width, @player-height);
+        overflow-x: hidden;
+        overflow-y: auto;
+        display: none;
+    }
+
+    ul.video-list {
+        list-style: none;
+        margin-top: 10px;
+        li, li a {
+            display: block;
+        }
+        li {
+            margin-left: 15px;
+            margin-bottom: 10px;
+            a {
+                .text-n;
+                img {
+                    .size(@list-width - 30, @img-height);
+                }
+                p.v-title {
+                    line-height: 30px;
+                    font-size: 14px;
+                    color: #fff;
+                    .text-overflow();
+                }
+                &:hover,
+                &.active {
+                    img {
+                        .size(@list-width - 34, @img-height - 4);
+                        border: @sports-yellow 2px solid;
+                    }
+                    p {
+                        color: @sports-yellow;
+                    }
+                }
+            }
+        }
+    }
+}
+
+

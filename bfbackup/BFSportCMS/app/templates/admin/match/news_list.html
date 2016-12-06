@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>暴风体育内容管理系统 - CMS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-switch.min.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="/static/plugins/jQueryUI/jquery-ui.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/static/dist/css/skins/_all-skins.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .table tbody tr td{vertical-align: middle;}
+        .pics{height: 500px; overflow-y: auto; overflow-x: hidden; list-style: none; margin: 0; padding: 0;}
+        .pics li{float: left; width: 270px; margin: 5px; padding: 0;}
+        .pics li img{width: 100%;}
+        span,button{outline: none;}
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5;">
+    <div class="wrapper">
+        <div class="content-wrapper" style="margin-left: 0;">
+            <section class="content-header">
+              <h1><i class="fa fa-users"></i> 比赛新闻列表</h1>
+              <ol class="breadcrumb">
+                <li><a href="/main/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">比赛新闻列表</li>
+              </ol>
+            </section>
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-solid">
+                            <div class="box-body nopadding">
+                                <form class="form-inline" method="post" id="search">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="type">选择新闻类型： </label>
+                                                <select id="type" class="form-control" name="type">
+                                                    <option{% if type == '' %} selected="selected"{% endif %} value="">全部</option>
+                                                    <option{% if type == 'literal' %} selected="selected"{% endif %} value="literal">文字新闻</option>
+                                                    <option{% if type == 'video' %} selected="selected"{% endif %} value="video">视频新闻</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <div class="form-group">
+                                                <label for="type">搜索： </label>
+                                                <input id="search-box" type="text" placeholder="请输入比赛ID" class="form-control" name="search" />
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-info"><i class="fa fa-search"></i> 搜索</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+					<div class="col-md-12">
+                        <div class="box box-info">
+                            <div class="box-header"><i class="fa fa-list"></i> 新闻列表
+                                <a href="{{url_for('admin.add_news', match_id=match_id, type=type, redirect=url)}}" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加新闻</a>
+                            </div>
+                            <div class="box-body nopadding">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>比赛ID</th>
+                                            <th>新闻ID</th>
+                                            <th>缩略图</th>
+                                            <th>标题</th>
+                                            <th>摘要</th>
+                                            <th>类型</th>
+                                            <th>来源</th>
+                                            <th>预览/播放地址</th>
+                                            <th>发布时间</th>
+                                            <th>推荐到焦点回顾</th>
+                                            <th>置顶</th>
+                                            <th>上下线</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for item in news %}
+                                        <tr>
+                                            <td>{{item.match_id}}</td>
+                                            <td>{{item.id}}</td>
+                                            <td><img src="{{item.image}}" width="100" /></td>
+                                            <td>{{item.title}}</td>
+                                            <td><p style="width:250px;">{{item.subtitle}}</p></td>
+                                            <td>{% if item.type == 'literal' %}文字{% else %}视频{% endif %}</td>
+                                            <td>{{item.origin}}</td>
+                                            <td>
+                                                {% if item.play_url: %}
+                                                <a role="button" class="btn btn-xs btn-info" target="_blank" href="{{item.play_url}}">查看</a>
+                                                {% else: %}
+                                                <a role="button" class="btn btn-xs btn-info" target="_blank" href="http://sports.baofeng.com/news/detail/match/{{item.id}}.html">查看</a>
+                                                {% endif %}
+                                            </td>
+
+                                            <td>{{item.publish_tm}}</td>
+
+                                            {% if item.pin == 1: %}
+                                                    <td style="text-align: center"><input class="recommend" type="checkbox" checked="checked"
+                                                                              data-tid="{{item.id}}"></td>
+                                            {% else: %}
+                                                    <td style="text-align: center"><input class="recommend" type="checkbox"
+                                                                              data-tid="{{item.id}}"></td>
+                                            {% endif %}
+
+                                            {% if item.top: %}
+                                             <td><input class="ejector" type="checkbox" checked="checked" data-tid="{{item.id}}" ></td>
+                                            {% else: %}
+                                             <td><input class="ejector" type="checkbox" data-tid="{{item.id}}" ></td>
+                                            {% endif %}
+                                            <!--此处为上下线python输出-->
+                                            {% if item.visible == 0 %}
+                                            <td>
+                                                <input class="on_off_line" type="checkbox" data-eventId="{{item.event_id}}" data-tid="{{ item.id }}">
+                                            </td>
+                                            {% else %}
+                                            <td>
+                                                <input class="on_off_line" type="checkbox" checked="checked" data-tid="{{ item.id }}">
+                                            </td>
+                                            {% endif %}
+
+                                            <td>
+                                                <a role="button" class="btn btn-xs btn-success" href="{{url_for('admin.edit_news',news_id=item.id,redirect=url)}}">编辑</a>
+                                                <button type="button" class="btn btn-xs btn-danger btn-del" data-nid="{{item.id}}">删除</button>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {% if pagination %}
+                                          {% include 'admin/pagination.html' %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+<div id="del_dialog" title="提示">
+    <p class="del_tip">确定要删除吗？</p>
+</div>
+<div id="tip" title="信息提示">
+    <p class="dialogTip"></p>
+</div>
+
+<div id="tip_sucsses" title="信息提示">
+    <p class="">操作成功</p>
+</div>
+<!-- jQuery 2.1.4 -->
+<script src="/static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap-switch.min.js"></script>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- EditRow -->
+<script src="/static/plugins/editRow/editRow.js"></script>
+<!-- jQuery UI -->
+<script src="/static/plugins/jQueryUI/jquery-ui.min.js"></script>
+<script>
+var dialog = $('#del_dialog').dialog({
+    autoOpen: false,
+    height: 200,
+    width: 350,
+    modal: true
+});
+
+var dialogTip = $('#tip').dialog({
+    autoOpen: false,
+//	height: auto,
+    width: 350,
+    modal: true
+});
+
+//操作成功提示
+var dialogSuc = $('#tip_sucsses').dialog({
+    autoOpen: false,
+//		height: auto,
+    width: 350,
+    modal: true
+});
+
+
+//点击置顶
+$(".table").on("click", ".ejector", function () {
+    var self = $(this);
+    var cid = self.data("tid");
+    if($(this).is(':checked')){
+        $.get("/matches/news/" + cid + "/top?value=1", function (d) {
+            if(d.errno == 200){
+                dialogSuc.dialog('open');
+                tip();
+            }
+            else{
+                dialogTip.dialog('open');
+                $(".dialogTip").text(d.message);
+            }
+        });
+    }
+    else{
+        $.get("/matches/news/" + cid + "/top?value=0", function (d) {
+            if(d.errno == 200){
+                dialogSuc.dialog('open');
+                tip();
+            }
+            else{
+                dialogTip.dialog('open');
+                $(".dialogTip").text(d.message);
+            }
+        });
+    }
+});
+
+//点击推荐到
+$(".table").on("click", ".recommend", function () {
+    var self = $(this);
+    var cid = self.data("tid");
+    if($(this).is(':checked')){
+        $.get("/matches/news/" + cid + "/pin?value=1", function (d) {
+            if(d.errno == 200){
+                dialogSuc.dialog('open');
+                tip();
+            }
+            else{
+                dialogTip.dialog('open');
+                $(".dialogTip").text(d.message);
+            }
+        });
+    }
+    else{
+        $.get("/matches/news/" + cid + "/pin?value=0", function (d) {
+            if(d.errno == 200){
+                dialogSuc.dialog('open');
+                tip();
+            }
+            else{
+                dialogTip.dialog('open');
+                $(".dialogTip").text(d.message);
+            }
+        });
+    }
+});
+
+//点击上下线
+$(".table").on("click", ".on_off_line", function () {
+    var self = $(this);
+    var cid = self.data("tid");
+    if($(this).is(':checked')){
+        $.get("/matches/news/" + cid + "/show", function (d) {
+            if(d.errno == 200){
+                dialogSuc.dialog('open');
+                tip();
+            }
+            else{
+                dialogTip.dialog('open');
+                $(".dialogTip").text(d.message);
+            }
+        });
+    }
+    else{
+        $.get("/matches/news/" + cid + "/hide", function (d) {
+            if(d.errno == 200){
+                dialogSuc.dialog('open');
+                tip();
+            }
+            else{
+                dialogTip.dialog('open');
+                $(".dialogTip").text(d.message);
+            }
+        });
+    }
+});
+
+//删除
+$('.btn-del').click(function(){
+    var vid = $(this).data('nid');
+    var _this = $(this);
+    dialog.dialog('open');
+    dialog.dialog('option','buttons',{
+        '删除' : function(){
+            var url = '/matches/news/' + vid + '/delete'; 
+            $.get(url,function(d){
+                if(d.errno == 200){
+                    dialog.dialog('close');
+                    dialogSuc.dialog('open');
+                    tip();
+                    _this.parents('tr').fadeOut(function(){$(this).remove()});
+                }
+                else{
+                    dialog.dialog('close');
+                    dialogTip.dialog('open');
+                    $(".dialogTip").text(d.message);
+                }
+
+            });
+        },
+        '取消' : function(){
+            dialog.dialog('close');
+        }
+    });
+});
+
+$('#type').on('change',function(){
+    var type = $(this).val();
+    var mid = '{{match_id}}' == 'None' ? '' : '{{match_id}}';
+    
+    window.location.href = '/matches/news?match_id='+ mid +'&type=' + type;
+});
+
+$('#search').on('submit',function(){
+    var mid = $('#search-box').val();
+    if(mid == ''){
+        alert('请输入比赛ID！');
+        return false;
+    }
+});
+
+var tipDiv = $("div[aria-describedby='tip']");
+function tip(){
+    var mask = $(".ui-widget-overlay");
+    setTimeout(function () {
+        mask.animate({
+            opacity: 0
+        }, 500, function () {
+            mask.css({"opacity": .8})
+        });
+
+        tipDiv.animate({
+            opacity: 0
+        }, 250, function () {
+            dialogSuc.dialog('close');
+            tipDiv.css({"opacity": 1})
+        });
+    }, 500)
+}
+</script>
+</body>
+</html>

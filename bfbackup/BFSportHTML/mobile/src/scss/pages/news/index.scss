@@ -1,0 +1,49 @@
+@import "../../components/style/themes/default/index";
+@import "../../components/section/index";
+@import "../../components/downloadbar/index";
+@import "../../components/article/index";
+@import "../../components/list/index";
+@import "../../components/videoplayershare/index";
+@import "../../components/videoplayerapp/index";
+@import "../../components/shareThird/index";
+@import "../../components/operationguide/index";
+@import "../../components/sharepage/index";
+@import "../../components/imgtxt/index";
+@import "../../components/page/index";
+
+.section-article {
+    margin-top: $u*12; /*px*/
+    .section-content {
+        padding-top: $u*3; /*px*/
+    }
+}
+
+.article-headline-img {
+    margin-top: -36px; /*px*/
+    margin-left: -30px; /*px*/
+    margin-right: -30px; /*px*/
+}
+
+$videoWidth: 690px;
+$videoHeight: $videoWidth*9/16;
+.article .embed-video, .article .video-player, .article .video-wrapper, .article .loading-mask {
+    height: $videoHeight;
+}
+
+.origin {
+    color: $color-text-secondary;
+    font-size: $font-size-heading; /*px*/
+    margin-bottom: 30px; /*px*/
+
+    p:last-child {
+        margin-top: 30px; /*px*/
+    }
+
+    a:nth-child(2) {
+        margin-left: 30px; /*px*/
+    }
+
+    .blue {
+        color: #1e5dab;
+    }
+}

@@ -1,0 +1,26 @@
+<!-- 按钮 开始 -->
+<a class="button">立即下载</a>
+<!-- 按钮 结束 -->
+
+<!-- 圆角按钮 开始 -->
+<a class="button button-round-lg">关注</a>
+<!-- 圆角按钮 结束 -->
+
+<!-- 圆形按钮 开始 -->
+<a class="button button-round-full">赞</a>
+<!-- 圆形按钮 结束 -->
+
+<!-- 按钮块 开始 -->
+<a class="button button-block">下载暴风体育，更流畅、更高清<i class="fa fa-camera-retro"></i></a>
+<!-- 按钮块 结束 -->
+
+<!-- 按钮块 开始 -->
+<a class="button button-block button-round-xs">下载暴风体育，更流畅、更高清</a>
+<!-- 按钮块 结束 -->
+
+<script>
+	var buttons = document.querySelectorAll('.button');
+	for(var i = 0, len = buttons.length;i < len;i++) {
+		ButtonFactory({element: buttons[i]})
+	}
+</script>

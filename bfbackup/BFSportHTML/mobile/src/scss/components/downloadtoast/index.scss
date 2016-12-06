@@ -1,0 +1,52 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../toast/index";
+@import "../button/index";
+
+.downloadtoast {
+    z-index: 999;
+    
+    .content {
+        box-sizing: border-box;
+        padding-left: $h-spacing-lg;
+        padding-right: $h-spacing-lg;
+        
+        .wrapper {
+            margin: 0 auto;
+            width: 480px;
+            .logo {
+                @include clearfix;
+                color: $color-text-base-inverse;
+                $imgwidth: $u*14;
+                img {
+                    float: left;
+                    width: $imgwidth; /*px*/
+                    height: $imgwidth; /*px*/
+                }
+                
+                h2 {
+                    margin-left: $imgwidth + $font-size-paragraph;
+                    font-size: $font-size-paragraph; /*px*/
+                    font-weight: normal;
+                }
+                p {
+                    margin-left: $imgwidth + $font-size-paragraph;
+                    margin-top: $h-spacing-md; /*px*/
+                    font-size: $font-size-base; /*px*/
+                }
+                
+            }
+            .download {
+                display: block;
+                margin: 0 auto;
+                margin-top: $v-spacing-md; /*px*/
+                width: 288px;
+                text-align: center;
+            }
+        }
+        
+    }
+    
+}
+
+

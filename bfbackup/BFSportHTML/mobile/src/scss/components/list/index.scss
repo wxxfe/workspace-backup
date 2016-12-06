@@ -1,0 +1,11 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../listitem/index";
+
+.list {
+    margin-top: -$v-spacing-md;
+    .list-item {
+        margin-top: $v-spacing-md;
+    }
+    
+}

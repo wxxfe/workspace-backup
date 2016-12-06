@@ -1,0 +1,19 @@
+@import "../../components/style/themes/default/index";
+@import "../../components/section/index";
+@import "../../components/downloadbar/index";
+@import "../../components/article/index";
+@import "../../components/list/index";
+@import "../../components/videoplayershare/index";
+@import "../../components/videolist/index";
+@import "../../components/sharepage/index";
+
+.top-video {
+    margin-top: $u*12; /*px*/
+}
+
+.section-article {
+    .section-content {
+        padding-top: 12px; /*px*/
+    }
+}
+

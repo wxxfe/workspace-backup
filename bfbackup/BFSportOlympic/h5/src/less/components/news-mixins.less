@@ -1,0 +1,59 @@
+/**
+ * 混合新闻列表
+ */
+
+.mixins-text-news-olympic{
+    @hover-color: #ff5b00;
+    list-style: none;
+
+    li{
+        display: block;
+        line-height: 36px;
+        height: 36px;
+        overflow: hidden;
+        text-align:justify;
+        text-justify:distribute-all-lines;
+        a{
+            .text-n;
+            font-size: 16px;
+            color: @gray;
+            &:hover{
+                color: @hover-color;
+            }
+            &.text-red{
+                color: red;
+            }
+            &.text-yellow{
+                color: @hover-color;
+                &:hover{
+                    .text-n(underline);
+                }
+            }
+            span.ogtag{
+                .inline-block;
+                margin-right: 10px;
+            }
+        }
+        i{
+            .inline-block;
+            .size(1px,14px);
+            font-style: normal;
+            .bgc(#a0a0a0);
+            .va();
+            margin: 0 3px;
+        }
+        &.strong-title{
+            line-height: 25px;
+            height: 25px;
+            margin: 10px 0;
+            a{
+                font-size: 24px;
+                font-weight: bold;
+                color: #000;
+                &:hover{
+                    color: @hover-color;
+                }
+            }
+        }
+    }
+}

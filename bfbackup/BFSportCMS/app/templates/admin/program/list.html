@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>暴风体育内容管理系统 - CMS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="../../../static/plugins/jQueryUI/jquery-ui.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../../../static/plugins/datatables/dataTables.bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../../static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="../../../static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../../../static/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../../../static/fileupload/css/fileupload.css">
+    <link rel="stylesheet" href="../../../static/fileupload/css/fileupload-ui.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .table tbody tr td {
+            vertical-align: middle;
+        }
+        html,
+        body
+        .wrapper{overflow: auto;}
+        #list-table td:nth-child(3){
+            max-width:300px;
+            word-break:break-all;
+            word-wrap:break-word;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5;">
+<div class="wrapper">
+    <div class="content-wrapper" style="margin-left: 0;">
+        <section class="content-header">
+            <h1><i class="fa fa-tags"></i>暴风体育CMS--节目管理</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-info">
+                        <div class="box-body nopadding">
+                            <div class="col-md-3 col-sm-offset-9">
+                                <a id = "add_section" role="button" id="add-channel-btn" href="{{url_for('admin.add_program')}}" class="btn btn-success btn-flat pull-right"><i class="glyphicon glyphicon-plus"></i>新增节目</a>
+                            </div>
+                        </div>
+
+
+                        <table class="table table-hover" id="list-table">
+                            <thead>
+                            <tr>
+                                <th>节目ID</th>
+                                <th>显示顺序</th>
+                                <th>节目名称</th>
+                                <th>创建时间</th>
+                                <th>上线/下线</th>
+                                <th>管理</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                             {% for program in programs %}                            
+                            <tr>
+                                <td>{{program.id}}</td>
+                                <td>{{program.display_order}}</td>
+                                <td>{{program.title}}</td>
+                                <td>{{program.created_at}}</td>
+                                <td>
+                                    {% if program.visible == 0 %}
+                                        <input class="release" type="checkbox" data-programid="{{program.id}}" >
+                                    {% else %}
+                                        <input class="release" type="checkbox" checked="checked" data-programid="{{program.id }}">
+                                    {% endif %}
+                                </td>
+
+                                <td>
+                                    <button type="button" name="edit" class="btn btn-info btn-xs" data-programid="{{program.id}}"><i class="fa fa-info"></i> 编辑</button>
+                                    <a href="{{url_for('admin.list_program_posts', program_id=program.id)}}" type="button" class="btn btn-info btn-xs"><i class="fa fa-cogs"></i> 内容管理</a>
+                                    <button type="button" class="btn btn-xs btn-danger btn-del" data-programid="{{program.id}}"><i class="glyphicon glyphicon-remove"></i> 删除</button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {% if pagination %}
+                                    {% include 'admin/pagination.html' %}
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="del_dialog" title="提示">
+    <p class="del_tip">您确定要删除此条节目吗？</p>
+</div>
+
+<div id="tip" title="信息提示">
+    <p class="error_tip">操作成功</p>
+</div>
+
+<div id="tip_program" title="专栏" class="row" style="display: none;">
+    <div class="col-md-12">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">编辑专栏信息</h3>
+            </div>
+            <!-- /.box-header -->
+            <form class="form-horizontal" method="post" onSubmit="return check();">
+                <div class="row">
+                    <div class="col-md-12 form-content">
+                        <div class="box-body">
+
+                            <div class="form-group">
+                                <label for="title" class="col-sm-2 control-label">节目名称</label>
+
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="请输入非空格节目名称">
+                                </div>
+                            </div>
+
+    
+
+                            <div class="form-group">
+                                <label for="display_order" class="col-sm-2 control-label">显示顺序</label>
+
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="display_order" name="display_order" value="0" placeholder="请输入不小于0的节目显示顺序">
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+
+                    <!--<div class="col-md-6">-->
+                        <!-- -->
+                    <!--</div>-->
+
+                </div>
+                <div class="box-footer">
+                    <a id="cancel" class="btn btn-default" href="{{url_for('admin.list_programs')}}">取消</a>
+                    <button type="submit" class="btn btn-info pull-right">提交</button>
+                </div>
+                <!-- /.box-footer -->
+            </form>
+        </div>
+
+    </div>
+</div>
+<!-- jQuery 2.1.4 -->
+<script src="../../../static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="../../../static/bootstrap/js/bootstrap.min.js"></script>
+<!-- jQuery UI -->
+<script src="../../../static/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- DataTables -->
+<script src="../../../static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../../static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="../../../static/fileupload/scripts/jquery.ui.widget.js"></script>
+<script src="../../../static/fileupload/scripts/jquery.fileupload.js"></script>
+<script>
+var tempUrl;
+//提示
+var dialogTip = $('#tip').dialog({
+    autoOpen: false,
+//        height: 100,
+    width: 350,
+    modal: true
+});
+
+//删除提示
+var dialog = $('#del_dialog').dialog({
+    autoOpen: false,
+    height: 200,
+    width: 350,
+    modal: true
+});
+
+var tip_program;
+
+//点击编辑按钮的行为
+var pid;
+$("#list-table").on("click","button",function(){
+    add_edit = 'edit';
+    if(this.name == "edit"){
+        var crruentTr = $(this).parent().parent();
+        $("#title").val($.trim(crruentTr.find("td:eq(2)").text()));
+        $("#display_order").val($.trim(crruentTr.find("td:eq(1)").text()));
+        pid = $(this).data("programid");
+        //编辑层初始化
+        tip_program = $('#tip_program').dialog({
+            autoOpen: false,
+            //height: 503,
+            width: '60%',
+            modal: true,
+            title: '编辑节目信息'
+        });
+        $("#tip_program .box-title").text("编辑节目信息");
+        tip_program.dialog('open');
+    }
+});
+
+
+//添加&编辑提交
+function check(){
+    var teamData = {};
+    var checkStatus = false;
+    if($.trim($('.form-horizontal').find("input[id='title']").val()) == ''){
+        dialogTip.dialog('open');
+        $(".error_tip").text("请输入非空格节目标题");
+        return false;
+    }
+    else if($.trim($('.form-horizontal').find("input[id='display_order']").val()) == '' || parseInt($.trim($('.form-horizontal').find("input[id='display_order']").val())) < 0){
+        dialogTip.dialog('open');
+        $(".error_tip").text("请输入不小于0的节目显示顺序");
+        return false;
+    }
+    else{
+        checkStatus = true
+        $.each($('.form-horizontal').find('input'), function (i, data) {
+            teamData[data.name] = data.value;
+        });
+    }
+    if(checkStatus == true){
+        if (add_edit == 'add') {
+            //添加ajax
+            $.post("/programs/add", teamData, function (data) {
+                if (data.errno == 10000) {
+                    tip_program.dialog('close');
+                    $(".error_tip").text("操作成功");
+                    dialogTip.dialog('open');
+                    tip()
+                    window.location.reload();
+                }
+                else {
+                    dialogTip.dialog('open');
+                    $(".error_tip").text(data.message);
+                }
+            });
+        }
+        else if (add_edit == 'edit') {
+            //编辑ajax
+            $.post("/programs/" + pid + "/edit", teamData, function (data) {
+                if (data.errno == 10000) {
+                    tip_program.dialog('close');
+                    $(".error_tip").text("操作成功");
+                    dialogTip.dialog('open');
+                    tip();
+                    window.location.reload();
+                }
+                else {
+                    dialogTip.dialog('open');
+                    $(".error_tip").text(data.message);
+                }
+            });
+        }
+    }
+    else{}
+    return false
+}
+
+//点击取消按钮的行为
+$("#cancel").on("click",function(e){
+    e.preventDefault();
+    tip_program.dialog('close');
+});
+
+//点击添加按钮的行为
+$("#add_section").on("click",function(e){
+    e.preventDefault();
+    $("#title").val("");
+    $("#display_order").val("0");
+    pid = "";
+    //添加层初始化
+    tip_program = $('#tip_program').dialog({
+        autoOpen: false,
+        //height: 503,
+        width: '60%',
+        modal: true,
+        title: '添加节目信息'
+    });
+    $("#tip_program .box-title").text("添加节目信息");
+    tip_program.dialog('open');
+    add_edit = 'add';
+});
+
+//点击删除行为
+$(".table").on("click", ".btn-del", function () {
+    var self = $(this);
+    var pid = self.data("programid");
+    dialog.dialog('open');
+    dialog.dialog('option', 'buttons', {
+        '删除': function () {
+           $.get("/programs/" + pid + '/delete', function (data) {
+                if(data.errno == 10000){
+                    self.parent().parent().remove();
+                    $(".error_tip").text("操作成功");
+                    dialog.dialog('close');
+                    dialogTip.dialog('open');
+                    tip();
+                }
+                else{
+                    dialogmessage.dialog('open');
+                    $(".error_tip").text(data.message);
+                }
+           });
+        },
+        '取消': function () {
+            dialog.dialog('close');
+        }
+    });
+});
+
+//点击上下线
+$(".table").on("click", ".release", function () {
+    var self = $(this);
+    var pid = self.data("programid");
+    if ($(this).is(':checked')) {
+        $.get("/programs/" + pid + '/show', function (data) {
+            if(data.errno == 200){
+                dialogTip.dialog('open');
+                $(".error_tip").text("操作成功");
+                tip();
+            }
+            else{
+                dialogmessage.dialog('open');
+                $(".error_tip").text(data.message);
+            }
+        });
+    }
+    else {
+        $.get("/programs/" + pid + '/hide', function (data) {
+            if(data.errno == 200){
+                dialogTip.dialog('open');
+                $(".error_tip").text("操作成功");
+                tip();
+            }
+            else{
+                dialogmessage.dialog('open');
+                $(".error_tip").text(data.message);
+            }
+        });
+    }
+});
+
+
+var tipDiv = $("#tip")
+function tip() {
+    var mask = $(".ui-widget-overlay");
+    setTimeout(function () {
+        mask.animate({
+            opacity: 0
+        }, 500, function () {
+            mask.css({"opacity": .8})
+        });
+
+        tipDiv.animate({
+            opacity: 0
+        }, 500, function () {
+            dialogTip.dialog('close');
+            tipDiv.css({"opacity": 1})
+        });
+    }, 500)
+}
+</script>
+</body>
+</html>

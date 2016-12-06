@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>暴风体育内容管理系统 - CMS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="/static/plugins/jQueryUI/jquery-ui.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/static/dist/css/skins/_all-skins.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .table tbody tr td {
+            vertical-align: middle;
+        }
+        .ui-dialog-titlebar-close{outline: none;}
+        a.btn-info.active{ background: #ff851b;border: 1px solid #ff851b;}
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5;">
+<div class="wrapper">
+    <div class="content-wrapper" style="margin-left: 0;">
+        <section class="content-header">
+            <h1><i class="fa fa-tags"></i>暴风体育CMS</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-info">
+                        <div class="box-body nopadding">
+                            <div class="col-md-9">
+                                <div class="btn-group">
+
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+
+                            </div>
+                        </div>
+
+                        <table class="table table-hover" id="list-table">
+                            <thead>
+                            <tr>
+
+                                <th width="15%">新闻ID</th>
+                                <th width="20%">标题</th>
+                                <th width="15%">图片</th>
+                                <th width="20%">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                            {% for news in championNews %}
+                                <td>{{news.id}}</td>
+                                <td>{{news.title}}</td>
+                                <td><img src="{{ news.image }}" width="50"></td>
+                                <td>
+                                    <button type="button" class="btn btn-xs btn-danger btn-del"
+                                            data-tid="{{news.champion_news_id}}"
+                                    ><i class="glyphicon glyphicon-remove"></i> 删除
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="box-footer">
+                        <div style="float:left;">
+                            <a id="cancel" class="btn btn-default" href="/olympics/champion/list">返回</a>
+                        </div>
+                        <div style="float: right">
+                            <form class="form-horizontal" method="post" onSubmit="return check();" action="/olympics/champion/addnews">
+                            <input type="text" id="news_id" class="btn btn-default" name="news_id" placeholder="输入文章ID">
+                            <input type="hidden" name="champion_id" value="{{ champion_id }}" >
+                            <input type="hidden" name="type" value="1" >
+                            <input type="hidden" name="act" value="new" >
+                            &nbsp;&nbsp;&nbsp;
+                            <button type="submit" class="btn btn-info pull-right">提交</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="del_dialog" title="提示" style="display: none;">
+    <p class="del_tip">您确定要删除这条记录吗？</p>
+</div>
+
+<div id="tip" title="信息提示" style="display: none;">
+    <p class="">操作成功</p>
+</div>
+<!-- jQuery 2.1.4 -->
+<script src="/static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<!-- jQuery UI -->
+<script src="/static/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>
+    function getUrlParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r!=null){
+            return unescape(r[2]);
+        }
+        else{
+            return null; //返回参数值
+        }
+    }
+
+    var addBtn = $("#add-channel-btn");
+    var btnGroup = $(".btn-group")
+    var type = getUrlParam("platform");
+//    window.location.search.split("=")[1];
+    var modifeButtons = $("#list-table a");
+
+    if(type == 'app'){
+        $.each(modifeButtons,function(i,value){
+            var tempCancelUrl = $(this).attr("href");
+            if(tempCancelUrl.indexOf("?") < 0){
+                $(this).attr("href",tempCancelUrl + "?platform=app")
+            }
+            else{}
+        });
+        btnGroup.find("a")[0].className = "btn btn-info active";
+        addBtn.attr("href","/slides/add?platform=app");
+    }
+    else if(type == 'web'){
+        $.each(modifeButtons,function(i,value){
+            var tempCancelUrl = $(this).attr("href");
+            if(tempCancelUrl.indexOf("?") < 0){
+                $(this).attr("href",tempCancelUrl + "?platform=web")
+            }
+            else{}
+        });
+        btnGroup.find("a")[1].className = "btn btn-info active";
+        if(getUrlParam("channel_id")){
+            addBtn.attr("href","/slides/web/add?platform=web&channel_id="+getUrlParam("channel_id"));
+        }
+        else{
+            addBtn.attr("href","/slides/web/add?platform=web&channel_id=0");
+        }
+
+    }
+
+    //提示
+    var dialogTip = $('#tip').dialog({
+        autoOpen: false,
+        height: 100,
+        width: 350,
+        modal: true
+    });
+
+    //删除
+    var dialog = $('#del_dialog').dialog({
+        autoOpen: false,
+        height: 200,
+        width: 350,
+        modal: true
+    });
+    //点击上线行为
+    var tipDiv = $("div[aria-describedby='tip']");
+    $(".table").on("click", ".btn_publish", function () {
+        var self = $(this);
+        var cid = self.data("tid");
+        $.get("/slides/" + cid + '/show', function () {
+            self.prop('outerHTML','<button type="button" class="btn btn-xs btn-danger btn_offline" data-tid="'+cid+'"><i class="fa fa-ban" title=""></i> 下线 </button>  ')
+            dialogTip.dialog('open');
+            tip();
+        });
+    });
+
+    //点击下线行为
+    $(".table").on("click", ".btn_offline", function () {
+        var self = $(this);
+        var cid = self.data("tid");
+        $.get("/slides/" + cid + '/hide', function () {
+            self.prop('outerHTML','<button type="button" class="btn btn-xs btn-danger btn_publish" data-tid="'+cid+'"><i class="fa fa-mail-forward" title=""></i> 上线 </button>  ')
+            dialogTip.dialog('open');
+            tip();
+        });
+    });
+
+    //点击删除行为
+    $(".table").on("click", ".btn-del", function () {
+        var self = $(this);
+        var cid = self.data("tid");
+        var champion_id = {{ champion_id }}
+        dialog.dialog('open');
+        dialog.dialog('option', 'buttons', {
+            '删除': function () {
+                $.get("/olympics/champion/" + cid + '/delnews', function () {
+                    self.parent().parent().remove();
+                    dialog.dialog('close');
+                    dialogTip.dialog('open');
+                    tip();
+                    //window.location.reload();
+                });
+            },
+            '取消': function () {
+                dialog.dialog('close');
+            }
+        });
+    });
+    $(".display_order").dblclick(function () {
+        $(this).find(".display_order_text").show();
+        $(this).find(".display_order_label").hide();
+    });
+    $(".display_order_text").blur(function () {
+        $(this).siblings().filter(".display_order_label").show();
+        $(this).hide();
+        $(this).siblings().filter(".display_order_label").html($(this).val());
+        var neworder = $(this).val();
+        var idval = $(this).parent().attr("idval");
+        $.post("/mainboard/champion/"+idval+"/"+neworder+"/modifyorder",{},function(result){
+            location.reload();
+        });
+    })
+    function tip(){
+        var mask = $(".ui-widget-overlay");
+        setTimeout(function () {
+            mask.animate({
+                opacity: 0
+            }, 1000, function () {
+                mask.css({"opacity": .8})
+            });
+
+            tipDiv.animate({
+                opacity: 0
+            }, 1000, function () {
+                dialogTip.dialog('close');
+                tipDiv.css({"opacity": 1})
+            });
+        }, 500)
+    }
+    function check() {
+        var news_id = $("#news_id").val();
+        if (news_id == '') {
+            dialog.dialog('open');
+            dialog.dialog('option', 'buttons', {
+            '确定': function () {
+                dialog.dialog('close');
+            },
+
+        });
+            $(".del_tip").text("请输入文章id");
+            return false;
+        }else {
+            return true;
+        }
+    }
+</script>
+</body>
+</html>

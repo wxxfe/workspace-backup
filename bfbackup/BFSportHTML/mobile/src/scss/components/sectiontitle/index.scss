@@ -1,0 +1,8 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+
+.section-title {
+    h2 {
+        @include font-fade-1;
+    }
+}

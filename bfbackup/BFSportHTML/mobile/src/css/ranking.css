@@ -1,0 +1,789 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'pf_din_text_cond_promedium';
+  src: url("../fonts/pfdintextcondpro-medium-webfont.woff2") format("woff2"), url("../fonts/pfdintextcondpro-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'pf_din_text_cond_probold';
+  src: url("../fonts/pfdintextcondpro-bold-webfont.woff2") format("woff2"), url("../fonts/pfdintextcondpro-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'pf_din_text_cond_promedium';
+  src: url("../fonts/pfdintextcondpro-medium-webfont.woff2") format("woff2"), url("../fonts/pfdintextcondpro-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'pf_din_text_cond_probold';
+  src: url("../fonts/pfdintextcondpro-bold-webfont.woff2") format("woff2"), url("../fonts/pfdintextcondpro-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*
+ * 清除浮动
+ */
+
+/*
+ * 文本溢出时显示省略号
+ */
+
+/*
+ * 渐进色背景
+ */
+
+/*
+ * 一般是文章、评论等突出页面内容的文字, 32px #444
+ */
+
+/*
+ * 一般是导航等性质的文字
+ */
+
+/*
+ * 一般是一些辅助文字或者不重要的文字，24px ＃999
+ */
+
+/*
+ * 上线
+ */
+
+/*
+ * 下线
+ */
+
+/*
+ * 中线
+ */
+
+/*
+ * 圆形状区域
+ */
+
+/**
+ * 栅格系统
+ */
+
+/*
+ * 用于解决inline－block元素间距问题
+ */
+
+/*
+ * 清除浮动
+ */
+
+/*
+ * 文本溢出时显示省略号
+ */
+
+/*
+ * 渐进色背景
+ */
+
+/*
+ * 一般是文章、评论等突出页面内容的文字, 32px #444
+ */
+
+/*
+ * 一般是导航等性质的文字
+ */
+
+/*
+ * 一般是一些辅助文字或者不重要的文字，24px ＃999
+ */
+
+/*
+ * 上线
+ */
+
+/*
+ * 下线
+ */
+
+/*
+ * 中线
+ */
+
+/*
+ * 圆形状区域
+ */
+
+/**
+ * 栅格系统
+ */
+
+/*
+ * 用于解决inline－block元素间距问题
+ */
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: ' ';
+  clear: both;
+  height: 0;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.text-dark-gray {
+  color: #444 !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.bg-dark-gray {
+  background-color: #444 !important;
+}
+
+.bg-gray {
+  background-color: #666 !important;
+}
+
+.bg-light-gray {
+  background-color: #999 !important;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+}
+
+.table caption {
+  font-size: 0.373333rem;
+  padding: 0.16rem;
+}
+
+.table thead th {
+  color: #999999;
+  text-align: center;
+  font-weight: normal;
+  background-color: whitesmoke;
+}
+
+[data-dpr="1"] .table thead th {
+  font-size: 13px;
+  height: 21px;
+  padding: 4px;
+}
+
+[data-dpr="2"] .table thead th {
+  font-size: 26px;
+  height: 42px;
+  padding: 8px;
+}
+
+[data-dpr="3"] .table thead th {
+  font-size: 39px;
+  height: 63px;
+  padding: 12px;
+}
+
+.table tbody td {
+  text-align: center;
+  line-height: 0.426667rem;
+}
+
+[data-dpr="1"] .table tbody td {
+  padding: 4px;
+  height: 21px;
+  font-size: 14px;
+}
+
+[data-dpr="2"] .table tbody td {
+  padding: 8px;
+  height: 42px;
+  font-size: 28px;
+}
+
+[data-dpr="3"] .table tbody td {
+  padding: 12px;
+  height: 63px;
+  font-size: 42px;
+}
+
+.table.table-border thead th {
+  background-color: transparent !important;
+  font-weight: bold;
+  color: #000;
+}
+
+[data-dpr="1"] .table.table-border thead th {
+  border-bottom: 1px #d9d9d9 solid;
+}
+
+[data-dpr="2"] .table.table-border thead th {
+  border-bottom: 2px #d9d9d9 solid;
+}
+
+[data-dpr="3"] .table.table-border thead th {
+  border-bottom: 3px #d9d9d9 solid;
+}
+
+[data-dpr="1"] .table.table-border tbody td {
+  border-bottom: 0.5px #d9d9d9 solid;
+}
+
+[data-dpr="2"] .table.table-border tbody td {
+  border-bottom: 1px #d9d9d9 solid;
+}
+
+[data-dpr="3"] .table.table-border tbody td {
+  border-bottom: 1.5px #d9d9d9 solid;
+}
+
+/*
+ * 清除浮动
+ */
+
+/*
+ * 文本溢出时显示省略号
+ */
+
+/*
+ * 渐进色背景
+ */
+
+/*
+ * 一般是文章、评论等突出页面内容的文字, 32px #444
+ */
+
+/*
+ * 一般是导航等性质的文字
+ */
+
+/*
+ * 一般是一些辅助文字或者不重要的文字，24px ＃999
+ */
+
+/*
+ * 上线
+ */
+
+/*
+ * 下线
+ */
+
+/*
+ * 中线
+ */
+
+/*
+ * 圆形状区域
+ */
+
+/**
+ * 栅格系统
+ */
+
+/*
+ * 用于解决inline－block元素间距问题
+ */
+
+@font-face {
+  font-family: 'pf_din_text_cond_promedium';
+  src: url("../fonts/pfdintextcondpro-medium-webfont.woff2") format("woff2"), url("../fonts/pfdintextcondpro-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'pf_din_text_cond_probold';
+  src: url("../fonts/pfdintextcondpro-bold-webfont.woff2") format("woff2"), url("../fonts/pfdintextcondpro-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*
+ * 清除浮动
+ */
+
+/*
+ * 文本溢出时显示省略号
+ */
+
+/*
+ * 渐进色背景
+ */
+
+/*
+ * 一般是文章、评论等突出页面内容的文字, 32px #444
+ */
+
+/*
+ * 一般是导航等性质的文字
+ */
+
+/*
+ * 一般是一些辅助文字或者不重要的文字，24px ＃999
+ */
+
+/*
+ * 上线
+ */
+
+/*
+ * 下线
+ */
+
+/*
+ * 中线
+ */
+
+/*
+ * 圆形状区域
+ */
+
+/**
+ * 栅格系统
+ */
+
+/*
+ * 用于解决inline－block元素间距问题
+ */
+
+@media screen and (min-width: 800px) {
+  [data-dpr="1"] body {
+    width: 540px;
+    margin: 0 auto !important;
+    background-color: #fff;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  [data-dpr="2"] body {
+    width: 1080px;
+    margin: 0 auto !important;
+    background-color: #fff;
+  }
+}
+
+@media screen and (min-width: 2400px) {
+  [data-dpr="3"] body {
+    width: 1620px;
+    margin: 0 auto !important;
+    background-color: #fff;
+  }
+}
+
+.lazy:not([src^="http://image.sports.baofeng.com"]) {
+  width: 100%;
+  height: 5.626667rem;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #f1f1f1;
+}
+
+.table caption {
+  color: #666;
+}
+
+[data-dpr="1"] .table caption {
+  font-size: 13px;
+  padding: 15px;
+}
+
+[data-dpr="2"] .table caption {
+  font-size: 26px;
+  padding: 30px;
+}
+
+[data-dpr="3"] .table caption {
+  font-size: 39px;
+  padding: 45px;
+}
+
+.table th,
+.table td {
+  background: #fff !important;
+}
+
+[data-dpr="1"] .table thead th {
+  height: 30px;
+  border-bottom: #ccc 0.5px solid;
+}
+
+[data-dpr="2"] .table thead th {
+  height: 60px;
+  border-bottom: #ccc 1px solid;
+}
+
+[data-dpr="3"] .table thead th {
+  height: 90px;
+  border-bottom: #ccc 1.5px solid;
+}
+
+.table tbody td {
+  color: #444 !important;
+}
+
+[data-dpr="1"] .table tbody td {
+  height: 45px;
+}
+
+[data-dpr="2"] .table tbody td {
+  height: 90px;
+}
+
+[data-dpr="3"] .table tbody td {
+  height: 135px;
+}
+
+[data-dpr="1"] .table .text-left {
+  padding-left: 15px !important;
+}
+
+[data-dpr="2"] .table .text-left {
+  padding-left: 30px !important;
+}
+
+[data-dpr="3"] .table .text-left {
+  padding-left: 45px !important;
+}
+
+.barge {
+  vertical-align: middle;
+  object-fit: cover;
+}
+
+[data-dpr="1"] .barge {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+[data-dpr="2"] .barge {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+[data-dpr="3"] .barge {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+}
+
+.ranking-default tbody td.num.text-red {
+  color: #d91717 !important;
+}
+
+.ranking-default tbody td.num {
+  font-family: "pf_din_text_cond_promedium";
+  color: #999 !important;
+}
+
+[data-dpr="1"] .ranking-default tbody td.num {
+  font-size: 18px !important;
+}
+
+[data-dpr="2"] .ranking-default tbody td.num {
+  font-size: 36px !important;
+}
+
+[data-dpr="3"] .ranking-default tbody td.num {
+  font-size: 54px !important;
+}
+
+.ranking-new caption {
+  display: table-caption;
+  background-color: #f1f1f1;
+}
+
+[data-dpr="1"] .ranking-new caption {
+  padding: 10px 4px;
+}
+
+[data-dpr="2"] .ranking-new caption {
+  padding: 20px 8px;
+}
+
+[data-dpr="3"] .ranking-new caption {
+  padding: 30px 12px;
+}
+
+.ranking-new th,
+.ranking-new td {
+  vertical-align: middle !important;
+  text-align: center;
+  word-warp: break-word;
+  word-break: break-all;
+}
+
+[data-dpr="1"] .ranking-new th,
+[data-dpr="1"] .ranking-new td {
+  padding: 0 !important;
+  margin: 0 !important;
+  min-width: 34px;
+  line-height: 20px;
+}
+
+[data-dpr="2"] .ranking-new th,
+[data-dpr="2"] .ranking-new td {
+  padding: 0 !important;
+  margin: 0 !important;
+  min-width: 68px;
+  line-height: 40px;
+}
+
+[data-dpr="3"] .ranking-new th,
+[data-dpr="3"] .ranking-new td {
+  padding: 0 !important;
+  margin: 0 !important;
+  min-width: 102px;
+  line-height: 60px;
+}
+
+.ranking-new thead th {
+  border-bottom: none !important;
+  /*px*/
+}
+
+[data-dpr="1"] .ranking-new thead th {
+  height: 30px;
+}
+
+[data-dpr="2"] .ranking-new thead th {
+  height: 60px;
+}
+
+[data-dpr="3"] .ranking-new thead th {
+  height: 90px;
+}
+
+[data-dpr="1"] .ranking-new th:first-child {
+  width: 34px;
+}
+
+[data-dpr="2"] .ranking-new th:first-child {
+  width: 68px;
+}
+
+[data-dpr="3"] .ranking-new th:first-child {
+  width: 102px;
+}
+
+.ranking-new.team td:nth-child(2) {
+  text-align: left;
+}
+
+[data-dpr="1"] .ranking-new.team td:nth-child(2) {
+  width: 113px;
+}
+
+[data-dpr="2"] .ranking-new.team td:nth-child(2) {
+  width: 226px;
+}
+
+[data-dpr="3"] .ranking-new.team td:nth-child(2) {
+  width: 339px;
+}
+
+[data-dpr="1"] .ranking-new.team td:nth-child(2) .barge {
+  margin-left: 15px;
+}
+
+[data-dpr="2"] .ranking-new.team td:nth-child(2) .barge {
+  margin-left: 30px;
+}
+
+[data-dpr="3"] .ranking-new.team td:nth-child(2) .barge {
+  margin-left: 45px;
+}
+
+[data-dpr="1"] .ranking-new.team td:nth-child(2) span {
+  width: 70px;
+}
+
+[data-dpr="2"] .ranking-new.team td:nth-child(2) span {
+  width: 140px;
+}
+
+[data-dpr="3"] .ranking-new.team td:nth-child(2) span {
+  width: 210px;
+}
+
+.ranking-new.player td:nth-child(2),
+.ranking-new.player th:nth-child(2) {
+  text-align: left;
+}
+
+[data-dpr="1"] .ranking-new.player td:nth-child(2),
+[data-dpr="1"] .ranking-new.player th:nth-child(2) {
+  padding-left: 20px !important;
+}
+
+[data-dpr="2"] .ranking-new.player td:nth-child(2),
+[data-dpr="2"] .ranking-new.player th:nth-child(2) {
+  padding-left: 40px !important;
+}
+
+[data-dpr="3"] .ranking-new.player td:nth-child(2),
+[data-dpr="3"] .ranking-new.player th:nth-child(2) {
+  padding-left: 60px !important;
+}
+
+.ranking-new.player td:nth-child(3) {
+  text-align: left;
+}
+
+[data-dpr="1"] .ranking-new.player td:nth-child(3) {
+  width: 113px;
+}
+
+[data-dpr="2"] .ranking-new.player td:nth-child(3) {
+  width: 226px;
+}
+
+[data-dpr="3"] .ranking-new.player td:nth-child(3) {
+  width: 339px;
+}
+
+[data-dpr="1"] .ranking-new.player td:nth-child(3) .barge {
+  margin-left: 15px;
+}
+
+[data-dpr="2"] .ranking-new.player td:nth-child(3) .barge {
+  margin-left: 30px;
+}
+
+[data-dpr="3"] .ranking-new.player td:nth-child(3) .barge {
+  margin-left: 45px;
+}
+
+[data-dpr="1"] .ranking-new.player td:nth-child(3) span {
+  width: 70px;
+}
+
+[data-dpr="2"] .ranking-new.player td:nth-child(3) span {
+  width: 140px;
+}
+
+[data-dpr="3"] .ranking-new.player td:nth-child(3) span {
+  width: 210px;
+}
+
+[data-dpr="1"] .ranking-new.player th:last-child {
+  width: 60px;
+}
+
+[data-dpr="2"] .ranking-new.player th:last-child {
+  width: 120px;
+}
+
+[data-dpr="3"] .ranking-new.player th:last-child {
+  width: 180px;
+}
+
+[data-dpr="1"] .ranking-new.nba th:nth-child(6) {
+  width: 48px;
+}
+
+[data-dpr="2"] .ranking-new.nba th:nth-child(6) {
+  width: 96px;
+}
+
+[data-dpr="3"] .ranking-new.nba th:nth-child(6) {
+  width: 144px;
+}
+
+[data-dpr="1"] .ranking-new.nba th:last-child {
+  width: 56px;
+}
+
+[data-dpr="2"] .ranking-new.nba th:last-child {
+  width: 112px;
+}
+
+[data-dpr="3"] .ranking-new.nba th:last-child {
+  width: 168px;
+}
+
+.ranking-new .barge {
+  object-fit: cover;
+  display: inline-block;
+}
+
+[data-dpr="1"] .ranking-new .barge {
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+}
+
+[data-dpr="2"] .ranking-new .barge {
+  width: 40px;
+  height: 40px;
+  margin-right: 6px;
+}
+
+[data-dpr="3"] .ranking-new .barge {
+  width: 60px;
+  height: 60px;
+  margin-right: 9px;
+}
+
+.ranking-new tbody span {
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: middle !important;
+}
+
+[data-dpr="1"] .ranking-new tbody span {
+  height: 20px;
+  line-height: 20px;
+}
+
+[data-dpr="2"] .ranking-new tbody span {
+  height: 40px;
+  line-height: 40px;
+}
+
+[data-dpr="3"] .ranking-new tbody span {
+  height: 60px;
+  line-height: 60px;
+}

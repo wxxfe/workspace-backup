@@ -1,0 +1,57 @@
+@import "../style/themes/default/index";
+@import "../style/util";
+
+$tag-height: $font-size-headline;
+
+@mixin tag() {
+    display: inline-block;
+    background: lighten($color-text-base, 93.6%);
+    font-size: $font-size-base; /*px*/
+    color: lighten($color-text-base, 60%);
+    box-sizing: border-box;
+}
+
+.tag {
+    @include tag;
+    padding: 13px 28px; /*px*/
+    border-radius: $tag-height/2;
+    &:before {
+        background: lighten($color-text-base, 93.6%);;
+    }
+
+    &-flat {
+        border-radius: 0;
+    }
+
+    &-primary {
+        background: $brand-primary;
+        color: $color-text-base-inverse;
+        &:before {
+            background: $brand-primary;
+        }
+    }
+
+    &-parallelogram {
+        border-radius: 0;
+        background: none;
+        position: relative;
+        &:before {
+            position: absolute;
+            content: ' ';
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            transform: skew(-20deg);
+            -webkit-transform: skew(-20deg);
+        }
+    }
+}
+
+.note .tag-img {
+    position: relative;
+    top: 5px; /*px*/
+    left: 10px; /*px*/
+    height: 28px; /*px*/
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>暴风体育内容管理系统 - CMS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="/static/plugins/jQueryUI/jquery-ui.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/static/dist/css/skins/_all-skins.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .table tbody tr td {
+            vertical-align: middle;
+        }
+
+        .del_tip {
+            text-align: center;
+            line-height: 34px;
+        }
+
+        .ui-dialog-titlebar-close {
+            outline: none;
+        }
+
+        #function a {
+            cursor: pointer;
+            padding: 7px;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5;">
+<div class="wrapper">
+    <div class="content-wrapper" style="margin-left: 0;">
+        <section class="content-header">
+            <h1><i class="fa fa-tags"></i>暴风体育CMS</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">编辑赛程</h3>
+                        </div><!-- /.box-header -->
+                        <!-- form start -->
+                        <form class="form-horizontal" method="post" action="" onSubmit="return check();">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="time" class="col-sm-3 control-label">时间</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="start_tm" class="form-control" id="time"
+                                               placeholder="请输入时间， 格式为：2016-04-25 03:45:00" value="{{schedule.start_tm}}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="large_project" class="col-sm-3 control-label">大项目</label>
+                                    <div class="col-sm-9">
+                                        <input type="input" name="large_project" class="form-control" id="large_project"
+                                               placeholder="" value="{{schedule.large_project}}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="small_project" class="col-sm-3 control-label">小项目</label>
+                                    <div class="col-sm-9">
+                                        <input type="input" name="small_project" class="form-control" id="small_project"
+                                               placeholder="" value="{{schedule.small_project}}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="brief" class="col-sm-3 control-label">轮次简介</label>
+                                    <div class="col-sm-9">
+                                        <input type="input" name="round" class="form-control" id="round"
+                                               placeholder="你比我清楚啊 格式：第X轮" value="{{schedule.round}}">
+                                    </div>
+                                </div>
+
+                            </div><!-- /.box-body -->
+
+                            <div class="box-footer">
+                                <a class="btn btn-default" href="javascript:history.go(-1)">取消</a>
+                                <button type="submit" class="btn btn-info pull-right">提交</button>
+                            </div><!-- /.box-footer -->
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div id="tip" title="完善信息提示">
+    <p class="del_tip"></p>
+</div>
+
+<!-- jQuery 2.1.4 -->
+<script src="/static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<!-- jQuery UI -->
+<script src="/static/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>
+    var dialog = $('#tip').dialog({
+        autoOpen: false,
+        height: 150,
+        width: 350,
+        modal: true
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+@import "mixin";
+
+.clearfix {
+  @include clearfix;
+}
+.pull-left {
+  @include pull-left;
+}
+.pull-right {
+  @include pull-right;
+}
+.hide {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+.invisible {
+  visibility: hidden;
+}
+
+//Text color
+.text-dark-gray{
+    color: $color-text-paragraph!important;
+}
+
+//Text align
+.text-left{
+    text-align: left!important;
+}
+.text-right{
+    text-align: right!important;
+}
+.text-center{
+    text-align: center!important;
+}
+
+//Background color
+.bg-dark-gray{
+    background-color: $color-text-paragraph!important;
+}
+.bg-gray{
+    background-color: $color-text-heading!important;
+}
+.bg-light-gray{
+    background-color: $color-text-secondary!important;
+}

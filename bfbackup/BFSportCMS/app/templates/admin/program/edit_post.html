@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>暴风体育内容管理系统 - CMS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="/static/plugins/jQueryUI/jquery-ui.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/static/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/static/fileupload/css/fileupload.css">
+    <link rel="stylesheet" href="/static/fileupload/css/fileupload-ui.css">
+    <link rel="stylesheet" href="/static/jquery.datetimepicker.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .table tbody tr td {
+            vertical-align: middle;
+        }
+
+        .file_img_min {
+            margin-top: 7px;
+            margin-bottom: 10px;
+            max-width: 200px;
+            //height: 70px;
+        }
+
+        .file_img_min img {
+            max-width: 200px;
+            height: 70px;
+        }
+
+        /*.input-group {*/
+            /*margin-top: 10px;*/
+        /*}*/
+
+        .form-content{padding-left:5%;}
+        textarea{resize: none;}
+        .form-group .input-group{padding: 0 15px;}
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5;">
+<div class="wrapper">
+    <div class="content-wrapper" style="margin-left: 0;">
+        <section class="content-header">
+            <h1><i class="fa fa-tags"></i>暴风体育CMS--节目管理</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">编辑节目信息</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <form class="form-horizontal" method="post" onSubmit="return check();">
+                            <div class="row">
+                                <div class="col-md-12 form-content">
+                                    <div class="box-body">
+
+                                        <div class="form-group">
+                                            <label for="title" class="col-sm-2 control-label">名称</label>
+
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="title" name="title" value="{{post.title}}"
+                                                       placeholder="请输入非空格名称">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="origin" class="col-sm-2 control-label">来源</label>
+
+                                            <div class="col-sm-8">
+                                                <select name="site" class="form-control" id="origin" value="">
+                                                    <option value="">请选择新闻来源</option>
+                                                    {% for site in sites %}
+                                                    <option value="{{site.site}}" data-cn="{{site.news_origin}}" {% if post.site == site.site: %}selected="selected"{% endif %}>{{site.news_origin}} ({{site.site}})</option>
+                                                    {% endfor %}  
+                                                </select>
+                                                <input id="origin_id" type="hidden" name="origin" value="">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="play_url" class="col-sm-2 control-label">URL</label>
+
+                                            <div class="col-sm-8">
+                                                <input type="url" class="form-control" name="play_url" id="play_url"  value="{{post.play_url}}" placeholder="请输入URL:例如:http://wwww.baidu.com">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="publish_tm" class="col-sm-2 control-label">发布时间</label>
+
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control datetimepicker" id="publish_tm" name="publish_tm" value="{{post.publish_tm}}" placeholder="点击选择或输入时间;时间格式2016-06-20 12:00:00">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="brief" class="col-sm-2 control-label">内容简介</label>
+
+                                            <div class="col-sm-8">
+                                                <textarea class="form-control" rows="3" id="brief" name="brief" placeholder="请输入内容简介">{{post.brief}}</textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="play_html" class="col-sm-2 control-label">播放代码(web){{post.play_html}}</label>
+
+                                            <div class="col-sm-8">
+                                                <textarea class="form-control" id="play_html" name="play_html" placeholder="请输入播放代码(web)">{{post.play_html}}</textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="play_code" class="col-sm-2 control-label">播放代码(app)</label>
+
+                                            <div class="col-sm-8">
+                                                <textarea class="form-control" id="play_code" name="play_code"  placeholder="请输入播放代码(app)">{{post.play_code}}</textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="isvr" class="col-sm-2 control-label">VR属性</label>
+                                            <div class="col-sm-8">
+                                                {% if post.isvr == 0 %}
+                                                    <input class="on_off_line" type="checkbox" name='isvr' value='0'>
+                                                {% else %}
+                                                    <input class="on_off_line" type="checkbox" checked="checked" name='isvr' value='1'>
+                                                {% endif %}
+                                                </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="title" class="col-sm-2 control-label">缩略图</label>
+                                            <div class="input-group  col-sm-8">
+                                                <span class="input-group-btn">
+                                                    <span class="btn btn-warning fileinput-button">
+                                                        <i class="glyphicon glyphicon-plus"></i>
+                                                        <span>上传缩略图</span>
+                                                        <input id="fileupload_thumbnail" type="file" name="image" multiple
+                                                            data-url="http://w.image.sports.baofeng.com/save?token=xVFpX0RU"
+                                                            data-sequential-uploads="true"
+                                                            data-form-data='{"token": "xVFpX0RU"}'>
+                                                    </span>
+                                                </span>
+                                                <input readonly="readonly" id="cover_thumbnail" class="form-control" type="text" name="true_image" placeholder="上传缩略图" value="{{post.image}}" >
+                                            </div>
+                                            <div class="file_img_min  col-sm-8 col-sm-offset-2" id="img_min">
+                                                <img src="http://image.sports.baofeng.com/{{post.image}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+
+                                <!--<div class="col-md-6">-->
+                                    <!-- -->
+                                <!--</div>-->
+
+                            </div>
+                            <div class="box-footer">
+                                <a id="cancel" class="btn btn-default" href="{{url_for('admin.list_program_posts', program_id=program_id)}}">取消</a>
+                                <button type="submit" class="btn btn-info pull-right">提交</button>
+                            </div>
+                            <!-- /.box-footer -->
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="del_dialog" title="提示">
+    <p class="del_tip">您确定要删除此条节目信息吗？</p>
+</div>
+
+<div id="tip" title="信息提示">
+    <p class="error_tip">操作成功</p>
+</div>
+
+<!-- jQuery 2.1.4 -->
+<script src="/static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<!-- jQuery UI -->
+<script src="/static/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/fileupload/scripts/jquery.ui.widget.js"></script>
+<script src="/static/fileupload/scripts/jquery.fileupload.js"></script>
+<script src="/static/jquery.datetimepicker.full.js"></script>
+<script>
+$('.datetimepicker').datetimepicker({format:"Y-m-d H:i:s"});
+$.datetimepicker.setLocale('ch');
+
+//提示
+var dialogTip = $('#tip').dialog({
+    autoOpen: false,
+//        height: 100,
+    width: 350,
+    modal: true
+});
+
+$('.on_off_line').on('change',function(){
+    this.value = this.checked ? 1 : 0;
+    console.log(this.checked);
+    console.log(this.value);
+});
+
+//删除提示
+var dialog = $('#del_dialog').dialog({
+    autoOpen: false,
+    height: 200,
+    width: 350,
+    modal: true
+});
+
+$("#list-table").on("click","button",function(){
+    if(this.name == "modaldialog"){
+        $(".modal-body").text($(this).data("text"))
+    }
+});
+
+//上传缩略图
+$('#fileupload_thumbnail').fileupload({
+    add: function (e, data) {
+        data.submit();
+    },
+    done: function (e, data) {
+        var result = data.result.errno;
+        if(result !== 10000){
+            alert('上传失败,请重试！');
+        }
+        else{
+            $("#img_min").html('<img height="90" src="http://image.sports.baofeng.com/' + data.result.data.pid + '">');
+            $('#cover_thumbnail').val(data.result.data.pid);
+        }
+    }
+});
+
+var origin = $('#origin').val();
+//添加&编辑提交
+function check(){
+
+   if($.trim($('.form-horizontal').find("input[id='title']").val()) == ''){
+        dialogTip.dialog('open');
+        $(".error_tip").text("请输入非空格节目名称");
+        return false;
+    }
+
+    else if($('.form-horizontal').find("select").val() == ''){
+        dialogTip.dialog('open');
+        $(".error_tip").text("请选节目来源");
+        return false;
+    }
+
+    else if(origin == 'bfonline'){
+//        if($.trim($('.form-horizontal').find("input[id='play_code']").val()) == ''){
+//            dialogTip.dialog('open');
+//            $(".error_tip").text("请输入播放代码");
+//            return false;
+//        }
+        if($('.form-horizontal').find("input[id='publish_tm']").val() == ''){
+            dialogTip.dialog('open');
+            $(".error_tip").text("请输入发布时间");
+            return false;
+        }
+        else if($('.form-horizontal').find("input[id='cover_thumbnail']").val() == ''){
+            dialogTip.dialog('open');
+            $(".error_tip").text("请上传节目缩略图");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    else if(origin !== 'bfonline'){
+        if($.trim($('.form-horizontal').find("input[id='play_url']").val()) == ''){
+            dialogTip.dialog('open');
+            $(".error_tip").text("请输入URL");
+            return false;
+        }
+        else if($('.form-horizontal').find("input[id='publish_tm']").val() == ''){
+            dialogTip.dialog('open');
+            $(".error_tip").text("请输入发布时间");
+            return false;
+        }
+        else if($('.form-horizontal').find("input[id='cover_thumbnail']").val() == ''){
+            dialogTip.dialog('open');
+            $(".error_tip").text("请上传节目缩略图");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    //暂时预留
+//    else if($('.form-horizontal').find("textarea[id='brief']").val() == ''){
+//        dialogTip.dialog('open');
+//        $(".error_tip").text("请输入节目内容简介");
+//        return false;
+//    }
+}
+
+$('#origin').on('change',function(){
+    var text = $(':selected',this).data('cn');
+    $('#origin_id').val(text);
+    origin = this.value;
+});
+
+var tipDiv = $("#tip")
+function tip() {
+    var mask = $(".ui-widget-overlay");
+    setTimeout(function () {
+        mask.animate({
+            opacity: 0
+        }, 250, function () {
+            mask.css({"opacity": .8})
+        });
+
+        tipDiv.animate({
+            opacity: 0
+        }, 500, function () {
+            dialogTip.dialog('close');
+            tipDiv.css({"opacity": 1})
+        });
+    }, 500)
+}
+</script>
+</body>
+</html>

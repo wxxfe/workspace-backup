@@ -1,0 +1,15 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../portrait/index";
+@import "../paragraphs/index";
+
+.post-detail {
+    .portrait {
+        margin: 20px $page-spacing 20px $page-spacing;
+    }
+    .content {
+        padding-top: $h-spacing-xl;
+        padding-left: $h-spacing-lg - 2px;
+        padding-right: $h-spacing-lg - 2px;
+    }
+}

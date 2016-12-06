@@ -1,0 +1,47 @@
+@import "../../components/style/themes/default/index";
+@import "../../components/section/index";
+@import "../../components/articleheadline/index";
+@import "../../components/articleshowmore/index";
+@import "../../components/downloadbar/index";
+@import "../../components/grid/index";
+@import "../../components/listitem/index";
+@import "../../components/style/mixin.scss";
+@import "../../components/sharepage/index";
+@import "../../components/page/index";
+
+@include grid();
+
+.article{
+    padding-top: $u*12;
+
+    .article-headline{
+        padding: 20px;
+    }
+
+    dl.image{
+        display: block;
+        overflow: hidden;
+        margin: 15px 0;
+        dt,dd{
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+        dt{
+            text-align: center;
+            img{
+                width: 100%;
+            }
+        }
+        dd{
+            padding: 20px;
+            font-size: $font-size-paragraph;/*px*/
+            line-height: $u * 6;/*px*/
+            color: lighten($color-text-base,30%);
+            @include text();
+        }
+    }
+
+}
+
+

@@ -1,0 +1,36 @@
+.bfeditor-toolbar {
+	position: fixed;
+	top: 0;
+	left:0;
+	width: 319px;
+	padding: 5px;
+	background: #fff6d9;
+	border: 1px solid #DCAC6C;
+	border-radius: 6px;
+	color: #222;
+	font-size: 14px;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+	z-index: 999999999;
+}
+
+.bfeditor-toolbar span {
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.bfeditor-toolbar span:hover {
+    color: blue;
+}
+
+.bfeditor-comp {
+	border: 1px dotted rgba(240,176,176,1);
+}
+
+.bfeditor-comp.bfeditor-comp-select {
+	border: 1px dotted rgba(255,0,0,1);
+}

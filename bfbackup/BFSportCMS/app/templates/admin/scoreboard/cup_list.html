@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>暴风体育内容管理系统 - CMS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="../../../static/plugins/jQueryUI/jquery-ui.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../../../static/plugins/datatables/dataTables.bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../../static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="../../../static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../../../static/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../../../static/fileupload/css/fileupload.css">
+    <link rel="stylesheet" href="../../../static/fileupload/css/fileupload-ui.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .table tbody tr td:nth-child(2) img{width:20px; height: 20px; vertical-align: bottom;}
+
+        .table tbody tr td {
+            vertical-align: middle;
+        }
+
+
+        #my-ui-list tr td:nth-child(4) img {
+            width: 20px;
+            height: 20px;
+        }
+        .file_img_content img{
+            max-width: 200px;
+            max-height: 70px;
+            margin: 7px 0 30px 0;
+        }
+        #list-table caption{ height: 30px; line-height: 30px; text-align: center; font-size: 18px; color: #ffffff; background: #3676b1; padding: 0;}
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5;">
+<div class="wrapper">
+    <div class="content-wrapper" style="margin-left: 0;">
+        <section class="content-header">
+            <h1><i class="fa fa-tags"></i>暴风体育CMS--积分榜(杯赛)</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-info" id="list-table">
+                        <div class="box-body nopadding">
+                            <div class="col-md-9">
+                            </div>
+                            <div class="col-md-3">
+                                <a role="button" id="add_cup" class="btn btn-success btn-flat pull-right"><i class="glyphicon glyphicon-plus"></i> 添加排名</a>
+                            </div>
+                        </div>
+
+                        <!--  list  -->
+
+                        <ul class="nav nav-tabs" style="margin-bottom: 10px; padding-left: 25px;">
+                                 {% for event in events %}
+                                    <li  {% if event.id == event_id %} class="active" {% endif %}><a href="/cup/scoreboards?event_id={{event.id}}">{{ event.name }}</a></li>
+                                {% endfor %}
+                        </ul>
+
+                        {% for key  in group_list %} 
+
+                        {% if groups[key] %}
+
+                        <table class="table table-hover">
+                            <caption>{{key}}组</caption>
+                            <thead>
+                            <tr>
+                                <th>分组</th>
+                                <th>球队</th>
+                                <th>场次</th>
+                                <th>胜</th>
+                                <th>平</th>
+                                <th>负</th>
+                                <th>净胜球</th>
+                                <th>积分</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="my-ui-list">
+
+                        {% for group  in groups[key] %} 
+
+                            <tr id="{{group.id}}">
+                                <td>{{group.group}}</td>
+                                <td class="team"><img src="{{group.team_badge}}" width=40> {{group.team_name}}</td>
+                                <td>{{group.section}}</td>
+                                <td class="wins">{{group.wins}}</td>
+                                <td class="draws">{{group.draws}}</td>
+                                <td class="loses">{{group.loses}}</td>
+                                <td class="goals_differential">{{group.goals_differential}}</td>
+                                <td class="points">{{group.points}}</td>
+
+                                <td>
+                                    <button class="btn btn-info btn-xs btn-edit" name="edit" role="button" dat a-teamid="{{group.team_id}}" data-cupid="{{group.id}}"><i class="fa fa-info"></i> 修改</button>
+                                    <button type="button" class="btn btn-xs btn-danger btn-del" data-teamid="{{group.team_id}}" data-cupid="{{group.id}}"><i class="fa fa-ban" title="" ></i> 删除</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                            </tbody>
+                        </table>
+                        {% endif %}
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="del_dialog" title="提示">
+    <p class="del_tip">你确定要删除吗？</p>
+</div>
+
+<div id="tip" title="信息提示">
+    <p class="error_tip">操作成功</p>
+</div>
+
+<div id="tip_cup" title="" class="row" style="display: none;">
+    <div class="col-md-12">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">编辑信息</h3>
+            </div>
+            <!-- /.box-header -->
+            <form class="form-horizontal" method="post" onSubmit="return check();">
+                <div class="row">
+                    <div class="col-md-12 form-content">
+                        <div class="box-body">
+
+                            <div class="form-group" id="team_id_content">
+                                <label for="team_id" class="col-sm-2 control-label">选择球队</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control team_id" id="team_id" name="team_id">
+                                        <option value="">选择球队</option>
+                                            {% for team in teams %}
+                                            <option value="{{team.team_id}}">{{team.name}}</option>
+                                            {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="wins" class="col-sm-2 control-label">胜</label>
+
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control wins" id="wins" name="wins"
+                                           placeholder="请输入球队胜场数">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="draws" class="col-sm-2 control-label">平</label>
+
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control draws" id="draws" name="draws"
+                                           placeholder="请输入球队平场数">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="loses" class="col-sm-2 control-label">负</label>
+
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control loses" id="loses" name="loses"
+                                           placeholder="请输入球队负场数">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="goals_differential" class="col-sm-2 control-label">净胜球</label>
+
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control goals_differential" id="goals_differential" name="goals_differential"
+                                           placeholder="请输入净胜球">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="points" class="col-sm-2 control-label">积分</label>
+
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control points" id="points" name="points"
+                                           placeholder="请输入积分">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <a id="cancel" class="btn btn-default" href="">取消</a>
+                    <button type="submit" class="btn btn-info pull-right">提交</button>
+                </div>
+                <!-- /.box-footer -->
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- jQuery 2.1.4 -->
+<script src="../../../static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="../../../static/bootstrap/js/bootstrap.min.js"></script>
+<!-- jQuery UI -->
+<script src="../../../static/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- DataTables -->
+<script src="../../../static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../../static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="../../../static/fileupload/scripts/jquery.ui.widget.js"></script>
+<script src="../../../static/fileupload/scripts/jquery.fileupload.js"></script>
+<script>
+    //提示
+    var dialogTip = $('#tip').dialog({
+        autoOpen: false,
+//        height: 100,
+        width: 350,
+        modal: true
+    });
+
+    //删除提示
+    var dialog = $('#del_dialog').dialog({
+        autoOpen: false,
+        height: 200,
+        width: 350,
+        modal: true
+    });
+
+var tip_cup;
+
+//点击编辑按钮的行为
+var cid,tid;
+$("#list-table").on("click","button",function(){
+    add_edit = 'edit';
+    if(this.name == "edit"){
+        var crruentTr = $(this).parent().parent();
+        var select_value = $.trim(crruentTr.find(".team").text());
+        $.each($("#team_id").find("option"),function(i,data){
+            if($(data).text() == select_value){
+                $(data).attr("selected",true);
+            }
+        });
+        $("#wins").val($.trim(crruentTr.find(".wins").text()));
+        $("#draws").val($.trim(crruentTr.find(".draws").text()));
+        $("#loses").val($.trim(crruentTr.find(".loses").text()));
+        $("#goals_differential").val($.trim(crruentTr.find(".goals_differential").text()));
+        $("#points").val($.trim(crruentTr.find(".points").text()));
+        cid = $(this).data("cupid");
+        tid = $(this).data("teamid");
+        //编辑层初始化
+        tip_cup = $('#tip_cup').dialog({
+            autoOpen: false,
+            //height: 503,
+            width: '60%',
+            modal: true,
+            title: '编辑积分榜'
+        });
+        $("#tip_cup .box-title").text("编辑积分榜");
+        tip_cup.dialog('open');
+    }
+});
+
+//点击添加按钮的行为
+$("#add_cup").on("click",function(e){
+    e.preventDefault();
+    $("#team_id").val("");
+    $("#wins").val("");
+    $("#draws").val("");
+    $("#loses").val("");
+    $("#goals_differential").val("");
+    $("#points").val("");
+    cid = "";
+    tid = "";
+    //添加层初始化
+    tip_cup = $('#tip_cup').dialog({
+        autoOpen: false,
+        //height: 503,
+        width: '60%',
+        modal: true,
+        title: '添加积分榜'
+    });
+    $("#tip_team .box-title").text("添加积分榜");
+    tip_cup.dialog('open');
+    add_edit = 'add';
+});
+
+//点击取消按钮的行为
+$("#cancel").on("click",function(e){
+    e.preventDefault();
+    tip_cup.dialog('close');
+});
+
+//添加&编辑提交
+function check(){
+    var teamData = {};
+    var object = $('.form-horizontal');
+    if($.trim(object.find("#team_id").val()) == ''){
+        dialogTip.dialog('open');
+        $(".error_tip").text("请选择球队");
+        return false;
+    }
+    else if($.trim(object.find("#wins").val()) == '' || $.trim(object.find(".wins").val()) < 0){
+        dialogTip.dialog('open');
+        $(".error_tip").text("请正确输入胜场数");
+        return false;
+    }
+    else if($.trim(object.find("#draws").val()) == '' || $.trim(object.find(".draws").val()) < 0){
+        dialogTip.dialog('open');
+        $(".error_tip").text("请正确输入平场数");
+        return false;
+    }
+    else if($.trim(object.find("#loses").val()) == '' || $.trim(object.find(".loses").val()) < 0){
+        dialogTip.dialog('open');
+        $(".error_tip").text("请正确输入负场数");
+        return false;
+    }
+    else if($.trim(object.find("#goals_differential").val()) == ''){
+        dialogTip.dialog('open');
+        $(".error_tip").text("请正确输入净胜球");
+        return false;
+    }
+    else if($.trim(object.find("#points").val()) == '' || $.trim(object.find(".points").val()) < 0){
+        dialogTip.dialog('open');
+        $(".error_tip").text("请正确输入积分");
+        return false;
+    }
+
+    else{
+        $.each($('.form-horizontal').find('select'), function (i, data) {
+            teamData[data.name] = data.value;
+        });
+        $.each($('.form-horizontal').find('input'), function (i, data) {
+            teamData[data.name] = data.value;
+        });
+
+
+        if(add_edit == 'add'){
+            //添加ajax
+            $.post("/scoreboards/add?event_id={{event_id}}", teamData, function (data) {
+                if (data.errno == 10000) {
+                    tip_cup.dialog('close');
+                    $(".error_tip").text("操作成功");
+                    dialogTip.dialog('open');
+                    tip()
+                    window.location.reload();
+                }
+                else {
+                    dialogTip.dialog('open');
+                    $(".error_tip").text(data.message);
+                }
+            });
+        }
+
+        else if(add_edit == 'edit'){
+            //编辑ajax
+            $.post("/scoreboards/" + cid + "/edit?event_id={{event_id}}", teamData, function (data) {
+                if (data.errno == 10000) {
+                    tip_cup.dialog('close');
+                    $(".error_tip").text("操作成功");
+                    dialogTip.dialog('open');
+                    tip()
+                   window.location.reload();
+                }
+                else {
+                    $(".error_tip").text(data.message);
+                    dialogTip.dialog('open');
+                }
+            });
+        }
+    }
+    return false;
+}
+
+//点击删除行为
+$("#list-table").on("click", ".btn-del", function () {
+    var self = $(this);
+    var cid = self.data("cupid");
+    var tid = self.data("teamid");
+    dialog.dialog('open');
+    dialog.dialog('option', 'buttons', {
+        '删除': function () {
+           $.get("/scoreboards/" + cid + '/delete', function () {
+            self.parent().parent().remove();
+            dialog.dialog('close');
+            $(".error_tip").text("操作成功");
+            dialogTip.dialog('open');
+            tip();
+           });
+        },
+        '取消': function () {
+            dialog.dialog('close');
+        }
+    });
+});
+
+var tipDiv = $("#tip")
+function tip() {
+    var mask = $(".ui-widget-overlay");
+    setTimeout(function () {
+        mask.animate({
+            opacity: 0
+        }, 1000, function () {
+            mask.css({"opacity": .8})
+        });
+
+        tipDiv.animate({
+            opacity: 0
+        }, 1000, function () {
+            dialogTip.dialog('close');
+            tipDiv.css({"opacity": 1})
+        });
+    }, 500)
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../style/util";
+
+$padding-size: 8px;
+.table {
+    width: 100%;
+    max-width: 100%;
+    caption{
+        font-size: $font-size-heading;
+        padding: $padding-size + 4;
+    }
+    thead{
+        th{
+            color: lighten($color-text-base,60%);
+            text-align: center;
+            font-size: $font-size-heading - 2; /*px*/
+            font-weight: normal;
+            height: $font-size-headline; /*px*/
+            padding: $padding-size; /*px*/
+            background-color: lighten($color-text-secondary,36%);
+        }
+    }
+    tbody{
+        td{
+            text-align: center;
+            padding: $padding-size; /*px*/
+            height: $font-size-headline; /*px*/
+            font-size: $font-size-heading; /*px*/
+            line-height: $h-spacing-lg;
+        }
+    }
+
+    &.table-border{
+        thead{
+            th{
+                background-color: transparent!important;
+                font-weight: bold;
+                color: $color-text-base;
+                border-bottom: 2px lighten($color-text-base,85%) solid; /*px*/
+            }
+        }
+        tbody{
+            td{
+                border-bottom: 1px lighten($color-text-base,85%) solid; /*px*/
+            }
+        }
+    }
+}

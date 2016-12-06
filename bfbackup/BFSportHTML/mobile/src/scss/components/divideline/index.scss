@@ -1,0 +1,29 @@
+@import "../style/themes/default/index";
+@import "../style/mixin.scss";
+
+.divideline {
+    position: relative;
+    @include hairline-bottom;
+    &-words-middle {
+        position: relative;
+        height: 48px; /*px*/
+        @include hairline-middle;
+        @include font-fade-2;
+        text-align: center;
+        .words {
+            $width: $font-size-base*6;
+            width: $width;
+            height: 48px; /*px*/
+            line-height: 48px; /*px*/
+            display: inline-block;
+            background: $color-text-base-inverse;
+        }
+    }
+}
+
+.divideline-height{
+    position: relative;
+    height: 10px; /*px*/
+    background: #f1f1f1;
+    width: 100%;
+}

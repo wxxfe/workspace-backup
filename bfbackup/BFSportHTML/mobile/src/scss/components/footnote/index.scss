@@ -1,0 +1,11 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+
+.footnote {
+    .note {
+        margin-right: $font-size-base;
+        line-height: $font-size-base; /*px*/
+        @include font-fade-2;
+        @include text;    
+    }
+}

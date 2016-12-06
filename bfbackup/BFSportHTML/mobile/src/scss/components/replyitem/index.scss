@@ -1,0 +1,36 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../footnote/index";
+@import "../portrait/index";
+@import "../paragraphs/index";
+
+.reply {
+    position: relative;
+    @include hairline-bottom;
+    
+    .footnote {
+        padding-top: $u*8;
+        padding-bottom: $u*8 + 4px;
+        margin-left: 82px;
+    }
+    
+    .content {
+        margin-left: 82px;
+        .replymark {
+            color: #4680f6;
+        }
+        .name {
+            color: $color-text-heading;
+        }
+    }
+    
+    &.simple {
+        .paragraph {
+            .name {
+                color: $color-text-heading;
+            }
+            padding: 18px 0;
+        }
+    }
+}
+    

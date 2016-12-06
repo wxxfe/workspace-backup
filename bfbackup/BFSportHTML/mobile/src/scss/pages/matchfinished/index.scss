@@ -1,0 +1,33 @@
+@import "../../components/style/themes/default/index";
+@import "../../components/section/index";
+@import "../../components/downloadbar/index";
+@import "../../components/videoplayershare/index";
+@import "../../components/videolist/index";
+@import "../../components/report/index";
+@import "../../components/matchbar/index";
+@import "../../components/topiccard/index";
+@import "../../components/list/index";
+@import "../../components/sharepage/index";
+@import "../../components/divideline/index";
+@import "../../components/herorank/index";
+@import "../../components/page/index";
+
+
+.container {
+    width: 100%;
+    margin-top: $u*12; /*px*/
+}
+
+.section-content .video-list {
+    margin-top: 18px;
+}
+
+.section {
+    padding: 12px 0 20px; /*px*/
+}
+.various-title{
+    .match-footnote:nth-child(1) {
+        text-align: center;
+    }
+}
+

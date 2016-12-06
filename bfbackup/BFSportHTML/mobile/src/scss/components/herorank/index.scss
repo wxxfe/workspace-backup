@@ -1,0 +1,53 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../grid/index";
+@import "../button/index";
+
+.hero-rank {
+    .hero-rank-item {
+        .hero-img {
+            position: relative;
+            text-align: center;
+            .roundimg {
+                width: 116px; /*px*/
+                height: 116px; /*px*/
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+            }
+
+            .rank-tag {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100px; /*px*/
+                height: 32px; /*px*/
+                line-height: 36px; /*px*/
+                padding: 0;
+                font-size: 22px; /*px*/
+                background: #fcc52e;
+                &.silver {
+                    background: #c4c6c3;
+                }
+                &.copper {
+                    background: #c78e41;
+                }
+            }
+
+        }
+
+        .hero-name {
+            margin-top: 10px; /*px*/
+            font-size: 32px; /*px*/
+            text-align: center;
+        }
+
+        .hero-info {
+            margin-top: 10px; /*px*/
+            font-size: 24px; /*px*/
+            color: #999;
+            line-height: 36px; /*px*/
+            text-align: center;
+        }
+    }
+}

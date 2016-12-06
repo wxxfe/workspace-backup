@@ -1,0 +1,10 @@
+@import "../../components/style/themes/default/index";
+@import "../../components/downloadbar/index";
+@import "../../components/sharepage/index";
+@import "../../components/no-data/index";
+html, body {
+    height: 100%;
+}
+.no-data {
+    height: 100%;
+}

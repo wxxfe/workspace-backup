@@ -1,0 +1,428 @@
+@import 'mixins';
+@import 'lib/animate';
+@import 'lib/css3';
+@import 'components/grid';
+
+html, body {
+    min-width: 1200px;
+    width: 100%;
+    height: 100%;
+}
+
+body,h1,h2,h3,h4,h5,h6,p,ul,li{
+    margin: 0;
+    padding: 0;
+    font-family: @font-family-base;
+}
+
+.fixed-grid();
+
+img {
+    object-fit: cover;
+    border: none;
+}
+
+body{
+    .bg('main-top.jpg',no-repeat,center top);
+}
+
+.container {
+    position: relative;
+    width: 1200px;
+    margin-top: 245px;
+    padding: 0;
+    overflow: hidden;
+    .center-block();
+}
+
+.col-left,
+.col-center,
+.col-right{
+    float: left;
+}
+.col-left{
+    width: 405px;
+    background: none;
+}
+.col-center{
+    width: 455px;
+    margin: 0 30px;
+    background: none;
+}
+.col-right{
+    width: 280px;
+}
+
+
+
+/** Layout **/
+.slide-pic-wrap{
+    margin-bottom: 50px;
+}
+
+//金牌时刻
+.moment{
+    list-style: none;
+    height: 680px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    li{
+        display: block;
+        overflow: hidden;
+        margin-top: 20px;
+        .va(top);
+    }
+
+    .news-pic{
+        .size(140px,100px);
+        overflow: hidden;
+        float: left;
+    }
+
+    .news-list{
+        .size(156px,110px);
+        float: left;
+        margin-left: 10px;
+        margin-right: 5px;
+        a{
+            .text-n;
+            .text-overflow;
+            color: #939393;
+            display: block;
+            line-height: 24px;
+            height: 24px;
+            font-size: 14px;
+
+            &.strong-link{
+                font-size: 16px;
+                font-weight: bold;
+                color: #333;
+            }
+            &:hover{
+                color: @sports-yellow;
+            }
+        }
+    }
+
+    .champion{
+        .size(60px,110px);
+        float: left;
+        img{
+            .square(60px);
+            .border-radius(50%);
+            margin-top: 15px;
+        }
+        span.num{
+            display: block;
+            text-align: center;
+            color: #333;
+            font-size: 14px;
+            line-height: 24px;
+        }
+    }
+
+}
+
+.top-wrap{
+    margin-top: 20px;
+}
+
+.section{
+    overflow: hidden;
+    margin-top: 28px;
+    ul{
+        list-style: none;
+        overflow: hidden;
+        width: 470px;
+        li{
+            .size(220px,180px);
+            overflow: hidden;
+            float: left;
+            margin-right: 15px;
+            p{
+                line-height: 40px;
+                color: #939393;
+                .text-overflow;
+            }
+        }
+    }
+}
+
+//奖牌榜
+h2.j-ranking{
+    .size(auto,40px);
+    .bg('sprite.png',no-repeat,-195px 0);
+    line-height: 40px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    padding-left: 14px;
+
+    a{
+        .inline-block;
+        .text-n;
+        float: right;
+        margin-right: 10px;
+        font-size: 14px;
+        color: #fff;
+        &:hover{
+            color: @sports-yellow;
+        }
+    }
+}
+
+.ranking-wrap{
+    .bgc(#f9f9f9);
+    border: #e6e5e5 1px solid;
+    border-top: none;
+    padding-top: 20px;
+
+    table{
+        width: 100%;
+        thead{
+            th{
+                text-align: center;
+                color: #959595;
+                height: 24px;
+                font-weight: normal;
+            }
+        }
+        tbody{
+            td{
+                text-align: center;
+                height: 38px;
+                &.active-yellow{
+                    color: @sports-yellow;
+                }
+            }
+        }
+    }
+}
+
+//赛程表
+.match-table{
+    .bgc(#f9f9f9);
+    border: #e6e5e5 1px solid;
+    margin-top: 20px;
+    .match-tab{
+        overflow: hidden;
+    }
+    a.prev,
+    a.next{
+        .size(9px,17px);
+        display: block;
+    }
+    a.prev{
+        float: left;
+        margin: 17px 0 0 9px;
+        .bg('sprite.png',no-repeat,0 -40px);
+    }
+    a.next{
+        float: right;
+        margin: 17px 9px 0 0;
+        .bg('sprite.png',no-repeat,-9px -40px);
+    }
+
+    .match-slider{
+        .size(223px,32px);
+        float: left;
+        margin-left: 10px;
+        overflow: hidden;
+        margin-top: 10px;
+        ul{
+            list-style: none;
+            li{
+                .size(223px,32px);
+                display: block;
+                float: left;
+                a{
+                    .size(36px,32px);
+                    .bgc(#e6e6e6);
+                    .text-n;
+                    display: block;
+                    text-align: center;
+                    line-height: 32px;
+                    font-size: 14px;
+                    color: #333;
+                    float: left;
+                    margin: 0 4px;
+
+                    &:hover,
+                    &.active{
+                        .bgc(@sports-yellow);
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.match-list{
+    list-style: none;
+    margin: 10px;
+    padding-bottom: 5px;
+    li{
+        display: block;
+        color: #959595;
+        font-size: 14px;
+        line-height: 30px;
+        .text-overflow;
+    }
+}
+
+.rightAd{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.h-video-list{
+    padding-top: 10px;
+    dl.h-item{
+        overflow: hidden;
+        dt{
+            .size(100px,75px);
+            display: block;
+            float: left;
+            overflow: hidden;
+            img{
+                width: 100%;
+            }
+        }
+        dd{
+            .size(165px,60px);
+            margin: 0;
+            margin-left: 10px;
+            display: block;
+            float: left;
+            a{
+                .text-n;
+                color: #333;
+                font-size: 14px;
+                &:hover{
+                    color: @sports-yellow;
+                }
+            }
+        }
+    }
+}
+
+.tonglan-ad{
+    .size(1200px,auto);
+    margin: 30px auto;
+}
+
+.video-column{
+    .size(1200px,auto);
+    overflow: hidden;
+}
+
+//赛场内外
+.video-column-list{
+    .size(1250px,auto);
+    list-style: none;
+    display: block;
+    overflow: hidden;
+    li{
+        .size(227px,170px);
+        display: block;
+        float: left;
+        margin: 16px 16px 0 0;
+    }
+}
+
+.gallery{
+    margin-top: 15px;
+    overflow: hidden;
+
+    .col-1,
+    .col-2,
+    .col-3{
+        float: left;
+    }
+
+    .col-1{
+        width: 530px;
+        margin-right: 5px;
+    }
+
+    a.col-1-top{
+        margin-bottom: 5px;
+        display: block;
+        height: 285px;
+        position: relative;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+    }
+    a.col-1-bottom{
+        display: block;
+        height: 140px;
+        position: relative;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+    }
+    p.gallery-title{
+        position: absolute;
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        text-indent: 5px;
+        bottom: 0;
+        left: 0;
+        .bgc(rgba(0, 0, 0, .6));
+        background:#000000\9;
+        *background: #000000;
+        .text-overflow();
+        color: #fff;
+    }
+
+    .col-2{
+        width: 265px;
+        margin-right: 5px;
+    }
+
+    a.col-2-item{
+        display: block;
+        height: 140px;
+        margin-bottom: 5px;
+        position: relative;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+    }
+
+    .col-3{
+        width: 395px;
+    }
+
+    a.col-3-item{
+        display: block;
+        height: 212px;
+        margin-bottom: 5px;
+        position: relative;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+    }
+}
+
+.wrapper{
+    padding-bottom: 300px;
+    .bg('main-bottom.jpg',no-repeat,center bottom);
+}
+
+@import 'components/title';
+@import 'components/news-text-list';
+@import 'components/news-media-new';
+@import 'components/footer-sports';
+@import 'components/news-slider';
+@import 'components/news-mixins';
+@import 'components/navigation-new';

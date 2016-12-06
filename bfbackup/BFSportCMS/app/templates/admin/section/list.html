@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>暴风体育内容管理系统 - CMS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="../../../static/plugins/jQueryUI/jquery-ui.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../../../static/plugins/datatables/dataTables.bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../../static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="../../../static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../../../static/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../../../static/fileupload/css/fileupload.css">
+    <link rel="stylesheet" href="../../../static/fileupload/css/fileupload-ui.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .table tbody tr td {
+            vertical-align: middle;
+        }
+
+        .file_img_content img{
+            max-width: 200px;
+            height: 70px;
+        }
+        html,
+        body,
+        .wrapper{overflow: auto;}
+        #list-table td:nth-child(5){
+            max-width:300px;
+            word-break:break-all;
+            word-wrap:break-word;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5;">
+<div class="wrapper">
+    <div class="content-wrapper" style="margin-left: 0;">
+        <section class="content-header">
+            <h1><i class="fa fa-tags"></i>暴风体育CMS--专栏管理</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-info">
+                        <div class="box-body nopadding">
+                            <div class="col-md-3 col-sm-offset-9">
+                                <a id = "add_section" role="button" id="add-channel-btn" href="{{url_for('admin.add_section')}}" class="btn btn-success btn-flat pull-right"><i class="glyphicon glyphicon-plus"></i>新增专栏</a>
+                            </div>
+                        </div>
+
+
+                        <table class="table table-hover" id="list-table">
+                            <thead>
+                            <tr>
+                                <th>专栏ID</th>
+                                <th>显示顺序</th>
+                                <th>专栏logo</th>
+                                <th>专栏背景图</th>
+                                <th>专栏标题</th>
+                                <th>创建时间</th>
+                                <th>上线/下线</th>
+                                <th>管理</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                             {% for section in sections %}
+                            <tr>
+                                <td>{{section.id}}</td>
+                                <td>{{section.display_order}}</td>
+                                <td>
+                                    <img width="120"  height="80" src="{{section.logo}}">
+                                </td>
+                                <td>
+                                    <img width="120" height="80"  src="{{section.image}}">
+                                </td>
+                                <td>{{section.title}}</td>
+                                <td>{{section.created_at}}</td>
+                                <td>
+                                    {% if section.visible == 0 %}
+                                        <input class="release" type="checkbox" data-sectionid="{{section.id}}" >
+                                    {% else %}
+                                        <input class="release" type="checkbox" checked="checked" data-sectionid="{{section.id }}">
+                                    {% endif %}
+                                </td>
+
+                                <td>
+                                    <a href="{{url_for('admin.edit_section', section_id=section.id)}}" type="button" name="edit" class="btn btn-info btn-xs"><i class="fa fa-info"></i> 编辑</a>
+                                    <a href="{{url_for('admin.list_section_posts', section_id=section.id)}}" type="button" class="btn btn-info btn-xs"><i class="fa fa-cogs"></i> 内容管理</a>
+                                    <button type="button" class="btn btn-xs btn-danger btn-del" data-sectionid="{{section.id}}"><i class="glyphicon glyphicon-remove"></i> 删除</button>                                    
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {% if pagination %}
+                                    {% include 'admin/pagination.html' %}
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="del_dialog" title="提示">
+    <p class="del_tip">您确定要删除此专栏信息吗？</p>
+</div>
+
+<div id="tip" title="信息提示">
+    <p class="error_tip">操作成功</p>
+</div>
+
+<!-- jQuery 2.1.4 -->
+<script src="../../../static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="../../../static/bootstrap/js/bootstrap.min.js"></script>
+<!-- jQuery UI -->
+<script src="../../../static/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- DataTables -->
+<script src="../../../static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../../static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="../../../static/fileupload/scripts/jquery.ui.widget.js"></script>
+<script src="../../../static/fileupload/scripts/jquery.fileupload.js"></script>
+<script>
+var tempUrl;
+//提示
+var dialogTip = $('#tip').dialog({
+    autoOpen: false,
+//        height: 100,
+    width: 350,
+    modal: true
+});
+
+//删除提示
+var dialog = $('#del_dialog').dialog({
+    autoOpen: false,
+    height: 200,
+    width: 350,
+    modal: true
+});
+
+
+//点击删除行为
+$(".table").on("click", ".btn-del", function () {
+    var self = $(this);
+    var sid = self.data("sectionid");
+    dialog.dialog('open');
+    dialog.dialog('option', 'buttons', {
+        '删除': function () {
+           $.get("/sections/" + sid + '/delete', function (data) {
+                if(data.errno == 10000){
+                    self.parent().parent().remove();
+                    dialog.dialog('close');
+                    $(".error_tip").text("操作成功");
+                    dialogTip.dialog('open');
+                    tip();
+                }
+                else{
+                    dialogmessage.dialog('open');
+                    $(".error_tip").text(data.message);
+                }
+           });
+        },
+        '取消': function () {
+            dialog.dialog('close');
+        }
+    });
+});
+
+//点击上下线
+$(".table").on("click", ".release", function () {
+    var self = $(this);
+    var sid = self.data("sectionid");
+    console.log(sid)
+    if ($(this).is(':checked')) {
+        $.get("/sections/" + sid + '/show', function (data) {
+            if(data.errno == 200){
+                $(".error_tip").text("操作成功");
+                dialogTip.dialog('open');
+                tip();
+            }
+            else{
+                dialogmessage.dialog('open');
+                $(".error_tip").text(data.message);
+            }
+        });
+    }
+    else {
+        $.get("/sections/" + sid + '/hide', function (data) {
+            if(data.errno == 200){
+                $(".error_tip").text("操作成功");
+                dialogTip.dialog('open');
+                tip();
+            }
+            else{
+                dialogmessage.dialog('open');
+                $(".error_tip").text(data.message);
+            }
+        });
+    }
+});
+
+var tipDiv = $("#tip")
+function tip() {
+    var mask = $(".ui-widget-overlay");
+    setTimeout(function () {
+        mask.animate({
+            opacity: 0
+        }, 500, function () {
+            mask.css({"opacity": .8})
+        });
+
+        tipDiv.animate({
+            opacity: 0
+        }, 500, function () {
+            dialogTip.dialog('close');
+            tipDiv.css({"opacity": 1})
+        });
+    }, 500)
+}
+</script>
+</body>
+</html>

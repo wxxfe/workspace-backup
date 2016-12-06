@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>2016里约奥运会_暴风体育</title>
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!-- build:css css/my-olympic.css -->
+    <link rel="stylesheet" href="src/css/my-olympic.css"/>
+    <!-- endbuild -->
+</head>
+<body>
+<div class="top-bar">
+    <div class="top">
+        <a href="http://sports.baofeng.com/">暴风体育首页</a> | <a href="http://2016.sports.baofeng.com/">奥运会</a>
+    </div>
+</div>
+<div class="container">
+    <!-- 视频播放 -->
+    <div class="video-player">
+        <div id="player" class="player">
+        </div>
+        <div class="video-list-wrap">
+            <script>
+                var playList = [
+                    {
+                        qstp: 'qstp://qkvp/pGp/bmxleqg/qey:XDXZ.s?jp=GGJ&jd=EBTQTQMDAZW00FFWGZFXAWJ1ZXM0JEWGJMXX0JFB&vd=E01C0ZQEDQCJTD00MJFQDZM1JCTGC00EAJJC1WFT&lh=ZXFJDA&fz=00XA&pi=DE&pr=DAQAXX&pps=A&ppk=A&pyp=ZXFGFG&blzd=GBX&vk=A&pah=BZGDAFEDDBXXXTMTQJJW0TBTAME1FZTJ&ped=pov',
+                        autoPlay: '1',
+                        vr: '0',
+                        name: 'test1'
+                    },
+                    {
+                        qstp: 'qstp://qkvp/pGp/bmxleqg/qey:XDXZ.s?jp=GGJ&jd=CCFFCAT01ACQAFGTETGGTEXWTQZAAFECMBDQ01BA&vd=FTZGFCZ1AQEMGJAEWB1GEEX1TCJBCAJWQMBGEXXC&lh=DX0BBWA&fz=DZE0X&pi=DE&pr=DAQC0X&pps=A&ppk=A&pyp=DX0BBQG&blzd=MZM&vk=A&pah=1AAGCEJJD1XXAWXTQJWWZMZT1X0CQJXT&ped=pov',
+                        autoPlay: '1',
+                        vr: '0',
+                        name: 'test2'
+                    },
+                    {
+                        qstp: 'qstp://qkvp/pGp/bmxleqg/qey:XDXZ.s?jp=GGJ&jd=EGBDDMFJF0XEZ1M1ATMJQXX1DDB1EAEAMTQWTJJA&vd=1BWJJQW0BAF1AZBZW1A1WZ1MQEA0WT0ETGF0EZXC&lh=EAFJEE&fz=F0TA&pi=DE&pr=DAQCJA&pps=A&ppk=A&pyp=EAFJ1A&blzd=JWC&vk=A&pah=XBAQBBQECCMQZAZEBE1CJZBXEQ0WWTCZ&ped=pov',
+                        autoPlay: '1',
+                        vr: '0',
+                        name: 'test3'
+                    },
+                    {
+                        qstp: 'qstp://qkvp/pGp/bmxleqg/qey:XDXZ.s?jp=GGJ&jd=JTA0CBZWBBFEQ1CBJJ1JFDEG0D1WTJTEEGGJXCW1&vd=WAFWT0BAF0AXGWGZTJWXMJXGMQQZDW1WEBAM111E&lh=ZACTX0&fz=0GWA&pi=DE&pr=DAXBBX&pps=A&ppk=A&pyp=ZACTTC&blzd=GBX&vk=A&pah=BXFQQTZZJ1ECEC1AQDJDEW1TDFAFAEZG&ped=pov',
+                        autoPlay: '1',
+                        vr: '0',
+                        name: 'test4'
+                    },
+                    {
+                        qstp: 'qstp://qkvp/pGp/bmxleqg/qey:XDXZ.s?jp=GGJ&jd=BJCQMDDB0WAGXXJQ1AGF1MJFQA0BXAJGGWFTGDTE&vd=GWCTDJEBJMDQCXQQJ0CJG1XTCMXDTXBTE1MCW1JX&lh=CWMQTM&fz=1ZXA&pi=DE&pr=DATFMX&pps=A&ppk=A&pyp=CWMQMT&blzd=JAC&vk=A&pah=MQATQGF1WBFWGGCJMDGGQBCE0FTBZBFJ&ped=pov',
+                        autoPlay: '1',
+                        vr: '0',
+                        name: 'test5'
+                    },
+                    {
+                        qstp: 'qstp://qkvp/pGp/bmxleqg/qey:XDXZ.s?jp=GGJ&jd=GE1JQBB0ZZA0GFBQZBDZZQWCTW00JFXDAQ0WMXCC&vd=EBEEXJXXTEJEDXJBFC0MQZMBJFXJZQDTGGZMBFMD&lh=CQ1ECW&fz=1CAA&pi=DE&pr=DAQDBA&pps=A&ppk=A&pyp=CQ1E0Z&blzd=JTA&vk=A&pah=BXXECAX0JCFMQFDCJDADBFMTCXGWWTFQ&ped=pov',
+                        autoPlay: '1',
+                        vr: '0',
+                        name: 'test6'
+                    },
+                ];
+            </script>
+            <ul class="video-list">
+                <li>
+                    <a href="javascript:void(0)" class="active">
+                        <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                        <p class="v-title">中国队纳入第一块金牌</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                        <p class="v-title">中国队纳入第一块金牌</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                        <p class="v-title">中国队纳入第一块金牌</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                        <p class="v-title">中国队纳入第一块金牌</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                        <p class="v-title">中国队纳入第一块金牌</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                        <p class="v-title">中国队纳入第一块金牌</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /视频播放 -->
+
+    <!-- 前线巨星 -->
+    <div class="superstar">
+        <div class="main-title">
+            <h2>前线巨星</h2>
+            <div class="after"></div>
+        </div>
+        <div class="data-wrap">
+            <a href="javascript:void(0)" class="prev"><i></i></a>
+            <div class="slide-wrap">
+                <ul>
+                    <li>
+                        <!-- 把原来的四个div输出到一个li里面,div里面文字部分ulli元素都改成了div -->
+                        <div>
+                            <img src="src/images/my-olympic-bg-1.jpg" alt="临时图">
+                            <div class="txt">
+                                <div class="txt-1">孙扬 参赛项目</div>
+                                <div>男子200米自由泳</div>
+                                <div>男子200米自由泳</div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="src/images/my-olympic-bg-1.jpg" alt="临时图">
+                            <div class="txt">
+                                <div class="txt-1">孙扬 参赛项目</div>
+                                <div>男子200米自由泳</div>
+                                <div>男子200米自由泳</div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="src/images/my-olympic-bg-1.jpg" alt="临时图">
+                            <div class="txt">
+                                <div class="txt-1">孙扬 参赛项目</div>
+                                <div>男子200米自由泳</div>
+                                <div>男子200米自由泳</div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="src/images/my-olympic-bg-1.jpg" alt="临时图">
+                            <div class="txt">
+                                <div class="txt-1">孙扬 参赛项目</div>
+                                <div>男子200米自由泳</div>
+                                <div>男子200米自由泳</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="src/images/my-olympic-bg-1.jpg" alt="临时图">
+                            <div class="txt">
+                                <div class="txt-1">孙扬 参赛项目</div>
+                                <div>男子200米自由泳</div>
+                                <div>男子200米自由泳</div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="src/images/my-olympic-bg-1.jpg" alt="临时图">
+                            <div class="txt">
+                                <div class="txt-1">孙扬 参赛项目</div>
+                                <div>男子200米自由泳</div>
+                                <div>男子200米自由泳</div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="src/images/my-olympic-bg-1.jpg" alt="临时图">
+                            <div class="txt">
+                                <div class="txt-1">孙扬 参赛项目</div>
+                                <div>男子200米自由泳</div>
+                                <div>男子200米自由泳</div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="src/images/my-olympic-bg-1.jpg" alt="临时图">
+                            <div class="txt">
+                                <div class="txt-1">孙扬 参赛项目</div>
+                                <div>男子200米自由泳</div>
+                                <div>男子200米自由泳</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <a href="javascript:void(0)" class="next"><i></i></a>
+
+        </div>
+
+    </div>
+    <!-- /前线巨星 -->
+
+    <!-- banner -->
+    <div class="banner"><a href="#"><img src="src/images/temp/images/2.png" alt="临时图"></a></div>
+    <!-- /banner -->
+
+    <!-- 全部往期 -->
+    <div class="slide-box">
+        <div class="main-title">
+            <h2>全部往期</h2>
+            <div class="after"></div>
+        </div>
+        <div class="data-wrap">
+            <a href="javascript:void(0)" class="prev"><i></i></a>
+            <div class="slide-wrap">
+                <ul>
+                    <li>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                        <div class="media medium photo">
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/76b03ea50d33e3ae7fd6957921dad429" alt="">
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <a href="javascript:void(0)" class="next"><i></i></a>
+        </div>
+    </div>
+    <!-- /全部往期 -->
+
+    <!-- banner -->
+    <div class="banner"><a href="#"><img src="src/images/temp/images/3.png" alt="临时图"></a></div>
+    <!-- /banner -->
+
+    <div class="row-box">
+
+        <!-- 暴风应援 -->
+        <div class="support">
+            <div class="main-title">
+                <h2>暴风应援</h2>
+                <div class="after"></div>
+            </div>
+
+            <div class="support-content">
+                <div id="SOHUCS" sid="olympics_subject_02"></div>
+                <script charset="utf-8" type="text/javascript"
+                        src="http://changyan.sohu.com/upload/changyan.js"></script>
+                <script type="text/javascript">
+                    window.changyan.api.config({
+                        appid: 'cysj03Qn0',
+                        conf: 'prod_280aa516a94db483b3ebb1041f7013ec'
+                    });
+                </script>
+            </div>
+        </div>
+        <!-- /暴风应援 -->
+
+        <div class="col-right">
+
+            <!-- 奖牌榜 -->
+            <div class="ranking">
+                <h2 class="j-ranking"><a href="#" target="_blank">更多</a>奖牌榜</h2>
+
+                <div class="ranking-wrap">
+                    <table cellpadding="0" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>排名</th>
+                            <th>国家/地区</th>
+                            <th>金牌</th>
+                            <th>铜牌</th>
+                            <th>银牌</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="active-yellow td1">1</td>
+                            <td>中国</td>
+                            <td>23</td>
+                            <td>20</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td class="active-yellow td1">2</td>
+                            <td>美国</td>
+                            <td>23</td>
+                            <td>20</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td class="active-yellow td1">3</td>
+                            <td>俄罗斯</td>
+                            <td>23</td>
+                            <td>20</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td class="td1">4</td>
+                            <td>法国</td>
+                            <td>23</td>
+                            <td>20</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td class="td1">5</td>
+                            <td>德国</td>
+                            <td>23</td>
+                            <td>20</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td class="td1">6</td>
+                            <td>德国</td>
+                            <td>23</td>
+                            <td>20</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td class="td1">7</td>
+                            <td>德国</td>
+                            <td>23</td>
+                            <td>20</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td class="td1">8</td>
+                            <td>德国</td>
+                            <td>23</td>
+                            <td>20</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td class="td1">9</td>
+                            <td>德国</td>
+                            <td>23</td>
+                            <td>20</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td class="td1">10</td>
+                            <td>德国</td>
+                            <td>23</td>
+                            <td>20</td>
+                            <td>3</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- /奖牌榜 -->
+
+            <!-- VR看里约 -->
+            <div class="vr-look">
+                <div class="title">
+                    <div>VR看里约</div>
+                </div>
+                <div class="content">
+                    <div><a href="#"><img src="src/images/temp/images/3.png" alt="临时图"></a></div>
+                    <div><a href="#"><img src="src/images/temp/images/3.png" alt="临时图"></a></div>
+                    <div><a href="#"><img src="src/images/temp/images/3.png" alt="临时图"></a></div>
+                    <div><a href="#"><img src="src/images/temp/images/3.png" alt="临时图"></a></div>
+                </div>
+            </div>
+            <!-- /VR看里约 -->
+
+        </div>
+    </div>
+
+    <!-- banner -->
+    <div class="banner"><a href="#"><img src="src/images/temp/images/2.png" alt="临时图"></a></div>
+    <!-- /banner -->
+
+    <!-- 合作伙伴 -->
+    <div class="partners">
+        <div class="main-title">
+            <h2>合作伙伴</h2>
+            <div class="after"></div>
+        </div>
+        <table>
+            <tbody>
+            <td><a href="#"><img src="src/images/temp/images/bf_logo.png" alt="临时图"></a></td>
+            <td><a href="#"><img src="src/images/temp/images/bf_logo.png" alt="临时图"></a></td>
+            </tbody>
+        </table>
+    </div>
+    <!-- /合作伙伴 -->
+
+</div>
+<div class="footer"></div>
+<!-- build:js scripts/lib/jquery.min.js -->
+<script src="src/scripts/lib/require.js"></script>
+<script src="src/scripts/lib/jquery-1.12.1.min.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/myOlympic.js -->
+<script src="src/scripts/myOlympic.js"></script>
+<!-- endbuild -->
+</body>
+</html>

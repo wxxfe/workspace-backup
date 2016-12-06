@@ -1,0 +1,177 @@
+/**
+ * 赛事
+ */
+.match-block {
+	.bgc(#fff);
+    a{
+		cursor: pointer;
+        color: #666;
+		text-decoration: none;
+    }
+
+	.team {
+		margin-top: 10px;
+		.text-c();
+		.logo {
+			.size(60px, 70px);
+			.center-block();
+			overflow: hidden;
+			img {
+				.size(100%, auto);
+			}
+		}
+
+		.name {
+			font-size: @font-size-base + 2;
+		}
+	}
+
+	.info {
+		.text-c();
+		span {
+			display: block;
+			color: @gray;
+
+			&.match-name {
+				font-size: @font-size-base;
+			}
+
+			&.star,
+			&.result {
+				height: 60px;
+				line-height: 60px;
+			}
+
+			&.result {
+				color: @sports-yellow;
+				font-size: @font-size-h2;
+			}
+
+            &.time,
+            &.status{
+                line-height: 18px;
+            }
+
+			&.time {
+				color: @gray-light;
+			}
+
+			&.time.playing {
+				color: @sports-yellow;
+			}
+
+			&.status {
+				color: @sports-yellow;
+			}
+		}
+	}
+
+}
+
+// Match bar
+.one-row.match-bar{
+    margin: 0;
+	.text-right{width:17%}
+	.team-name.text-right{width:23%; text-align: center}
+	.text-left{width:17%}
+	.center{width:60%}
+}
+.match-bar {
+	@margin-size: 40px;
+	@margin-text-size: 10px;
+
+	.bgc(#fff);
+	line-height: 60px;
+	padding: 20px 0;
+
+	button.zan {
+		.square(48px);
+		.inline-block();
+		.va();
+		cursor: pointer;
+		border: 0 #fff solid;
+		&.team-yellow {
+			.bg('icon_button_new.png', no-repeat, 0 -36px);
+			margin-left: 20px;
+			margin-right: @margin-text-size;
+		}
+		&.team-blue {
+			.bg('icon_button_new.png', no-repeat, -48px -36px);
+			margin-right: 20px;
+			margin-left: @margin-text-size;
+		}
+
+		&:active,
+		&:focus {
+			outline: none;
+		}
+	}
+
+	span.zan-total {
+		.inline-block();
+		font-size: @font-size-large;
+		color: @gray;
+		position: relative;
+		em{
+			visibility: hidden;
+			position: relative;
+			font-style: normal;
+			color: @sports-yellow;
+		}
+	}
+
+	.team-name {
+		font-size: @font-size-large + 2;
+		line-height: 22px;
+		padding-top: 22px;
+		text-align: center;
+		//display: table-cell;
+		//vertical-align: middle;
+	}
+
+	img.logo {
+		width: 60px;
+	}
+
+	.result {
+		font-size: @font-size-h2;
+	}
+
+	.text-right {
+		text-align: right;
+	}
+
+	.text-left {
+		text-align: left;
+	}
+
+	.text-center {
+		text-align: center;
+        height: 60px;
+	}
+
+}
+
+.one-row.pk-progress{
+    margin: 0;
+}
+.pk-progress {
+	.size(auto, 4px);
+	.bgc(#fff);
+    overflow: hidden;
+	.pk {
+		height: 4px;
+		line-height: 0;
+		font-size: 0;
+		float: left;
+		margin: 0 2px;
+	}
+	.t-yellow {
+		.bgc(@sports-yellow);
+		margin-left: -2px;
+	}
+	.t-blue {
+		.bgc(@sports-blue);
+		margin-right: -2px;
+	}
+}

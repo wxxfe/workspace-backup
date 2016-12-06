@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>暴风体育内容管理系统 - CMS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="/static/plugins/jQueryUI/jquery-ui.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/static/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/static/calendarPicker/jquery.calendarPicker.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .table tbody tr td {
+            vertical-align: middle;
+        }
+        body{overflow: auto;}
+        /*//.wrapper{width:1180px;}*/
+        .ui-dialog-titlebar-close{outline: none;}
+        /*.box-info .col-md-12{padding: 0; margin: 0;}*/
+        .box-title{ margin: 20px auto; padding-left: 20px;}
+        .table-list td img{width:20px; height: 20px;}
+        .box-info .col-md-12 .table.table-list th,
+        .box-info .col-md-12 .table.table-list td{ text-align: center}
+        .select-date{ text-align: center;}
+        .schedule{width:765px; height: 100px;padding: 20px 30px; margin: 0 auto; border: 1px solid #f1f1f1;}
+        #fixture_list{width:705px; margin: 0 auto;}
+        #fixture_list a.prev,
+        #fixture_list a.next{width:20px; height: 60px; line-height: 60px; text-align: center; float: left;}
+        #photo{width:665px; height: 60px; float: left; position: relative; overflow: hidden}
+        #photo_panel{height: 60px;}
+        #photo_panel{position: absolute;}
+        .photo_panel ul{float: left;list-style-type: none; padding: 0; margin: 0}
+        .photo_panel ul li{width:95px; height: 60px; float: left;}
+        .photo_panel ul li a{display:block;width:85px; height: 60px; margin: 0 auto; text-align: center; background: #f9fafc; border: 1px solid #f5f5f5;line-height: 28px;}
+        .photo_panel ul li a.active{ background: #00c0ef; border: 1px solid #00acd6; color: #ffffff;}
+
+        #hot_list td:nth-child(5){width:286px;}
+        #hot_list td:nth-child(5) span{display: block; float: left;width:230px;  word-break:break-all;word-wrap:break-word; margin: 2px auto auto auto;text-align: center}
+        #hot_list td:nth-child(5) img:nth-child(1){float: left; }
+        #hot_list td:nth-child(5) img:nth-child(3){float: right;}
+
+        #commond_list td:nth-child(4){width:286px;}
+        #commond_list td:nth-child(4) span{display: block; float: left;width:230px;  word-break:break-all;word-wrap:break-word; margin: 2px auto auto auto; text-align: center}
+        #commond_list td:nth-child(4) img:nth-child(1){float: left; }
+        #commond_list td:nth-child(4) img:nth-child(3){float: right;} 
+        .content-wrapper{z-index: 10;}
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5;">
+<div class="wrapper">
+
+    <div class="content-wrapper col-md-12" style="margin-left: 0;">
+        <section class="content-header">
+            <h1><i class="fa fa-tags"></i>暴风体育CMS</h1>
+        </section>
+        <section class="content">
+            <div class="row  box box-info">
+
+                        <div class="box-body nopadding">
+                            <div class="col-md-12">
+
+                                <ul class="nav nav-tabs" style="margin-bottom: 10px; padding-left: 25px;">
+                                         {% for schedule in schedules %}
+                                            <li  {% if sDate== schedule['id'] %} class="active" {% endif %}><a href="/olympics/schedules?date={{ schedule['id'] }}">  {{schedule['date'][0]}} <br/>
+                                                        {{schedule['date'][1]}}</a></li>
+                                        {% endfor %}
+                                </ul>
+
+                                <a role="button" id="add-channel-btn" href="/olympics/schedules/add?date={{sDate}}"
+                                   class="btn btn-success btn-flat pull-right"><i class="glyphicon glyphicon-plus"></i>
+                                    添加赛程</a>
+                            </div>
+                        </div>
+
+                <h4 class="box-title">赛程管理</h4>
+                <h4 class="box-title" id="curreDate"></h4>
+
+                <div class="col-md-12">
+                    <table class="table table-hover table-list"  id="hot_list">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>比赛时间</th>
+                            <th>轮次</th>
+                            <th>大项目</th>
+                            <th>小项目</th>
+                            <th>置顶</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for match in matches %}                        
+                        <tr>
+                            <td>{{match.id }}</td>
+                            <td>{{match.start_tm }}</td>
+                            <td>{{match.round}}</td>
+                            <td>{{match.large_project}}</td>
+                            <td>{{match.small_project}}</td>
+
+                            {% if match.top: %}
+                             <td><input class="ejector" type="checkbox" checked="checked" data-topid="{{match.id}}" ></td>
+                            {% else: %}
+                             <td><input class="ejector" type="checkbox" data-topid="{{match.id}}" ></td>
+                            {% endif %}
+
+                            <td>
+                                <a href="/olympics/schedules/{{match.id}}/edit?date={{sDate}}" type="button" class="btn btn-xs btn-danger" data-tid="">编辑</a>
+                                <a name="del" href="" type="button" class="btn btn-xs btn-danger" data-tid="">删除</a>
+                             </td>
+
+                        </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+
+</div>
+<!--<div id="del_dialog" title="提示">-->
+<!--<p class="del_tip">您确定要删除此频道吗？</p>-->
+<!--</div>-->
+
+<div id="del_dialog" title="提示">
+    <p class="del_tip">您确定要删除此赛程吗？</p>
+</div>
+
+
+<div id="tip" title="信息提示">
+    <p class="dialogTip"></p>
+</div>
+
+<div id="tip_sucsses" title="信息提示">
+    <p class="">操作成功</p>
+</div>
+
+<div id="tip" title="信息提示">
+    <p class="error_tip">操作成功</p>
+</div>
+<!-- jQuery 2.1.4 -->
+<script src="/static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<!-- jQuery UI -->
+<script src="/static/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>
+
+
+var dialog = $('#del_dialog').dialog({
+    autoOpen: false,
+    height: 200,
+    width: 350,
+    modal: true
+});
+
+var dialogTip = $('#tip').dialog({
+    autoOpen: false,
+    width: 350,
+    modal: true
+});
+
+//操作成功提示
+var dialogSuc = $('#tip_sucsses').dialog({
+    autoOpen: false,
+    width: 350,
+    modal: true
+});
+
+
+// //点击置顶
+$(".table").on("click", ".ejector", function () {
+    var self = $(this);
+    var cid = self.data("topid");
+
+    if ($(this).is(':checked')) {
+        $.get("/olympics/schedules/" + cid + "/top?value=1", function (d) {
+            if(d.errno == 200){
+                dialogSuc.dialog('open');
+                tip();
+            }
+            else{
+                dialogTip.dialog('open');
+                $(".dialogTip").text(d.message);
+            }
+        });
+    }
+    else {
+        $.get("/olympics/schedules/" + cid + "/top?value=0", function (d) {
+            if(d.errno == 200){
+                dialogSuc.dialog('open');
+                tip();
+            }
+            else{
+                dialogTip.dialog('open');
+                $(".dialogTip").text(d.message);
+            }
+        });
+    }
+
+});
+
+
+
+
+
+    //删除提示
+    var dialog = $('#del_dialog').dialog({
+        autoOpen: false,
+        height: 200,
+        width: 350,
+        modal: true
+    });
+
+    //点击删除行为
+    $("#hot_list").on("click", "a", function (e) {
+        if(this.name == "del"){
+            e.preventDefault();
+            var self = this;
+            var mid = $(self).parent().parent().find("td:eq(0)").text();
+            dialog.dialog('open');
+            dialog.dialog('option', 'buttons', {
+            '删除': function () {
+               $.get("/olympics/schedules/" + mid + '/delete', function (data) {
+                   if (data.errno == 200) {
+                       $(self).parent().parent().remove();
+                       dialog.dialog('close');
+                       $(".error_tip").text("操作成功;")
+                       dialogTip.dialog('open');
+                       tip();
+                   }
+                   else {
+                       dialogTip.dialog('open');
+                       $(".error_tip").text(data.message);
+                   }
+               });
+            },
+            '取消': function () {
+                dialog.dialog('close');
+            }
+        });
+        }
+        else{}
+
+    });
+
+
+var tipDiv = $("#tip");
+var tipDiv = $("div[aria-describedby='tip']");
+function tip(){
+    var mask = $(".ui-widget-overlay");
+    setTimeout(function () {
+        mask.animate({
+            opacity: 0
+        }, 500, function () {
+            mask.css({"opacity": .8})
+        });
+
+        tipDiv.animate({
+            opacity: 0
+        }, 250, function () {
+            dialogSuc.dialog('close');
+            tipDiv.css({"opacity": 1})
+        });
+    }, 500)
+}
+
+
+</script>
+</body>
+</html>

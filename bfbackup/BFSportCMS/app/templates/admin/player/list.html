@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>暴风体育内容管理系统 - CMS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="../../../static/plugins/jQueryUI/jquery-ui.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../../../static/plugins/datatables/dataTables.bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../../static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="../../../static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../../../static/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../../../static/fileupload/css/fileupload.css">
+    <link rel="stylesheet" href="../../../static/fileupload/css/fileupload-ui.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .table tbody tr td {
+            vertical-align: middle;
+        }
+
+        .ui-dialog-titlebar-close {
+            outline: none;
+        }
+
+        #my-ui-list tr td:nth-child(4) img {
+            width: 20px;
+            height: 20px;
+        }
+        .file_img_content,
+        .file_img_content img{
+            max-width: 200px;
+            max-height: 70px;
+            margin: 7px 0 30px 0;
+        }
+		.input-group{ margin-top: 10px;}
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5;">
+<div class="wrapper">
+    <div class="content-wrapper" style="margin-left: 0;">
+        <section class="content-header">
+            <h1><i class="fa fa-tags"></i>暴风体育CMS--球员管理</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-info">
+                        <div class="box-body nopadding">
+                            <div class="col-md-9">
+                            </div>
+                            <div class="col-md-3">
+                                <a role="button" id="add-team" class="btn btn-success btn-flat pull-right"><i
+                                        class="glyphicon glyphicon-plus"></i>
+                                    添加球员</a>
+                            </div>
+                        </div>
+                        <table class="table table-hover" id="team_list">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>球员姓名</th>
+                                <th>球员英文名</th>
+                                <th>球员照片</th>
+                                <th>球员身高</th>
+                                <th>球员体重</th>
+                                <th>球员生日</th>
+                                <th>国籍</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="my-ui-list">
+
+                            {% for player in players %}
+
+                            <tr id="{{ player.id }}"><!--国梁输出id-->
+                                <td>{{ player.id }}</td>
+                                <td>{{ player.name }}</td>
+                                <td>{{ player.english_name }}</td>
+                                <td>
+                                    <img src="{{ player.photo }}">
+                                    <input type="hidden" name="" value="{{player.photoCode}}" />
+                                </td>
+                                <td>{{ player.height }}</td>
+                                <td>{{ player.weight }}</td>
+                                <td>{{ player.birthday }}</td>
+                                <td>{{ player.nationality }}</td>
+
+                                <td>
+                                    <a class="btn btn-info btn-xs btn-edit" name="btn-edit" role="button"><i class="fa fa-info"></i> 修改</a>
+                                    <!--国梁把id输出到data-rid属性中-->
+                                    <button type="button" class="btn btn-xs btn-danger btn-del" data-tid="{{ player.id }}"><i
+                                            class="fa fa-ban" title=""></i> 删除
+                                    </button>
+                                </td>
+                            </tr>
+
+                               {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                {% if pagination %}
+                                {% include 'admin/pagination.html' %}
+                                {% endif %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="del_dialog" title="提示">
+    <p class="del_tip">您确定要删除此球员信息吗？</p>
+</div>
+
+<div id="tip" title="信息提示">
+    <p class="error_tip">操作成功</p>
+</div>
+
+<div id="tip_team" title="球员" class="row" style="display: none;">
+    <div class="col-md-12">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">添加球员</h3>
+            </div>
+            <!-- /.box-header -->
+            <form class="form-horizontal" method="post" onSubmit="return check();">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="name" class="col-sm-4 control-label">球员姓名</label>
+
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="name" name="name"
+                                           placeholder="请输入球员姓名">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="english_name" class="col-sm-4 control-label">球员英文名</label>
+
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="english_name" name="english_name"
+                                           placeholder="请输入球员英文名">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="height" class="col-sm-4 control-label">球员身高</label>
+
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" id="height" name="height"
+                                           placeholder="球员身高单位：cm">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="weight" class="col-sm-4 control-label">球员体重</label>
+
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" id="weight" name="weight"
+                                           placeholder="球员体重单位：kg">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="birthday" class="col-sm-4 control-label">球员生日</label>
+
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="birthday" name="birthday"
+                                           placeholder="球员生日格式: 1989-07-21">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nationality" class="col-sm-4 control-label">国籍</label>
+
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="nationality" name="nationality"
+                                           placeholder="请输入国籍">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group" id="maxiput">
+                            <span class="input-group-btn">
+                                <span class="btn btn-warning fileinput-button">
+                                    <i class="glyphicon glyphicon-plus"></i>
+                                    <span>上传球员照片</span>
+                                    <input id="fileuploadphoto" type="file" name="image" multiple
+                                        data-url="http://w.image.sports.baofeng.com/save?token=xVFpX0RU"
+                                        data-sequential-uploads="true"
+                                        data-form-data='{"token": "xVFpX0RU"}'>
+                                </span>
+                            </span>
+                            <input readonly="readonly" id="coverphoto" class="form-control" type="text" name="photo" placeholder="上传球员照片">
+                        </div>
+                        <div class="file_img_content" id="photoimg"></div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <a id="cancel" class="btn btn-default" href="">取消</a>
+                    <button type="submit" class="btn btn-info pull-right">提交</button>
+                </div>
+                <!-- /.box-footer -->
+            </form>
+        </div>
+
+    </div>
+</div>
+<!-- jQuery 2.1.4 -->
+<script src="../../../static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="../../../static/bootstrap/js/bootstrap.min.js"></script>
+<!-- jQuery UI -->
+<script src="../../../static/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- DataTables -->
+<script src="../../../static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../../static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="../../../static/fileupload/scripts/jquery.ui.widget.js"></script>
+<script src="../../../static/fileupload/scripts/jquery.fileupload.js"></script>
+<script>
+    var tempUrl;
+    //提示
+    var dialogTip = $('#tip').dialog({
+        autoOpen: false,
+//        height: 100,
+        width: 350,
+        modal: true
+    });
+
+    //删除提示
+    var dialog = $('#del_dialog').dialog({
+        autoOpen: false,
+        height: 200,
+        width: 350,
+        modal: true
+    });
+
+    var tip_team = null;
+
+
+    var add_edit;
+
+    //点击编辑按钮的行为
+    var uid;
+    $("#team_list").on("click","a",function(e){
+        e.preventDefault();
+        add_edit = 'edit';
+        if(this.name == 'btn-edit'){
+            var crruentTr = $(this).parent().parent();
+            $("#name").val(crruentTr.find("td:eq(1)").text());
+            $("#english_name").val(crruentTr.find("td:eq(2)").text());
+            $("#height").val(crruentTr.find("td:eq(4)").text());
+            $("#weight").val(crruentTr.find("td:eq(5)").text());
+            $("#birthday").val(crruentTr.find("td:eq(6)").text());
+            $("#nationality").val(crruentTr.find("td:eq(7)").text());
+            $("#coverphoto").val(crruentTr.find("td:eq(3) :hidden").val());
+            $("#photoimg").html('<img src="'+crruentTr.find("td:eq(3) img").attr("src")+'">');
+            uid = crruentTr.find("td:eq(0)").text();
+            //添加编辑层
+            tip_team = $('#tip_team').dialog({
+                autoOpen: false,
+                height: 503,
+                width: '60%',
+                modal: true,
+                title: '修改球员信息'
+            });
+            $('#tip_team .box-title').text('修改球员信息');
+        }
+        tip_team.dialog('open');
+    });
+
+    //点击添加按钮的行为
+    $("#add-team").on("click",function(e){
+        e.preventDefault();
+        add_edit = 'add';
+        var crruentTr = $(this).parent().parent();
+        $("#name").val(crruentTr.find("td:eq(1)").text());
+        $("#english_name").val("");
+        $("#height").val("");
+        $("#weight ").val("");
+        $("#birthday ").val("");
+        $("#nationality").val("");
+        $("#coverphoto").val("");
+        $("#photoimg").html("");
+        //添加编辑层
+        tip_team = $('#tip_team').dialog({
+            autoOpen: false,
+            height: 503,
+            width: '60%',
+            modal: true,
+            title: '添加球员信息'
+        });
+        tip_team.dialog('open');
+    });
+
+    //点击取消按钮的行为
+    $("#cancel").on("click",function(e){
+        e.preventDefault();
+        tip_team.dialog('close');
+    });
+
+
+    //添加&编辑提交
+    function check(){
+        var teamData = {};
+        var checkStatus = false;
+//        $.each($('.form-horizontal').find('input'),function(i,data){
+//            if(data.value == ''){
+//                if(data.id == 'fileuploadphoto'){}
+//                else{
+//                    dialogTip.dialog('open');
+//				    $(".error_tip").text(data.placeholder);
+//                    checkStatus = false;
+//                    return false;
+//                }
+//            }
+//            else{
+//                  checkStatus = true;
+//                  teamData[data.name] = data.value;
+//            }
+//        });
+        if($('.form-horizontal').find("input[id='name']").val() == ''){
+            dialogTip.dialog('open');
+            $(".error_tip").text("请输入中文名称");
+            return false;
+        }
+        if($('.form-horizontal').find("input[id='english_name']").val() == ''){
+            dialogTip.dialog('open');
+            $(".error_tip").text("请输入球员英文名");
+            return false;
+        }
+        else if($('.form-horizontal').find("input[id='coverphoto']").val() == ''){
+            dialogTip.dialog('open');
+            $(".error_tip").text("请上传球员照片");
+            checkStatus = false
+        }
+        else{
+            checkStatus = true
+            $.each($('.form-horizontal').find('input'), function (i, data) {
+                if(data.id == 'fileuploadphoto'){}
+                else{
+                    teamData[data.name] = data.value;
+                }
+
+            });
+        }
+        if(checkStatus == true){
+            if (add_edit == 'add') {
+                //添加ajax
+                $.post("/players/add", teamData, function (data) {
+                    if (data.errno == 10000) {
+                        tip_team.dialog('close');
+                        window.location.reload();
+                    }
+                    else {
+                        dialogTip.dialog('open');
+                        $(".error_tip").text(data.message);
+                    }
+                });
+            }
+            else if (add_edit == 'edit') {
+                //编辑ajax
+                $.post("/players/" + uid + "/edit", teamData, function (data) {
+                    if (data.errno == 10000) {
+                        tip_team.dialog('close');
+                        window.location.reload();
+                    }
+                    else {
+                        dialogTip.dialog('open');
+                        $(".error_tip").text(data.message);
+                    }
+                });
+            }
+        }
+        else{}
+
+
+        return false
+    }
+
+    //上传行为
+	$('#fileuploadphoto').fileupload({
+		add: function (e, data) {
+			//data.context = $('<p/>').text('Uploading...').appendTo('#content');
+			data.submit();
+		},
+		done: function (e, data) {
+			//$('#cover').val(data);
+			var result = data.result.errno;
+
+			if(result !== 10000){
+				alert('上传失败,请重试！');
+			}
+			else{
+				$("#photoimg").html('<img height="90" src="http://image.sports.baofeng.com/' + data.result.data.pid + '">');
+				$('#coverphoto').val(data.result.data.pid);
+			}
+		}
+	});
+
+    //点击删除行为
+    $(".table").on("click", ".btn-del", function () {
+        var self = $(this);
+        var cid = self.data("tid");
+        dialog.dialog('open');
+        dialog.dialog('option', 'buttons', {
+            '删除': function () {
+               $.get("/players/" + cid + '/delete', function () {
+                self.parent().parent().remove();
+                dialog.dialog('close');
+                dialogTip.dialog('open');
+                tip();
+               });
+            },
+            '取消': function () {
+                dialog.dialog('close');
+            }
+        });
+    });
+
+    var tipDiv = $("#tip")
+    function tip() {
+        var mask = $(".ui-widget-overlay");
+        setTimeout(function () {
+            mask.animate({
+                opacity: 0
+            }, 1000, function () {
+                mask.css({"opacity": .8})
+            });
+
+            tipDiv.animate({
+                opacity: 0
+            }, 1000, function () {
+                dialogTip.dialog('close');
+                tipDiv.css({"opacity": 1})
+            });
+        }, 500)
+    }
+</script>
+</body>
+</html>

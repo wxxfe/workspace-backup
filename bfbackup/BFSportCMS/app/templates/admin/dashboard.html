@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>暴风体育内容管理系统 - CMS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/static/dist/css/skins/_all-skins.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5;">
+    <div class="wrapper">
+        <div class="content-wrapper" style="margin-left: 0;">
+            <section class="content-header">
+              <h1>Dashboard <small>Control panel</small></h1>
+              <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Dashboard</li>
+              </ol>
+            </section>
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="small-box bg-yellow">
+                            <div class="inner">
+                                <h3>2144</h3>
+                                <p>用户总数</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person"></i>
+                            </div>
+                            <div class="small-box-footer clearfix">
+                                <a href="http://192.168.90.53/users/edit/add" class="pull-left" style="color: #fff;">　<i class="fa fa-user-plus"> 添加用户</i></a>
+                                <a href="http://192.168.90.53/users/index" class="pull-right" style="color: #fff;">更多信息 <i class="fa fa-arrow-circle-right"></i>　</a>
+                            </div>
+                        </div>
+                        <div class="box box-warning">
+                            <div class="box-header with-border">
+                                <i class="fa fa-search"></i>
+                                <h3 class="box-title">快速查找用户</h3>
+                            </div>
+                            <div class="box-body">
+                                <form class="form-inline" action="http://192.168.90.53/users/index" method="POST" id="search-from">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="uid" id="uid" placeholder="输入UID" />
+                                        <span class="input-group-addon" style="border-left: none; border-right: none;">或</span>
+                                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="输入昵称" />
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-warning btn-flat"><i class="fa fa-search"></i> 查 找</button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h3>2323</h3>
+                                <p>直播视频总数</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-youtube-play"></i>
+                            </div>
+                            <a class="small-box-footer" href="http://192.168.90.53/videos/index">更多信息 <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="small-box bg-blue">
+                            <div class="inner">
+                                <h3>6311</h3>
+                                <p>未审核视频</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-question-circle"></i>
+                            </div>
+                            <a class="small-box-footer" href="http://192.168.90.53/live_examine/index">更多信息 <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+<!-- jQuery 2.1.4 -->
+<script src="/static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script>
+$('#search-from').on('submit',function(){
+    var uid = $('#uid').val();
+    var nickname = $('#nickname').val();
+    if(uid == '' && nickname == ''){
+        alert('请输入UID或用户昵称搜索!');
+        return false;
+    }
+});
+</script>
+</body>
+</html>

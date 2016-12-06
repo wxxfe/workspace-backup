@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>暴风体育内容管理系统 - CMS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="/static/plugins/jQueryUI/jquery-ui.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/static/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/static/fileupload/css/fileupload.css">
+    <link rel="stylesheet" href="/static/fileupload/css/fileupload-ui.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .table tbody tr td {
+            vertical-align: middle;
+        }
+        .del_tip {
+            text-align: center;
+            line-height: 34px;
+        }
+        .ui-dialog-titlebar-close {
+            outline: none;
+        }
+        .file_img_content_min,
+        .file_img_content{
+            max-width: 200px;
+            height: 70px;
+            margin: 7px 0 auto 0;
+        }
+        .file_img_content img,
+        .file_img_content_min img {
+            max-width: 200px;
+            height: 70px;
+        }
+
+        .input-group{ margin-top: 10px;}
+        .upload_img_contain{padding-right: 85px;position:relative;line-height: 34px;}
+        .upload_img_contain .button_tip{
+            position: absolute;
+            right:0;
+            top:0;
+            color: #f90;
+        }
+    </style>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5;">
+<div class="wrapper">
+    <div class="content-wrapper" style="margin-left: 0;">
+
+        <section class="content-header">
+            <h1><i class="fa fa-tags"></i>暴风体育CMS</h1>
+        </section>
+
+        <section class="content">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">关联视频</h3>
+                    </div>
+
+                    <!-- /.box-header -->
+                    <form class="form-horizontal" method="post" onSubmit="return check();">
+                            <div class="row">
+                            <div class="col-md-5">
+                            <div class="box-body">
+
+                                <div class="form-group">
+                                    <label for="medit_type" class="col-sm-4 control-label"> 媒资类型</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="slide_title" name=""
+                                                               value="{{resource.lable}}" disabled> 
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="select_type" class="col-sm-4 control-label">视频类型</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="select_type" name="type" value="">
+                                            <option value="highlight">比赛集锦</option>
+                                            <option value="replay">比赛录像</option>
+                                            <option value="forecast">比赛前瞻</option>
+                                            <option value="match_video">比赛视频</option>
+                                            <option value="event_video">赛事视频</option>
+                                            <option value="program">节目视频</option>
+                                            <option value="olympic"> 奥运视频</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="isvr" class="col-sm-4 control-label">VR属性</label>
+
+                                    <div class="col-sm-8">
+                                        <input type="checkbox" name="isvr" value="1">
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="match_id">
+                                    <label for="slide_title" class="col-sm-4 control-label">比赛ID</label>
+                                    <div class="col-sm-8">
+                                          <input type="text" class="form-control" id="slide_title" name="match_id" placeholder="请输比赛ID">
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="event_id" style="display:none">
+                                    <label for="url" class="col-sm-4 control-label">赛事</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" id="event_type_id" name="event_id"
+                                                        value="">
+                                                    {% for event in events %}
+                                                        {% if event.id != 0 %}
+                                                            <option value="{{event.id}}"> {{event.name}}</option>
+                                                         {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                </div>
+
+                                <div class="form-group" id="program_id" style="display:none">
+                                    <label for="bgcolor" class="col-sm-4 control-label">节目</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" id="program_type_id" name="program_id"
+                                                        value="">
+                                                    {% for program in programs %}
+                                                            <option value="{{program.id}}"> {{program.title}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                </div>
+
+                        </div>
+                        </div>
+                        </div>
+
+                        <div class="box-footer">
+                            <a id="cancel" class="btn btn-default" href="{{ url_for('admin.list_resources') }}">取消</a>
+                            <button type="submit" class="btn btn-info pull-right">提交</button>
+                        </div>
+                    </form>
+
+            </div>
+            </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+<div id="tip" title="完善信息提示">
+    <p class="del_tip"></p>
+</div>
+
+
+
+<!-- jQuery 2.1.4 -->
+<script src="/static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<!-- jQuery UI -->
+<script src="/static/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/fileupload/scripts/jquery.ui.widget.js"></script>
+<script src="/static/fileupload/scripts/jquery.fileupload.js"></script>
+<script>
+
+    //select联动
+    var matchType = $("#match_id");
+    var eventType = $("#event_id");
+    var programType = $("#program_id");
+    var currentSelected = $('#select_type :selected').val();
+
+    function setStatus(type){
+        if (type == 'event_video') {
+            eventType.show();
+            programType.hide();
+            matchType.hide();
+        }
+        else if (type == 'program') {
+            eventType.hide();
+            programType.show();
+            matchType.hide();
+        }
+        else if (type == 'olympic') {
+            eventType.hide();
+            programType.hide();
+            matchType.hide();
+        }
+        else {
+            eventType.hide();
+            programType.hide();
+            matchType.show();
+        }
+    }
+
+    setStatus(currentSelected);
+
+    $("#select_type").on("change", function () {
+            setStatus(this.value);
+    });
+
+</script>
+</body>
+</html>

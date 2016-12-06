@@ -1,0 +1,113 @@
+@import "../../components/style/themes/default/index";
+@import "../../components/downloadbar/index";
+@import "../../components/divideline/index";
+@import "../../components/portrait/index";
+@import "../../components/grid/index";
+@import "../../components/downloadtoast/index";
+@import "../../components/sharepage/index";
+
+
+.share {
+  margin-top: 96px; /*px*/
+  .share-title {
+    span:nth-child(1) {
+      font-size: 28px; /*px*/
+      color: #999999;
+    }
+    span:nth-child(2) {
+      font-size: 32px; /*px*/
+      color: #444444;
+    }
+    padding: 30px; /*px*/
+  }
+}
+
+.share-content {
+  padding: 0 30px; /*px*/
+  .portrait {
+    padding: 30px 0; /*px*/
+  }
+  .img-text {
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none;
+    }
+    .title {
+      margin-top: 26px; /*px*/
+      $font-spacing: $v-spacing-sm - 4px;
+      line-height: $font-size-paragraph + $font-spacing;
+      @include font-default;
+      @include text;
+      color: #444444;
+    }
+    padding-bottom: 46px; /*px*/
+  }
+
+  .share-like {
+    text-align: center;
+    color: #999999;
+    font-size: 24px; /*px*/
+    img.share-like-img {
+      margin: 36px auto 0; /*px*/
+      display: block;
+      width: 126px; /*px*/
+      height: 126px; /*px*/
+    }
+    .like-num {
+      margin-top: 24px; /*px*/
+    }
+    .portrait {
+      padding: 30px 0; /*px*/
+    }
+    .col-2 {
+      margin-bottom: 15px; /*px*/
+    }
+  }
+
+}
+
+.reply {
+  padding-bottom: 52px; /*px*/
+  .section-title {
+    margin-top: 30px; /*px*/
+  }
+  .portrait {
+    padding: 10px 0 20px; /*px*/
+  }
+  div.pull-left {
+    margin-left: 10px; /*px*/
+  }
+  h2 {
+    margin: 10px 0; /*px*/
+    font-size: 28px; /*px*/
+    color: #999999;
+  }
+  .content {
+    margin: 10px 0; /*px*/
+    font-size: 32px; /*px*/
+    color: #444444;
+  }
+}
+
+.form-control {
+  background: #fff;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  overflow: hidden;
+  border: 2px solid #ccc; /*px*/
+}
+
+.form-control input {
+  margin: 5px auto; /*px*/
+  display: block;
+  width: 96%;
+  height: 40px; /*px*/
+  background-color: #f1f1f1;
+  border: 2px solid #ccc; /*px*/
+  border-radius: 4px; /*px*/
+  padding: 4px; /*px*/
+}

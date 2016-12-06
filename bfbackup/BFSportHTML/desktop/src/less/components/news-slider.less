@@ -1,0 +1,56 @@
+/**
+ * 赛程表轮播
+ */
+.slider-news {
+    @s-width: 100%;
+    @s-height: 385px;
+
+    .size(@s-width,@s-height);
+    overflow: hidden;
+    position: relative;
+
+    ul,ul li{
+        .size(@s-width,@s-height);
+        .bgc(#000);
+        overflow: hidden;
+    }
+    ul li a{
+        display: block;
+        height: @s-height;
+        position: relative;
+        .text-n;
+        p.title{
+            .size(100%,50px);
+            line-height: 50px;
+            text-indent: 20px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            font-size: @font-size-h4;
+            color: #fff;
+            background-color: rgba(0,0,0,.6);
+            background-color: #222\9;
+            *background-color: #222\9;
+        }
+    }
+
+    .active-dot{
+        position: absolute;
+        right: 15px;
+        bottom: 20px;
+        z-index: 800;
+        letter-spacing: 0;
+        word-spacing: 0;
+        font-size: 0;
+        a{
+            .inline-block;
+            .square(8px);
+            .bgc(#ccc);
+            .border-radius(50%);
+            margin-right: 5px;
+            &.active{
+                .bgc(@sports-yellow);
+            }
+        }
+    }
+}

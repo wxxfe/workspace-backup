@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>@charset "utf-8";html{color:#000;background:#fff;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}html,body{font-family:sans-serif}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}abbr,acronym{border:0;font-variant:normal}del{text-decoration:line-through}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:500}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}q:before,q:after{content:''}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}a:hover{text-decoration:none}ins,a{text-decoration:none}</style>
+		
+		<script>!function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){console.warn("将根据已有的meta标签来设置缩放比例");var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var p=(a.navigator.appVersion.match(/android/gi),a.navigator.appVersion.match(/iphone/gi)),q=a.devicePixelRatio;i=p?q>=3&&(!i||i>=3)?3:q>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var r=e.createElement("div");r.appendChild(g),e.write(r.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));</script>
+		
+		<link rel="stylesheet" href="http://static.sports.baofeng.com/msports/testing/css/ba9ba22b.feedback.css" />
+	</head>
+	<body>
+        <form method="post" id="feedback">
+            <div class="row">
+                <div class="col-12 text-box">
+                    <textarea id="text-box" placeholder="请写下你遇到的问题或建议" name="text" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-box">
+                    <input type="text" name="contcat" placeholder="如需回复，请留下你的QQ号/手机号" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-box">
+                    <button type="submit" class="submit-btn">提交</button>
+                </div>
+            </div>
+            <input type="hidden" id="app_version" name="app_version" value="" />
+            <input type="hidden" id="phone_model" name="phone_model" value="" />
+            <input type="hidden" id="phone_system" name="phone_system" value="" />
+            <input type="hidden" id="network" name="network" value="" />
+        </form>
+		<script type="text/javascript">
+            var appVersion = document.querySelector('#app_version'),
+                phoneModel = document.querySelector('#phone_model'),
+                phoneSystem = document.querySelector('#phone_system'),
+                network = document.querySelector('#network'),
+                feedback = document.querySelector('#feedback');
+
+			var deviceCb = window.deviceCb = {};
+			deviceCb.fetchDeviceInfo = function(result) {
+				var res = JSON.parse(result);
+                appVersion.value = res.appVersion;
+                phoneModel.value = res.deviceModel;
+                phoneSystem.value = res.systemVersion;
+                network = res.reachability;
+			}
+
+            feedback.onsubmit = function(){
+                var text = document.querySelector('#text-box');
+                if(text.value == ''){
+                    alert('请输入反馈信息！');
+                    text.focus();
+                    return false;
+                }
+            }
+		</script>
+	</body>
+</html>

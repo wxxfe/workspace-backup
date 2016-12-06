@@ -1,0 +1,25 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../style/util";
+@import "../articleheadline/index";
+@import "../paragraphs/index";
+@import "../articleshowmore/index";
+@import "../button/index";
+
+.article {
+    .content {
+        padding-top: $h-spacing-xl; /*px*/
+       
+       .bfsports-topic-box {
+           $font-spacing: $v-spacing-md;
+           margin-top: 18px; /*px*/
+           padding-bottom: 18px; /*px*/
+           font-size: $font-size-title; /*px*/
+           line-height: $font-size-paragraph + $font-spacing; /*px*/
+           color: #000;
+           .bfsports-topic {
+               color: #1e5dab;
+           }
+       }
+    }
+}

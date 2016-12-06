@@ -1,0 +1,116 @@
+/**
+ * 标题条
+ */
+.main-title {
+
+	@title-height: 50px;
+	@padding-bottom-h: 15px;
+	@font-size-more: @font-size-h3 - 6;
+
+	padding: 5px 0 15px;
+    height: 30px;
+	border-bottom: #ff5800 1px solid;
+	overflow: hidden;
+	h2 {
+		.inline-block();
+		font-size: @font-size-h2;
+        font-style: italic;
+        font-weight: bold;
+        font-weight: none\9;
+        padding-right: 5px;
+		float: left;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff6c00+0,ff4f00+100 */
+        background: #ff6c00; /* Old browsers */
+        background: -moz-linear-gradient(top,  #ff6c00 0%, #ff4f00 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  #ff6c00 0%,#ff4f00 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  #ff6c00 0%,#ff4f00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff6c00', endColorstr='#ff4f00',GradientType=0 ); /* IE6-9 */
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+		color: #ff6c00;
+		filter: none\9;
+		*filter: none;
+		background: none\9;
+		*background: none;
+		&.large {
+			font-size: @font-size-h1;
+		}
+	}
+
+	a.more,
+    a.replace{
+		float: right;
+		font-size: @font-size-more;
+		color: @gray-dark;
+		overflow: hidden;
+		margin-top: 10px;
+        margin-right: 18px;
+        line-height: @font-size-more;
+		.inline-block();
+		.text-n();
+
+		&:hover {
+			color: @sports-blue;
+		}
+	}
+
+    a.replace{
+        i.loading{
+            .inline-block;
+            .square(18px);
+            .bgb('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1NkIwNDExODQ0MjIxMUU2ODE2NEI1QzEzM0Y0Q0U0MSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1NkIwNDExOTQ0MjIxMUU2ODE2NEI1QzEzM0Y0Q0U0MSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU2QjA0MTE2NDQyMjExRTY4MTY0QjVDMTMzRjRDRTQxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU2QjA0MTE3NDQyMjExRTY4MTY0QjVDMTMzRjRDRTQxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+tVXfswAAAYRJREFUeNqUlM0rRFEYxm/XSKaUzSiFbISFkQVpSswMsjMLzcKKEuU/kLU/QQ0WVrOxs7DwOSQSkwUbHyVRNlbyERnxO/Xcut2u5t63ft17zrnnue8573NOJJPJWD6Rhiz0QQNUwQPswRrseifYnnYLHMEOTEMT3MMN1KvPjBWg7T+hLjiBBOzDENRCHDr0PqixATiFfj+haziHWUjqzyXXeElLSiqzKKw7mUWgRksyIsPwa5WPFT2XYdWswmTUrXR7A4q4xQqalzZC48pqCWJWuFjQM2urxJY2dTukmFnJO6RsldiJzpBiP7JHo9nsb5mtNeDkmCoad/V9moye5N6KgELP8tOFq+/RlrGibnOFELtU+9AI5dWYD1kxIzanfcoboS0djRRMhRCqhA2Z+MyWCSfhBXI6IuViBopQpxvh1TlrVzAKH7CowZSnACaDEbk5pwI1O4MR14cH0KOzkxRvcKf7yPitWt8ewwTc+gk5mSV0hYzpgmuHLxmvqOJsetf6J8AAu5dT6djKrzkAAAAASUVORK5CYII=');
+            .va();
+            margin-right: 5px;
+            &.run{
+            	-webkit-transform: translate3d(0, 0, 0);
+				-moz-transform: translate3d(0, 0, 0);
+				-ms-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+				
+            	-webkit-animation: circle 1s infinite linear;
+  	   			-moz-animation: circle 1s infinite linear;
+  	     		-o-animation: circle 1s infinite linear;
+  	        	animation: circle 1s infinite linear;
+  	        	
+            }
+        }
+        margin-right: 0;
+    }
+
+	ul.tab-menu {
+		float: right;
+		list-style: none;
+		padding-top: 10px;
+		padding-right: 15px;
+		li {
+			.inline-block();
+			font-size: @font-size-more;
+			color: @gray;
+			padding: 0 15px;
+            border-right: #acacac 1px solid;
+            line-height: @font-size-more;
+            /*
+			&:after {
+				content: '|';
+				margin-left: 15px;
+				color: #acacac;
+				.inline-block();
+			}
+            */
+
+			a {
+				color: @gray-dark;
+				.text-n();
+				&:hover, &.active {
+					color: @sports-yellow;
+				}
+			}
+		}
+	}
+
+}
+@-webkit-keyframes circle{
+	0%{ transform:rotate(0deg); }
+	100%{ transform:rotate(-360deg); }
+}

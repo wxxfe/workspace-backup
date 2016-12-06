@@ -1,0 +1,111 @@
+@import 'mixins';
+@import 'lib/animate';
+@import 'lib/css3';
+@import 'components/grid';
+
+html, body {
+    min-width: 1200px;
+    width: 100%;
+    height: 100%;
+}
+
+body,h1,h2,h3,h4,h5,h6,p,ul,li{
+    margin: 0;
+    padding: 0;
+    font-family: @font-family-base;
+}
+
+.fixed-grid();
+
+img {
+    object-fit: cover;
+    border: none;
+}
+
+body{
+    .bg('main-top.jpg',no-repeat,center top);
+}
+
+.top-bar{
+    .bgc(#fff);
+    font-size: 14px;
+    height: 30px;
+    border-bottom: #e7e7e7 1px solid;
+    .top{
+        .size(1200px,30px);
+        .center-block;
+        line-height: 30px;
+        color: #333;
+        a{
+            .text-n;
+            color: #333;
+            &:hover{
+                color: @sports-blue;
+            }
+        }
+    }
+}
+
+.container {
+    padding-bottom: 300px;
+    min-height: 600px;
+    .bg('main-bottom.jpg',no-repeat,center bottom);
+}
+.center-box{
+    position: relative;
+    width: 1200px;
+    margin-top: 245px;
+    padding: 0;
+    overflow: hidden;
+    .center-block();
+}
+
+
+//奖牌榜
+h2.j-ranking-more{
+    .bgc(#0273d4);
+    .size(auto,40px);
+    line-height: 40px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    padding-left: 14px;
+
+    span{
+        .size(280px,40px);
+        .text-n;
+        .bg('sprite.png',no-repeat,-195px 0);
+        display: block;
+        float: right;
+    }
+}
+
+.ranking-wrap{
+    .bgc(#f9f9f9);
+    border: #e6e5e5 1px solid;
+    border-top: none;
+    padding-top: 20px;
+
+    table{
+        width: 100%;
+        thead{
+            th{
+                text-align: center;
+                color: #959595;
+                height: 24px;
+                font-weight: normal;
+            }
+        }
+        tbody{
+            td{
+                text-align: center;
+                height: 38px;
+                &.active-yellow{
+                    color: @sports-yellow;
+                }
+            }
+        }
+    }
+}
+
+@import 'components/navigation-new';

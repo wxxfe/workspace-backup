@@ -1,0 +1,22 @@
+<!-- 视频 开始 -->
+<video class="video" width="100%" height="100%" src="http://vjs.zencdn.net/v/oceans.mp4" webkit-playsinline></video>
+<!-- 视频 结束 -->
+
+<button class='play'>播放</button>
+
+<script type="text/javascript" src="/libs/iphone-inline-video.browser.js"></script>
+<script>
+	var video = document.querySelector('.video'),
+		videoComp;
+	if(video) {
+		videoComp = VideoFactory({
+			element: video
+		});
+		videoComp.on('play', function() {
+			console.log('play');
+		});
+	};
+	document.querySelector('.play').addEventListener('click', function() {
+		videoComp.play();
+	})
+</script>

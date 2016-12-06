@@ -1,0 +1,5 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+DBSQL - 2016-10-31 09:46:34 --> log_id:161031094634-462;user_id:6;sql: CREATE TABLE `log_user_action_201644` (               `id` varchar(32) NOT NULL DEFAULT '',               `user_id` int(10) unsigned NOT NULL DEFAULT '0',               `type` varchar(32) DEFAULT NULL,               `route` varchar(128) DEFAULT NULL,               `data` text,               `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,               PRIMARY KEY (`id`),               KEY `user_id` (`user_id`),               KEY `created_at` (`created_at`)             ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+DBSQL - 2016-10-31 09:46:34 --> log_id:161031094634-462;user_id:6;sql:INSERT INTO `log_user_action_201644` (`id`, `user_id`, `type`, `route`, `data`) VALUES ('161031094634-462', '6', 'user_login', '', '[]')
+DBSQL - 2016-10-31 09:49:55 --> log_id:161031094955-623;user_id:6;sql:INSERT INTO `log_user_action_201644` (`id`, `user_id`, `type`, `route`, `data`) VALUES ('161031094955-623', '6', 'user_login', '', '[]')

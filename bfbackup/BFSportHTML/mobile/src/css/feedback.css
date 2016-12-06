@@ -1,0 +1,635 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'pf_din_text_cond_promedium';
+  src: url("../fonts/pfdintextcondpro-medium-webfont.woff2") format("woff2"), url("../fonts/pfdintextcondpro-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'pf_din_text_cond_probold';
+  src: url("../fonts/pfdintextcondpro-bold-webfont.woff2") format("woff2"), url("../fonts/pfdintextcondpro-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'pf_din_text_cond_promedium';
+  src: url("../fonts/pfdintextcondpro-medium-webfont.woff2") format("woff2"), url("../fonts/pfdintextcondpro-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'pf_din_text_cond_probold';
+  src: url("../fonts/pfdintextcondpro-bold-webfont.woff2") format("woff2"), url("../fonts/pfdintextcondpro-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.button {
+  display: inline-block;
+  background: #e40010;
+  color: #fff;
+  text-indent: 0;
+  text-align: center;
+}
+
+[data-dpr="1"] .button {
+  font-size: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  line-height: 32px;
+  border-radius: 4px;
+}
+
+[data-dpr="2"] .button {
+  font-size: 32px;
+  padding-left: 32px;
+  padding-right: 32px;
+  line-height: 64px;
+  border-radius: 8px;
+}
+
+[data-dpr="3"] .button {
+  font-size: 48px;
+  padding-left: 48px;
+  padding-right: 48px;
+  line-height: 96px;
+  border-radius: 12px;
+}
+
+.button-block {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 0.48rem;
+  text-align: center;
+}
+
+[data-dpr="1"] .button-block {
+  margin-bottom: 16px;
+  line-height: 36px;
+}
+
+[data-dpr="2"] .button-block {
+  margin-bottom: 32px;
+  line-height: 72px;
+}
+
+[data-dpr="3"] .button-block {
+  margin-bottom: 48px;
+  line-height: 108px;
+}
+
+.button-block .icon {
+  display: inline-block;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAYCAYAAADKx8xXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoyQkQ2ODhGRTdGQ0IxMUU2QTgxNjg1NjRDQURFRThCRCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyQkQ2ODhGRjdGQ0IxMUU2QTgxNjg1NjRDQURFRThCRCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjJCRDY4OEZDN0ZDQjExRTZBODE2ODU2NENBREVFOEJEIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjJCRDY4OEZEN0ZDQjExRTZBODE2ODU2NENBREVFOEJEIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+1yn5fgAAAPFJREFUeNqc1D0PAUEQxvHzLkK0JBIKhUYuFBQ0vpqaglZDR0FFIhoavgOh8NKgoKBez+RGspXMuOR3xSX/3GVvdh1jjAtzSIIjRbel8a41xDVhGnYcryAmDUkGDhwvICINSQ5OHE8hLA1JHi4cjyEoDUkBrhwPISANSRHuHPfBLw1JGZ4c98AnDUnVijuakNThzXFLE5KGFTfpmd/RX14jeFsNXvy2tvRTK9bidO2V/RWV4KH9HTQAN44G0gGwR24kHTka8jNHEwhJhjwLR45m0m1FG3lvbeSoZCOnYPvP0fE9rDaQ0BxWLn+e6nj8CDAAUgH9RgQb55QAAAAASUVORK5CYII=);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+[data-dpr="1"] .button-block .icon {
+  margin-left: 12px;
+  width: 12px;
+  height: 12px;
+}
+
+[data-dpr="2"] .button-block .icon {
+  margin-left: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+[data-dpr="3"] .button-block .icon {
+  margin-left: 36px;
+  width: 36px;
+  height: 36px;
+}
+
+[data-dpr="1"] .button-round-xs {
+  border-radius: 1px;
+}
+
+[data-dpr="2"] .button-round-xs {
+  border-radius: 2px;
+}
+
+[data-dpr="3"] .button-round-xs {
+  border-radius: 3px;
+}
+
+[data-dpr="1"] .button-round-lg {
+  border-radius: 16px;
+}
+
+[data-dpr="2"] .button-round-lg {
+  border-radius: 32px;
+}
+
+[data-dpr="3"] .button-round-lg {
+  border-radius: 48px;
+}
+
+.button-round-full {
+  border-radius: 50% !important;
+}
+
+.button.is-tapping {
+  background: #b1000c;
+}
+
+@font-face {
+  font-family: 'pf_din_text_cond_promedium';
+  src: url("../fonts/pfdintextcondpro-medium-webfont.woff2") format("woff2"), url("../fonts/pfdintextcondpro-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'pf_din_text_cond_probold';
+  src: url("../fonts/pfdintextcondpro-bold-webfont.woff2") format("woff2"), url("../fonts/pfdintextcondpro-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*
+ * 清除浮动
+ */
+
+/*
+ * 文本溢出时显示省略号
+ */
+
+/*
+ * 渐进色背景
+ */
+
+/*
+ * 一般是文章、评论等突出页面内容的文字, 32px #444
+ */
+
+/*
+ * 一般是导航等性质的文字
+ */
+
+/*
+ * 一般是一些辅助文字或者不重要的文字，24px ＃999
+ */
+
+/*
+ * 上线
+ */
+
+/*
+ * 下线
+ */
+
+/*
+ * 中线
+ */
+
+/*
+ * 圆形状区域
+ */
+
+/**
+ * 栅格系统
+ */
+
+/*
+ * 用于解决inline－block元素间距问题
+ */
+
+.col-12 {
+  width: 98%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-12 {
+  margin-left: 101% !important;
+}
+
+.col-11 {
+  width: 89.66667%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-11 {
+  margin-left: 92.66667% !important;
+}
+
+.col-10 {
+  width: 81.33333%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-10 {
+  margin-left: 84.33333% !important;
+}
+
+.col-9 {
+  width: 73%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-9 {
+  margin-left: 76% !important;
+}
+
+.col-8 {
+  width: 64.66667%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-8 {
+  margin-left: 67.66667% !important;
+}
+
+.col-7 {
+  width: 56.33333%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-7 {
+  margin-left: 59.33333% !important;
+}
+
+.col-6 {
+  width: 48%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-6 {
+  margin-left: 51% !important;
+}
+
+.col-5 {
+  width: 39.66667%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-5 {
+  margin-left: 42.66667% !important;
+}
+
+.col-4 {
+  width: 31.33333%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-4 {
+  margin-left: 34.33333% !important;
+}
+
+.col-3 {
+  width: 23%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-3 {
+  margin-left: 26% !important;
+}
+
+.col-2 {
+  width: 14.66667%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-2 {
+  margin-left: 17.66667% !important;
+}
+
+.col-1 {
+  width: 6.33333%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-1 {
+  margin-left: 9.33333% !important;
+}
+
+.row {
+  margin: 0 -1%;
+}
+
+.row:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: ' ';
+  clear: both;
+  height: 0;
+}
+
+/*
+ * 清除浮动
+ */
+
+/*
+ * 文本溢出时显示省略号
+ */
+
+/*
+ * 渐进色背景
+ */
+
+/*
+ * 一般是文章、评论等突出页面内容的文字, 32px #444
+ */
+
+/*
+ * 一般是导航等性质的文字
+ */
+
+/*
+ * 一般是一些辅助文字或者不重要的文字，24px ＃999
+ */
+
+/*
+ * 上线
+ */
+
+/*
+ * 下线
+ */
+
+/*
+ * 中线
+ */
+
+/*
+ * 圆形状区域
+ */
+
+/**
+ * 栅格系统
+ */
+
+/*
+ * 用于解决inline－block元素间距问题
+ */
+
+.col-12 {
+  width: 98%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-12 {
+  margin-left: 101% !important;
+}
+
+.col-11 {
+  width: 89.66667%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-11 {
+  margin-left: 92.66667% !important;
+}
+
+.col-10 {
+  width: 81.33333%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-10 {
+  margin-left: 84.33333% !important;
+}
+
+.col-9 {
+  width: 73%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-9 {
+  margin-left: 76% !important;
+}
+
+.col-8 {
+  width: 64.66667%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-8 {
+  margin-left: 67.66667% !important;
+}
+
+.col-7 {
+  width: 56.33333%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-7 {
+  margin-left: 59.33333% !important;
+}
+
+.col-6 {
+  width: 48%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-6 {
+  margin-left: 51% !important;
+}
+
+.col-5 {
+  width: 39.66667%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-5 {
+  margin-left: 42.66667% !important;
+}
+
+.col-4 {
+  width: 31.33333%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-4 {
+  margin-left: 34.33333% !important;
+}
+
+.col-3 {
+  width: 23%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-3 {
+  margin-left: 26% !important;
+}
+
+.col-2 {
+  width: 14.66667%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-2 {
+  margin-left: 17.66667% !important;
+}
+
+.col-1 {
+  width: 6.33333%;
+  margin: 0 1%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.col-offset-1 {
+  margin-left: 9.33333% !important;
+}
+
+.row {
+  margin: 0 -1%;
+}
+
+.row:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: ' ';
+  clear: both;
+  height: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #f1f1f1;
+}
+
+.text-box {
+  background: #fff;
+}
+
+[data-dpr="1"] .text-box {
+  padding: 21px 15px;
+}
+
+[data-dpr="2"] .text-box {
+  padding: 42px 30px;
+}
+
+[data-dpr="3"] .text-box {
+  padding: 63px 45px;
+}
+
+[data-dpr="1"] #text-box {
+  height: 145px;
+}
+
+[data-dpr="2"] #text-box {
+  height: 290px;
+}
+
+[data-dpr="3"] #text-box {
+  height: 435px;
+}
+
+textarea,
+input {
+  width: 100%;
+  display: block;
+  margin: 0;
+  color: #999;
+  border: 0.013333rem #fff solid;
+  -webkit-appearance: none;
+}
+
+[data-dpr="1"] textarea,
+[data-dpr="1"] input {
+  font-size: 16px;
+}
+
+[data-dpr="2"] textarea,
+[data-dpr="2"] input {
+  font-size: 32px;
+}
+
+[data-dpr="3"] textarea,
+[data-dpr="3"] input {
+  font-size: 48px;
+}
+
+[data-dpr="1"] .row {
+  margin-bottom: 10px;
+}
+
+[data-dpr="2"] .row {
+  margin-bottom: 20px;
+}
+
+[data-dpr="3"] .row {
+  margin-bottom: 30px;
+}
+
+.submit-btn {
+  width: 100%;
+  display: block;
+  color: #d91717;
+  text-align: center;
+  border: 0.013333rem #fff solid;
+  background: #fff;
+}
+
+[data-dpr="1"] .submit-btn {
+  font-size: 16px;
+}
+
+[data-dpr="2"] .submit-btn {
+  font-size: 32px;
+}
+
+[data-dpr="3"] .submit-btn {
+  font-size: 48px;
+}

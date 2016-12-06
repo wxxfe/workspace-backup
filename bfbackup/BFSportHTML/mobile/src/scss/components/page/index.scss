@@ -1,0 +1,7 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+
+.lazy:not([src^="http://image.sports.baofeng.com"]) {
+    width:100%;
+    height:500px;
+}

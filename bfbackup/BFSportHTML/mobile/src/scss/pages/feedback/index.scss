@@ -1,0 +1,42 @@
+@import "../../components/style/themes/default/index";
+@import "../../components/button/index";
+@import "../../components/grid/index";
+@import "../../components/style/mixin.scss";
+
+@include grid();
+html,body{
+    height: 100%;
+}
+body{
+    background: #f1f1f1;
+}
+
+.text-box{
+    background: #fff;
+    padding: 42px 30px; /*px*/
+}
+#text-box{
+    height: 290px;/*px*/
+}
+textarea,input{
+    width: 100%;
+    display: block;
+    margin: 0;
+    color: #999;
+    font-size: 32px;/*px*/
+    border: 1px #fff solid;
+    -webkit-appearance: none;
+}
+.row{
+    margin-bottom: 20px;/*px*/
+}
+
+.submit-btn{
+    width: 100%;
+    display: block;
+    font-size: 32px;/*px*/
+    color: #d91717;
+    text-align: center;
+    border: 1px #fff solid;
+    background: #fff;
+}

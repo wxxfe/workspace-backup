@@ -1,0 +1,25 @@
+@import "../../components/style/themes/default/index";
+@import "../../components/section/index";
+@import "../../components/downloadbar/index";
+@import "../../components/downloadtoast/index";
+@import "../../components/video/index";
+@import "../../components/matchbar/index";
+@import "../../components/matchinfo/index";
+@import "../../components/tab/index";
+@import "../../components/topiclist/index";
+@import "../../components/quiz/index";
+@import "../../components/list/index";
+@import "../../components/sharepage/index";
+@import "../../components/divideline/index";
+@import "../../components/no-data/index";
+@import "../../components/page/index";
+
+html, body {
+    height: 100%;
+}
+.section {
+    padding: 12px 0 20px; /*px*/
+}
+.no-data {
+    height: calc(100% - 600px); /*px*/
+}

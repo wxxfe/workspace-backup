@@ -1,0 +1,557 @@
+{
+	"development": [
+		{
+			"page": "feedback",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/1a15852e.feedback.css"
+			],
+			"js": []
+		},
+		{
+			"page": "gallery",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/575542be.gallery.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/782079e9.gallery.js"
+			]
+		},
+		{
+			"page": "match-finished-various",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/5a2ff336.matchfinished.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/c60eeac9.matchfinished.js"
+			]
+		},
+		{
+			"page": "match-finished",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/5a2ff336.matchfinished.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/c60eeac9.matchfinished.js"
+			]
+		},
+		{
+			"page": "match-notstarted-nodata",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/b4087d1c.matchnotstarted.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/b65109c7.matchnotstarted.js"
+			]
+		},
+		{
+			"page": "match-notstarted-various",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/b4087d1c.matchnotstarted.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/b65109c7.matchnotstarted.js"
+			]
+		},
+		{
+			"page": "match-notstarted",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/b4087d1c.matchnotstarted.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/b65109c7.matchnotstarted.js"
+			]
+		},
+		{
+			"page": "match-ongoing-nodata",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/0395caaf.matchongoing.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/149f661d.matchongoing.js"
+			]
+		},
+		{
+			"page": "match-ongoing-various",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/0395caaf.matchongoing.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/149f661d.matchongoing.js"
+			]
+		},
+		{
+			"page": "match-ongoing",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/0395caaf.matchongoing.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/149f661d.matchongoing.js"
+			]
+		},
+		{
+			"page": "news-withimg",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/37195870.news.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/8c1d0f68.news.js"
+			]
+		},
+		{
+			"page": "news",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/37195870.news.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/8c1d0f68.news.js"
+			]
+		},
+		{
+			"page": "nodata",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/15f7359f.nodata.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/4fc4dd24.nodata.js"
+			]
+		},
+		{
+			"page": "post_share",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/2c58895d.post_share.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/4ac785fc.post_share.js"
+			]
+		},
+		{
+			"page": "program",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/576236d5.program.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/b8c1a756.program.js"
+			]
+		},
+		{
+			"page": "ranking",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/f0a4c0e0.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_basketball_cba",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/f0a4c0e0.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_basketball_nba",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/f0a4c0e0.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_basketball_player",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/f0a4c0e0.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_basketball_player_nba",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/f0a4c0e0.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_basketball_team",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/f0a4c0e0.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_basketball_team_nba",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/f0a4c0e0.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_football_cup",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/f0a4c0e0.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_football_default",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/f0a4c0e0.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_football_sheshou",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/f0a4c0e0.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "special-column",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/354869d9.special-column.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/9c8b96f7.special-column.js"
+			]
+		},
+		{
+			"page": "special-topic",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/e581874d.special-topic.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/fcd3766c.special-topic.js"
+			]
+		},
+		{
+			"page": "topic_share",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/4a3c28a5.topic_share.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/6f35f6b9.topic_share.js"
+			]
+		},
+		{
+			"page": "videocollection",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/1e1ad6c9.videocollection.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/82048086.videocollection.js"
+			]
+		},
+		{
+			"page": "videoshare",
+			"css": [
+				"http://static.sports.baofeng.com/msports/development/css/ec0c2700.videoshare.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/14a7ce2a.videoshare.js"
+			]
+		},
+		{
+			"page": "zaixian_openapp",
+			"css": [],
+			"js": [
+				"http://static.sports.baofeng.com/msports/development/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/development/scripts/9338273e.zaixianopenapp.js"
+			]
+		}
+	],
+	"testing": [
+		{
+			"page": "feedback",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/ba9ba22b.feedback.css"
+			],
+			"js": []
+		},
+		{
+			"page": "gallery",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/3dcc3791.gallery.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/782079e9.gallery.js"
+			]
+		},
+		{
+			"page": "match-finished-various",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/614fe97c.matchfinished.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/0a9fe3b2.matchfinished.js"
+			]
+		},
+		{
+			"page": "match-finished",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/614fe97c.matchfinished.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/0a9fe3b2.matchfinished.js"
+			]
+		},
+		{
+			"page": "match-notstarted-nodata",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/df9949ca.matchnotstarted.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/b65109c7.matchnotstarted.js"
+			]
+		},
+		{
+			"page": "match-notstarted-various",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/df9949ca.matchnotstarted.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/b65109c7.matchnotstarted.js"
+			]
+		},
+		{
+			"page": "match-notstarted",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/df9949ca.matchnotstarted.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/b65109c7.matchnotstarted.js"
+			]
+		},
+		{
+			"page": "match-ongoing-nodata",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/6f02607a.matchongoing.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/7690674e.matchongoing.js"
+			]
+		},
+		{
+			"page": "match-ongoing-various",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/6f02607a.matchongoing.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/7690674e.matchongoing.js"
+			]
+		},
+		{
+			"page": "match-ongoing",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/6f02607a.matchongoing.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/7690674e.matchongoing.js"
+			]
+		},
+		{
+			"page": "news-withimg",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/77e55e51.news.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/8c1d0f68.news.js"
+			]
+		},
+		{
+			"page": "news",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/77e55e51.news.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/8c1d0f68.news.js"
+			]
+		},
+		{
+			"page": "nodata",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/03c944c7.nodata.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/4fc4dd24.nodata.js"
+			]
+		},
+		{
+			"page": "post_share",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/8ebf4eb5.post_share.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/4ac785fc.post_share.js"
+			]
+		},
+		{
+			"page": "program",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/69377ca8.program.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/8444099f.program.js"
+			]
+		},
+		{
+			"page": "ranking",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/c9463a49.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_basketball_cba",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/c9463a49.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_basketball_nba",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/c9463a49.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_basketball_player",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/c9463a49.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_basketball_player_nba",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/c9463a49.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_basketball_team",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/c9463a49.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_basketball_team_nba",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/c9463a49.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_football_cup",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/c9463a49.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_football_default",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/c9463a49.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "ranking_football_sheshou",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/c9463a49.ranking.css"
+			],
+			"js": []
+		},
+		{
+			"page": "special-column",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/6829b565.special-column.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/9c8b96f7.special-column.js"
+			]
+		},
+		{
+			"page": "special-topic",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/b70f0b02.special-topic.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/fcd3766c.special-topic.js"
+			]
+		},
+		{
+			"page": "topic_share",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/bfe9db22.topic_share.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/6f35f6b9.topic_share.js"
+			]
+		},
+		{
+			"page": "videocollection",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/f6e6f6a9.videocollection.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/425a6b85.videocollection.js"
+			]
+		},
+		{
+			"page": "videoshare",
+			"css": [
+				"http://static.sports.baofeng.com/msports/testing/css/367863b8.videoshare.css"
+			],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/14a7ce2a.videoshare.js"
+			]
+		},
+		{
+			"page": "zaixian_openapp",
+			"css": [],
+			"js": [
+				"http://static.sports.baofeng.com/msports/testing/scripts/lib/require.js",
+				"http://static.sports.baofeng.com/msports/testing/scripts/9338273e.zaixianopenapp.js"
+			]
+		}
+	],
+	"production": []
+}

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+    <title></title>
+    <!-- build:css css/match-live.css -->
+    <link rel="stylesheet" href="src/css/match-live.css"/>
+    <!-- endbuild -->
+</head>
+<body id="football-nostarted">
+<div class="wrapper">
+<div id="container">
+    <!-- match bar -->
+    <div style="overflow: hidden;">
+        <div class="one-row match-bar match-live-bar">
+            <div class="col-2">
+                <button type="button" class="zan team-yellow" id="home-zan-btn" data-tid="50"></button>
+                <span class="zan-total" id="home-zan">25</span>
+            </div>
+            <div class="col-8">
+                <div class="match-info">北京国安</div>
+                <div class="match-info">
+                    <img class="team-logo-small" id="logo-50" src="http://image.sports.baofeng.com/3d6d0961f7a13cdba57b4c0e0cabdc80" alt="北京国安" />
+                </div>
+                <div class="match-info">
+                    <big id="match-score">8 : 7</big>
+                    <small>直播中</small>
+                </div>
+                <div class="match-info">
+                    <img class="team-logo-small" id="logo-53" src="http://image.sports.baofeng.com/e0a74ffa439104810949223093fb7825" alt="广州富力" />
+                </div>
+                <div class="match-info">广州富力</div>
+            </div>
+            <div class="col-2" style="text-align: right;">
+                <span class="zan-total" id="guest-zan">22</span>
+                <button type="button" class="zan team-blue" id="guest-zan-btn" data-tid="53"></button>
+            </div>
+        </div>
+        <div class="pk-progress-wrap" style="overflow: hidden;">
+            <div class="one-row pk-progress">
+                                <div class="pk t-yellow" style="width: 53.191489361702%" id="home-progress">
+                </div>
+                <div class="pk t-blue" style="width: 46.808510638298%" id="guest-progress"></div>
+                            </div>
+        </div>
+    </div>
+    <!-- /match bar -->
+	<div class="live" style="position: relative;">
+        <div class="live-b">
+			<object width="1024" height="576"  align="middle" id="cloudsLivePlayer" type="application/x-shockwave-flash" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"><param name="movie" value="http://live.baofengcloud.com/22588069/player/cloud.swf?servicetype=2&uid=22588069&fid=FE843960BC7F574C00C24877A1709D93D561FE27&auto=1&si=1&vr=0"><param value="always" name="allowscriptaccess"><param value="true" name="allowfullscreen"><param value="transparent" name="wmode" /><embed width="1024" height="576" name="CloudPlayer" flashvars="imgurl=oncomplete=swffun.shareComplete" src="http://live.baofengcloud.com/22588069/player/cloud.swf?servicetype=2&uid=22588069&fid=FE843960BC7F574C00C24877A1709D93D561FE27&auto=1&si=1&vr=0" quality="high"  wmode="transparent" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" /></object>
+        </div>
+        <div class="tv-foot tv-foot-left"></div>
+        <div class="tv-foot tv-foot-right"></div>
+    </div>
+    <div class="tv-bar"><img src="http://static.sports.baofeng.com/development/images/bar.png" width="99%" alt="bar" /></div>
+</div>
+
+<input id="match-info" type="hidden" value="1107" name="match_id" />
+<input id="home-team" type="hidden" value="50" name="team1_id" />
+<input id="guest-team" type="hidden" value="53" name="team2_id" />
+
+<div id="chat" class="chat-wrapper">
+
+    <div class="chat-container">
+
+        <div class="support-mark mark-home"><img src="http://static.sports.baofeng.com/development/images/support_home.png" alt="主队" /></div>
+        <div class="support-mark mark-guest"><img src="http://static.sports.baofeng.com/development/images/support_guest.png" alt="客队" /></div>
+
+        <div class="one-row">
+            <div class="col-6 message-block" id="home-block">
+            </div>
+            <div class="col-6 message-block" id="guest-block">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="chat-bar">
+
+        <div class="chat-bar-container one-row">
+            <div class="col-2 quick-msg foot-logo">
+            </div>
+            <div class="col-1 quick-msg">
+                <img id="current-team-logo" class="current-logo" src="#" alt="">
+            </div>
+            <div class="col-6 send-box">
+                <input id="send-msg-box" placeholder="咱也BiBi几句吧~~" type="text" name="sendbox" />
+                <button id="send-msg-button" type="button">发送</button>
+            </div>
+            <div class="col-1 quick-msg">
+                <button id="quick-msg-button" type="button" class="qm-btn" id="quick-msg-button"></button>
+                <div class="quick-msg-list-wrap" id="quick-msg-list-wrap">
+                    <ul class="quick-msg-list" id="quick-msg-list">
+                        <li><a href="javascript:void(0)">留给你们的时间不多了，嘎嘎</a></li>
+                        <li><a href="javascript:void(0)">尼玛，严重犯规啊，简直就是郑智一脚把西塞踢成郑智化</a></li>
+                        <li><a href="javascript:void(0)">过得漂亮，突入禁区，射了射了，绝对的死角</a></li>
+                        <li><a href="javascript:void(0)">罗纳尔多式疯狂踩单车不慎掉链子</a></li>
+                        <li><a href="javascript:void(0)">就看你们队这拉玛西亚洗剪吹，你们也赢不了</a></li>
+                        <li><a href="javascript:void(0)">法切蒂、卡布里尼、马尔蒂尼在这一刻灵魂附体！他不是一个人在战斗！</a></li>
+                        <li><a href="javascript:void(0)">纳不传，瓦不射，阿什利翔，前场美如画，后场德赫亚</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-1 quick-msg">
+                <button id="quick-emoji-button" type="button" class="qe-btn" id="quick-emoji-button"></button>
+                <div class="quick-msg-emoji" id="quick-msg-emoji">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-1 quick-msg">
+                <button id="danmaku-button" type="button" class="dan-btn"></button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+<div class="select-support" id="select-popup">
+    <h3 class="s-title">选择你支持的球队</h3>
+    <div class="one-row">
+        <div class="col-6">
+            <a href="javascript:void(0)" data-tid="50" data-type="home">
+                <img src="http://static.sports.baofeng.com/development/images/support_home.png" alt="主队" /><br />支持主队
+                <div class="after"></div>
+            </a>
+        </div>
+        <div class="col-6">
+            <a href="javascript:void(0)" data-tid="53" data-type="guest">
+                <img src="http://static.sports.baofeng.com/development/images/support_guest.png" alt="客队" /><br />支持客队
+            </a>
+        </div>
+    </div>
+</div>
+<div class="shadow-layer" id="shadow-layer"></div>
+<!-- build:js scripts/lib/jquery.min.js -->
+<script src="src/scripts/lib/jquery-1.12.1.min.js"></script>
+<script src="src/scripts/lib/require.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/matchLive.js -->
+<script src="src/scripts/matchLive.js"></script>
+<!-- endbuild -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?5fe3fa96d76722198e0d5f00f159fc54";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

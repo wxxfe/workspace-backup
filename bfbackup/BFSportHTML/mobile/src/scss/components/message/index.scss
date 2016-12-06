@@ -1,0 +1,147 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../style/util";
+
+.message {
+    border-radius: $radius-lg; /*px*/
+    border-top-left-radius: 6px; /*px*/
+    /*border-bottom-left-radius: 40px 60px;/*px*/
+    position: relative;
+    margin: 30px auto;
+    display: inline-block;
+    p.content {
+        font-size: $font-size-paragraph; /*px*/
+        padding: 20px 24px; /*px*/
+    }
+    &:before {
+        position: absolute;
+        content: ' ';
+        left: -32px; /*px*/
+        top: 2px; /*px*/
+        width: 30px; /*px*/
+        height: 30px; /*px*/
+        background: #f3f3f3;
+        z-index: 10;
+    }
+    &:after {
+        position: absolute;
+        top: 1.5%;
+        height: 102%;
+        content: ' ';
+        width: 50px; /*px*/
+        background: #f3f3f3;
+        z-index: 9;
+    }
+
+    &-user {
+        border: 2px red solid; /*px*/
+        background: #fff;
+        p.content {
+            padding-left: 40px; /*px*/
+        }
+        &:after {
+            border-right: 2px red solid; /*px*/
+            border-top-right-radius: 30px; /*px*/
+            left: -35px; /*px*/
+        }
+    }
+
+    &-reply {
+        border: 2px #0370da solid; /*px*/
+        background: #1383f2;
+        border-top-left-radius: $radius-lg; /*px*/
+        border-bottom-left-radius: $radius-lg; /*px*/
+        border-top-right-radius: 6px; /*px*/
+        /*border-bottom-right-radius: 40px 60px;/*px*/
+        p.content {
+            padding-right: 30px; /*px*/
+            color: #fff;
+        }
+        &:before {
+            left: auto;
+            right: -32px; /*px*/
+        }
+        &:after {
+            border-left: 2px #0370da solid; /*px*/
+            border-top-left-radius: 30px; /*px*/
+            right: -35px; /*px*/
+        }
+    }
+
+    &-host {
+        border: 2px #e0e0e0 solid; /*px*/
+        background: #fff;
+        p.content {
+            padding-left: 40px; /*px*/
+        }
+        p.desc {
+            padding: 0 24px 20px 40px; /*px*/
+            font-size: $font-size-base; /*px*/
+            color: lighten($color-text-base, 60%);
+        }
+        .poster {
+            overflow: hidden;
+            img {
+                border-top-left-radius: 6px; /*px*/
+                border-top-right-radius: $radius-lg; /*px*/
+                border-bottom-right-radius: $radius-lg; /*px*/
+                width: 100%;
+                vertical-align: top;
+            }
+        }
+        &:after {
+            border-right: 2px #e0e0e0 solid; /*px*/
+            border-top-right-radius: 30px; /*px*/
+            left: -35px; /*px*/
+        }
+    }
+
+    &-icon {
+        border: 2px #6637c6 solid; /*px*/
+        background: #6637c6;
+        color: #ffffff;
+        .content-icon {
+            position: relative;
+            min-height: 140px; /*px*/
+            img.icon {
+                position: absolute;
+                top: 30px; /*px*/
+                left: 50px; /*px*/
+                width: 94px; /*px*/
+                height: 94px; /*px*/
+            }
+            p.content {
+                padding: 30px 30px 10px 160px; /*px*/
+            }
+            p.small {
+                font-size: $font-size-heading; /*px*/
+                padding: 0px 30px 30px 160px; /*px*/
+            }
+        }
+    }
+
+    a.go {
+        display: block;
+        border-top: #5220b4 2px solid; /*px*/
+        background: #5220b4;
+        padding-left: 30px; /*px*/
+        font-size: $font-size-base; /*px*/
+        color: lighten($color-text-base-inverse, 60%);
+        line-height: 70px; /*px*/
+        &:active {
+            background: #eee;
+        }
+    }
+}
+
+[data-dpr="2"] .message-reply:before {
+    left: auto;
+}
+
+@media all and (orientation: landscape) {
+    .message {
+        &:after {
+            height: 99.5%;
+        }
+    }
+}

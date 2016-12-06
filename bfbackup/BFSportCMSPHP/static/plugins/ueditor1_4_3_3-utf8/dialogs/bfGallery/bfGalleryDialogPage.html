@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ueditor插入图集对话框</title>
+    <script type="text/javascript" src="../internal.js"></script>
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/static/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/static/dist/css/themes/default/style.min.css">
+    <link rel="stylesheet" href="/static/plugins/select2/select2.min.css">
+    <style type="text/css">
+        .select2-container--default .select2-results > .select2-results__options {
+            max-height: 350px;
+        }
+        .select2-media-op {display: none; position: absolute;top: 0;right: 10px;} .select2-results__option--highlighted .select2-media-op{display: block} .select2-media-op-insert{width: 60px;}
+    </style>
+</head>
+<body>
+<div class="row">
+    <h5 style="padding-left: 25px;">搜索图集</h5>
+    <div class="col-md-12" style="padding: 5px 20px;">
+        <select id="gallery-search" class="form-control"></select>
+    </div>
+    <div id="previewer" style="padding: 10px 20px;"></div>
+</div>
+<!-- jQuery 2.1.4 -->
+<script src="/static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/plugins/select2/select2.full.min.js"></script>
+<!--<script type="text/javascript" src="image.js"></script>-->
+<script>
+    var _port = window.location.port ? ':' + window.location.port : '';
+    $('#gallery-search').select2({
+        placeholder: '搜索图集',
+        ajax: {
+            url: 'http://' + document.domain + _port + '/gallery/search',
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    keyword: params.term,
+                    offset: params.page || 0,
+                    limit: 10
+                }
+            },
+            processResults: function (data, params) {
+                params.page = params.page || 1;
+
+                return {
+                    results: data.list,
+                    pagination: {
+                        more: (params.page * 10) < data.total
+                    }
+                };
+            },
+
+            cache: true
+        },
+        escapeMarkup: function (markup) {
+            return markup;
+        },
+        templateResult: function (data) {
+            if (!data.loading) {
+                var title = data.title;
+                var image = data.image.indexOf('http://') > -1 ? data.image : 'http://image.sports.baofeng.com/' + data.image;
+                var item = '';
+                item += '<div class="media" style="position: relative;">';
+                item += '   <div class="media-left media-middle">';
+                item += '       <a href="javascript:void(0)">';
+                item += '       <img class="media-object" src="' + image + '" width="100" alt="' + title + '">';
+                item += '       </a>';
+                item += '   </div>';
+                item += '   <div class="media-body">';
+                item += '       <h4 class="media-heading">' + title + '</h4>';
+                item += '       <h4 class="media-heading">' + data.publish_tm + '</h4>';
+                item += '   </div>';
+                item += '   <div class="select2-media-op">';
+                item += '       <button class="select2-media-op-insert btn bg-purple btn-flat pull-right threads_add_btn" style="width: 60px;">插入</button>';
+                item += '   </div>';
+                item += '</div>';
+                return item;
+            } else {
+                return '';
+            }
+        },
+        templateSelection: function (data) {
+            var selected = data;
+
+            if (selected.id == '') {
+                dialog.onok = function () {
+                };
+                return;
+            }
+
+            $.ajax({
+                url: 'http://' + document.domain + _port + '/gallery/info?id=' + selected.id,
+                dataType: 'json',
+            }).done(function(data) {
+                if(data.status !== 1) {
+                    console.error('图集加载失败');
+                    return ;
+                }
+                if(data.info.img_list && data.info.img_list.length > 0) {
+                    var list = data.info.img_list, 
+                        indiHtml = [],
+                        listHtml = [];
+                    for(var i = 0, len = list.length;i < len;i++) {
+                        if(i === 0) {}
+                        indiHtml.push('<li data-target="#carousel-gallery" data-slide-to="' + i + '" class="' + (i === 0 ? 'active' : '') + '"></li>');
+                        listHtml.push(
+                            ['        <div class="item ' + (i === 0 ? 'active' : '')+ '" style="text-align: center;">',
+                            '          <img alt="' + list[i].title + '" src="http://image.sports.baofeng.com/' + list[i].image + '" style="display: inline;width: auto;height: 400px;">',
+                            '        </div>'].join(""));
+                    }
+
+                    indiHtml = indiHtml.join("");
+                    listHtml = listHtml.join("");
+
+
+                    var previewer = ['<div id="carousel-gallery" class="carousel slide" style="height: 370px" >',
+                    '      <ol class="carousel-indicators">',
+                    indiHtml,
+                    '      </ol>',
+                    '      <div class="carousel-inner" role="listbox">',
+                    listHtml,
+                    '      </div>',
+                    '      <a class="left carousel-control" href="#carousel-gallery" role="button" data-slide="prev">',
+                    '        <span class="glyphicon glyphicon-chevron-left"></span>',
+                    '        <span class="sr-only">Previous</span>',
+                    '      </a>',
+                    '      <a class="right carousel-control" href="#carousel-gallery" role="button" data-slide="next">',
+                    '        <span class="glyphicon glyphicon-chevron-right"></span>',
+                    '        <span class="sr-only">Next</span>',
+                    '      </a>',
+                    '    </div>'].join("");
+
+                     $('#previewer').html(previewer);
+
+                     $('#carousel-gallery').carousel({interval: false})
+                }
+
+            });
+
+            var html = renderResult(selected);
+
+            dialog.onok = function () {
+                editor.execCommand('inserthtml', html);
+            }
+            return data.title;
+        }
+    });
+    $('#gallery-search').on('select2:selecting', function (evt) {
+        if(evt.params.args.originalEvent.target.classList.contains('select2-media-op-insert')) {
+            var html = renderResult(evt.params.args.data);
+            editor.execCommand('inserthtml', html);
+
+            evt.preventDefault();
+            dialog.close();
+        }
+    });
+    function renderResult(data) {
+        return ['<div class="imgtxt bfsports-gallery-box bfeditor-comp" data-url="/gallery/detail/' + data.id + '" data-info=\'{"id":"' + data.id + '","type":"gallery","title":"' + data.title + '","image":"http://image.sports.baofeng.com/' + data.image + '","brief":"' + data.brief + '","publishTm":"' + data.publish_tm + '"}\'>',
+                        '   <div class="img-wrapper">',
+                        '<img src="http://w.image.sports.baofeng.com/' + data.image + '" alt="' + data.title + '" />',
+                        '<span class="tag tag-flat tag-primary">' + data.images_num + '</span>',
+                        '</div>',
+                        '   <div class="imgtxt-foot">',
+                        '<span class="note-tag">图集</span>',
+                        '<span class="title">' + data.title + '</span>',
+                        '</div>',
+                        '</div>'].join("");
+    }
+    
+</script>
+</body>
+</html>

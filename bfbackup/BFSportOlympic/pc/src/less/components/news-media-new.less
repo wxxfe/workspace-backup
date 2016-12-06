@@ -1,0 +1,132 @@
+/**
+ * 新闻列表 - 图片
+ */
+.media {
+	//size
+	&.large,
+	&.medium,
+	&.small {
+		overflow: hidden;
+	}
+	&.large {
+		.size(227px, 170px);
+	}
+	&.medium {
+		.size(220px, 136px);
+	}
+	&.small {
+		.size(188px, 140px);
+	}
+
+	//type
+	&.photo {
+        position: relative;
+        span.tag{
+            .inline-block();
+            color: #fff;
+            padding: 0 10px;
+            line-height: 22px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            font-size: 14px;
+            &.b-blue{
+                .bgc(@sports-blue);
+            }
+            &.b-red{
+                .bgc(#ff2e0c);
+            }
+        }
+
+        span.bf-mark{
+            .square(78px);
+            .bg('bf_mark.png',no-repeat,0 0);
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 10;
+        }
+
+		a {
+			.text-n();
+			display: block;
+			position: relative;
+			height: 100%;
+			overflow: hidden;
+
+			img {
+                .square(100%);
+			}
+
+			p.title {
+				.size(100%, 28px);
+				.bgc(rgba(0, 0, 0, .6));
+				background:#000000\9;
+				*background: #000000;
+				.text-overflow();
+				line-height: 28px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				color: #fff;
+				font-size: @font-size-base;
+				text-indent: 8px;
+			}
+		}
+	}
+
+	&.video {
+		a {
+			.text-n();
+			display: block;
+			position: relative;
+			height: 100%;
+			overflow: hidden;
+
+			img {
+                .square(100%);
+			}
+
+			&:after {
+				.square(48px);
+				.bgc(rgba(0, 0, 0, .8));
+				.bgr();
+				.bgp(58% center);
+				.border-radius(50%);
+				content: '';
+				display: block;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin: -24px 0 0 -24px;
+				border: #fff 2px solid;
+				text-align: center;
+				line-height: 48px;
+				color: #fff;
+			}
+
+			&:hover {
+				&:after {
+					.bgc(@gray-dark);
+				}
+			}
+		}
+	}
+
+	//animate
+	&.photo.fade,
+	&.video.fade {
+		
+			img {
+				.transition-duration(1s);
+			}
+			&:hover {
+				img {
+					.scale(1.2, 1.2);
+				}
+			}
+    }
+
+}

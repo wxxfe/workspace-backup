@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ueditor图片对话框</title>
+    <script type="text/javascript" src="../internal.js"></script>
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/static/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/static/dist/css/themes/default/style.min.css">
+</head>
+<body>
+<div style="width: 80%; margin: 10px auto;">
+    <div class="clearfix">
+        <input class="form-control pull-left" style="width: calc(100% - 80px);"
+               id="threads_add" name="threads_add"
+               value="" placeholder="输入话题ID"
+               type="text"
+               data-bvalidator-msg="请输入有效话题ID！"/>
+        <button class="btn bg-purple btn-flat pull-right threads_add_btn"
+                style="width: 60px;">确认
+        </button>
+    </div>
+    <div id="threads_info"></div>
+</div>
+<!-- jQuery 2.1.4 -->
+<script src="/static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+<script>
+    var $threads_add = $('#threads_add');
+    var $threads_info = $('#threads_info');
+    $('.threads_add_btn').click(function (e) {
+        e.preventDefault();
+        var ids = $threads_add.val();
+        if ($.isNumeric(String(ids).split(',')[0])) {
+            var _port = window.location.port ? ':' + window.location.port : '';
+            $.ajax({
+                method: "POST",
+                url: 'http://' + document.domain + _port + '/community/poster/relateThreads',
+                data: {threads_add: ids}
+            }).done(function (data) {
+                var results = $.parseJSON(data);
+
+                if (results.threads_add == 'ok') {
+                    var html = '<div class="bfsports-topic-box bfeditor-comp">参与话题：';
+
+                    var resultsData = results.data;
+                    var len = resultsData.length;
+                    var itemData;
+                    for (var i = 0; i < len; i++) {
+                        itemData = resultsData[i];
+                        html += '<span class="bfsports-topic" data-tid="' + itemData.id + '">' + itemData.title + '</span>';
+                    }
+
+                    html += '</div>';
+
+                    $threads_info.html(html);
+
+                    dialog.onok = function () {
+                        editor.execCommand('inserthtml', html);
+                    }
+
+                } else {
+                    dialog.onok = function () {
+                    };
+                    $threads_info.html(results.threads_add);
+                }
+
+            });
+        }
+    });
+
+</script>
+</body>
+</html>

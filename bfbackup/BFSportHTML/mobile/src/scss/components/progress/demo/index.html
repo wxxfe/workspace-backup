@@ -1,0 +1,31 @@
+<div style="width: 100%;height: 100px;background: rgba(0, 0, 0, 0.5);">
+	<!-- 进度条 开始 -->
+	<div class="progress">
+		<div class="progress-playedtime">
+			<span >00:00</span>
+		</div>
+		<div class="progress-totaltime">
+			<span>03:36</span>
+		</div>
+		<div class="progress-bar-wrapper">
+			<div class="progress-bar total"></div>
+			<div class="progress-bar buffered"></div>
+			<div class="progress-bar processed">
+				<div class="processed-slide-bar">
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<!-- 进度条 结束 -->
+</div>
+
+<script>
+	var progress = document.querySelector('.progress'), progressComp;
+	progress && (progressComp = ProgressFactory({element: progress, slidebarInitialRate: '10%', totalTime: '05:12',onProcessStateChange: function() {
+		console.log(11)
+	}, onProcessStateChangeEnd: function() {
+		console.log(22)
+	}}));
+	
+</script>

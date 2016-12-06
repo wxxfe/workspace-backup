@@ -1,0 +1,61 @@
+<!-- 视频播放器 开始 -->
+<div id="videoplayer1" class="video-player">
+	<!-- 视频 开始 -->
+	<video class="video" width="100%" height="100%" src="http://vjs.zencdn.net/v/oceans.mp4" webkit-playsinline></video>
+	<!-- 视频 结束 -->
+	<!-- 视频控制面板 开始 -->
+	<div class="video-control-panel">
+		<div class="bigplay js-video-control-play"></div>
+		<div class="video-control-bar">
+			<button class="fullscreen-btn"></button>
+			<div class="progress">
+				<div class="progress-playedtime">
+					<span>00:00</span>
+				</div>
+				<div class="progress-totaltime">
+					<span>03:36</span>
+				</div>
+				<div class="progress-bar-wrapper">
+					<div class="progress-bar total"></div>
+					<div class="progress-bar buffered"></div>
+					<div class="progress-bar processed">
+						<div class="processed-slide-bar">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 视频控制面板 结束 -->
+	<div class="loading-mask">视频努力加载中...</div>
+</div>
+<!-- 视频播放器 结束 -->
+
+<!-- 视频播放器 开始 -->
+<div id="videoplayer2" class="video-player" data-videoSrc="http://vjs.zencdn.net/v/oceans.mp4" style="margin-top: 32px;"></div>
+<!-- 视频播放器 结束 -->
+
+<script type="text/javascript" src="/libs/iphone-inline-video.browser.js"></script>
+<script type="text/javascript" src="/abase/util.js"></script>
+<script type="text/javascript" src="/videonew/index.js"></script>
+<script type="text/javascript" src="/progress/index.js"></script>
+<script type="text/javascript" src="/videocontrolpanel/index.js"></script>
+<script>
+	var videoPlayer = document.querySelector('#videoplayer1'),
+		videoPlayerComp;
+	if(videoPlayer) {
+		videoPlayerComp = VideoPlayerFactory({
+			element: videoPlayer,
+			autoPlay: false
+		});
+	};
+	var videoPlayer2 = document.querySelector('#videoplayer2'),
+		videoPlayerComp2;
+	if(videoPlayer2) {
+		videoPlayerComp2 = VideoPlayerFactory({
+			element: videoPlayer2,
+			autoPlay: false,
+			autoConstruct: true
+		});
+	};
+</script>

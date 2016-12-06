@@ -1,0 +1,82 @@
+/**
+ * 赛事
+ */
+
+.header{
+	width:100%;
+    .bg('header_bg.png',no-repeat,right top);
+    .bgc(#000);
+}
+
+#banner {
+	.size(100%, 104px);
+	.banner-content {
+		.size(1200px, 104px);
+		.center-block();
+		.logo {
+			.size(157px, 41px);
+            .bg('bf_sports_logo.png',no-repeat,0 0);
+            margin-top: 30px;
+			display: inline-block;
+			float: left;
+		}
+		#login {
+			.size(600px, 104px);
+			float: right;
+            font-size: 12px;
+			#login_before {
+				display: none;
+				position: relative;
+				.size(100%, 100%);
+				a {
+					position: absolute;
+					text-decoration: none;
+					color: #ffffff;
+					top: 65px;
+					left: 452px;
+					font-weight: bold;
+					font-size: 14px;
+				}
+			}
+			#login_after {
+				display: none;
+				position: relative;
+				.size(100%, 100%);
+				text-align: right;
+				div,
+				a {
+					height: 45px;
+					display: inline-block;
+					color: #ffffff;
+					margin-top: 30px;
+					vertical-align: top;
+				}
+				a {
+					line-height: 45px;
+					text-decoration: none;
+				}
+				a: link;
+				a:visited {
+					color: #ffffff;
+				}
+				a:hover {
+					color: #ff6666;
+				}
+				#head {
+					width: 45px;
+					margin-right: 10px;
+					overflow: hidden;
+					img{
+						width:45px;
+						height: 45px;
+						border-radius: 50%;
+					}
+				}
+				#username {
+					line-height: 45px;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}

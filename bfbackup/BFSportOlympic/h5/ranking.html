@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2016里约奥运会_暴风体育</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <!-- build:css css/ranking.css -->
+    <link rel="stylesheet" href="src/css/ranking.css"/>
+    <!-- endbuild -->
+   <script>
+    !function(i,m){var d,o=i.document,e=o.documentElement,n=o.querySelector('meta[name="viewport"]'),b=o.querySelector('meta[name="flexible"]'),p=0,f=0,l=m.flexible||(m.flexible={});if(n){console.warn("将根据已有的meta标签来设置缩放比例");var j=n.getAttribute("content").match(/initial\-scale=([\d\.]+)/);if(j){f=parseFloat(j[1]);p=parseInt(1/f)}}else{if(b){var k=b.getAttribute("content");if(k){var j=k.match(/initial\-dpr=([\d\.]+)/),h=k.match(/maximum\-dpr=([\d\.]+)/);if(j){p=parseFloat(j[1]);f=parseFloat((1/p).toFixed(2))}if(h){p=parseFloat(h[1]);f=parseFloat((1/p).toFixed(2))}}}}if(!p&&!f){var q=(i.navigator.appVersion.match(/android/gi),i.navigator.appVersion.match(/iphone/gi)),a=i.devicePixelRatio;p=q?((a>=3&&(!p||p>=3))?3:(a>=2&&(!p||p>=2))?2:1):1;f=1/p}e.setAttribute("data-dpr",p);if(!n){n=o.createElement("meta");n.setAttribute("name","viewport");n.setAttribute("content","initial-scale="+f+", maximum-scale="+f+", minimum-scale="+f+", user-scalable=no");if(e.firstElementChild){e.firstElementChild.appendChild(n)}else{var c=o.createElement("div");c.appendChild(n);o.write(c.innerHTML)}}function g(){var r=e.getBoundingClientRect().width;if(r/p>540){(r=540*p)}var s=r/10;e.style.fontSize=s+"px";l.rem=i.rem=s}i.addEventListener("resize",function(){clearTimeout(d);d=setTimeout(g,300)},false);i.addEventListener("orientationchange",function(){clearTimeout(d);d=setTimeout(g,300)},false);i.addEventListener("pageshow",function(r){if(r.persisted){clearTimeout(d);d=setTimeout(g,300)}},false);if("complete"===o.readyState){o.body.style.fontSize=12*p+"px"}else{o.addEventListener("DOMContentLoaded",function(){o.body.style.fontSize=12*p+"px"},false)}g();l.dpr=i.dpr=p;l.refreshRem=g;l.rem2px=function(r){var s=parseFloat(r)*this.rem;if("string"==typeof r&&r.match(/rem$/)){s+="px"}return s};l.px2rem=function(r){var s=parseFloat(r)/this.rem;if("string"==typeof r&&r.match(/px$/)){s+="rem"}return s}}(window,window.lib||(window.lib={}));
+   </script>
+</head>
+<body>
+
+<!-- 金牌榜-->
+<div class="j-ranking">
+    <h2 class="j-title">金牌榜</h2>
+    <div class="ranking-wrap">
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>排名</th>
+                    <th>国家/地区</th>
+                    <th>金牌</th>
+                    <th>铜牌</th>
+                    <th>银牌</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="active-yellow">1</td>
+                    <td>中国</td>
+                    <td>23</td>
+                    <td>20</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td class="active-yellow">2</td>
+                    <td>美国</td>
+                    <td>23</td>
+                    <td>20</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td class="active-yellow">3</td>
+                    <td>俄罗斯</td>
+                    <td>23</td>
+                    <td>20</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td class="num">4</td>
+                    <td>法国</td>
+                    <td>23</td>
+                    <td>20</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- /金牌榜-->
+
+
+</body>
+</html>

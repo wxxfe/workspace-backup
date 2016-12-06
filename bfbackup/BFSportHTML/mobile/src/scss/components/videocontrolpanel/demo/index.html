@@ -1,0 +1,40 @@
+<!-- 视频控制面板 开始 -->
+<div class="video-control-panel">
+	<div class="bigplay js-video-control-play"></div>
+	<div class="video-control-bar">
+		<button class="fullscreen-btn"></button>
+		<div class="progress">
+			<div class="progress-playedtime">
+				<span>00:00</span>
+			</div>
+			<div class="progress-totaltime">
+				<span>03:36</span>
+			</div>
+			<div class="progress-bar-wrapper">
+				<div class="progress-bar total"></div>
+				<div class="progress-bar buffered"></div>
+				<div class="progress-bar processed">
+					<div class="processed-slide-bar">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 视频控制面板 结束 -->
+
+
+<script type="text/javascript" src="/abase/util.js"></script>
+<script type="text/javascript" src="/progress/index.js"></script>
+<script>
+	var controlPanel = document.querySelector('.video-control-panel'),
+		controlPanelComp;
+	if(controlPanel) {
+		controlPanelComp = VideoControlPanelFactory({
+			element: controlPanel
+		});
+		controlPanelComp.on('processStateChangeEnd', function(milliseconds) {
+			console.log('processStateChangeEnd  milliseconds:' + milliseconds);
+		});
+	};
+</script>

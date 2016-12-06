@@ -1,0 +1,61 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../message/index";
+@import "../portrait/index";
+
+.chatroom {
+    background: #f3f3f3;
+    .message-item {
+        @include clearfix;
+        .portrait {
+            .wrapper {
+                padding-top: 0;
+                img.host-icon {
+                    width: 20px; /*px*/
+                    height: 24px; /*px*/
+                }
+            }
+        }
+
+        &.right {
+            .portrait {
+                .img-wrapper {
+                    right: 0;
+                }
+                .wrapper {
+                    margin-left: 0;
+                    margin-right: 80px; /*px*/
+                    text-align: right;
+
+                }
+            }
+            .message {
+                float: right;
+                margin-top: -8px; /*px*/
+                margin-right: 92px; /*px*/
+            }
+        }
+
+        &.left {
+            .message {
+                margin-top: -8px; /*px*/
+                margin-left: 92px; /*px*/
+            }
+        }
+    }
+
+    .message-input {
+        position: fixed;
+        bottom: 0;
+
+        width: 80px; /*px*/
+        height: 80px; /*px*/
+        border-radius: 50%;
+        background: $fill-mask-deep;
+        &.voice-input {
+            right: 0;
+        }
+    }
+
+}
+

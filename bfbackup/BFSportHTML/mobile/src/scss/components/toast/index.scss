@@ -1,0 +1,37 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+
+.toast {
+  $width: 630px;
+  $height: 300px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -$height/2; /*px*/
+  margin-left: -$width/2;
+  width: $width;
+  height: $height; /*px*/
+  background: $fill-mask-deep;
+
+  .header {
+    position: relative;
+    height: 48px; /*px*/
+    .close {
+      position: absolute;
+      right: 10px; /*px*/
+      top: 10px; /*px*/
+      padding: 10px; /*px*/
+      width: 16px; /*px*/
+      height: 16px; /*px*/
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4QjMwNDRGQzdGQUExMUU2OUQ2NUY2RDE5RjNGMjc1MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4QjMwNDRGRDdGQUExMUU2OUQ2NUY2RDE5RjNGMjc1MCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjhCMzA0NEZBN0ZBQTExRTY5RDY1RjZEMTlGM0YyNzUwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjhCMzA0NEZCN0ZBQTExRTY5RDY1RjZEMTlGM0YyNzUwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+UZN1TgAAAPpJREFUeNrEl20OwyAIhs16TrjZNNs5mzjbYWIWPwAhI+FHq76PtYIYcs6h+FH8WRzo2cMv7UisUKGv/LXTCQ6knYl1BJpFa9bwFlotXQ3YaTjpvQf01q4dPOAw02w7WsJhpfU7wAIOHI3ewB04cMeOBDRwkIyZzV4CB+lEV0vHgYPm13A2ywwO2v3A3akjuDoCJLHZg6vDTpoYRnBxonkEmeVgZZsZyX2p/7K5ZuGEXuHEEUbrBCIRRKuUqfkK3D0kdo5F1B6LFoUASgsBy9IHuaWPR7GHq2LPs7zFWXkbnaAzeOpdYSyhPfi7XmEqPDpBW3iql7aPAAMACglHaNUvtXYAAAAASUVORK5CYII=) no-repeat center center;
+      background-size: cover;
+    }
+
+  }
+
+  .content {
+    height: $height*3/4; /*px*/
+  }
+
+}
+

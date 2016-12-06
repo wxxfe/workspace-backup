@@ -1,0 +1,350 @@
+@import 'mixins';
+@import 'lib/animate';
+@import 'lib/css3';
+@import 'components/grid';
+
+html, body {
+    min-width: 1200px;
+    width: 100%;
+    height: 100%;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: @font-family-base;
+}
+
+.fixed-grid();
+
+img {
+    object-fit: cover;
+    border: none;
+}
+
+body {
+    .bg('my-olympic-top.jpg', no-repeat, center 60px);
+}
+
+.container {
+    position: relative;
+    width: 1200px;
+    margin-top: 250px;
+    padding: 0;
+    overflow: hidden;
+    .center-block();
+}
+
+.video-player {
+    width: 100%;
+    height: 567px;
+}
+
+.banner {
+    margin-top: 30px;
+    width: 100%;
+    height: 107px;
+    img {
+        width: 100%;
+    }
+}
+
+.slide-box {
+    margin-top: 34px;
+    position: relative;
+    .data-wrap {
+        position: relative;
+        width: 100%;
+        height: 416px;
+        margin-top: 20px;
+    }
+    .slide-wrap {
+        width: 1136px;
+        overflow: hidden;
+        margin-left: 41px;
+    }
+
+    li {
+        width: 1136px;
+        height: 416px;
+        float: left;
+    }
+    .media {
+        float: left;
+        margin-right: 18px;
+        margin-bottom: 18px;
+
+        &.medium {
+            .size(266px, 200px);
+        }
+
+        &.photo {
+            a {
+                p.title {
+                    .size(100%, 35px);
+                    line-height: 35px;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+}
+
+.superstar {
+    .clearfix();
+    margin-top: 30px;
+    overflow: hidden;
+    .data-wrap {
+        position: relative;
+        width: 100%;
+        margin-top: 20px;
+        .slide-wrap {
+            width: 1230px;
+            overflow: hidden;
+            margin-left: 30px;
+        }
+
+        li {
+            width: 1230px;
+            float: left;
+        }
+
+        div {
+            width: 276px;
+            float: left;
+            margin-right: 12px;
+        }
+        img {
+            width: 276px;
+            height: 440px;
+        }
+
+        .txt {
+            width: 100%;
+            text-align: center;
+            margin-top: 18px;
+            font-size: 16px;
+            list-style: none;
+            div {
+                color: #969696;
+                min-height: 25px;
+                &.txt-1 {
+                    color: #000000;
+                }
+            }
+        }
+
+    }
+}
+
+.data-wrap {
+    ul {
+        list-style-type: none;
+    }
+
+    .prev, .next {
+        position: absolute;
+        top: 170px;
+        width: 20px;
+        height: 70px;
+        background: #434343;
+        display: none;
+    }
+    .prev {
+        left: 0;
+    }
+    .next {
+        right: 0;
+    }
+    .prev i, .next i {
+        display: block;
+        width: 9px;
+        height: 17px;
+        position: absolute;
+        top: 26px;
+        left: 6px;
+    }
+    .prev i {
+        .bg('sprite.png', no-repeat, 0 -40px);
+    }
+    .next i {
+        .bg('sprite.png', no-repeat, -9px -40px);
+    }
+}
+
+.row-box {
+    margin-top: 30px;
+    .clearfix();
+}
+
+.support {
+    float: left;
+    width: 744px;
+}
+
+.support-content {
+    margin-top: 38px;
+}
+
+.col-right {
+    float: right;
+    width: 397px;
+}
+
+//奖牌榜
+h2.j-ranking {
+    .size(397px, 40px);
+    .bg('ranking-title-bg.jpg', no-repeat);
+    line-height: 40px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    text-indent: 14px;
+
+    a {
+        .inline-block;
+        .text-n;
+        float: right;
+        margin-right: 10px;
+        font-size: 14px;
+        color: #fff;
+        &:hover {
+            color: @sports-yellow;
+        }
+    }
+}
+
+.ranking-wrap {
+    height: 568px;
+    .bgc(#f9f9f9);
+    border: #e6e5e5 1px solid;
+    border-top: none;
+    font-size: 16px;
+    overflow: hidden;
+
+    table {
+        margin-top: 26px;
+        width: 100%;
+        height: 540px;
+        vertical-align: middle;
+        text-align: center;
+        border-collapse: collapse;
+        thead {
+            th {
+                color: #000;
+                height: 40px;
+                font-weight: normal;
+            }
+        }
+        tbody {
+            td {
+                &.active-yellow {
+                    color: @sports-yellow;
+                }
+                &.td1 {
+                    font-size: 24px;
+                    font-style: italic;
+                }
+            }
+        }
+
+    }
+}
+
+.vr-look {
+    margin-top: 58px;
+    .title {
+        width: 100%;
+        height: 40px;
+        border-bottom: #cbcbc9 1px solid;
+        div {
+            width: 100%;
+            height: 40px;
+            font-size: 24px;
+            line-height: 100%;
+            text-indent: 50px;
+            color: #000000;
+            .bg('olympic-title-bg-1.gif', no-repeat, left 1px);
+        }
+    }
+    .content div {
+        margin-top: 20px;
+        height: 108px;
+    }
+}
+
+.partners {
+    margin-top: 30px;
+    table {
+        margin-top: 30px;
+        background: #eff3f6;
+        width: 100%;
+        height: 65px;
+        vertical-align: middle;
+        text-align: center;
+        border-collapse: collapse;
+    }
+}
+
+.footer {
+    height: 333px;
+    .bg('olympic-bottom.jpg', no-repeat, center bottom);
+}
+
+//播放器
+.video-player {
+    .bgc(#000);
+    height: 567px;
+    overflow: hidden;
+    .player {
+        .size(915px, 567px);
+        overflow: hidden;
+        float: left;
+    }
+
+    .video-list-wrap {
+        .size(285px, 567px);
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    ul.video-list {
+        list-style: none;
+        margin-top: 10px;
+        li, li a {
+            display: block;
+        }
+        li {
+            margin-left: 15px;
+            margin-bottom: 10px;
+            a {
+                .text-n;
+                img {
+                    .size(253px, 140px);
+                }
+                p.v-title {
+                    line-height: 30px;
+                    font-size: 16px;
+                    color: #fff;
+                }
+                &:hover,
+                &.active {
+                    img {
+                        .size(249px, 136px);
+                        border: @sports-yellow 2px solid;
+                    }
+                    p {
+                        color: @sports-yellow;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@import 'components/title';
+@import 'components/news-text-list';
+@import 'components/news-media-new';
+@import 'components/news-mixins';
+@import 'components/navigation-new';

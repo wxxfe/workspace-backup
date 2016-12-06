@@ -1,0 +1,163 @@
+@import "../../components/style/themes/default/index";
+@import "../../components/downloadbar/index";
+@import "../../components/divideline/index";
+@import "../../components/portrait/index";
+@import "../../components/tab/index";
+@import "../../components/downloadtoast/index";
+@import "../../components/sharepage/index";
+@import "../../components/tag/index";
+
+html, body {
+    height: 100%;
+}
+
+.share {
+    margin-top: 96px; /*px*/
+}
+
+.img-text {
+    position: relative;
+    .main {
+        background: #000000;
+        width: 100%;
+        height: 370px; /*px*/
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 20px; /*px*/
+        display: table;
+    }
+    img {
+        position: absolute;
+        top: 0;
+        display: block;
+        width: 100%;
+        height: 370px; /*px*/
+        object-fit: cover;
+        border: none;
+        z-index: 1;
+        opacity: 0.3;
+    }
+    .center {
+        vertical-align: middle;
+        display: table-cell;
+        position: relative;
+        z-index: 2;
+        padding: 0 30px; /*px*/
+        margin: auto;
+
+        text-align: center;
+        .title {
+            font-size: 32px; /*px*/
+            color: #fff;
+            text-shadow: 1px 0 1px #000,
+            0 1px 1px #000,
+            0 -1px 1px #000,
+            -1px 0 1px #000;
+            text-align: left;
+            span {
+                display: table;
+                margin: auto;
+            }
+        }
+        .user {
+            font-size: 24px; /*px*/
+            color: #fff;
+            margin-top: 22px; /*px*/
+            text-shadow: 1px 0 1px #000,
+            0 1px 1px #000,
+            0 -1px 1px #000,
+            -1px 0 1px #000;
+        }
+        .button {
+            margin-top: 40px; /*px*/
+        }
+    }
+    .text {
+        font-size: 32px; /*px*/
+        color: #444;
+        padding: 0px 30px 20px; /*px*/
+        position: relative;
+    }
+    .tags {
+        padding: 0px 30px 10px; /*px*/
+        position: relative;
+        .tag {
+            padding: 6px 10px; /*px*/
+            border-radius: $u + 4; /*px*/
+            margin:0px 10px 10px 0px; /*px*/
+        }
+    }
+}
+
+.tab {
+    padding-bottom: 60px; /*px*/
+    .item-content {
+        float: left;
+        padding-bottom: 10px; /*px*/
+    }
+    .tab-content {
+        padding: 30px 0; /*px*/
+    }
+    .portrait {
+        padding: 0 30px; /*px*/
+    }
+    .portrait.withfootnotes .footnote {
+        margin-top: 0;
+    }
+    .main-txt {
+        padding: 30px 30px 0; /*px*/
+    }
+    .main-img img {
+        padding: 30px 0 0; /*px*/
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: none;
+    }
+    .footer {
+        font-size: 24px; /*px*/
+        color: #999;
+        padding: 30px 30px 30px; /*px*/
+        .share-like {
+            width: 29px; /*px*/
+            height: 29px; /*px*/
+            margin: -2px 8px 0 0; /*px*/
+        }
+    }
+
+    .content-empty {
+        width: 280px; /*px*/
+        height: 346px; /*px*/
+        margin: 100px auto 0; /*px*/
+        display: block;
+    }
+
+    #tab-persons {
+        .section-title {
+            padding: 0 30px 20px; /*px*/
+        }
+        .portrait {
+            padding: 0 30px 20px; /*px*/
+        }
+    }
+}
+
+.form-control {
+    background: #fff;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+    border: 2px solid #ccc; /*px*/
+}
+
+.form-control input {
+    margin: 5px auto; /*px*/
+    display: block;
+    width: 96%;
+    height: 40px; /*px*/
+    background-color: #f1f1f1;
+    border: 2px solid #ccc; /*px*/
+    border-radius: 4px; /*px*/
+    padding: 4px; /*px*/
+}

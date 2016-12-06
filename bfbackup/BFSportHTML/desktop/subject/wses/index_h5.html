@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>世界体育产业峰会 - 暨暴风体育战略发布会</title>
+	<link rel="stylesheet" href="styles/sweetalert.css"/>
+	<style>
+		/* 全局样式 */
+		body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, img, div, p, select, input, dl, dt, dd, textarea {
+			margin: 0px;
+			padding: 0;
+			border: 0;
+			font-size: 12px;
+			font-weight: normal;
+			box-sizing: border-box;
+		}
+
+		ul, li, ol {
+			list-style-type: none;
+		}
+
+		a:link {
+			color: #666666;
+			text-decoration: none;
+		}
+
+		a:visited {
+			color: #666666;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: #666666;
+			text-decoration: none;
+		}
+
+		select, input, img, select, button {
+			vertical-align: middle;
+		}
+
+		html {
+			font-size: 10px;
+		}
+
+		body {
+			background-color: transparent;
+			color: #ffffff;
+			font-family: "微软雅黑";
+			background: #f3f3f3;
+		}
+
+		.apply_title {
+			width: 100%;
+			height: 46px;
+			background: url("images/cut2.gif") repeat-x scroll left bottom #f3f3f3;
+			margin: 1.4rem auto;
+		}
+
+		.apply_title h1 {
+			width: 35%;
+			height: 38px;
+			font-size: 2.4rem;
+			line-height: 46px;
+			text-align: center;
+			background: #f3f3f3;
+			color: #313131;
+			margin: 0 auto;
+		}
+
+		.apply_title_mp {
+			background: url("images/cut1.gif") repeat-x scroll left bottom #ffffff;
+			margin: 1.4rem auto;
+		}
+
+		.apply_title_mp h1 {
+			width: 85%;
+			background: #ffffff;
+		}
+
+		#apply {
+			width: 100%;
+			background: #f3f3f3;
+		}
+
+		#sign_up1,
+		#sign_up2 {
+			width: 85%;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+
+		#sign_up1 {
+			background: #f3f3f3; margin-bottom: 1.8rem;;
+		}
+		#sign_up2_out{width:100%; background: #ffffff;padding-top: 1px; padding-bottom: 2.2rem;}
+		#sign_up2 {
+			background: #ffffff;
+		}
+
+		.sign_up li {
+			margin-bottom: 0.7rem;
+			clear: both;
+			overflow: hidden;
+		}
+
+		.sign_up li dt {
+			width: 100%;
+			height: 45px;
+			line-height: 45px;
+			float: left;
+			margin-right: 24px;
+			font-size: 18px;
+			color: #313131;
+		}
+
+		.sign_up li dd {
+			width: 100%;
+			float: left;
+		}
+
+		.sign_up input,
+		.sign_up textarea {
+			border: 1px solid #d8d7d8;
+			width: 100%;
+			font-size: 18px;
+			background: #f3f3f3
+		}
+
+
+		#sign_up2_out .sign_up input,
+		#sign_up2_out .sign_up textarea{
+			background: #ffffff;;
+		}
+
+		.sign_up input {
+			height: 43px;
+			line-height: 43px;
+			padding: 0 5px 0 5px;
+		}
+
+		.sign_up textarea {
+			height: 110px;
+			outline: none;
+			resize: none;
+			width: 100%;
+			padding: 5px;
+		}
+
+		#sign_up1 a {
+			clear: both;
+			display: block;
+			width: 100%;
+			height: 60px;
+			line-height: 60px;
+			font-size: 2.0rem;
+			background: #ec9c1e;
+			border-radius: 2px;
+			text-align: center;
+			color: #ffffff;
+			outline: none;
+			margin-top: 1.6rem;
+		}
+
+		#sign_up2 a {
+			clear: both;
+			display: block;
+			width: 100%;
+			height: 60px;
+			line-height: 60px;
+			font-size: 2.0rem;
+			background: #ec9c1e;
+			border-radius: 2px;
+			text-align: center;
+			color: #ffffff;
+			outline: none;
+			margin-top: 1.6rem;
+		}
+
+		#sign_up2 h2 {
+			height: 56px;
+			line-height: 56px;
+			margin-bottom: 12px;
+			margin-left: 370px;
+			color: #313131;
+			font-size: 28px;
+		}
+		#mps_introduce{clear: both; color: #999999; margin-bottom: 25px; clear: both;overflow: hidden;}
+		#mps_introduce h3{ font-size: 16px; margin: 0.8rem auto 0.8rem auto}
+		#mps_introduce div{float: left;}
+		#mps_introduce p{ font-size: 16px; margin-bottom: 10px;}
+		#mps_introduce p span{ float: left;}
+		#mps_introduce p span:first-child{width:19%;}
+		#mps_introduce p span:last-child{width:81%;}
+		#footer{position: relative;}
+		#footer a{width:50%; height:6.0%; position: absolute; top:83%;}
+		#footer a:first-child{left:0; background: #ffffff;}
+		#footer a:nth-child(2){left:50%; background: #ff0000;}
+	</style>
+
+</head>
+<body>
+
+
+<div id="apply">
+	<div class="apply_title">
+		<h1>报名参加</h1>
+	</div>
+	<div id="sign_up1">
+		<ul class="sign_up">
+			<li>
+				<dl>
+					<dt>姓名</dt>
+					<dd><input type="text" placeholder="请填写您的真实姓名"></dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>电话</dt>
+					<dd><input type="tel" placeholder="请填写您的有效联系方式"></dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>个人介绍</dt>
+					<dd><textarea placeholder="请填写您公司的简介"></textarea></dd>
+				</dl>
+			</li>
+		</ul>
+		<a id="apply_submit" href="">我要报名</a>
+	</div>
+	<div id="sign_up2_out">
+		<div class="apply_title apply_title_mp">
+			<h1>MP&Sliva版权商务会谈预约</h1>
+		</div>
+
+		<div id="sign_up2">
+			<ul class="sign_up">
+				<li>
+					<dl>
+						<dt>姓名</dt>
+						<dd><input id="" type="text" placeholder="请填写您的真实姓名"></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>电话</dt>
+						<dd><input type="tel" placeholder="请填写您的有效联系方式"></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>公司介绍</dt>
+						<dd><textarea placeholder="请填写您公司的简介"></textarea></dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>希望参与的会谈内容</dt>
+						<dd><textarea placeholder="请填写您的个人简介"></textarea></dd>
+					</dl>
+				</li>
+			</ul>
+			<div id="mps_introduce">
+				<h3>MPS业务介绍：</h3>
+				<div>
+					<p><span>主题 1:</span> <span>媒体版权经营：世界顶级赛事版权经营和价值挖掘</span></p>
+					<p><span>主题 2:</span> <span>体育赞助：制定收益最大化的赛事赞助方案</span></p>
+					<p><span>主题 3:</span> <span>数字化 – VR、互联网新技术创造体育新体验</span></p>
+					<p><span>主题 4:</span> <span>顾问和活动策划：一站式体育赛事管理和服务方案</span></p>
+				</div>
+			</div>
+			<a id="subscribe" href="">我要预约</a>
+		</div>
+	</div>
+	<div id="footer">
+		<!--<a href="tel:010-62309066"></a>-->
+		<!--<a href="http://www.baofeng.com"></a>-->
+		<img src="images/ewm.jpg" width="100%">
+	</div>
+</div>
+
+<script src="scripts/jquery-1.12.1.min.js"></script>
+<script src="scripts/sweetalert.min.js"></script>
+<script>
+	//验证表单
+	function check(obj) {
+		var data = {};
+		if (obj.parent().find("input:eq(0)").val() == '') {
+			swal("请填写您的真实姓名!");
+		}
+		else if (obj.parent().find("input:eq(1)").val() == '') {
+			swal("请填写您的联系电话!");
+		}
+		else {
+			data.name = obj.parent().find("input:eq(0)").val();
+			data.phone = obj.parent().find("input:eq(1)").val();
+			if (obj.attr("id") == "apply_submit") {
+				data.introduce = obj.parent().find("textarea:eq(0)").val();
+				data.type = "personal";
+				$.post("http://sports.baofeng.com/api/enroll", data,
+                        function(dd){
+                            var value = typeof dd === 'string' ? (new Function('return ' + dd))() : JSON.parse(dd);
+							if (value.code == 0) {
+								swal(value.msg);
+							}
+							else if (value.code == 1) {
+								swal("提交成功");
+                                setTimeout(function(){
+                                    history.go(-1);
+                                },2000);
+							}
+						});
+			}
+			else if (obj.attr("id") == "subscribe") {
+				data.introduce = obj.parent().find("textarea:eq(0)").val();
+				data.content = obj.parent().find("textarea:eq(1)").val();
+				data.type = "business";
+				$.post("http://sports.baofeng.com/api/enroll", data,
+                        function(dd){
+                            var value = typeof dd === 'string' ? (new Function('return ' + dd))() : JSON.parse(dd);
+							if (value.code == 0) {
+								swal(value.msg);
+							}
+							else if (value.code == 1) {
+								swal("提交成功");
+                                setTimeout(function(){
+                                    history.go(-1);
+                                },2000);
+							}
+						});
+			}
+		}
+	}
+
+	jQuery(function(){
+		$("#apply_submit").on("click",function(e){
+			check($(this));
+			return false;
+		});
+		$("#subscribe").on("click",function(e){
+			check($(this));
+			return false;
+		});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+@import "../../components/style/themes/default/index";
+@import "../../components/section/index";
+@import "../../components/downloadbar/index";
+@import "../../components/portrait/index";
+@import "../../components/article/index";
+@import "../../components/list/index";
+@import "../../components/shareThird/index";
+@import "../../components/operationguide/index";
+@import "../../components/sharepage/index";
+@import "../../components/divideline/index";
+@import "../../components/page/index";
+
+.section-article {
+    margin-top: 96px; /*px*/
+    padding-top: 0px !important; /*px*/
+}
+
+.section-article.app {
+    margin-top: 0px; /*px*/
+    padding-top: 0px !important; /*px*/
+}
+
+.section-content {
+    margin-top: -10px; /*px*/
+}
+
+.img-text {
+    width: 100%;
+    position: relative;
+    background: #000000;
+    height: 550px; /*px*/
+    overflow: hidden;
+    margin-top: 0px; /*px*/
+    padding-top: 0px; /*px*/
+    display: table;
+    .bg {
+        position: absolute;
+        top: 0;
+        display: block;
+        width: 100%;
+        height: 550px; /*px*/
+        object-fit: cover;
+        border: none;
+        z-index: 1;
+        opacity: 0.3;
+    }
+
+    .text {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        color: #fff;
+        text-shadow: 1px 0 1px #000,
+        0 1px 1px #000,
+        0 -1px 1px #000,
+        -1px 0 1px #000;
+        .one {
+            position: relative;
+            //margin-top: 150px; /*px*/
+            padding: 0 30px; /*px*/
+            .date {
+                position: absolute;
+                .day {
+                    font-size: 100px; /*px*/
+                    line-height: 100px; /*px*/
+                    font-family: $font-family-din-md;
+                }
+                .m-y {
+                    position: relative;
+                    font-size: 22px; /*px*/
+                    .m {
+                        float: left;
+                        //position: absolute;
+                        //left: 0px; /*px*/
+                    }
+                    .y {
+                        float: right;
+                        padding-right: 4px;/*px*/
+                        //position: absolute;
+                        //left: 44px; /*px*/
+                    }
+                }
+            }
+            h1 {
+                position: relative;
+                left: 126px; /*px*/
+                top: 2px; /*px*/
+                font-size: 44px; /*px*/
+                line-height: 64px; /*px*/
+                width: 550px; /*px*/
+            }
+        }
+        .two {
+            position: relative;
+            margin-top: 40px; /*px*/
+            padding: 0 30px; /*px*/
+            font-size: 29px; /*px*/
+            line-height: 38px; /*px*/
+            img {
+                height: 30px; /*px*/
+                //position: absolute;
+                //top: 3px; /*px*/
+                float: left;
+                margin-top: 4px; /*px*/
+                margin-right: 8px; /*px*/
+            }
+            p {
+                //text-indent: 56px; /*px*/
+            }
+        }
+
+        .portrait {
+            position: relative;
+            margin-top: 40px; /*px*/
+            padding: 0 30px; /*px*/
+            font-size: 24px; /*px*/
+            .roundimg {
+                float: left;
+                border: solid 2px #fff; /*px*/
+                margin-top: -2px; /*px*/
+                width: 30px; /*px*/
+                height: 30px; /*px*/
+            }
+            .title {
+                float: left;
+                margin-left: 12px; /*px*/
+            }
+            .read-time {
+                float: left;
+                margin-left: 30px; /*px*/
+            }
+        }
+        display: table-cell;
+        vertical-align: middle;
+
+    }
+
+    .text.app {
+        vertical-align: bottom;
+        padding-bottom: 50px; /*px*/
+    }
+
+    .bf-make {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 3;
+        //width: 126px; /*px*/
+        height: 34px; /*px*/
+    }
+}
+
+.list-item {
+    .footnote {
+        margin-top: $v-spacing-md;
+        margin-bottom: $v-spacing-md;
+        .note {
+            margin-right: 6px;
+        }
+        .roundimg {
+            width: 30px; /*px*/
+            height: 30px; /*px*/
+            border: solid 2px #fff; /*px*/
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            position: relative;
+            top: 8px; /*px*/
+        }
+    }
+}
+
+.copyright-info {
+    text-align: center;
+    @include font-fade-2;
+    line-height: 48px; /*px*/
+    font-size: $font-size-base+2; /*px*/
+    font-style: italic;
+    padding: 30px 0px; /*px*/
+}

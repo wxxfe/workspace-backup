@@ -1,0 +1,67 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+
+.progress {
+    @include clearfix;
+     $timewidth: 60px;
+     $barheight: 6px;
+     $processedmarkwidth: 36px;
+     $height: $processedmarkwidth;
+     height: $height; /*px*/
+     text-indent: 0;
+    .progress-playedtime,.progress-totaltime {
+        width: $timewidth; /*px*/
+        line-height: $height; /*px*/
+        font-size: $font-size-base; /*px*/
+        color: $color-text-base-inverse;
+    }
+    .progress-playedtime {
+        float: left;
+    }
+    .progress-bar-wrapper {
+        position: relative;
+        margin-left: $timewidth + $h-spacing-lg; /*px*/
+        margin-right: $timewidth + $h-spacing-lg; /*px*/
+        height: $height; /*px*/
+        .progress-bar {
+            position: absolute;
+            top: $height/2 - $barheight/2; /*px*/
+            height: $barheight; /*px*/
+            &.total {
+                width: 100%;
+                background-color: $fill-mask-white-shallow;
+                z-index: 9;
+            }
+            &.buffered {
+                width: 100%;
+                z-index: 99;
+                .buffered-section {
+                    position: absolute;
+                    top: 0;
+                    background-color: $fill-mask-white-deep;
+                }
+            }
+            &.processed {
+                position: relative;
+                width: 0;
+                background-color: $brand-primary;
+                z-index: 999;
+                .processed-slide-bar {
+                    position: absolute;
+                    right: -$processedmarkwidth/2 + $barheight/2; /*px*/
+                    top: -$processedmarkwidth/2 + $barheight/2; /*px*/
+                    width: $processedmarkwidth; /*px*/
+                    height: $processedmarkwidth; /*px*/
+                    border: solid 1px $brand-primary; /*px*/
+                    border-radius: 50%;
+                    background-color: $color-text-base-inverse;
+                }
+            }
+        }
+        
+    }
+    
+    .progress-totaltime {
+        float: right;
+    }
+}

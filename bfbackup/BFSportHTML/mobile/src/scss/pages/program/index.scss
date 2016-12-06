@@ -1,0 +1,26 @@
+@import "../../components/style/themes/default/index";
+@import "../../components/section/index";
+@import "../../components/downloadbar/index";
+@import "../../components/article/index";
+@import "../../components/list/index";
+@import "../../components/videoplayershare/index";
+@import "../../components/portrait/index";
+@import "../../components/programprofile/index";
+@import "../../components/videolist/index";
+@import "../../components/sharepage/index";
+
+.top-video {
+    margin-top: $u*12; /*px*/
+}
+.section-article {
+    .section-content {
+        padding-top: 12px; /*px*/
+    }
+    .article .content {
+        padding-top: 24px; /*px*/
+    }
+}
+
+.program-profile {
+    padding-bottom: 10px !important;
+}

@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Sample of player</title>
+</script>
+	
+</head>
+<body bgcolor="#ffffff">
+	<object 
+		classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+		id="test" 
+		width="640" 
+		height="360">
+		<param name="wmode" value="direct">
+		<param name="quality" value="high">
+		<param name="allowScriptAccess" value="always">
+		<param name="allowFullScreen" value="true">
+		<param name="movie" value="cloud.swf">
+		<param name="flashvars" value="iid=qstp%3a%2f%2fqkvp%2fpGp%2fbmxleqg%2fqey%3aXDXZ.s%3fjp%3dGGJ%26jd%3dXADBAQJG0E0AZAQ11JWGDFZCTMAXFGTDAWWWJD0E%26vd%3dDQGFTQJJDMWZGGWZEAJ1XBWAAATXEDTMTBETQMXW%26lh%3dX1JQBZM%26fz%3dDQQZ0E%26pi%3dDT%26pr%3dWM0XX%26pps%3dA%26ppk%3dA%26pyp%3dX1JQBWE%26blzd%3dJXA1%26vk%3dA%26pah%3dMCJMGEBWEJQFAGADD0QW0Z0GJFT1TAWZ%26ped%3dpov&width=1024&height=576&auto=1&vr=0">
+		<embed 
+			width="640" 
+			height="360" 
+			allowScriptAccess="always" 
+			wmode="direct" 
+			quality="high"
+			allowFullScreen= "true"
+		
+			flashvars="iid=qstp%3a%2f%2fqkvp%2fpGp%2fbmxleqg%2fqey%3aXDXZ.s%3fjp%3dGGJ%26jd%3dXADBAQJG0E0AZAQ11JWGDFZCTMAXFGTDAWWWJD0E%26vd%3dDQGFTQJJDMWZGGWZEAJ1XBWAAATXEDTMTBETQMXW%26lh%3dX1JQBZM%26fz%3dDQQZ0E%26pi%3dDT%26pr%3dWM0XX%26pps%3dA%26ppk%3dA%26pyp%3dX1JQBWE%26blzd%3dJXA1%26vk%3dA%26pah%3dMCJMGEBWEJQFAGADD0QW0Z0GJFT1TAWZ%26ped%3dpov&width=1024&height=576&auto=1&vr=0" 
+			src="cloud.swf" 
+			name="test" 
+			type="application/x-shockwave-flash" 
+			allowFullScreen="true">
+	</object>
+	<br />
+	<div id="play_list">
+	</div>
+	<br />
+	<input type="button" value="play" onclick="play()" />
+	<input type="button" value="pause" onclick="pause()" />
+
+	<input type="button" value="sendBarrage" onclick="sendBarrage()" />
+	<input type="button" value="showBarrage" onclick="showBarrage()" />
+	<input type="button" value="hideBarrage" onclick="hideBarrage()" />
+		<input type="button" value="changevolume" onclick="changevolume()" />
+				<input type="button" value="spemessage" onclick="sendspeM()" />
+				<input type="button" value="seek到30秒" onclick="seek()" />
+				<input type="button" value="getinfo" onclick="getinfo()" />
+				<input type="button" value="getvolume" onclick="getvolume()" />
+				<input type="button" value="getbuffdownload" onclick="getbuffdownload()" />
+			
+	<script>
+		
+			function cut(){
+		ind++;
+		ind %= 5;
+			var json = playdata[ind++];
+			cloudPlay['jsToAction']('changevideo',json.vk, json.tokenid, json.autoPlay);
+			document.getElementById("res").innerHTML = ind;
+		}
+		var cloudPlay,play_list,classname,index=0,tpl="",playdata = [
+			{qstp:"qstp://qkvp/pGp/bmxleqg/qey:XDXZ.s?jp=GGJ&jd=XADBAQJG0E0AZAQ11JWGDFZCTMAXFGTDAWWWJD0E&vd=DQGFTQJJDMWZGGWZEAJ1XBWAAATXEDTMTBETQMXW&lh=X1JQBZM&fz=DQQZ0E&pi=DT&pr=WM0XX&pps=A&ppk=A&pyp=X1JQBWE&blzd=JXA1&vk=A&pah=MCJMGEBWEJQFAGADD0QW0Z0GJFT1TAWZ&ped=pov", autoPlay:"1", vr:"0", ptime:"0",name:"测试切换"},
+			{qstp:"qstp://qkvp/pGp/bmxleqg/qey:XDXZ.s?jp=GGJ&jd=EJEWBJXCQTF01FBEXFB1TE1CJ0QCDZWDQWJDAWXZ&vd=EFD1ZZBQAJWE1BW0WQ00DGMCJZBTAXAGTCJ00JTZ&lh=0DB0W1&fz=DJXJ0&pi=DE&pr=WBFQX&pps=A&ppk=A&pyp=0DB0QF&blzd=MMD&vk=A&pah=MJFQFQBMAMB1AMGXJA1DAZBEEE0XBFQC&ped=pov", autoPlay:"1", vr:"0", ptime:"0",name:"测试切换"}
+		
+		]
+		var getSwf = function(id){
+			var element=document.getElementById(id);
+			return (navigator.appName.indexOf("Microsoft") != -1)?element:element.getElementsByTagName("embed")[0];
+		}
+		function init(){
+			play_list = document.getElementById("play_list");
+			cloudPlay = getSwf("test");
+            console.log(cloudPlay.nodeName);
+			renderingplay();
+			play_list.onclick = playclick;
+		}
+		function playclick(event){
+			var target;
+			event = event || window.event;
+			target = event.target || event.srcElement;
+			if(target.getAttribute("data-cloud")){
+				index = target.getAttribute("data-index");
+				addCloudPlay();
+			}
+		}
+		
+		
+		function playend(){
+			index++;
+			if(index>=playdata.length){
+				index = 0;
+			}
+			addCloudPlay();
+		}
+		function addCloudPlay(){
+		
+			var json = playdata[index];
+			//第五个参数为开始播放时间，当前时间没有关键帧，跳到最近的时间
+			cloudPlay['jsToAction']('changevideo',json.qstp, json.autoPlay, json.vr,json.ptime);
+			renderingplay();			
+		}
+		
+		function seek()
+		{
+			// seek到30秒 秒为单位
+			cloudPlay['jsToAction']('seek',30);
+		}
+		
+		function getinfo()
+		{
+			alert(cloudPlay['jsToAction']('getStatufinfo'));
+		}
+		
+		
+		function changevolume()
+		{
+			cloudPlay['jsToAction']('changevolume',0.5);
+		}
+		
+		function getvolume()
+		{
+		    alert("当前音量："+cloudPlay['jsToAction']('getVolume'));
+		}
+		
+		
+		function getbuffdownload()
+		{
+			alert("下载进度时间："+cloudPlay['jsToAction']('getBufferDownload'));
+		}
+		
+		
+		function renderingplay(){
+			for(var i=0,len=playdata.length;i<len;i++){
+				classname = "click_div";
+				if(i==index){
+					classname = "click_div cur";
+				}
+				tpl+=rendering({index:i,name:playdata[i].name,classname:classname});
+			}
+			play_list.innerHTML = tpl;
+			tpl = "";				
+		}
+		function rendering(data){
+			return '<div class="'+data.classname+'" data-cloud="1" data-index="'+data.index+'">'+data.name+'</div>'
+		}
+		
+		init();
+        setTimeout(function(){
+        console.log(cloudPlay['jsToAction']);
+        },600);
+		
+		window.cloudsdk = {};
+		cloudsdk.onActionTojs = function(){
+			var type = arguments[0]
+			switch(type){
+				case "cloudstatus":
+					console.log(type + " -- " + arguments[1] + ":" + arguments[2]);
+					break;
+						case "displayChange":
+					console.log(type + " -- " + arguments[1]) ;
+						break;
+				case "playend":
+					console.log(type);
+					break;
+				case "send_barrage_flash":
+					console.log(arguments[1]);
+					break;
+				case "send_barrage_resault":
+					console.log(arguments[1]);
+					break;
+				case "receive_barrage_flash":
+					console.log(arguments[1]);
+					break;
+				case "show_barrage_flash":
+					console.log(arguments[1]);
+					break;
+			}
+		}
+		
+		function sendspeM(){
+			cloudPlay['jsToAction']('sendspemessage',{text:"测试内容",fontsize:44,fontcolor:0xff0000,repeat:2,cycletime:60,randompos:true});
+		}
+		
+		function play(){
+			cloudPlay['jsToAction']('play');
+		}
+	
+		function pause(){
+			cloudPlay['jsToAction']('pause');
+		}
+		function resume(){
+			cloudPlay['jsToAction']('resume');
+		}
+		function sendBarrage(){
+			cloudPlay['jsToAction']('send_barrage',{
+				txt:"测试内容123"
+			});
+		}
+		function showBarrage(){
+			cloudPlay['jsToAction']('show_barrage', true);
+		}
+		function hideBarrage(){
+			cloudPlay['jsToAction']('show_barrage', false);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../style/util";
+
+@include grid();
+
+$progress-height: 15px;
+.match-bar {
+    overflow: hidden;
+    .match-footnote,
+    .match-footnote-score {
+        height: 108px; /*px*/
+        overflow: hidden;
+        text-align: center;
+        line-height: 108px; /*px*/
+        color: lighten($color-text-base, 30%);
+    }
+
+    .match-footnote {
+        font-size: $font-size-base; /*px*/
+        text-align: left;
+
+        img.badge {
+            width: 60px; /*px*/
+            height: 60px; /*px*/
+            vertical-align: middle;
+            margin: 0 10px;
+        }
+    }
+
+    .match-footnote:nth-child(1) {
+        text-align: right;
+    }
+
+    .match-footnote-score {
+        font-family: $font-family-din-md;
+        font-size: $font-size-headline + 6; /*px*/
+        em {
+            font-style: normal;
+            display: inline-block;
+            padding: 0 23px;
+            line-height: 100px; /*px*/
+            vertical-align: top;
+        }
+    }
+
+    .support {
+        padding-bottom: 10px; /*px*/
+        font-family: $font-family-din-md;
+        font-size: $font-size-paragraph + 4; /*px*/
+        color: lighten($color-text-base, 30%);
+        .text-left {
+            padding-left: 30px; /*px*/
+        }
+        .text-right {
+            padding-right: 30px; /*px*/
+        }
+    }
+
+    .progress {
+        height: $progress-height; /*px*/
+        overflow: hidden;
+
+        .bar {
+            height: $progress-height; /*px*/
+            float: left;
+            position: relative;
+            &:after {
+                position: absolute;
+                top: 0;
+                content: ' ';
+                width: 5px; /*px*/
+                height: $progress-height;
+                background: #fff;
+                z-index: 10;
+                transform: skew(-30deg);
+                -webkit-transform: skew(-30deg);
+            }
+        }
+        .home-team {
+            background: #de0b02;
+            &:after {
+                right: -1px; /*px*/
+            }
+        }
+        .visiting-team {
+            background: #1f58e9;
+            &:after {
+                left: -1px; /*px*/
+            }
+        }
+    }
+
+}

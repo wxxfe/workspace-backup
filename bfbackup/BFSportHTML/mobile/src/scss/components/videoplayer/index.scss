@@ -1,0 +1,34 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../style/util";
+@import "../videonew/index";
+@import "../videocontrolpanel/index";
+
+$videoHeight: $screen-width*9/16;
+
+.video-player {
+    position: relative;
+    width: 100%;
+    height: $videoHeight;
+    .loading-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 32px; /*px*/
+        color: #fff;
+        width: 100%;
+        height: $videoHeight;
+        line-height: $videoHeight;
+        text-align: center;
+        background: #000;
+        z-index: 99;
+    }
+    &.is-fullscreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100% !important;
+        z-index: 99999;
+    }
+}

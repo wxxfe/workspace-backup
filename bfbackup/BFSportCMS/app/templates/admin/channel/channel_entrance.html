@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>暴风体育内容管理系统 - CMS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="../../../static/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="../../../static/plugins/jQueryUI/jquery-ui.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../../../static/plugins/datatables/dataTables.bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../../static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="../../../static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../../static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../../../static/dist/css/skins/_all-skins.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .table tbody tr td {
+            vertical-align: middle;
+        }
+
+        .ui-dialog-titlebar-close {
+            outline: none;
+        }
+
+        #my-ui-list tr {
+            cursor: move;
+        }
+
+        /*#my-ui-list tr:active {*/
+            /*background: #ffb733;*/
+        /*}*/
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5;">
+<div class="wrapper">
+    <div class="content-wrapper" style="margin-left: 0;">
+        <section class="content-header">
+            <h1><i class="fa fa-tags"></i>暴风体育CMS</h1>
+        </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" style="margin-bottom: 10px; padding-left: 25px;">
+                             {% for event in events %}
+                                {% if event.id != 0 %}
+                                <li  {% if event.id == event_id %} class="active" {% endif %}><a href="/channel_entrance?event_id={{event.id}}">{{ event.name }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+
+            <p>注:可拖拽排序</p>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-info">
+                        <div class="box-body nopadding">
+                            <div class="col-md-9">
+                            </div>
+                            <div class="col-md-3">
+                                <a role="button" id="add_subpage" class="btn btn-success btn-flat pull-right"><i
+                                        class="glyphicon glyphicon-plus"></i> 添加频道入口</a>
+                            </div>
+                        </div>
+                        <table class="table table-hover" id="list-table">
+                            <thead>
+                            <tr>
+                                <th>显示顺序</th>
+                                <th>ID</th>
+                                <th>入口名称</th>
+                                <th>简介</th>
+                                <th>类型</th>
+                                <th>修改时间</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="my-ui-list">
+                            {% for page in pages %}
+
+                            <tr id="{{ page.id }}"><!--国梁输出id-->
+                                <td class = 'display_order'>{{ page.display_order }}</td>
+                                <td>{{ page.id }}</td>
+
+                                <td data-name='title'>{{ page.title }}</td>
+                                <td data-name='brief'>{{ page.brief }}</td>
+                                <td data-name="target">
+                                    {% if page.target == 'teams' %} 球队
+                                    {% elif page.target == 'topassist' %} 助攻榜
+                                    {% elif page.target == 'topscorer' %} 射手榜
+                                    {% elif page.target == 'scoreboard' %} 积分榜
+                                    {% elif page.target == 'stories' %} 晋级之路
+                                    {% elif page.target == 'gallery' %} 图集
+                                    {% endif %}
+                                </td>
+                                <td>{{ page.updated_at }}</td>
+
+                                <td>
+                                    <!--国梁把id输出到data-rid属性中-->
+                                    <button class="btn btn-info btn-xs btn-edit" name="edit" href="" role="button" data-subpageid="{{ page.id }}" data-status=""><i class="fa fa-info"></i> 修改</button>
+                                    <button type="button" class="btn btn-xs btn-danger btn-del"
+                                            data-tid="{{ page.id }}"><i
+                                            class="fa fa-ban" title=""></i> 删除
+                                    </button>
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+<div id="del_dialog" title="提示">
+    <p class="del_tip">您确定要删除此频道吗？</p>
+</div>
+
+<div id="tip" title="信息提示">
+    <p class="error_tip"></p>
+</div>
+
+<div id="ajaxMessage" title="信息提示">
+    <p class="dialogmessage">操作成功</p>
+</div>
+
+
+<div id="tip_subpage" title="专栏" class="row" style="display: none;">
+    <div class="col-md-12">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">编辑专栏信息</h3>
+            </div>
+            <!-- /.box-header -->
+            <form class="form-horizontal" method="post" onSubmit="return check();">
+                <div class="row">
+                    <div class="col-md-12 form-content">
+                        <div class="box-body">
+
+                            <div class="form-group">
+                                <label for="title" class="col-sm-2 control-label">入口名称</label>
+
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="请输入非空格入口名称">
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="brief" class="col-sm-2 control-label">简介</label>
+
+                                <div class="col-sm-8">
+                                    <textarea type="text" class="form-control" id="brief" name="brief" value="0" placeholder="请输入非空格简介"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="target" class="col-sm-2 control-label">类型</label>
+
+                                <div class="col-sm-8">
+                                    <select id="target" name="target" class="form-control">
+                                        <option value="">请选择类型</option>
+                                        <option value="teams">球队</option>
+                                        <option value="topassist">助攻榜</option>
+                                        <option value="topscorer">射手榜</option>
+                                        <option value="scoreboard">积分榜</option>
+                                        <option value="stories">晋级之路</option>
+                                        <option value="gallery">图集</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+
+                    <!--<div class="col-md-6">-->
+                        <!-- -->
+                    <!--</div>-->
+
+                </div>
+                <div class="box-footer">
+                    <a id="cancel" class="btn btn-default" href="">取消</a>
+                    <button type="submit" class="btn btn-info pull-right">提交</button>
+                </div>
+                <!-- /.box-footer -->
+            </form>
+        </div>
+
+    </div>
+</div>
+<!-- jQuery 2.1.4 -->
+<script src="../../../static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="../../../static/bootstrap/js/bootstrap.min.js"></script>
+<!-- jQuery UI -->
+<script src="../../../static/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- DataTables -->
+<script src="../../../static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../../static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="../../../static/editRow.js"></script>
+<script src="../../../static/SortTable.js"></script>
+<script>
+
+    $.each($("#my-ui-list tr"),function(){
+        this.ondragstart = function(){
+            this.style.backgroundColor = "#ffb733";
+        }
+        this.ondrop = function(){
+            this.style.backgroundColor = ""
+        }
+    });
+
+
+    //提示
+    var dialogTip = $('#tip').dialog({
+        autoOpen: false,
+        height: 100,
+        width: 350,
+        modal: true
+    });
+
+        //提示
+    var dialogmessage = $('#ajaxMessage').dialog({
+        autoOpen: false,
+        height: 100,
+        width: 350,
+        modal: true
+    });
+
+    //删除提示
+    var dialog = $('#del_dialog').dialog({
+        autoOpen: false,
+        height: 200,
+        width: 350,
+        modal: true
+    });
+
+
+var tip_subpage;
+
+//点击编辑按钮的行为
+var sid;
+$("#list-table").on("click","button",function(){
+    add_edit = 'edit';
+    if(this.name == "edit"){
+        var crruentTr = $(this).parent().parent();
+        $("#title").val($.trim(crruentTr.find("td:eq(2)").text()));
+        $("#brief").val($.trim(crruentTr.find("td:eq(3)").text()));
+
+        var selectStr = crruentTr.find("td:eq(4)").text();
+        $.each($("#target option"),function(j,value){
+            if($.trim(selectStr) == $.trim($(value).text())){
+                $(value).attr("selected",true);
+            }
+        });
+
+        sid = $(this).data("subpageid");
+        //编辑层初始化
+        tip_subpage = $('#tip_subpage').dialog({
+            autoOpen: false,
+            //height: 503,
+            width: '60%',
+            modal: true,
+            title: '编辑频道入口'
+        });
+        $("#tip_subpage .box-title").text("编辑频道入口");
+        tip_subpage.dialog('open');
+    }
+});
+                                //    {name : '球队',value : 'teams'},
+//      {name : '助攻榜',value : 'topassist'},
+//      {name : '射手榜',value : 'topscorer'},
+//      {name : '积分榜',value : 'scoreboard'},
+//      {name : '晋级之路',value : 'stories'},
+//      {name : '图集',value : 'gallery'}
+
+//添加&编辑提交
+function check(){
+    var teamData = {};
+    var checkStatus = false;
+    if($.trim($('.form-horizontal').find("input[id='title']").val()) == ''){
+        dialogTip.dialog('open');
+        $(".error_tip").text("请输入非空格名称");
+        return false;
+    }
+    else if(!$('.form-horizontal').find("select[id='target']").val()){
+        dialogTip.dialog('open');
+        $(".error_tip").text("请选择活动类型");
+        return false;
+    }
+    else{
+        checkStatus = true
+        $.each($('.form-horizontal').find('input'), function (i, data) {
+            teamData[data.name] = data.value;
+        });
+        teamData.brief = $('.form-horizontal').find("textarea[id='brief']").val()
+        teamData.target = $('.form-horizontal').find("select[id='target']").val();
+    }
+    if(checkStatus == true){
+        if (add_edit == 'add') {
+            //添加ajax
+            $.post("/channel_entrance/add?event_id={{event_id}}", teamData, function (data) {
+                if (data.errno == 200) {
+                    tip_subpage.dialog('close');
+                    $(".error_tip").text("操作成功");
+                    dialogTip.dialog('open');
+                    tip()
+                    window.location.reload();
+                }
+                else {
+                    dialogTip.dialog('open');
+                    $(".error_tip").text(data.message);
+                }
+            });
+        }
+        else if (add_edit == 'edit') {
+            //编辑ajax
+            $.post("/channel_entrance/" + sid + "/edit", teamData, function (data) {
+                if (data.errno == 200) {
+                    tip_subpage.dialog('close');
+                    $(".error_tip").text("操作成功");
+                    dialogTip.dialog('open');
+                    tip();
+                    window.location.reload();
+                }
+                else {
+                    dialogTip.dialog('open');
+                    $(".error_tip").text(data.message);
+                }
+            });
+        }
+    }
+    else{}
+    return false
+}
+
+//点击取消按钮的行为
+$("#cancel").on("click",function(e){
+    e.preventDefault();
+    tip_program.dialog('close');
+});
+
+//点击添加按钮的行为
+$("#add_subpage").on("click",function(e){
+    e.preventDefault();
+    $("#title").val("");
+    $("#brief").val("");
+    $("#target").val("");
+    pid = "";
+    //添加层初始化
+    tip_subpage = $('#tip_subpage').dialog({
+        autoOpen: false,
+        //height: 503,
+        width: '60%',
+        modal: true,
+        title: '添加频道入口'
+    });
+    $("#tip_subpage .box-title").text("添加频道入口");
+    tip_subpage.dialog('open');
+    add_edit = 'add';
+});
+
+
+    //拖动排序初始化
+    var list = document.getElementById("my-ui-list");
+    var sort = new Sortable(list, {
+//  handle: ".tile__title", // Restricts sort start click/touch to the specified element
+//  draggable: ".tile", // Specifies which items inside the element should be sortable
+        onUpdate: function (evt/**Event*/) {
+            var moveEle = $(evt.item);
+            var trs = moveEle.parent().find("tr").size();
+            var movebeforIndex = moveEle.find("td:eq(1)").text();
+            var sortData = {};
+            sortData.id = moveEle[0].id;
+            sortData.current = movebeforIndex;
+            sortData.final = moveEle.parent().find("tr").index(moveEle) + 1;
+            //reorder();
+            $.post("/channel_entrance/sort",sortData, function (data) {
+                if(data.errno == 10000){
+                    $(".error_tip").text("操作成功");
+                    dialogTip.dialog('open');
+                    tip();
+                    window.location.reload()
+                }
+                else{
+                    dialogmessage.dialog('open');
+                    $(".dialogmessage").text(data.message);
+                    moveEle.parent().find("tr:eq("+(movebeforIndex-1)+")").before(moveEle[0]);
+                    //reorder();
+                }
+            });
+        }
+    });
+
+    //前端重新排序
+    function reorder() {
+        var trs = $("#my-ui-list").find("tr");
+        $.each(trs, function (i, data) {
+            $(data).find(".display_order").text(i + 1)
+        });
+    }
+
+//    {name : '球队',value : 'teams'},
+//      {name : '助攻榜',value : 'topassist'},
+//      {name : '射手榜',value : 'topscorer'},
+//      {name : '积分榜',value : 'scoreboard'},
+//      {name : '晋级之路',value : 'stories'},
+//      {name : '图集',value : 'gallery'}
+
+
+    //点击删除行为
+    $(".table").on("click", ".btn-del", function () {
+        var self = $(this);
+        var cid = self.data("tid");
+        dialog.dialog('open');
+        dialog.dialog('option', 'buttons', {
+            '删除': function () {
+                $.get("/channel_entrance/" + cid + '/delete', function (data) {
+                    if(data.errno == 200){
+                        self.parent().parent().remove();
+                        dialog.dialog('close');
+                        $(".error_tip").text("操作成功");
+                        dialogTip.dialog('open');
+                        tip();
+                        //reorder()
+                        //window.location.reload();
+                    }
+                    else{
+                        dialogmessage.dialog('open');
+                        $(".dialogmessage").text(data.message);
+                    }
+
+                });
+            },
+            '取消': function () {
+                dialog.dialog('close');
+            }
+        });
+    });
+
+    var tipDiv = $("#tip");
+    function tip() {
+        var mask = $(".ui-widget-overlay");
+        setTimeout(function () {
+            mask.animate({
+                opacity: 0
+            }, 500, function () {
+                mask.css({"opacity": .8})
+            });
+
+            tipDiv.animate({
+                opacity: 0
+            }, 100, function () {
+                dialogTip.dialog('close');
+                tipDiv.css({"opacity": 1})
+            });
+        }, 500)
+    }
+</script>
+</body>
+</html>

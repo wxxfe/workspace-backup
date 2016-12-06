@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>暴风体育内容管理系统 - CMS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="/static/plugins/jQueryUI/jquery-ui.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/static/dist/css/skins/_all-skins.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .table tbody tr td {
+            vertical-align: middle;
+        }
+
+        .del_tip {
+            text-align: center;
+            line-height: 34px;
+        }
+
+        .ui-dialog-titlebar-close {
+            outline: none;
+        }
+
+        #function a {
+            cursor: pointer;
+            padding: 7px;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5;">
+<div class="wrapper">
+    <div class="content-wrapper" style="margin-left: 0;">
+        <section class="content-header">
+            <h1><i class="fa fa-tags"></i>暴风体育CMS</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">添加赛程</h3>
+                        </div><!-- /.box-header -->
+                        <!-- form start -->
+                        <form class="form-horizontal" method="post" action="" onSubmit="return check();">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="time" class="col-sm-3 control-label">时间</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="start_tm" class="form-control" id="time"
+                                               placeholder="请输入时间， 格式为：2016-04-25 03:45:00">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state" class="col-sm-3 control-label">比赛状态</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="select_type" name="status">
+                                            <option value="0">未开始</option>
+                                            <option value="1">进行中</option>
+                                            <option value="2">已结束</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="rounds" class="col-sm-3 control-label">轮次</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" name="round" class="form-control" id="rounds"
+                                               placeholder="请输入轮次">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="brief" class="col-sm-3 control-label">简介</label>
+                                    <div class="col-sm-9">
+                                        <input type="input" name="brief" class="form-control" id="brief"
+                                               placeholder="请输入简介 格式：比赛名称第X轮">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="homeID" class="col-sm-3 control-label">主队</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control  " value="defaut" name='team1_id'>
+                                            {% for team in teams %}
+                                            <option value="{{team.id}}">{{team.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="homeID_score" class="col-sm-3 control-label">主队得分</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="team1_score" class="form-control" id="homeID_socre"
+                                               placeholder="请输入主队分数">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="guestID" class="col-sm-3 control-label">客队</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control col-sm-2" value="defaut" name='team2_id'>
+                                            {% for team in teams %}
+                                            <option value="{{team.id}}">{{team.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="guestID_score" class="col-sm-3 control-label">客队得分</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="team2_score" class="form-control" id="guestID_socre"
+                                               placeholder="请输入客队分数">
+                                    </div>
+                                </div>
+                            </div><!-- /.box-body -->
+
+                            <div class="box-footer">
+                                <a class="btn btn-default" href="javascript:history.go(-1)">取消</a>
+                                <button type="submit" class="btn btn-info pull-right">提交</button>
+                            </div><!-- /.box-footer -->
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div id="tip" title="完善信息提示">
+    <p class="del_tip"></p>
+</div>
+
+<!-- jQuery 2.1.4 -->
+<script src="/static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<!-- jQuery UI -->
+<script src="/static/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>
+    var dialog = $('#tip').dialog({
+        autoOpen: false,
+        height: 150,
+        width: 350,
+        modal: true
+    });
+
+
+    var isSourcesRight = false;//初始化验证的源是否正确
+    var validations = 3;//每个源需填写的条数项的数目
+    var tip = '';//初始化弹出的信息
+
+    //初始化select的option
+    function operation() {
+        var sources = $(".box-body .source_block").size();
+        for (i = 0; i < sources; i++) {
+            $("#select_del").append('<option value="1">视频源' + (i + 1) + '</option>');
+        }
+    }
+    operation();
+</script>
+</body>
+</html>

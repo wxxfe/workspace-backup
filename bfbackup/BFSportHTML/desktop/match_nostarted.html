@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+    <title></title>
+    <!-- build:css css/match-nostarted.css -->
+    <link rel="stylesheet" href="src/css/match-nostarted.css"/>
+    <!-- endbuild -->
+</head>
+<body id="football-nostarted">
+    <div class="wrapper">
+<div id="container">
+
+    <!-- match bar -->
+    <div class="one-row match-bar match-live-bar">
+        <div class="col-2">
+            <button type="button" class="zan team-yellow" id="home-zan-btn" data-tid="136"></button>
+            <span class="zan-total" id="home-zan">0</span>
+        </div>
+        <div class="col-8">
+            
+            <div class="match-info">托特纳姆热刺</div>
+            <div class="match-info">
+                <img class="team-logo-small" id="logo-136" src="http://image.sports.baofeng.com/d1a7b5bda6499dd6e15f9e621edc6d36" alt="托特纳姆热刺" />
+            </div>
+            <div class="match-info">
+                <big id="match-score">VS</big>
+                <small>互动中</small>
+            </div>
+            <div class="match-info">
+                <img class="team-logo-small" id="logo-132" src="http://image.sports.baofeng.com/af73ea7d237d77948f91191c161fa4e0" alt="曼联" />
+            </div>
+            <div class="match-info">曼联</div>
+        </div>
+        <div class="col-2 text-right">
+            <span class="zan-total" id="guest-zan">0</span>
+            <button type="button" class="zan team-blue" id="guest-zan-btn" data-tid="132"></button>
+        </div>
+    </div>
+    <div class="pk-progress-wrap">
+        <div class="one-row pk-progress">
+            <div class="pk t-yellow" id="home-progress" style="width: 50%">
+                <!--<i class="mark"></i>-->
+            </div>
+            <div class="pk t-blue" id="guest-progress" style="width: 50%"></div>
+        </div>
+    </div>
+    <!-- /match bar -->
+
+</div>
+
+<input id="match-info" type="hidden" value="491" name="match_id" />
+<input id="home-team" type="hidden" value="136" name="team1_id" />
+<input id="guest-team" type="hidden" value="132" name="team2_id" />
+
+<div id="chat" class="chat-wrapper">
+
+    <div class="chat-container">
+
+        <div class="support-mark mark-home"><img src="http://static.sports.baofeng.com/development/images/support_home.png" alt="主队" /></div>
+        <div class="support-mark mark-guest"><img src="http://static.sports.baofeng.com/development/images/support_guest.png" alt="客队" /></div>
+
+        <div class="one-row">
+            <div class="col-6 message-block" id="home-block">
+            </div>
+            <div class="col-6 message-block" id="guest-block">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="chat-bar">
+
+        <div class="chat-bar-container one-row">
+            <div class="col-2 quick-msg foot-logo">
+            </div>
+            <div class="col-1 quick-msg">
+                <img id="current-team-logo" class="current-logo" src="#" alt="">
+            </div>
+            <div class="col-6 send-box">
+                <!--边看比赛边支持你的球队-->
+                <input id="send-msg-box" placeholder="骂也是一种文化" type="text" name="sendbox" />
+                <button id="send-msg-button" type="button">发送</button>
+            </div>
+            <div class="col-1 quick-msg">
+                <button id="quick-msg-button" type="button" class="qm-btn" id="quick-msg-button"></button>
+                <div class="quick-msg-list-wrap" id="quick-msg-list-wrap">
+                    <ul class="quick-msg-list" id="quick-msg-list">
+                        <li><a href="javascript:void(0)">留给你们的时间不多了，嘎嘎</a></li>
+                        <li><a href="javascript:void(0)">尼玛，严重犯规啊，简直就是郑智一脚把西塞踢成郑智化</a></li>
+                        <li><a href="javascript:void(0)">过得漂亮，突入禁区，射了射了，绝对的死角</a></li>
+                        <li><a href="javascript:void(0)">罗纳尔多式疯狂踩单车不慎掉链子</a></li>
+                        <li><a href="javascript:void(0)">就看你们队这拉玛西亚洗剪吹，你们也赢不了</a></li>
+                        <li><a href="javascript:void(0)">法切蒂、卡布里尼、马尔蒂尼在这一刻灵魂附体！他不是一个人在战斗！</a></li>
+                        <li><a href="javascript:void(0)">纳不传，瓦不射，阿什利翔，前场美如画，后场德赫亚</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-1 quick-msg">
+                <button id="quick-emoji-button" type="button" class="qe-btn" id="quick-emoji-button"></button>
+                <div class="quick-msg-emoji" id="quick-msg-emoji">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-1 quick-msg">
+                <button id="danmaku-button" type="button" class="dan-btn"></button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+<div class="select-support" id="select-popup">
+    <h3 class="s-title">选择你支持的球队</h3>
+    <div class="one-row">
+        <div class="col-6">
+            <a href="javascript:void(0)" data-tid="136" data-type="home">
+                <img src="http://static.sports.baofeng.com/development/images/support_home.png" alt="主队" /><br />支持主队
+                <div class="after"></div>
+            </a>
+        </div>
+        <div class="col-6">
+            <a href="javascript:void(0)" data-tid="132" data-type="guest">
+                <img src="http://static.sports.baofeng.com/development/images/support_guest.png" alt="客队" /><br />支持客队
+            </a>
+        </div>
+    </div>
+</div>
+<div class="shadow-layer" id="shadow-layer"></div>
+<!-- build:js scripts/lib/jquery.min.js -->
+<script src="src/scripts/lib/jquery-1.12.1.min.js"></script>
+<script src="src/scripts/lib/require.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/matchNostarted.js -->
+<script src="src/scripts/matchNostarted.js"></script>
+<!-- endbuild -->
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>世界体育产业峰会 - 暨暴风体育战略发布会</title>
+    <style type="text/css">
+    body,p,div{
+        padding: 0;
+        margin: 0;
+    }
+
+    body{
+        background: url(images/live_bg.jpg) no-repeat center top #000;
+    }
+    .live{
+        width: 90%;
+        height: 600px; 
+        margin: 0 auto; 
+        padding-top: 150px;
+    }
+    @media screen and (max-width: 600px){
+        body{
+            background: url(images/live_bg.jpg) no-repeat left top #03051a;
+            background-size: 220%;    
+        }
+        .live{
+            width: 100%;
+            padding-top: 100px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="live">
+        <script>
+            var vodparam = "http://live.baofengcloud.com/22588069/player/cloud.swf?servicetype=2&uid=22588069&fid=FE843960BC7F574C00C24877A1709D93D561FE27&auto=1&si=1&vr=0";
+            document.write('<script type="text/javascript" src="http://live.baofengcloud.com/html/script/bfcloud.js?v=2"></scr'+'ipt>');
+        </script>
+        <script>
+            cloudsdk.initvideo(videoareaname,{"src":vodparam,"id":"cloudsdk","isautosize":"1","width":'100%',"height":'100%'});
+        </script>
+    </div>
+</body>
+</html>

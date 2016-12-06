@@ -1,0 +1,19 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../questionitem/index";
+
+.tab.slide {
+    height: 434px;
+}
+
+.item-content {
+    margin-right: 30px; /*px*/
+    box-sizing: border-box;
+    width: 630px;
+    height: 388px;
+    border: solid 1px #e5e5e5;
+    background: $fill-gray;
+    .question-item {
+        
+    }
+}

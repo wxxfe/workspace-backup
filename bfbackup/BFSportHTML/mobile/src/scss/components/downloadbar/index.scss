@@ -1,0 +1,73 @@
+@import "../style/themes/default/index";
+@import "../style/mixin.scss";
+@import "../button/index.scss";
+
+.downloadbar {
+    $height: $u*12;
+    $spacing: 20px;
+    position: fixed;
+    top: 0;
+    left: 0; /*px*/
+    box-sizing: border-box;
+    width: 100%;
+    height: $height; /*px*/
+    background: $fill-gray;
+    border-bottom: 1px #999 solid;
+    z-index: 9999;
+    overflow: hidden;
+    .logo {
+        position: absolute;
+        top: $v-spacing-sm; /*px*/
+        left: $spacing;
+        width: 672px; /*px*/
+        .image {
+            float: left;
+            width: 64px; /*px*/
+            height: 64px; /*px*/
+        }
+        .text {
+            float: left;
+            width: 225px; /*px*/
+            height: 55px; /*px*/
+            margin-left: $h-spacing-sm;
+            margin-top: 4px; /*px*/
+        }
+
+    }
+    .download {
+        position: absolute;
+        top: $v-spacing-sm; /*px*/
+        right: $spacing; /*px*/
+
+    }
+
+}
+
+$wholewidth: 540px;
+[data-dpr="1"] .downloadbar {
+    @media screen and (min-width: 800px) {
+        width: $wholewidth; /*no*/
+        left: auto;
+        right: auto;
+    }
+}
+
+[data-dpr="2"] .downloadbar {
+    @media screen and (min-width: 1600px) {
+        body {
+            width: $wholewidth*2; /*no*/
+            left: auto;
+            right: auto;
+        }
+    }
+}
+
+[data-dpr="3"] .downloadbar {
+    @media screen and (min-width: 2400px) {
+        body {
+            width: $wholewidth*3; /*no*/
+            left: auto;
+            right: auto;
+        }
+    }
+}

@@ -1,0 +1,1313 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+    <title></title>
+    <!-- build:css css/event.css -->
+    <link rel="stylesheet" href="src/css/event.css"/>
+    <!-- endbuild -->
+</head>
+<body>
+<!-- 导航 -->
+<div class="navigation" id="navigation">
+    <div class="nav-wrap one-row">
+        <div class="col-4 logo">
+            <a href="http://sports.baofeng.com/"></a>
+        </div>
+        <div class="col-16">
+            <ul class="nav-list" id="nav">
+                <li><a href="#">首页</a></li>
+                <li><a class="active" href="http://sports.baofeng.com/channel/csl/">中超</a></li>
+                <li><a href="http://sports.baofeng.com/channel/european_championship/">欧洲杯</a></li>
+                <li><a href="http://sports.baofeng.com/channel/premiership/">英超</a></li>
+                <li><a href="http://sports.baofeng.com/channel/la_liga/">西甲</a></li>
+                <li><a href="http://sports.baofeng.com/channel/serie_a/">意甲</a></li>
+                <li><a href="http://sports.baofeng.com/channel/bundes_liga/">德甲</a></li>
+                <li><a href="http://sports.baofeng.com/channel/afc/">亚冠</a></li>
+                <li><a href="http://sports.baofeng.com/match/data/1/">比赛</a></li>
+
+                <li class="nav-active"></li>
+            </ul>
+        </div>
+        <div class="col-4 top-bar">
+            <a class="download-app" href="#">
+                下载APP
+                <img src="../src/images/download_app/Qr_code.png" alt="下载APP"/>
+            </a>
+            <span class="login-btn" id="head">登录</span>
+            <ul class="user-info" id="user-manage">
+                <li id="username"></li>
+                <li><a href="javascript:void(0)" id="exit" class="logout">退出</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /导航 -->
+
+<!-- 赛程表 -->
+<div class="match-data" id="match-data">
+    <ul class="events-rounds">
+        <li><a href="javascript:void(0)" data-index="0" class="active">1</a></li>
+        <li><a href="javascript:void(0)" data-index="1">2</a></li>
+        <li><a href="javascript:void(0)" data-index="2">3</a></li>
+        <li><a href="javascript:void(0)" data-index="3">4</a></li>
+        <li><a href="javascript:void(0)" data-index="4">5</a></li>
+        <li><a href="javascript:void(0)" data-index="5">6</a></li>
+        <li><a href="javascript:void(0)" data-index="6">7</a></li>
+        <li><a href="javascript:void(0)" data-index="7">8</a></li>
+        <li><a href="javascript:void(0)" data-index="8">9</a></li>
+        <li><a href="javascript:void(0)" data-index="9">10</a></li>
+        <li><a href="javascript:void(0)" data-index="10">11</a></li>
+        <li><a href="javascript:void(0)" data-index="11">12</a></li>
+        <li><a href="javascript:void(0)" data-index="12">13</a></li>
+        <li><a href="javascript:void(0)" data-index="13">14</a></li>
+        <li><a href="javascript:void(0)" data-index="14">15</a></li>
+    </ul>
+    <div class="all"><span class="event-name">第14轮</span></div>
+    <div class="data-wrap">
+        <a href="javascript:void(0)" class="prev flex-prev">&lt;</a>
+        <div class="slide-wrap flexslider0">
+            <ul class="matchs slides">
+                <li>
+                    <a href="#" class="small-round">
+                        <p class="info round-info"><strong>已结束</strong></p>
+                        <p class="team"><strong>2</strong>德国</p>
+                        <p class="team"><strong>1</strong>意大利</p>
+                    </a>
+                    <a href="#" class="living small-round">
+                        <p class="info round-info"><strong>直播中</strong></p>
+                        <p class="team"><strong>2</strong>德国</p>
+                        <p class="team"><strong>1</strong>意大利</p>
+                        <span class="living-layer"><i></i>直播中</span>
+                    </a>
+                    <a href="#" class="small-round">
+                        <p class="info round-info"><strong>未开始</strong></p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#" class="small-round">
+                        <p class="info round-info"><strong>未开始</strong></p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#" class="small-round">
+                        <p class="info round-info"><strong>未开始</strong></p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#" class="small-round">
+                        <p class="info round-info"><strong>未开始</strong></p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#" class="small-round">
+                        <p class="info round-info"><strong>未开始</strong></p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#" class="small-round">
+                        <p class="info round-info"><strong>未开始</strong></p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p class="info"><strong>已结束</strong></p>
+                        <p class="team"><strong>2</strong>德国</p>
+                        <p class="team"><strong>1</strong>意大利</p>
+                    </a>
+                    <a href="#" class="living">
+                        <p class="info"><strong>直播中</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>2</strong>德国</p>
+                        <p class="team"><strong>1</strong>意大利</p>
+                        <span class="living-layer"><i></i>直播中</span>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p class="info"><strong>已结束</strong>3欧洲杯半决赛</p>
+                        <p class="team"><strong>2</strong>德国</p>
+                        <p class="team"><strong>1</strong>意大利</p>
+                    </a>
+                    <a href="#" class="living">
+                        <p class="info"><strong>直播中</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>2</strong>德国</p>
+                        <p class="team"><strong>1</strong>意大利</p>
+                        <span class="living-layer"><i></i>直播中</span>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <a href="javascript:void(0)" class="next flex-next">&gt;</a>
+    </div>
+</div>
+<!-- /赛程表 -->
+
+<!-- 内容 -->
+<div class="container">
+    <!-- 首屏-->
+    <div class="one-row">
+        <div class="col-16">
+            <!-- 轮播图 -->
+            <div class="slide-pic-wrap">
+                <div class="slider-news">
+                    <ul>
+                        <li>
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/d784c707371151b53517448062f1cdc3" alt="xxx" />
+                                <p class="title">1山东鲁能官宣佩莱加盟 合同总额或达4000万欧元</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/7e899f811e3373f37f2345490a0bad18" alt="xxx" />
+                                <p class="title">2山东鲁能官宣佩莱加盟 合同总额或达4000万欧元</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/1b4664a02b5b668d4f044dc9880d0b29" alt="xxx" />
+                                <p class="title">3山东鲁能官宣佩莱加盟 合同总额或达4000万欧元</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <img src="http://image.sports.baofeng.com/aa50001565b8871781835635d5cde07d" alt="xxx" />
+                                <p class="title">4山东鲁能官宣佩莱加盟 合同总额或达4000万欧元</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="active-dot">
+                        <a class="active" href="javascript:void(0)"></a>
+                        <a href="javascript:void(0)"></a>
+                        <a href="javascript:void(0)"></a>
+                        <a href="javascript:void(0)"></a>
+                    </div>
+                </div>
+            </div>
+            <!-- /轮播图 -->
+
+            <!-- 视频推荐-->
+            <ul class="video-list-text">
+                <li><a href="#"><i class="icon-video"></i>苏宁新援马丁内斯抵宁：对中超生涯</a></li>
+                <li><a href="#"><i class="icon-video"></i>苏宁新援马丁内斯抵宁：对中超生涯</a></li>
+                <li><a href="#"><i class="icon-video"></i>苏宁新援马丁内斯抵宁：对中超生涯</a></li>
+                <li><a href="#"><i class="icon-video"></i>苏宁新援马丁内斯抵宁：对中超生涯</a></li>
+                <li><a href="#"><i class="icon-video"></i>苏宁新援马丁内斯抵宁：对中超生涯</a></li>
+                <li><a href="#"><i class="icon-video"></i>苏宁新援马丁内斯抵宁：对中超生涯</a></li>
+            </ul>
+
+            <ul class="one-row video-list-pic">
+                <li class="col-4">
+                    <div class="media-video">
+                        <a href="#" target="_blank">
+                            <div class="cover">
+                                <span class="tag"><strong class="tag-blue">集锦</strong><i class="icon-triangle it-blue"></i></span>
+                                <span class="play-button large"></span>
+                                <img src="../src/images/tmp.png" alt="">
+                            </div>
+                            <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media-video">
+                        <a href="#" target="_blank">
+                            <div class="cover">
+                                <span class="tag"><strong class="tag-red">前瞻</strong><i class="icon-triangle it-red"></i></span>
+                                <span class="play-button large"></span>
+                                <img src="../src/images/tmp.png" alt="">
+                            </div>
+                            <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media-video">
+                        <a href="#" target="_blank">
+                            <div class="cover">
+                                <span class="tag"><strong class="tag-purple">全场</strong><i class="icon-triangle it-purple"></i></span>
+                                <span class="play-button large"></span>
+                                <img src="../src/images/tmp.png" alt="">
+                            </div>
+                            <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media-video">
+                        <a href="#" target="_blank">
+                            <div class="cover">
+                                <span class="tag"><strong class="tag-green">节目</strong><i class="icon-triangle it-green"></i></span>
+                                <span class="play-button large"></span>
+                                <img src="../src/images/tmp.png" alt="">
+                            </div>
+                            <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <!-- /视频推荐-->
+
+        </div>
+        <div class="col-8">
+            <!-- 置顶新闻 -->
+            <div class="mixins-text-news">
+                <ul class="mtn-list">
+                    <li class="strong-title">
+                        <a href="#" target="_blank">鲁能BUG级锋群!四个9谁来炸谁 媲美米兰10号共</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御用助手来华，金牌体能教练签约卓尔练签约卓</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank"><span class="tag tag-green">专访</span>卡佩罗御用助手来来华金牌体</a>
+                        <i></i>
+                        <a href="#" target="_blank">金牌体能教练签</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御签卓卓尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御教签约卓尔</a>
+                    </li>
+                    <li class="strong-title">
+                        <a href="#" target="_blank">鲁能BUG级锋群!四个9谁来炸谁 媲美米兰10号共</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御用助手来华，金牌体能教练签约卓尔练签约卓</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御用助手来来华金牌体</a>
+                        <i></i>
+                        <a href="#" target="_blank" class="text-yellow">金牌体能教练签约卓尔</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御签卓卓尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御教签约卓尔</a>
+                    </li>
+                    <li class="strong-title">
+                        <a href="#" target="_blank">鲁能BUG级锋群!四个9谁来炸谁 媲美米兰10号共</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御签卓卓尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御教签约卓尔</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御签卓卓尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御教签约卓尔</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御签卓卓尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御教签约卓尔</a>
+                    </li>
+                    <li class="strong-title">
+                        <a href="#" target="_blank">鲁能BUG级锋群!四个9谁来炸谁 媲美米兰10号共</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御签卓卓尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御教签约卓尔</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御签卓卓尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御教签约卓尔</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御签卓卓尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御教签约卓尔</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御签卓卓尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御教签约卓尔</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御签卓卓尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御教签约卓尔</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /置顶新闻 -->
+        </div>
+    </div>
+    <!-- /首屏-->
+
+    <!-- 热门视频 -->
+    <!-- title -->
+    <div class="main-title">
+        <h2>热门视频</h2>
+        <a class="more" href="#" id="m-more">更多</a>
+    </div>
+    <!-- /title -->
+    <div class="one-row video-list-wrap">
+        <div class="col-8">
+            <div class="hot-first">
+                <a href="#" target="_blank">
+                    <div class="hot-first-pic"><img src="http://image.sports.baofeng.com/31fe414d5db9313a7bea5e28af24fc1b" alt="" /></div>
+                    <p class="title">国安队员为登巴巴送祝福:受伤那一幕真不敢看了</p>
+                </a>
+            </div>
+        </div>
+        <div class="col-16">
+            <ul class="one-row video-list-hot">
+                <li class="col-4">
+                    <div class="media-video">
+                        <a href="#" target="_blank">
+                            <div class="cover">
+                                <span class="tag"><strong class="tag-blue">集锦</strong><i class="icon-triangle it-blue"></i></span>
+                                <img src="../src/images/tmp.png" alt="">
+                            </div>
+                            <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media-video">
+                        <a href="#" target="_blank">
+                            <div class="cover">
+                                <span class="tag"><strong class="tag-red">前瞻</strong><i class="icon-triangle it-red"></i></span>
+                                <img src="../src/images/tmp.png" alt="">
+                            </div>
+                            <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media-video">
+                        <a href="#" target="_blank">
+                            <div class="cover">
+                                <span class="tag"><strong class="tag-purple">全场</strong><i class="icon-triangle it-purple"></i></span>
+                                <img src="../src/images/tmp.png" alt="">
+                            </div>
+                            <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media-video">
+                        <a href="#" target="_blank">
+                            <div class="cover">
+                                <span class="tag"><strong class="tag-green">节目</strong><i class="icon-triangle it-green"></i></span>
+                                <img src="../src/images/tmp.png" alt="">
+                            </div>
+                            <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media-video">
+                        <a href="#" target="_blank">
+                            <div class="cover">
+                                <span class="tag"><strong class="tag-blue">集锦</strong><i class="icon-triangle it-blue"></i></span>
+                                <img src="../src/images/tmp.png" alt="">
+                            </div>
+                            <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media-video">
+                        <a href="#" target="_blank">
+                            <div class="cover">
+                                <span class="tag"><strong class="tag-red">前瞻</strong><i class="icon-triangle it-red"></i></span>
+                                <img src="../src/images/tmp.png" alt="">
+                            </div>
+                            <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media-video">
+                        <a href="#" target="_blank">
+                            <div class="cover">
+                                <span class="tag"><strong class="tag-purple">全场</strong><i class="icon-triangle it-purple"></i></span>
+                                <img src="../src/images/tmp.png" alt="">
+                            </div>
+                            <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media-video">
+                        <a href="#" target="_blank">
+                            <div class="cover">
+                                <span class="tag"><strong class="tag-green">节目</strong><i class="icon-triangle it-green"></i></span>
+                                <img src="../src/images/tmp.png" alt="">
+                            </div>
+                            <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /热门视频 -->
+
+    <!-- 专家说 -->
+    <!-- title -->
+    <div class="main-title">
+        <h2>专家说</h2>
+        <a class="more" href="#" id="m-more">更多</a>
+    </div>
+    <!-- /title -->
+    <div class="one-row expert-wrap">
+        <div class="col-8">
+            <dl class="expert">
+                <dt>
+                    <img src="http://tva2.sinaimg.cn/crop.306.112.989.989.180/5937f095gw1eh4y6e8hjvj21kw11xduv.jpg" alt="" />
+                    <h3>孙建宏</h3>
+                    <p>曝维特斯将与张玉宁续约一年或再引进一名前锋</p>
+                </dt>
+                <dd>
+                    登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下…
+                    <a href="#" target="_blank">详细&nbsp;&gt;&gt;</a>
+                </dd>
+            </dl>
+        </div>
+        <div class="col-8">
+            <dl class="expert">
+                <dt>
+                    <img src="http://tva2.sinaimg.cn/crop.306.112.989.989.180/5937f095gw1eh4y6e8hjvj21kw11xduv.jpg" alt="" />
+                    <h3>孙建宏</h3>
+                    <p>曝维特斯将与张玉宁续约一年或再引进一名前锋</p>
+                </dt>
+                <dd>
+                    登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下…
+                    <a href="#" target="_blank">详细&nbsp;&gt;&gt;</a>
+                </dd>
+            </dl>
+        </div>
+        <div class="col-8">
+            <dl class="expert">
+                <dt>
+                    <img src="http://tva2.sinaimg.cn/crop.306.112.989.989.180/5937f095gw1eh4y6e8hjvj21kw11xduv.jpg" alt="" />
+                    <h3>孙建宏</h3>
+                    <p>曝维特斯将与张玉宁续约一年或再引进一名前锋</p>
+                </dt>
+                <dd>
+                    登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下…
+                    <a href="#" target="_blank">详细&nbsp;&gt;&gt;</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!-- /专家说 -->
+
+    <div class="one-row">
+        <div class="col-16">
+            <!-- 专栏 -->
+            <!-- title -->
+            <div class="main-title">
+                <h2>中超专栏</h2>
+                <a class="more" href="#">更多</a>
+            </div>
+            <!-- /title -->
+
+            <ul class="subject-list">
+                <li class="one-row">
+                    <div class="col-4 subject-pic">
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp.png" alt="">
+                        </a>
+                    </div>
+                    <dl class="col-12">
+                        <dt><a href="" target="_blank">高歌猛进！富力喜迎队史首次中超4连胜</a><small>知乎专栏</small></dt>
+                        <dd>乌兹别克斯坦,以小组第一身份出线,更因为这句经典解说语的“缔造者”——原央视著名足球评论员刘建宏在2014年夏天从央视离职,转投乐视体育担任首席内容</dd>
+                        <dd class="author">孙建宏</dd>
+                    </dl>
+                </li>
+                <li class="one-row">
+                    <div class="col-4 subject-pic">
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp.png" alt="">
+                        </a>
+                    </div>
+                    <dl class="col-12">
+                        <dt><a href="" target="_blank">高歌猛进！富力喜迎队史首次中超4连胜</a><small>知乎专栏</small></dt>
+                        <dd>乌兹别克斯坦,以小组第一身份出线,更因为这句经典解说语的“缔造者”——原央视著名足球评论员刘建宏在2014年夏天从央视离职,转投乐视体育担任首席内容</dd>
+                        <dd class="author">孙建宏</dd>
+                    </dl>
+                </li>
+                <li class="one-row">
+                    <div class="col-4 subject-pic">
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp.png" alt="">
+                        </a>
+                    </div>
+                    <dl class="col-12">
+                        <dt><a href="" target="_blank">高歌猛进！富力喜迎队史首次中超4连胜</a><small>知乎专栏</small></dt>
+                        <dd>乌兹别克斯坦,以小组第一身份出线,更因为这句经典解说语的“缔造者”——原央视著名足球评论员刘建宏在2014年夏天从央视离职,转投乐视体育担任首席内容</dd>
+                        <dd class="author">孙建宏</dd>
+                    </dl>
+                </li>
+                <li class="one-row">
+                    <div class="col-4 subject-pic">
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp.png" alt="">
+                        </a>
+                    </div>
+                    <dl class="col-12">
+                        <dt><a href="" target="_blank">高歌猛进！富力喜迎队史首次中超4连胜</a><small>知乎专栏</small></dt>
+                        <dd>乌兹别克斯坦,以小组第一身份出线,更因为这句经典解说语的“缔造者”——原央视著名足球评论员刘建宏在2014年夏天从央视离职,转投乐视体育担任首席内容</dd>
+                        <dd class="author">孙建宏</dd>
+                    </dl>
+                </li>
+                <li class="one-row">
+                    <div class="col-4 subject-pic">
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp.png" alt="">
+                        </a>
+                    </div>
+                    <dl class="col-12">
+                        <dt><a href="" target="_blank">高歌猛进！富力喜迎队史首次中超4连胜</a><small>知乎专栏</small></dt>
+                        <dd>乌兹别克斯坦,以小组第一身份出线,更因为这句经典解说语的“缔造者”——原央视著名足球评论员刘建宏在2014年夏天从央视离职,转投乐视体育担任首席内容</dd>
+                        <dd class="author">孙建宏</dd>
+                    </dl>
+                </li>
+                <li class="one-row">
+                    <div class="col-4 subject-pic">
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp.png" alt="">
+                        </a>
+                    </div>
+                    <dl class="col-12">
+                        <dt><a href="" target="_blank">高歌猛进！富力喜迎队史首次中超4连胜</a><small>知乎专栏</small></dt>
+                        <dd>乌兹别克斯坦,以小组第一身份出线,更因为这句经典解说语的“缔造者”——原央视著名足球评论员刘建宏在2014年夏天从央视离职,转投乐视体育担任首席内容</dd>
+                        <dd class="author">孙建宏</dd>
+                    </dl>
+                </li>
+            </ul>
+
+            <div class="subject-pages"><a class="replace" href="#"><i class="loading"></i>换一批</a></div>
+
+            <!-- /专栏 -->
+        </div>
+        <div class="col-8">
+            <!-- 排行榜 -->
+            <div class="events-ranking">
+                <ul class="ranking-tabs" id="ranking">
+                    <li class="active">积分榜</li>
+                    <li>射手榜</li>
+                    <li>助攻榜</li>
+                </ul>
+
+                <div class="ranking-list">
+                    <table cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>名次</th>
+                                <th>球队</th>
+                                <th>场次</th>
+                                <th>胜/平/负</th>
+                                <th>积分</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="active-row">
+                                <td class="rt-active">1</td>
+                                <td>
+                                    <img src="http://image.sports.baofeng.com/9a642b4b9dd8f8758d41f469a1be1690" class="r-img" alt="" /><br />
+                                    沃特福德
+                                </td>
+                                <td>12</td>
+                                <td>12/3/4</td>
+                                <td>523</td>
+                            </tr>
+                            <tr>
+                                <td class="rt-active">2</td>
+                                <td>沃特福德</td>
+                                <td>12</td>
+                                <td>12/3/4</td>
+                                <td>523</td>
+                            </tr>
+                            <tr>
+                                <td class="rt-active">3</td>
+                                <td>沃特福德</td>
+                                <td>12</td>
+                                <td>12/3/4</td>
+                                <td>523</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>沃特福德</td>
+                                <td>12</td>
+                                <td>12/3/4</td>
+                                <td>523</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>沃特福德</td>
+                                <td>12</td>
+                                <td>12/3/4</td>
+                                <td>523</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>沃特福德</td>
+                                <td>12</td>
+                                <td>12/3/4</td>
+                                <td>523</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>沃特福德</td>
+                                <td>12</td>
+                                <td>12/3/4</td>
+                                <td>523</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>沃特福德</td>
+                                <td>12</td>
+                                <td>12/3/4</td>
+                                <td>523</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>沃特福德</td>
+                                <td>12</td>
+                                <td>12/3/4</td>
+                                <td>523</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>沃特福德</td>
+                                <td>12</td>
+                                <td>12/3/4</td>
+                                <td>523</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="ranking-list" style="display: none;">
+                    <table cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>名次</th>
+                                <th>球员</th>
+                                <th>球队</th>
+                                <th>进球</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="active-row">
+                                <td class="rt-active">1</td>
+                                <td>
+                                    <img src="http://image.sports.baofeng.com/9a642b4b9dd8f8758d41f469a1be1690" class="r-img" alt="" /><br />
+                                    沃特福德
+                                </td>
+                                <td>北京国安</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td class="rt-active">2</td>
+                                <td>沃特福德</td>
+                                <td>广州恒大</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td class="rt-active">3</td>
+                                <td>沃特福德</td>
+                                <td>上海申花</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>棋苦</td>
+                                <td>山东鲁能</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>棋苦</td>
+                                <td>山东鲁能</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>棋苦</td>
+                                <td>山东鲁能</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>棋苦</td>
+                                <td>山东鲁能</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>棋苦</td>
+                                <td>山东鲁能</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>棋苦</td>
+                                <td>山东鲁能</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>棋苦</td>
+                                <td>山东鲁能</td>
+                                <td>8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="ranking-list" style="display: none;">
+                    <table cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>名次</th>
+                                <th>球员</th>
+                                <th>球队</th>
+                                <th>助攻数</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="active-row">
+                                <td class="rt-active">1</td>
+                                <td>
+                                    <img src="http://image.sports.baofeng.com/9a642b4b9dd8f8758d41f469a1be1690" class="r-img" alt="" /><br />
+                                    沃特福德
+                                </td>
+                                <td>北京国安</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td class="rt-active">2</td>
+                                <td>沃特福德</td>
+                                <td>广州恒大</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td class="rt-active">3</td>
+                                <td>沃特福德</td>
+                                <td>上海申花</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>棋苦</td>
+                                <td>山东鲁能</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>棋苦</td>
+                                <td>山东鲁能</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>棋苦</td>
+                                <td>山东鲁能</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>棋苦</td>
+                                <td>山东鲁能</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>棋苦</td>
+                                <td>山东鲁能</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>棋苦</td>
+                                <td>山东鲁能</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>棋苦</td>
+                                <td>山东鲁能</td>
+                                <td>8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="ranking-more">
+                    <a href="#" target="_blank">查看更多&nbsp;&gt;&gt;</a>
+                </div>
+            </div>
+            <!-- /排行榜 -->
+
+            <!-- 战术板 -->
+            <!-- title -->
+            <div class="main-title">
+                <h2>战术板</h2>
+                <a class="more" href="#">更多</a>
+            </div>
+            <!-- /title -->
+
+            <ul class="tactics">
+                <li class="one-row">
+                    <div class="col-4 t-img">
+                        <a href="#" target="_blank"><img src="../src/images/tmp.png" alt="" /></a>
+                    </div>
+                    <div class="col-4">
+                        <a href="#" target="_blank">乌兹别克斯坦,以小组第一身份出线,更因为这句经典</a>
+                    </div>
+                </li>
+                <li class="one-row">
+                    <div class="col-4 t-img">
+                        <a href="#" target="_blank"><img src="../src/images/tmp.png" alt="" /></a>
+                    </div>
+                    <div class="col-4">
+                        <a href="#" target="_blank">乌兹别克斯坦,以小组第一身份出线,更因为这句经典</a>
+                    </div>
+                </li>
+                <li class="one-row">
+                    <div class="col-4 t-img">
+                        <a href="#" target="_blank"><img src="../src/images/tmp.png" alt="" /></a>
+                    </div>
+                    <div class="col-4">
+                        <a href="#" target="_blank">乌兹别克斯坦,以小组第一身份出线,更因为这句经典</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- /战术板 -->
+        </div>
+
+    </div>
+
+    <!-- 球队新闻 -->
+    <div class="one-row team-wrap">
+        <div class="col-12">
+            <!-- title -->
+            <div class="main-title">
+                <h2>广州恒大</h2>
+                <a class="more" href="#">更多</a>
+            </div>
+            <!-- /title -->
+
+            <div class="team-news">
+                <div class="one-row team-news-item">
+                    <div class="col-4">
+                        <div class="media-video">
+                            <a href="#" target="_blank">
+                                <div class="cover">
+                                    <span class="play-button medium"></span>
+                                    <img src="../src/images/tmp.png" alt="">
+                                </div>
+                                <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <ul class="team-news-list">
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="one-row team-news-item">
+                    <div class="col-4">
+                        <div class="media-video">
+                            <a href="#" target="_blank">
+                                <div class="cover">
+                                    <span class="play-button medium"></span>
+                                    <img src="../src/images/tmp.png" alt="">
+                                </div>
+                                <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <ul class="team-news-list">
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="one-row team-news-item">
+                    <div class="col-4">
+                        <div class="media-video">
+                            <a href="#" target="_blank">
+                                <div class="cover">
+                                    <span class="play-button medium"></span>
+                                    <img src="../src/images/tmp.png" alt="">
+                                </div>
+                                <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <ul class="team-news-list">
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <!-- title -->
+            <div class="main-title">
+                <h2>江苏苏宁</h2>
+                <a class="more" href="#">更多</a>
+            </div>
+            <!-- /title -->
+
+            <div class="team-news">
+                <div class="one-row team-news-item">
+                    <div class="col-4">
+                        <div class="media-video">
+                            <a href="#" target="_blank">
+                                <div class="cover">
+                                    <span class="play-button medium"></span>
+                                    <img src="../src/images/tmp.png" alt="">
+                                </div>
+                                <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <ul class="team-news-list">
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="one-row team-news-item">
+                    <div class="col-4">
+                        <div class="media-video">
+                            <a href="#" target="_blank">
+                                <div class="cover">
+                                    <span class="play-button medium"></span>
+                                    <img src="../src/images/tmp.png" alt="">
+                                </div>
+                                <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <ul class="team-news-list">
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="one-row team-news-item">
+                    <div class="col-4">
+                        <div class="media-video">
+                            <a href="#" target="_blank">
+                                <div class="cover">
+                                    <span class="play-button medium"></span>
+                                    <img src="../src/images/tmp.png" alt="">
+                                </div>
+                                <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <ul class="team-news-list">
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="one-row team-wrap">
+        <div class="col-12">
+            <!-- title -->
+            <div class="main-title">
+                <h2>北京国安</h2>
+                <a class="more" href="#">更多</a>
+            </div>
+            <!-- /title -->
+
+            <div class="team-news">
+                <div class="one-row team-news-item">
+                    <div class="col-4">
+                        <div class="media-video">
+                            <a href="#" target="_blank">
+                                <div class="cover">
+                                    <span class="play-button medium"></span>
+                                    <img src="../src/images/tmp.png" alt="">
+                                </div>
+                                <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <ul class="team-news-list">
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="one-row team-news-item">
+                    <div class="col-4">
+                        <div class="media-video">
+                            <a href="#" target="_blank">
+                                <div class="cover">
+                                    <span class="play-button medium"></span>
+                                    <img src="../src/images/tmp.png" alt="">
+                                </div>
+                                <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <ul class="team-news-list">
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="one-row team-news-item">
+                    <div class="col-4">
+                        <div class="media-video">
+                            <a href="#" target="_blank">
+                                <div class="cover">
+                                    <span class="play-button medium"></span>
+                                    <img src="../src/images/tmp.png" alt="">
+                                </div>
+                                <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <ul class="team-news-list">
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <!-- title -->
+            <div class="main-title">
+                <h2>山东鲁能</h2>
+                <a class="more" href="#">更多</a>
+            </div>
+            <!-- /title -->
+
+            <div class="team-news">
+                <div class="one-row team-news-item">
+                    <div class="col-4">
+                        <div class="media-video">
+                            <a href="#" target="_blank">
+                                <div class="cover">
+                                    <span class="play-button medium"></span>
+                                    <img src="../src/images/tmp.png" alt="">
+                                </div>
+                                <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <ul class="team-news-list">
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="one-row team-news-item">
+                    <div class="col-4">
+                        <div class="media-video">
+                            <a href="#" target="_blank">
+                                <div class="cover">
+                                    <span class="play-button medium"></span>
+                                    <img src="../src/images/tmp.png" alt="">
+                                </div>
+                                <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <ul class="team-news-list">
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="one-row team-news-item">
+                    <div class="col-4">
+                        <div class="media-video">
+                            <a href="#" target="_blank">
+                                <div class="cover">
+                                    <span class="play-button medium"></span>
+                                    <img src="../src/images/tmp.png" alt="">
+                                </div>
+                                <p class="title">反思!登巴巴救护措施简陋折射中超管理水平低下射中超管理水平低下</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <ul class="team-news-list">
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                            <li><a href="#" target="_blank">登巴巴救护措施简陋折射中超管理水平低下射中超</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /球队新闻 -->
+
+</div>
+<!-- /内容 -->
+
+<!-- 页脚信息 -->
+<div class="footer">
+    <div class="one-row copyright">
+        <p>
+            <a href="http://home.baofeng.com/licence/icp.html" target="_blank" rel="nofollow">京ICP证070364号</a>
+            <a target="_blank" href="http://home.baofeng.com/licence/license.html" rel="nofollow">京网文【2014】0921-221号</a>
+            <a target="_blank" href="http://home.baofeng.com/licence/medicine_qual.html" rel="nofollow">互联网药品信息服务资格证书(京)-非经营性-2008-0039</a>
+            <a target="_blank" href="http://home.baofeng.com/licence/licence.html" rel="nofollow">广播电视节目制作经营许可证：(京)字第01166号</a>
+            <br>
+            <a target="_blank" style="text-decoration: none;">京公网安备：11010802020226</a>
+            <a target="_blank" href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action" rel=nofollow>京ICP备08011423号</a>
+            <a target="_blank" href="http://home.baofeng.com/licence/sah.html" rel="nofollow">信息网络传播视听许可证号：0108298</a>
+            <a target="_blank" href="http://home.baofeng.com/licence/performance_license.html" rel=nofollow>营业性演出许可证</a>
+        </p>
+        <p class="service">北京暴风科技股份有限公司 联系电话：010-62309066（工作日10:00—18:00） </p>
+    </div>
+</div>
+<!-- /页脚信息 -->
+
+
+<!-- build:js scripts/lib/jquery.min.js -->
+<script src="src/scripts/lib/jquery-1.12.1.min.js"></script>
+<script src="src/scripts/lib/require.js"></script>
+<script src="src/scripts/lib/jquery.lazyload.min.js"></script>
+<script src="src/scripts/lib/jquery.easing.min.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/event.js -->
+<script src="src/scripts/event.js"></script>
+<!-- endbuild -->
+
+</body>
+
+</html>

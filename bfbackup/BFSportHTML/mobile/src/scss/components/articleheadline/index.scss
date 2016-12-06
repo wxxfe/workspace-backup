@@ -1,0 +1,64 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../footnote/index";
+
+.article-headline {
+    .title {
+        $font-spacing: $v-spacing-sm - 2px;
+        line-height: $font-size-headline + $font-spacing; /*px*/
+        font-size: $font-size-headline; /*px*/
+        font-weight: normal;
+        color: $color-text-base;
+        @include text;
+    }
+    
+    .footnote {
+        line-height: $font-size-base + $v-spacing-md; /*px*/
+    }
+    
+    &-img {
+        position: relative;
+        height: 600px;
+        
+        .imgwrapper {
+            width: 100%;
+            height: 100%;
+            
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                right: auto;
+                top: auto;
+                width: 0; 
+                height: 0; 
+                border-bottom: $screen-width*7/100 solid $color-text-base-inverse; 
+                border-left: $screen-width solid transparent; 
+            }
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%; 
+                height: 100%; 
+                background-color: $fill-mask;
+            }
+            
+        }
+        .img {
+            width: 100%;
+            height: 100%;
+        }
+        .wrapper {
+            position: absolute;
+            bottom: $u*8; /*px*/
+            left: 0;
+            padding: 0 $page-spacing;
+        }
+        .title {
+            color: $color-text-base-inverse;
+        }
+    }
+}

@@ -1,0 +1,61 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../tag/index";
+@import "../footnote/index";
+
+.portrait {
+    $img-width: 60px;
+    $img-height: 60px;
+    $spacing: 20px;
+    
+    .roundimg {
+        @include block-round;
+        width: $img-width;
+        height: $img-height;
+    }
+    
+    &.singlephoto {
+        display: inline-block;
+    }
+    
+    &.withname,&.withfootnotes {
+        position: relative;
+        .img-wrapper {
+            position: absolute;
+            padding-top: $u;
+        }
+        .wrapper {
+            margin-left: $img-width + $spacing;
+        }
+        .title {
+            display: inline-block;
+            $font-spacing: 10px;
+            line-height: $font-size-paragraph + $font-spacing; /*px*/
+            @include font-fade-1;
+            @include text;
+        }
+    }
+    
+    &.withname {
+        .wrapper {
+            padding-top: $u*2;
+            padding-bottom: $u*2;
+        }
+    }
+    
+    &.withfootnotes {
+        .tag {
+            margin-left: 20px;
+            padding: 4px 8px; /*px*/
+            background: #fce7e7;
+            color: #ec696c;
+        }
+        
+        .footnote {
+            margin-top: $u;
+        }
+    }
+    
+    
+    
+}

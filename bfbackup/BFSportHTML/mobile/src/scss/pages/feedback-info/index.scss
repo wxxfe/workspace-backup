@@ -1,0 +1,29 @@
+@import "../../components/style/themes/default/index";
+@import "../../components/downloadbar/index";
+@import "../../components/sharepage/index";
+
+html, body {
+    height: 100%;
+}
+
+.feedback-info {
+    display: table;
+    width: 100%;
+    height: 100%;
+    .center {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        .icon {
+            width: 273px; /*px*/
+            height: 158px; /*px*/
+        }
+        p {
+            padding-top: 20px; /*px*/
+            font-size: 28px; /*px*/
+            color: #666;
+        }
+        padding: 0 80px; /*px*/
+    }
+}
+

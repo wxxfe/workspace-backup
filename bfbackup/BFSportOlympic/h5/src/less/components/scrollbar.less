@@ -1,0 +1,97 @@
+//==================================================================
+// @des:       Scrollbar  Module
+// @author:    Allan.Ming
+// @time:      2013-12-02
+// @example:
+// Dom:
+// <div class="scroll_box">
+//     <div class="scroll_btn" href="javascript:void(0);">
+//		   <span class="scroll_btn_top"></span>
+//		   <span class="scroll_btn_bottom"></span>
+//	   </div>
+// </div>
+// CSS:
+// .scrollbar;
+// JS:
+// ../js/plugins/scrollbar.js
+//==================================================================
+.scrollbar() {
+	.scroll_box_v {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: auto;
+		background: #e9e9e9;
+		z-index: 2000;
+		height: 16px;
+
+		.scroll_btn {
+			position: absolute;
+			top: 3px;
+			right: 3px;
+			width: 7px;
+			height: 9px;
+			background: #afafaf;
+		}
+
+		.scroll_btn_top,
+		.scroll_btn_bottom {
+			position: absolute;
+			width: 7px;
+			height: 9px;
+			font-size: 1px;
+			top: 0;
+			.bg("scrollbar_v.gif", no-repeat, left top);
+		}
+
+		.scroll_btn_top {
+			left: 0;
+		}
+
+		.scroll_btn_bottom {
+			right: 0;
+			_right: -1px;
+			.bgp(right top);
+		}
+	}
+
+	.scroll_box_h {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: auto;
+		background: #e9e9e9;
+		z-index: 2000;
+		height: 16px;
+
+		.scroll_btn {
+			position: absolute;
+			top: 3px;
+			right: 3px;
+			width: 7px;
+			height: 9px;
+			background: #afafaf;
+		}
+
+		.scroll_btn_top,
+		.scroll_btn_bottom {
+			position: absolute;
+			width: 7px;
+			height: 9px;
+			font-size: 1px;
+			top: 0;
+			.bg("scrollbar_h.gif", no-repeat, left top);
+		}
+
+		.scroll_btn_top {
+			left: 0;
+		}
+
+		.scroll_btn_bottom {
+			right: 0;
+			_right: -1px;
+			.bgp(right top);
+		}
+	}
+
+}

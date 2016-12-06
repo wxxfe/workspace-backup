@@ -1,0 +1,1615 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/components.css"/>
+    <script src="../js/lib/require.js" data-main="../js/components.js"></script>
+</head>
+<body>
+<div id="date_select">
+    <input id="date" type="text" value="按日期查询比赛" onclick="WdatePicker()">
+    <img onclick="WdatePicker({el:'date',skin:'whyGreen'})" src="../js/components/my97datepicker/skin/datePicker.png"
+         width="30" height="30">
+</div>
+
+<div id="demand_out">
+    <div id="demand">
+        <div class="show_text" id="show_text">视频点播</div>
+        <div class="arrow"></div>
+        <div class="pointer_panel" id="pointer_panel">
+            <h2>选择赛程</h2>
+            <ul class="select_schedule" id="select_schedule">
+                <li class="active" title="第1轮">1</li>
+                <li title="第2轮">2</li>
+                <li title="第3轮">3</li>
+                <li title="第4轮">4</li>
+                <li title="第5轮">5</li>
+                <li title="第6轮">6</li>
+                <li title="第7轮">7</li>
+                <li title="第8轮">8</li>
+                <li title="第9轮">9</li>
+                <li title="第10轮">10</li>
+                <li title="第11轮">11</li>
+                <li title="第12轮">12</li>
+                <li title="第13轮">13</li>
+                <li title="第14轮">14</li>
+                <li title="第15轮">15</li>
+                <li title="第16轮">16</li>
+                <li title="第17轮">17</li>
+                <li title="第18轮">18</li>
+                <li title="第19轮">19</li>
+                <li title="第20轮">20</li>
+                <li title="第21轮">21</li>
+                <li title="第22轮">22</li>
+                <li title="第23轮">23</li>
+                <li title="第24轮">24</li>
+                <li title="第25轮">25</li>
+                <li title="第26轮">26</li>
+                <li title="第27轮">27</li>
+                <li title="第28轮">28</li>
+                <li title="第29轮">29</li>
+                <li title="第30轮">30</li>
+                <li title="第31轮">31</li>
+                <li title="第32轮">32</li>
+                <li title="第33轮">33</li>
+                <li title="第34轮">34</li>
+                <li title="第35轮">35</li>
+                <li title="第36轮">36</li>
+                <li title="第37轮">37</li>
+                <li title="第38轮">38</li>
+            </ul>
+            <h2>选择球队</h2>
+
+            <div class="Container-team">
+                <div id="Scroller-team">
+                    <div class="Scroller-Container">
+                        <ul class="select_team">
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                            <li title="曼联">
+                                <img src="../images/temp/team_icon.png">
+
+                                <p>曼联</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="Scrollbar-team-bar" style="visibility: visible;">
+                    <div class="Scrollbar-Track">
+                        <div class="Scrollbar-Handle" style="top: 0px; left: 0px; visibility: visible;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--赛程表-->
+<div id="fixture_list">
+    <a href="javascript:void('prev');" class="prev">
+        <span class="prev_span"></span>
+    </a>
+
+    <div id="schedule" class="slides">
+        <div id="schedule_panel" class="slides_panel">
+            <div class="slides_content">
+                <div class="rounds">
+                    第1轮
+                </div>
+                <ul>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="slides_content">
+                <div class="rounds">
+                    第2轮
+                </div>
+                <ul>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="slides_content">
+                <div class="rounds">
+                    第3轮
+                </div>
+                <ul>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="slides_content">
+                <div class="rounds">
+                    第4轮
+                </div>
+                <ul>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="slides_content">
+                <div class="rounds">
+                    第5轮
+                </div>
+                <ul>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="slides_content">
+                <div class="rounds">
+                    第6轮
+                </div>
+                <ul>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="slides_content">
+                <div class="rounds">
+                    第7轮
+                </div>
+                <ul>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="slides_content">
+                <div class="rounds">
+                    第8轮
+                </div>
+                <ul>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="slides_content">
+                <div class="rounds">
+                    第9轮
+                </div>
+                <ul>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="slides_content">
+                <div class="rounds">
+                    第10轮
+                </div>
+                <ul>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <p class="time">02-27 03:30</p>
+
+                            <div>
+                                <p class="host_team" title="">埃瓦尔</p>
+
+                                <p class="score">3-1</p>
+
+                                <p class="guest_team" title="">拉斯帕尔马</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <a href="javascript:void('prev');" class="next">
+        <span class="next_span"></span>
+    </a>
+
+    <div id="pointers" class="pointers">
+        轮次 <span></span>
+    </div>
+    <div id="rounds_pointers_out" class="rounds_pointers_out">
+        <div id="rounds_pointers" class="pointers_index">
+        </div>
+    </div>
+</div>
+<!--赛程表-->
+
+<!--轮播-->
+<div id="banner_carousel">
+    <div class="slides">
+        <div class="slides_panel">
+            <div class="slides_content">
+                <img src="../images/temp/temp1.jpg">
+            </div>
+            <div class="slides_content">
+                <img src="../images/temp/temp3.jpg">
+            </div>
+            <div class="slides_content">
+                <img src="../images/temp/temp1.jpg">
+            </div>
+            <div class="slides_content">
+                <img src="../images/temp/temp3.jpg">
+            </div>
+        </div>
+    </div>
+    <div class="rounds_pointers_out">
+        <div class="pointers_index">
+            <a href="" title="hahahahaha"><img src="../images/temp/temp1.jpg"></a>
+            <a href="" title="hahahahaha"><img src="../images/temp/temp3.jpg"></a>
+            <a href=""><img src="../images/temp/temp1.jpg"></a>
+            <a href=""><img src="../images/temp/temp3.jpg"></a>
+        </div>
+    </div>
+</div>
+<!--轮播-->
+
+<!--指示器带说明的轮播-->
+<!--<div id="video_slide">-->
+<!--<div class="slides">-->
+<!--<div class="slides_panel">-->
+<!--<div class="slides_content">-->
+<!--<img src="../images/temp/temp3.jpg">-->
+<!--</div>-->
+<!--<div class="slides_content">-->
+<!--<img src="../images/temp/temp3.jpg">-->
+<!--</div>-->
+<!--<div class="slides_content">-->
+<!--<img src="../images/temp/temp3.jpg">-->
+<!--</div>-->
+<!--<div class="slides_content">-->
+<!--<img src="../images/temp/temp3.jpg">-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="rounds_pointers_out">-->
+<!--<div class="pointers_index">-->
+<!--<a href="" class="active">-->
+<!--<img src="../images/temp/temp4.gif">-->
+<!--<dl>-->
+<!--<dt>【集锦】库里12三分平记录绝杀雷霆</dt>-->
+<!--<dd>-->
+<!--<span></span> &nbsp;690万-->
+<!--</dd>-->
+<!--</dl>-->
+<!--</a>-->
+<!--<a href="">-->
+<!--<img src="../images/temp/temp4.gif">-->
+<!--<dl>-->
+<!--<dt>【集锦】库里12三分平记录绝杀雷霆</dt>-->
+<!--<dd>-->
+<!--<span></span> &nbsp;690万-->
+<!--</dd>-->
+<!--</dl>-->
+<!--</a>-->
+<!--<a href="">-->
+<!--<img src="../images/temp/temp4.gif">-->
+<!--<dl>-->
+<!--<dt>【集锦】库里12三分平记录绝杀雷霆</dt>-->
+<!--<dd>-->
+<!--<span></span> &nbsp;690万-->
+<!--</dd>-->
+<!--</dl>-->
+<!--</a>-->
+<!--<a href="">-->
+<!--<img src="../images/temp/temp4.gif">-->
+<!--<dl>-->
+<!--<dt>【集锦】库里12三分平记录绝杀雷霆</dt>-->
+<!--<dd>-->
+<!--<span></span> &nbsp;690万-->
+<!--</dd>-->
+<!--</dl>-->
+<!--</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<div id="video_slide">
+    <div class="slides">
+        <div class="slides_panel">
+            <div class="slides_content" id="video">
+                <img src="../images/temp/temp3.jpg">
+            </div>
+        </div>
+    </div>
+    <div class="rounds_pointers_out scroll_box Container">
+        <div id="Scroller-1">
+            <div class="pointers_index Scroller-Container">
+                <a href="javascript:void('【集锦】库里12三分平记录绝杀雷霆');" id="0" title=""
+                   data-url="http://player.youku.com/player.php/Type/Folder/Fid/26878186/Ob/1/sid/XMTQ5OTAxNDQ2NA==/v.swf"
+                   data-source="" class="active">
+                    <img src="../../images/temp/temp4.gif">
+                    <dl>
+                        <dt>【集锦】库里12三分平记录绝杀雷霆</dt>
+                        <dd>
+                            <span></span> &nbsp;690万
+                        </dd>
+                    </dl>
+                </a>
+                <a href="javascript:void('【集锦】库里12三分平记录绝杀雷霆');" id="12" title=""
+                   data-url="http://player.youku.com/player.php/Type/Folder/Fid/26878186/Ob/1/sid/XMTQ5OTAxNDQ2NA==/v.swf"
+                   data-source="">
+                    <img src="../../images/temp/temp4.gif">
+                    <dl>
+                        <dt>【集锦】库里12三分平记录绝杀雷霆</dt>
+                        <dd>
+                            <span></span> &nbsp;690万
+                        </dd>
+                    </dl>
+                </a>
+                <a href="javascript:void('【集锦】库里12三分平记录绝杀雷霆');" id="2" title=""
+                   data-url="http://player.youku.com/player.php/Type/Folder/Fid/26878186/Ob/1/sid/XMTQ5OTAxNDQ2NA==/v.swf"
+                   data-source="">
+                    <img src="../../images/temp/temp4.gif">
+                    <dl>
+                        <dt>【集锦】库里12三分平记录绝杀雷霆</dt>
+                        <dd>
+                            <span></span> &nbsp;690万
+                        </dd>
+                    </dl>
+                </a>
+                <a href="javascript:void('【集锦】库里12三分平记录绝杀雷霆');" id="3" title=""
+                   data-url="http://player.youku.com/player.php/Type/Folder/Fid/26878186/Ob/1/sid/XMTQ5OTAxNDQ2NA==/v.swf"
+                   data-source="">
+                    <img src="../../images/temp/temp4.gif">
+                    <dl>
+                        <dt>【集锦】库里12三分平记录绝杀雷霆</dt>
+                        <dd>
+                            <span></span> &nbsp;690万
+                        </dd>
+                    </dl>
+                </a>
+                <a href="javascript:void('【集锦】库里12三分平记录绝杀雷霆');" id="4" title=""
+                   data-url="http://player.youku.com/player.php/Type/Folder/Fid/26878186/Ob/1/sid/XMTQ5OTAxNDQ2NA==/v.swf"
+                   data-source="">
+                    <img src="../../images/temp/temp4.gif">
+                    <dl>
+                        <dt>【集锦】库里12三分平记录绝杀雷霆</dt>
+                        <dd>
+                            <span></span> &nbsp;690万
+                        </dd>
+                    </dl>
+                </a>
+                <a href="javascript:void('【集锦】库里12三分平记录绝杀雷霆');" id="5" title=""
+                   data-url="http://player.youku.com/player.php/Type/Folder/Fid/26878186/Ob/1/sid/XMTQ5OTAxNDQ2NA==/v.swf"
+                   data-source="">
+                    <img src="../../images/temp/temp4.gif">
+                    <dl>
+                        <dt>【集锦】库里12三分平记录绝杀雷霆</dt>
+                        <dd>
+                            <span></span> &nbsp;690万
+                        </dd>
+                    </dl>
+                </a>
+                <a href="javascript:void('【集锦】库里12三分平记录绝杀雷霆');" id="6" title=""
+                   data-url="http://player.youku.com/player.php/Type/Folder/Fid/26878186/Ob/1/sid/XMTQ5OTAxNDQ2NA==/v.swf"
+                   data-source="">
+                    <img src="../../images/temp/temp4.gif">
+                    <dl>
+                        <dt>【集锦】库里12三分平记录绝杀雷霆</dt>
+                        <dd>
+                            <span></span> &nbsp;690万
+                        </dd>
+                    </dl>
+                </a>
+            </div>
+        </div>
+
+        <div id="Scrollbar-Container" style="visibility: visible;">
+            <div class="Scrollbar-Track">
+                <div class="Scrollbar-Handle" style="top: 0px; left: 0px; visibility: visible;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

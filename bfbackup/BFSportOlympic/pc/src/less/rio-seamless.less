@@ -1,0 +1,89 @@
+@import 'mixins';
+@import 'lib/animate';
+@import 'lib/css3';
+@import 'components/grid';
+
+html, body {
+    min-width: 1200px;
+    width: 100%;
+    height: 100%;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: @font-family-base;
+}
+
+.fixed-grid();
+
+img {
+    object-fit: cover;
+    border: none;
+}
+
+body {
+    .bg('rio-seamless-bg.jpg', repeat-x, left bottom);
+    overflow-x: hidden;
+}
+
+#container, .section {
+    height: 100%;
+    position: relative;
+}
+
+.left {
+    float: left;
+}
+
+#pages {
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    list-style: none;
+}
+
+#pages li {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #cccccc;
+    margin: 0 0 10px 5px;
+}
+
+#pages li.active {
+    width: 14px;
+    height: 14px;
+    border: 2px solid @sports-yellow;
+    background: none;
+    margin-left: 0;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 937px;
+    height: 637px;
+    margin-top: -318px;
+    margin-left: -468px;
+    .bg('rio-seamless-1.png');
+}
+
+.title {
+    position: absolute;
+    top: 24px;
+    left: 199px;
+}
+
+iframe {
+    position: absolute;
+    top: 141px;
+    left: 93px;
+    display: block;
+}
+
+.section1 iframe {
+    display: block;
+}
+@import 'components/navigation-new';

@@ -1,0 +1,10 @@
+@import "../style/themes/default/index";
+.font-demo-md,
+.font-demo-bold{
+    font-family: $font-family-din-md;
+    font-size: $font-size-headline;
+    color: $color-text-base;
+}
+.font-demo-bold{
+    font-family: $font-family-din-bold;
+}

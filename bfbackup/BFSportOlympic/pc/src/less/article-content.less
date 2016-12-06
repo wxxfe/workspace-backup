@@ -1,0 +1,211 @@
+@import 'mixins';
+@import 'lib/animate';
+@import 'lib/css3';
+@import 'components/grid';
+
+html, body {
+    min-width: 1200px;
+    width: 100%;
+    height: 100%;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: @font-family-base;
+}
+.fixed-grid();
+
+img {
+    object-fit: cover;
+    border: none;
+}
+
+.fixed-grid();
+
+body {
+    .bg('main-top.jpg', no-repeat, center top);
+}
+
+.container {
+    position: relative;
+    width: 1200px;
+    margin-top: 250px;
+    padding: 0;
+    overflow: hidden;
+    .center-block();
+    a {
+        color: #000;
+        .text-n;
+        &:hover {
+            color: @sports-yellow;
+        }
+    }
+}
+
+.current-location {
+    font-size: 16px;
+    color: #555;
+    a {
+        color: #555;
+    }
+    span {
+        margin-right: 10px;
+    }
+}
+
+.article {
+    position: relative;
+    .share {
+        margin-top: 50px;
+    }
+    .share-title {
+        display: block;
+        float: left;
+        line-height: 24px;
+
+    }
+    .jiathis_style_24x24 {
+        display: block;
+        float: left;
+        margin-left: 4px;
+    }
+
+    .content {
+        .title {
+            height: 95px;
+            border-bottom: #cbcbc9 1px solid;
+            overflow: hidden;
+            h1 {
+                font-size: 28px;
+                line-height: 28px;
+                height: 28px;
+                overflow: hidden;
+            }
+            .row {
+                margin-top: 26px;
+                font-size: 16px;
+                line-height: 16px;
+                color: #555;
+                position: relative;
+            }
+            .time {
+                color: #939393;
+                margin-left: 20px;
+            }
+            .comments {
+                margin-left: 20px;
+            }
+            strong {
+                color: @sports-yellow;
+            }
+            .share {
+                margin-top: 0;
+                position: absolute;
+                right: 0;
+                top: -4px;
+            }
+        }
+
+    }
+    .article-body {
+        font: 18px/32px "Microsoft Yahei";
+        color: #5c5c5c;
+        margin-top: 30px;
+        font-weight: normal;
+        p {
+            padding: 0 0 20px;
+            text-indent: 36px;
+        }
+        img {
+            max-width: 100%;
+            margin: auto;
+            display: block;
+            .center-block();
+        }
+    }
+
+    .changyan {
+        padding-top: 50px;
+    }
+
+}
+
+.one-row .col-8 {
+    float: right;
+}
+
+.olympic-1-title {
+    height: 42px;
+    border-bottom: #dcdcdc 1px solid;
+    position: relative;
+    top: -3px;
+    h3 {
+        .inline-block;
+        padding: 0;
+        height: 42px;
+        border-bottom: @sports-yellow 1px solid;
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        font-size: 24px;
+        line-height: normal;
+    }
+}
+
+.list {
+    margin-top: 10px;
+    width: 100%;
+    overflow: hidden;
+    vertical-align: text-top;
+    a {
+        color: #555;
+    }
+}
+
+.video-list {
+    .one-row {
+        margin-top: 10px;
+        width: auto;
+    }
+    .col-4 {
+        width: 190px;
+        overflow: hidden;
+        margin-bottom: 14px;
+    }
+    img {
+        width: 190px;
+        height: 108px;
+    }
+    h2 {
+        width: 190px;
+        height: 33px;
+        font-size: 14px;
+        line-height: normal;
+        margin-top: 10px;
+        font-weight: normal;
+    }
+}
+
+.articles-list {
+    h2 {
+        height: 18px;
+        font-size: 14px;
+        line-height: normal;
+        margin-bottom: 10px;
+        overflow: hidden;
+        font-weight: normal;
+    }
+}
+
+.footer {
+    height: 329px;
+    .bg('main-bottom.jpg', no-repeat, center bottom);
+}
+
+@import 'components/grid';
+@import 'components/title';
+@import 'components/news-text-list';
+@import 'components/news-media-new';
+@import 'components/news-mixins';
+@import 'components/navigation-new';

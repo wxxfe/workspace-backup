@@ -1,0 +1,29 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+
+.no-data {
+    display: table;
+    width: 100%;
+    min-height: 400px; /*px*/
+    //height: calc(100% - 500px); /*px*/
+    .center {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        .content-empty {
+            width: 280px; /*px*/
+            height: 346px; /*px*/
+        }
+        .sofa {
+            width: 126px; /*px*/
+            height: 110px; /*px*/
+        }
+        p {
+            padding-top: 20px; /*px*/
+            font-size: 32px; /*px*/
+            color: #666;
+        }
+    }
+}
+
+

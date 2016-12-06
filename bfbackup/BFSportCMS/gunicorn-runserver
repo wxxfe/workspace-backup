@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+mode="$1"
+name="cms"
+listen="127.0.0.1:8012"
+
+if [[ ( "x$mode" != "xdev" ) && ( "x$mode" != "xproduct" ) ]]; then
+  echo "$0 (dev|product)"
+  exit 1
+fi
+
+
+mode_name=$(echo $name | tr '[:lower:]' '[:upper:]')"_MODE"
+
+cd $(dirname $0)
+cwd=$(pwd)
+
+mkdir -p ${cwd}/run
+chown www:www -R ${cwd}/run
+
+/usr/local/sports/py27/bin/gunicorn -w 2 manage:app --worker-class gevent_pywsgi --bind $listen \
+  --env ${mode_name}=$mode --worker-connections 1024 \
+  --pid ${cwd}/run/${name}.pid --name $name -u www -g www \
+  --access-logfile ${cwd}/run/access.log \
+  --error-logfile ${cwd}/run/error.log --log-level debug --daemon
+

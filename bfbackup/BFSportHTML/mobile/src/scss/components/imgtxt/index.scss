@@ -1,0 +1,55 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../tag/index";
+
+.imgtxt {
+	&.bfsports-gallery-box {
+        border: solid 1px #e5e5e5;
+        background: #f6f6f6;
+		.img-wrapper {
+            position: relative;
+			width: 100%;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+            .tag {
+                position: absolute;
+                bottom: 15px; /*px*/
+                right: 10px; /*px*/
+                display: block;
+                box-sizing: border-box;
+                padding: 0;
+                padding-left: 46px; /*px*/
+                width: 82px; /*px*/
+                height: 36px; /*px*/
+                line-height: 36px; /*px*/
+                text-align: center;
+                opacity: 0.8;
+                background-color: $color-text-base;
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAAEEfUpiAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpmOTRkNDM0YS1kYjI3LTRjMDMtODMzNS0wMDYyZDMyZWM1NzIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RTU1RDYyNTY1RTIyMTFFNkEyRDBEODQ4QThFNzNERDMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RTU1RDYyNTU1RTIyMTFFNkEyRDBEODQ4QThFNzNERDMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpjYjgyNzFkYy01ZmM4LTRiYjUtOTEwMC01MGJiNTRiM2E3YTIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Zjk0ZDQzNGEtZGIyNy00YzAzLTgzMzUtMDA2MmQzMmVjNTcyIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+fUbKygAAAOdJREFUeNpi/P//PwMyYILS/6GYgQUqwAhTwYKkeiaIAAggRnQzWGB6YVoxzGCCcmbCzAAIIAwz0AGyu7ACZGehK2LE6hF0ABBARLuBgZAbsBmD1w3/ibFiJiErGLBZMZNkbwIEEEEFhAATA4WACU9cYgP/qeWCmTTxAiMR6hkHXywABNDgSgcDYwALiSkRIypZCMUzrZLyIM0LFMcCKTGB1QBGargAa0AN88wEEGAUe2HAfTDkHcBCTIlBaTSTmw8YKbT4/2gaGGwOmImteBuUuYBWuYFoBzAOlhCgqJoarQtGHUAsAACbRjgJyLap6gAAAABJRU5ErkJggg==) ;
+                background-position: 8px 0; /*px*/
+                background-repeat: no-repeat;
+                background-size: contain;
+                @include font-fade-2;
+                color: $color-text-base-inverse;
+                font-size: 20px !important; /*px*/
+            }
+		}
+
+
+
+        .imgtxt-foot {
+            padding: 20px;
+        }
+		
+        .title {
+        	margin-left: 10px;
+            $font-spacing: $v-spacing-md;
+            line-height: $font-size-paragraph + $font-spacing; /*px*/
+            @include font-default;
+        }
+	}
+	
+}
+

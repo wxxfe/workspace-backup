@@ -1,0 +1,115 @@
+
+
+.fluid-grid(@column: 12, @margin: 2){
+
+    @gridMargin: @margin * 2;
+    @columnsWidth: 100 - @gridMargin * @column;
+    @columnWidth: (@columnsWidth / @column) / 100;
+
+    .grid(){
+
+        .makeCol (@index) when (@index > 0){
+
+            .col-@{index} {
+                .span(@index);
+            }
+
+            .makeCol(@index - 1);
+
+        }
+
+        .makeCol(0){}
+
+        .makeOffset (@index) when (@index > 0){
+
+            .col-offset-@{index} {
+                .offset(@index);
+            }
+
+            .makeOffset(@index - 1);
+
+        }
+
+        .makeOffset(0){}
+
+        .span(@col){
+            width: percentage((@columnWidth * @col) + (@gridMargin * (@col - 1)) / 100);
+            margin: 0 percentage(@margin / 100);
+            float: left;
+            box-sizing: border-box;
+        }
+
+        .offset(@col){
+            margin-left: percentage((@columnWidth * @col) + (@gridMargin * @col + @margin) / 100);
+        }
+
+        .makeCol(@column);
+        .makeOffset(@column);
+
+    }
+
+    .one-row{
+        margin: 0 percentage(-@margin / 100);
+        .clearfix();
+        .grid();
+    }
+
+}
+
+
+.fixed-grid(@pageWidth: 1200, @column: 24, @margin: 6px){
+
+    @gridMargin: @margin * 2;
+    @columnsWidth: @pageWidth - (@gridMargin * @column - @gridMargin);
+    @columnWidth: @columnsWidth / @column;
+
+    .grid(){
+
+        .makeCol (@index) when (@index > 0){
+
+            .col-@{index} {
+                .span(@index);
+            }
+
+            .makeCol(@index - 1);
+
+        }
+
+        .makeCol(0){}
+
+        .makeOffset (@index) when (@index > 0){
+
+            .col-offset-@{index} {
+                .offset(@index);
+            }
+
+            .makeOffset(@index - 1);
+
+        }
+
+        .makeOffset(0){}
+
+        .span(@col){
+            width: (@columnWidth * @col) + (@gridMargin * (@col - 1));
+            margin: 0 @margin;
+            float: left;
+            box-sizing: border-box;
+        }
+
+        .offset(@col){
+            margin-left: (@columnWidth * @col) + (@gridMargin * @col + @margin);
+        }
+
+        .makeCol(@column);
+        .makeOffset(@column);
+
+    }
+
+    .one-row{
+        margin: 0 -@margin;
+        .clearfix();
+        .grid();
+    }
+
+}
+

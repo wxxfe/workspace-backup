@@ -1,0 +1,399 @@
+@import 'mixins';
+@import 'lib/animate';
+@import 'lib/css3';
+
+html, body {
+    min-width: 1200px;
+    width: 100%;
+    height: 100%;
+    .bgc(#fafafa);
+}
+
+body,h1,h2,h3,h4,h5,h6,p,ul,li{
+    margin: 0;
+    padding: 0;
+    font-family: @font-family-base;
+}
+
+img {
+    object-fit: cover;
+}
+
+.fixed-grid();
+
+.container {
+    position: relative;
+    .center-block();
+    width: 1200px;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.video-list-text{
+    list-style: none;
+    margin: 0;
+    padding: 8px 0 0 0;
+    overflow: hidden;
+    li{
+        .size(265px,30px);
+        display: block;
+        float: left;
+        line-height: 30px;
+        overflow: hidden;
+        a{
+            .text-n;
+            font-size: 16px;
+            color: @gray-dark;
+            i{
+                margin-right: 5px;
+            }
+            &:hover{
+                color: @sports-yellow;
+            }
+        }
+    }
+}
+.video-list-pic{
+    list-style: none;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.video-list-wrap{
+    padding-top: 12px;
+    margin-bottom: 10px;
+}
+
+.hot-first{
+    .bgc(#fff);
+    .hot-first-pic{
+        .size(auto,290px);
+        overflow: hidden;
+        img{
+            height: 100%;
+        }
+    }
+    p.title{
+        border: #e6e6e6 1px solid;
+        border-top: none;
+        font-size: @font-size-h4;
+        padding: 2px 10px;
+    }
+    a{
+        .text-n;
+        color: @gray-dark;
+        line-height: 28px;
+        &:hover{
+            color: @sports-yellow;
+        }
+    }
+}
+
+.video-list-hot{
+    overflow: hidden;
+    li.col-4{
+        display: block;
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+}
+
+.expert-wrap{
+    .bgc(#fff);
+    border: #e6e6e6 1px solid;
+    margin: 12px 0;
+    .col-8{
+        margin: 0;
+    }
+}
+.expert{
+    display: block;
+    padding-left: 14px;
+    padding-right: 30px;
+    dt{
+        overflow: hidden;
+        img{
+            .square(90px);
+            .border-radius(50%);
+            float: left;
+            margin-right: 18px;
+        }
+        h3{
+            line-height: 36px;
+        }
+        p{
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+    dd{
+        display: block;
+        margin: 15px 0 0 0;
+        padding: 0;
+        line-height: 24px;
+        a{
+            color: @gray;
+            .text-n;
+            &:hover{
+                color: @sports-blue;
+            }
+        }
+    }
+}
+
+i.icon-video{
+    .inline-block;
+    .size(16px,14px);
+    .bg('sprite.png',no-repeat,-26px 0);
+}
+
+//专栏
+.subject-list{
+    list-style: none;
+    padding-top: 12px;
+    li{
+        display: block;
+        height: 140px;
+        overflow: hidden;
+        margin-bottom: 12px;
+    }
+    .subject-pic{
+        height: 140px;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+    }
+
+    dl{
+        display: block;
+        position: relative;
+        height: 140px;
+        dt{
+            line-height: 26px;
+            margin-bottom: 5px;
+            a{
+                .text-n;
+                color: #000;
+                font-size: @font-size-large;
+                font-weight: bold;
+                &:hover{
+                    color: @sports-yellow;
+                }
+            }
+            small{
+                .inline-block;
+                .bgc(#a9a9a9);
+                color: #fff;
+                font-size: 14px;
+                margin-left: 5px;
+                line-height: 16px;
+            }
+        }
+        dd{
+            color: #666;
+            margin: 0;
+            font-size: 14px;
+            line-height: 20px;
+            padding-right: 15px;
+
+            &.author{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                font-size: 16px;
+            }
+        }
+    }
+}
+.subject-pages{
+    .bgc(#fff);
+    height: 35px;
+    text-align: center;
+    a.replace{
+        .text-n;
+        font-size: @font-size-h3 - 6;
+        line-height: 35px;
+        color: @gray-dark;
+        &:hover{
+            color: @sports-blue;
+        }
+        i.loading{
+            .inline-block;
+            .square(18px);
+            .bgb('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1NkIwNDExODQ0MjIxMUU2ODE2NEI1QzEzM0Y0Q0U0MSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1NkIwNDExOTQ0MjIxMUU2ODE2NEI1QzEzM0Y0Q0U0MSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU2QjA0MTE2NDQyMjExRTY4MTY0QjVDMTMzRjRDRTQxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU2QjA0MTE3NDQyMjExRTY4MTY0QjVDMTMzRjRDRTQxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+tVXfswAAAYRJREFUeNqUlM0rRFEYxm/XSKaUzSiFbISFkQVpSswMsjMLzcKKEuU/kLU/QQ0WVrOxs7DwOSQSkwUbHyVRNlbyERnxO/Xcut2u5t63ft17zrnnue8573NOJJPJWD6Rhiz0QQNUwQPswRrseifYnnYLHMEOTEMT3MMN1KvPjBWg7T+hLjiBBOzDENRCHDr0PqixATiFfj+haziHWUjqzyXXeElLSiqzKKw7mUWgRksyIsPwa5WPFT2XYdWswmTUrXR7A4q4xQqalzZC48pqCWJWuFjQM2urxJY2dTukmFnJO6RsldiJzpBiP7JHo9nsb5mtNeDkmCoad/V9moye5N6KgELP8tOFq+/RlrGibnOFELtU+9AI5dWYD1kxIzanfcoboS0djRRMhRCqhA2Z+MyWCSfhBXI6IuViBopQpxvh1TlrVzAKH7CowZSnACaDEbk5pwI1O4MR14cH0KOzkxRvcKf7yPitWt8ewwTc+gk5mSV0hYzpgmuHLxmvqOJsetf6J8AAu5dT6djKrzkAAAAASUVORK5CYII=');
+            .va();
+            margin-right: 5px;
+            &.run{
+                -webkit-transform: translate3d(0, 0, 0);
+                -moz-transform: translate3d(0, 0, 0);
+                -ms-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+                
+                -webkit-animation: circle 1s infinite linear;
+                -moz-animation: circle 1s infinite linear;
+                -o-animation: circle 1s infinite linear;
+                animation: circle 1s infinite linear;
+                
+            }
+        }
+    }
+}
+
+.events-ranking{
+    .bgc(#fff);
+    border: #e6e6e6 1px solid;
+    margin-bottom: 12px;
+
+    ul.ranking-tabs{
+        list-style: none;
+        overflow: hidden;
+        li{
+            .size(130px,49px);
+            display: block;
+            float: left;
+            border-bottom: #e6e6e6 1px solid;
+            text-align: center;
+            font-size: @font-size-large;
+            color: @gray-dark;
+            line-height: 51px;
+            cursor: pointer;
+
+            &.active{
+                color: #ff7200;
+                border-bottom-color: #ff7200;
+            }
+        }
+    }
+
+
+    .ranking-list{
+        table{
+            border: 0;
+            width: 100%;
+            thead{
+                th{
+                    height: 40px;
+                    text-align: center;
+                    font-size: 16px;
+                    color: #969696;
+                    font-weight: normal;
+                }
+            }
+
+            tbody{
+                tr.active-row{
+                    .bgc(#f3f3f3);
+                    td{
+
+                    padding: 10px 0;
+                    }
+                }
+                td{
+                    height: 40px;
+                    font-size: 16px;
+                    text-align: center;
+                    color: @gray-dark;
+
+                    &.rt-active{
+                        color: @sports-yellow;
+                    }
+
+                    img{
+                        .square(60px);
+                        .border-radius(50%);
+                        background: #fff;
+                        border: #e0e0e0 1px solid;
+                    }
+                }
+            }
+        }
+    }
+
+    .ranking-more{
+        height: 40px;
+        background: #f3f3f3;
+        line-height: 40px;
+        text-align: center;
+        a{
+            .text-n;
+            color: @gray-dark;
+            font-size: 16px;
+            &:hover{
+                color: @sports-blue;
+            }
+        }
+    }
+}
+
+.tactics{
+    list-style: none;
+
+    li{
+        display: block;
+        margin-top: 12px;
+        overflow: hidden;
+        div{
+            overflow: hidden;
+            &.t-img{
+                font-size: 0;
+                line-height: 0;
+                a{
+                    font-size: 0;
+                    line-height: 0;
+                }
+            }
+        }
+        img{
+            .size(188px,107px);
+        }
+        a{
+            .text-n;
+            color: @gray-dark;
+            line-height: 22px;
+            &:hover{
+                color: @sports-yellow;
+            }
+        }
+    }
+}
+
+.team-wrap{
+    margin-top: 12px;
+}
+
+.team-news{
+    padding-top: 12px;
+
+    .team-news-item{
+        margin-bottom: 12px;
+    }
+
+    ul.team-news-list{
+        list-style: none;
+        li{
+            .text-overflow;
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            a{
+                .text-n;
+                color: @gray-dark;
+                &:hover{
+                    color: @sports-yellow;
+                }
+            }
+        }
+    }
+}
+
+@import 'components/title';
+@import 'components/news-text-list';
+@import 'components/grid';
+@import 'components/news-media-new';
+@import 'components/video-media';
+@import 'components/navigation-new';
+@import 'components/footer-sports';
+@import 'components/match-data-slide';
+@import 'components/news-slider';
+@import 'components/news-mixins';

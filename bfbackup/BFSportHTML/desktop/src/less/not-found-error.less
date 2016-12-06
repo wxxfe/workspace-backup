@@ -1,0 +1,56 @@
+@import 'mixins';
+@import 'lib/animate';
+@import 'lib/css3';
+@import 'components/news-media';
+@import 'components/schedule-table';
+@import 'components/navigation';
+@import 'components/banner';
+@import 'components/footer-sports';
+@import 'components/grid';
+@import 'components/title';
+
+body {
+    .bgc(#f5f5f5);
+
+}
+
+body, ul, li {
+    margin: 0;
+}
+
+.fluid-grid(12, 1);
+
+#container {
+    width: 1200px;
+    .center-block();
+    margin-top: 10px;
+    padding: 0;
+}
+
+#notFoundErrorGame {
+
+    margin: 0 auto 40px;
+    width: 550px;
+    position: relative;
+    top: 20px;
+    height: 400px;
+    background: no-repeat url("../images/not_found_error/bg.png") 0 10px;
+    overflow: hidden;
+
+    .loadingInfo {
+        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+}
+
+#hiloFlash {
+    margin-left: -275px;
+    position: absolute;
+    top: 196px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}

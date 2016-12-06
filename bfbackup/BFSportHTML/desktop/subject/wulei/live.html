@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<title>武磊实况足球 现场直播--暴风体育,唯一新媒体直播</title>
+	<script type="text/javascript" src="http://static.sso.baofeng.net/login/sso_login_popup.js"></script>
+</head>
+<style>
+	/* 全局样式 */
+	body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, img, div, p, select, input, dl, dt, dd, textarea {
+		margin: 0px;
+		padding: 0;
+		border: 0;
+		font-size: 12px;
+		font-weight: normal;
+	}
+
+	ul, li, ol {
+		list-style-type: none;
+	}
+
+	a:link {
+		color: #666666;
+		text-decoration: none;
+	}
+
+	a:visited {
+		color: #666666;
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: #666666;
+		text-decoration: none;
+	}
+
+	select, input, img, select, button {
+		vertical-align: middle;
+	}
+
+	body {
+		font-family: "微软雅黑";
+		background: url("images/bg.jpg") no-repeat center top #000000;
+	}
+
+	#content {
+		width: 1200px;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	#title,
+	#title h1,
+	#title h2
+	#title h3 {
+		width: 100%;
+		color: #f9f9f9;
+	}
+
+	#video {
+		width: 100%;
+		height: 630px;
+		background: #262626;
+	}
+
+	#chat {
+		width: 96%;
+		margin-top: 16px;
+		padding: 5% 2%;
+		background-color: rgb(255, 255, 255);
+	}
+
+	#title h1 {
+		font-size: 30px;
+		margin-top: 40px;
+	}
+
+	#title h2 {
+		font-size: 18px;
+		margin-top: 9px;
+	}
+
+	#title h3 {
+		font-size: 14px;
+		margin-top: 5px;
+		margin-bottom: 24px;
+	}
+
+	.nt-item {
+		display: none !important;
+	}
+
+	#ewm {
+		width: 80px;
+		height: 80px;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	/*媒体查询web*/
+	@media screen and (min-width: 800px) {
+		#content {
+			width: 1200px;
+			margin: 0 auto 15px auto;
+		}
+
+		#video {
+			width: 1200px;
+			height: 630px;
+			background: #262626;
+		}
+
+		#ewm {
+			width: 80px;
+			height: 80px;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+
+	/*媒体查询app*/
+	@media screen and (max-width: 800px) {
+		html {
+			font-size: 62.5%;
+			height: 100%;
+		}
+
+		body {
+			height: 100%;
+			font-family: "微软雅黑";
+			background: url("images/bg_h5.jpg") no-repeat center top #000000;
+			background-size: 100% 100%;
+		}
+
+		#title h1 {
+			font-size: 2.4rem;
+			margin-top: 3rem;
+		}
+
+		#title h2 {
+			font-size: 1.4rem;
+			margin-top: 0.4rem;
+		}
+
+		#title h3 {
+			font-size: 1.2rem;
+			margin-top: 0.4rem;
+			margin-bottom: 2.0rem;
+		}
+
+		#content {
+			width: 100%;
+			margin: 0 auto;
+
+		}
+
+		#chat {
+			padding-bottom: 80px;
+		}
+
+		#video {
+			width: 100%;
+			height: auto;
+			min-height: 250px;
+			background: url("images/no_start_bg.png") no-repeat center #000000;
+		}
+
+		#title {
+			width: 98%;
+			padding-left: 2%;
+		}
+
+		.footer {
+			display: none;
+		}
+
+		#an_footer,
+		#ios_footer {
+			width: 100%;
+			height: 80px;
+			background-color: rgba(0, 0, 0, 0.7);
+			text-align: center;
+			position: fixed;
+			bottom: 0;
+		}
+
+		#ios_footer img,
+		#an_footer img {
+			height: 100%;
+		}
+
+	}
+
+	.footer {
+		width: 100%;
+		margin: 0;
+		background-color: #171717
+	}
+
+	.footer .one-row {
+		margin: 0
+	}
+
+	.footer .footer-content {
+		padding: 30px 0;
+		border-bottom: #262626 1px solid;
+		width: 1200px;
+		height: auto;
+		display: block;
+		margin-left: auto;
+		margin-right: auto
+	}
+
+	.footer .footer-content a.footer-logo {
+		display: block;
+		float: right;
+		margin-right: 40px;
+		margin-top: 15px;
+		position: relative;
+		width: 157px;
+		height: 41px;
+		background: url("../images/bf_sports_logo.png") no-repeat 0 0
+	}
+
+	.footer .footer-content a.footer-logo:after {
+		content: ' ';
+		display: block;
+		height: 50px;
+		width: 1px;
+		position: absolute;
+		right: -40px;
+		top: -5px;
+		background-color: #262626
+	}
+
+	.footer ul.footer-event-list {
+		list-style: none;
+		padding-left: 20px
+	}
+
+	.footer ul.footer-event-list li, .footer ul.footer-event-list li a {
+		display: block;
+		width: 50px
+	}
+
+	.footer ul.footer-event-list li {
+		float: left;
+		margin-right: 44px
+	}
+
+	.footer ul.footer-event-list li a {
+		text-align: center;
+		color: #ababab;
+		text-decoration: none;
+		line-height: 20px;
+		background-color: #292929
+	}
+
+	.footer ul.footer-event-list li a span.event-logo {
+		display: block;
+		width: 50px;
+		height: 50px
+	}
+
+	.footer ul.footer-event-list li a span.event-logo.zhongchao {
+		background: url("../images/footer_event_logo.jpg") no-repeat 0 0
+	}
+
+	.footer ul.footer-event-list li a span.event-logo.yingchao {
+		background: url("../images/footer_event_logo.jpg") no-repeat -94px 0
+	}
+
+	.footer ul.footer-event-list li a span.event-logo.xijia {
+		background: url("../images/footer_event_logo.jpg") no-repeat -188px 0
+	}
+
+	.footer ul.footer-event-list li a span.event-logo.dejia {
+		background: url("../images/footer_event_logo.jpg") no-repeat -282px 0
+	}
+
+	.footer ul.footer-event-list li a span.event-logo.yijia {
+		background: url("../images/footer_event_logo.jpg") no-repeat -376px 0
+	}
+
+	.footer .copyright {
+		padding: 20px 0;
+		text-align: center;
+		line-height: 24px;
+		color: #ababab
+	}
+
+	.footer .copyright a {
+		color: #ababab;
+		text-decoration: none;
+		font-size: 14px
+	}
+
+	.footer .copyright p {
+		font-size: 14px
+	}
+
+	.footer .copyright p.service {
+		padding-top: 10px
+	}
+</style>
+<body>
+<div id="content">
+	<a href="" id="ewm" style="display: none"><img width="80" src="images/Qr_code.png"></a>
+
+	<div id="title">
+		<h1>武磊实况足球 现场直播</h1>
+		<h2>暴风体育唯一新媒体直播</h2>
+		<h3>直播时间 2016-6-17 10:30:00</h3>
+	</div>
+	<div id="video">
+		<script>
+			var vodparam = "http://live.baofengcloud.com/22588069/player/cloud.swf?servicetype=2&uid=22588069&fid=B12168CF1CB2575FE278D8B65170965C5B4D4619&auto=1&si=1&vr=0";
+			document.write('<script type="text/javascript" src="http://live.baofengcloud.com/html/script/bfcloud.js?v=2"></scr'+'ipt>');
+		</script>
+		<script>cloudsdk.initvideo(videoareaname,{"src":vodparam,"id":"cloudsdk","isautosize":"1"});</script>
+	</div>
+	<div id="chat">
+		<div id="SOHUCS"></div>
+	</div>
+</div>
+
+<div id="an_footer" style="display: none">
+	<a href=""><img src="images/an_button.png"></a>
+</div>
+<div id="ios_footer" style="display: none">
+	<img src="images/ios_button.png">
+</div>
+
+<div class="footer">
+	<div class="one-row footer-content" style="display: none;">
+		<div class="col-4">
+			<a class="footer-logo" href="/"></a>
+		</div>
+		<div class="col-8">
+			<ul class="footer-event-list">
+				<li><a href="/event/index/7.html"><span class="event-logo zhongchao"></span>中超</a></li>
+				<li><a href="/event/index/1.html"><span class="event-logo yingchao"></span>英超</a></li>
+				<li><a href="/event/index/2.html"><span class="event-logo xijia"></span>西甲</a></li>
+				<li><a href="/event/index/3.html"><span class="event-logo dejia"></span>德甲</a></li>
+				<li><a href="/event/index/4.html"><span class="event-logo yijia"></span>意甲</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="one-row copyright">
+		<p>
+			<a href="http://home.baofeng.com/licence/icp.html" target="_blank" rel="nofollow">京ICP证070364号</a>
+			<a target="_blank" href="http://home.baofeng.com/licence/license.html" rel="nofollow">京网文【2014】0921-221号</a>
+			<a target="_blank" href="http://home.baofeng.com/licence/medicine_qual.html" rel="nofollow">互联网药品信息服务资格证书(京)-非经营性-2008-0039</a>
+			<a target="_blank" href="http://home.baofeng.com/licence/licence.html" rel="nofollow">广播电视节目制作经营许可证：(京)字第01166号</a>
+			<br>
+			<a target="_blank" style="text-decoration: none;">京公网安备：11010802020226</a>
+			<a target="_blank" href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action" rel=nofollow>京ICP备08011423号</a>
+			<a target="_blank" href="http://home.baofeng.com/licence/sah.html" rel="nofollow">信息网络传播视听许可证号：0108298</a>
+			<a target="_blank" href="http://home.baofeng.com/licence/performance_license.html" rel=nofollow>营业性演出许可证</a>
+		</p>
+		<p class="service">北京暴风科技股份有限公司 联系电话：010-62309066（工作日10:00—18:00） </p>
+	</div>
+</div>
+
+<!--<script src="http://static.sports.baofeng.com/production/scripts/lib/jquery.min.js"></script>-->
+<!--<script src="http://static.sports.baofeng.com/production/scripts/d39ac91a.justLogin.js"></script>-->
+<script src="scripts/jquery-1.12.1.min.js"></script>
+<script src="scripts/require.js"></script>
+<script>
+	window.onload = function(){
+		$(".menu-box-w").find("a:eq(1)").hide();
+		$(".menu-box-w").find("a:eq(1)").on("click",function(){
+			setTimeout(function(){
+				window.location.reload();
+			},500);
+		});
+	}
+
+	var ssologinfrom = 'shop';//这个根据自己的平台修改,平台来源
+	var loginRes = miniSSOLogin.isLogin();
+	if(loginRes.status){
+		//初始化加载页面判断已经登录后行为写在这里;
+	}else{
+		//初始化加载页面判断未经登录后行为写在这里;
+	}
+
+	//登录成功回调方法
+	function loginSuccessCallback(status,username,userid){
+		if(status){
+			//由登陆框输入信息然后点击登录登录成功行为;
+			miniSSOLogin.closeLoginWin();
+			window.location.reload();
+		}else{
+			alert('登录失败,请重试!');
+		}
+	}
+	//通过iframe中间层回调
+	function ssoNoticeMessage(args){
+		args = decodeURI(args).split("&");
+		if(args && args.length){
+			switch(args.shift()){
+				case "loginSuccessCallback"://登录成功回调
+					loginSuccessCallback.apply(this,args);
+					break;
+				case "closeLoginWin"://关闭窗口
+					miniSSOLogin.closeLoginWin();
+					break;
+				default:
+					//alert("没有调用");
+					alert("未知错误,请重试!");
+			}
+		}
+	}
+</script>
+<script>
+	var u = navigator.userAgent, app = navigator.appVersion;
+	var browser = {
+		versions: function () {
+			return {
+				trident: u.indexOf('Trident') > -1, //IE内核
+				presto: u.indexOf('Presto') > -1, //opera内核
+				webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+				gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,//火狐内核
+				mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+				ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+				android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,//android终端或者uc浏览器
+				iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+				iPad: u.indexOf('iPad') > -1, //是否iPad
+				webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+				weixin: u.indexOf('MicroMessenger') > -1, //是否微信 （2015-01-22新增）
+				qq: u.match(/\sQQ/i) == " qq" //是否QQ
+			}
+		}(),
+		language: (navigator.browserLanguage || navigator.language).toLowerCase()
+	};
+
+
+	var _hmt = _hmt || [];
+	(function () {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?5fe3fa96d76722198e0d5f00f159fc54";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+	if (!browser.versions.mobile || !browser.versions.android || !browser.versions.ios) {
+		document.write('<script src="http://changyan.sohu.com/upload/changyan.js"></scr' + 'ipt>');
+	}
+</script>
+</body>
+</html>
+<script type="text/javascript">
+	if (browser.versions.mobile || browser.versions.android || browser.versions.ios) {
+
+		document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=cysj03Qn0&conf=prod_280aa516a94db483b3ebb1041f7013ec"></scr' + 'ipt>');
+	}
+	else {
+		$("#ewm").show();
+
+		window.changyan.api.config({
+			appid: 'cysj03Qn0',
+			conf: 'prod_280aa516a94db483b3ebb1041f7013ec'
+		});
+	}
+
+	if (browser.versions.android) {
+		$("#an_footer").show();
+	}
+	else if (browser.versions.ios) {
+		$("#ios_footer").show();
+	}
+
+</script>

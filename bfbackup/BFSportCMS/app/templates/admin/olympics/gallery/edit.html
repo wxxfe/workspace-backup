@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>暴风体育内容管理系统 - CMS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="/static/plugins/jQueryUI/jquery-ui.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/static/plugins/datatables/dataTables.bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/bootstrap/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/static/bootstrap/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/static/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/static/fileupload/css/fileupload.css">
+    <link rel="stylesheet" href="/static/fileupload/css/fileupload-ui.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .table tbody tr td {
+            vertical-align: middle;
+        }
+
+        .del_tip {
+            text-align: center;
+            line-height: 34px;
+        }
+
+        .ui-dialog-titlebar-close {
+            outline: none;
+        }
+
+        .file_img_content_min,
+        .file_img_content {
+            max-width: 200px;
+            height: 70px;
+            margin: 7px 0 auto 0;
+        }
+
+        .file_img_content img,
+        .file_img_content_min img {
+            max-width: 200px;
+            height: 70px;
+        }
+
+        .input-group {
+            margin-top: 10px;
+        }
+
+        .upload_img_contain {
+            padding-right: 85px;
+            position: relative;
+            line-height: 34px;
+        }
+
+        .upload_img_contain .button_tip {
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: #f90;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5;">
+<div class="wrapper">
+    <div class="content-wrapper" style="margin-left: 0;">
+        <section class="content-header">
+            <h1><i class="fa fa-tags"></i>暴风体育CMS</h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">编辑热点图</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <form class="form-horizontal" method="post" onSubmit="return check();">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="box-body">
+
+                                        <div class="form-group">
+                                            <label for="slide_title" class="col-sm-4 control-label">标题</label>
+
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="title" name="title"
+                                                       placeholder="输入标题" value="{{ gallery.title }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="slide_title" class="col-sm-4 control-label">介绍</label>
+
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="brief" name="brief"
+                                                       placeholder="输入介绍" value="{{ gallery.brief }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="slide_title" class="col-sm-4 control-label">可见</label>
+
+                                            <div class="col-sm-8" style="line-height: 35px;">
+                                                <input type="checkbox" {% if gallery.visible >= 1 %} checked="checked" {% endif %} value="1" name="visible" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="slide_title" class="col-sm-4 control-label">置顶</label>
+
+                                            <div class="col-sm-8" style="line-height: 35px;">
+                                                <input type="checkbox"  {% if gallery.top >= 1 %} checked="checked" {% endif %}   value="1" name="top">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="upload_img_contain">
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <span class="btn btn-warning fileinput-button">
+                                                <i class="glyphicon glyphicon-plus"></i>
+                                                <span>上传图片</span>
+                                                <input id="fileupload" type="file" name="image" multiple
+                                                   data-url="http://w.image.sports.baofeng.com/save?token=xVFpX0RU"
+                                                   data-sequential-uploads="true"
+                                                   data-form-data='{"token": "xVFpX0RU"}'>
+                                                </span>
+                                            </span>
+                                            <input readonly="readonly" id="cover" class="form-control" type="text" name="cover">
+                                        </div>
+                                        <span  class="button_tip" tabindex="0"  data-toggle="tooltip" data-placement="right" title="建议图片尺寸:750*422">图片尺寸 <i class="glyphicon glyphicon-question-sign"></i></span>
+                                    </div>
+                                    <div class="file_img_content"></div>
+                                </div>
+                            </div>
+                            <div class="box-footer">
+                                <a id="cancel" class="btn btn-default" href="/olympics/gallery/list">返回</a>
+                                <button type="submit" class="btn btn-info pull-right">提交</button>
+                            </div>
+                            <!-- /.box-footer -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="tip" title="完善信息提示">
+    <p class="del_tip"></p>
+</div>
+<!-- jQuery 2.1.4 -->
+<script src="/static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<!-- jQuery UI -->
+<script src="/static/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- DataTables -->
+<script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/static/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/static/fileupload/scripts/jquery.ui.widget.js"></script>
+<script src="/static/fileupload/scripts/jquery.fileupload.js"></script>
+<script>
+        //显示图片提示
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+
+    });
+
+    var dialog = $('#tip').dialog({
+        autoOpen: false,
+        height: 100,
+        width: 350,
+        modal: true
+    });
+    function check() {
+        var slide_title = $("#slide_title").val();
+        var type_logo = $("#type_logo").val();
+        var url = $("#url").val();
+        var cover = $("#cover").val();
+        var selectType = $("#select_type").val();
+        if (selectType == 'ad' || selectType == 'html') {
+            if (slide_title !== '' && url !== '' && cover !== '') {
+                return true;
+            }
+            else {
+                if (slide_title == '') {
+                    dialog.dialog('open');
+                    $(".del_tip").text("请填写轮播图标题");
+                }
+                else if (url == '') {
+                    dialog.dialog('open');
+                    $(".del_tip").text("请填写url");
+                }
+                else if (cover == '') {
+                    dialog.dialog('open');
+                    $(".del_tip").text("您还没有选择图片")
+                }
+            }
+            return false;
+        }
+        else {
+            if (slide_title !== '' && type_logo !== '' && cover !== '') {
+                return true;
+            }
+            else {
+                if (slide_title == '') {
+                    dialog.dialog('open');
+                    $(".del_tip").text("请填写轮播图标题");
+                }
+                else if (type_logo == '') {
+                    dialog.dialog('open');
+                    $(".del_tip").text("请填写ID");
+                }
+                else if (cover == '') {
+                    dialog.dialog('open');
+                    $(".del_tip").text("您还没有选择图片")
+                }
+            }
+        }
+        return false;
+    }
+    //上传行为
+    $('#fileupload').fileupload({
+        add: function (e, data) {
+            //data.context = $('<p/>').text('Uploading...').appendTo('#content');
+            data.submit();
+        },
+        done: function (e, data) {
+            //$('#cover').val(data);
+            console.log(data.result)
+            var result = data.result.errno;
+            if (result !== 10000) {
+                alert('上传失败,请重试！');
+            }
+            else {
+                $(".file_img_content").html('<img height="90" src="http://image.sports.baofeng.com/' + data.result.data.pid + '">');
+                $('#cover').val(data.result.data.pid);
+            }
+        }
+    });
+    function initUploadImg() {
+        $(".file_img_content").html('<img height="90" src="http://image.sports.baofeng.com/{{ gallery.image }}">');
+        $('#cover').val("{{ gallery.image }}");
+    }
+    initUploadImg();
+    //select联动
+    /*
+    var type_data = $("#type_data");
+    var type_id = $("#type_id");
+    $("#select_type").on("change", function () {
+       if (this.value == '1' || this.value == '2') {
+            type_data.hide();
+            type_id.show();
+        }
+        else {
+            type_data.show();
+            type_id.hide();
+        }
+    });
+    */
+        //获取参数
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) {
+            return unescape(r[2]);
+        }
+        else {
+            return null; //返回参数值
+        }
+    }
+
+    var tempCancelUrl = $("#cancel").attr("href");
+    if (tempCancelUrl.indexOf("?") < 0) {
+        $("#cancel").attr("href", tempCancelUrl + "?platform=" + getUrlParam("platform"))
+    }
+    else {
+    }
+</script>
+</body>
+</html>

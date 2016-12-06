@@ -1,0 +1,41 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../font-awesome/font-awesome";
+@import "../portrait/index";
+@import "../paragraphs/index";
+
+.program-profile {
+    position: relative;
+    padding-top: 14px; /*px*/
+    padding-bottom: 40px; /*px*/
+    height: 64px; /*px*/
+    overflow: hidden;
+    @include hairline-top;
+    .portrait {
+        &.withname,&.withfootnotes {
+            .title {
+                @include font-default;
+            }
+        }
+    }
+    
+    .toggle-btn {
+        position: absolute;
+        padding-top: 14px; /*px*/
+        width: 100%;
+        height: 54px; /*px*/
+        top: 24px;
+        right: 0;
+        text-align: right;
+        
+    }
+    
+    .paragraphs {
+        margin-top: 28px; /*px*/
+        p {
+            line-height: 40px;; /*px*/
+            @include font-fade-1;
+            
+        }
+    }
+}

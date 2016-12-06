@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0}
+        #SOHUCS #SOHU_MAIN .section-title-w .title-user-w{
+            display: none;
+        }
+        body{padding: 0 20px;}
+    </style>
+</head>
+<body>
+<div id="SOHUCS"></div>
+<!-- build:js scripts/lib/jquery.min.js -->
+<script src="src/scripts/lib/jquery-1.12.1.min.js"></script>
+<script src="src/scripts/lib/require.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/comment.js -->
+<script src="src/scripts/comment.js"></script>
+<!-- endbuild -->
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script>
+    window.changyan.api.config({
+        appid: 'cysj03Qn0',
+        conf: 'prod_280aa516a94db483b3ebb1041f7013ec'
+    });
+</script>
+</body>
+</html>

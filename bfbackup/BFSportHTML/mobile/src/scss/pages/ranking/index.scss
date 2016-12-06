@@ -1,0 +1,157 @@
+@import "../../components/style/themes/default/index";
+@import "../../components/table/index";
+@import "../../components/style/mixin.scss";
+@import "../../components/sharepage/index";
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: #f1f1f1;
+}
+
+.table {
+    caption {
+        font-size: 26px; /*px*/
+        color: #666;
+        padding: 30px; /*px*/
+    }
+    th, td {
+        background: #fff !important;
+    }
+    thead th {
+        height: 60px; /*px*/
+        border-bottom: #ccc 1px solid; /*px*/
+    }
+    tbody {
+        td {
+            height: 90px; /*px*/
+            color: #444 !important;
+        }
+    }
+
+    .text-left {
+        padding-left: 30px !important; /*px*/
+    }
+}
+
+.barge {
+    width: 40px; /*px*/
+    height: 40px; /*px*/
+    margin-right: 10px; /*px*/
+    vertical-align: middle;
+    object-fit: cover;
+}
+
+.ranking-default {
+    tbody {
+
+        td {
+            &.num.text-red {
+                color: #d91717 !important;
+            }
+            &.num {
+                font-family: $font-family-din-md;
+                font-size: 36px !important; /*px*/
+                color: #999 !important;
+            }
+        }
+
+    }
+}
+
+.ranking-new {
+
+    caption {
+        padding: 20px 8px; /*px*/
+        display: table-caption;
+        background-color: #f1f1f1;
+    }
+    th, td {
+        vertical-align: middle !important;
+        text-align: center;
+        word-warp: break-word;
+        word-break: break-all;
+        padding: 0px !important; /*px*/
+        margin: 0px !important; /*px*/
+        min-width: 68px; /*px*/
+        line-height: 40px; /*px*/
+    }
+
+    thead th {
+        height: 60px; /*px*/
+        border-bottom: none !important; /*px*/
+    }
+
+    th:first-child {
+        width: 68px; /*px*/
+    }
+
+    &.team {
+
+        td:nth-child(2) {
+            text-align: left;
+            width: 226px; /*px*/
+            .barge {
+                margin-left: 30px; /*px*/
+            }
+            span {
+                width: 140px; /*px*/
+            }
+        }
+
+    }
+
+    &.player {
+
+        td:nth-child(2), th:nth-child(2) {
+            text-align: left;
+            padding-left: 40px !important; /*px*/
+        }
+
+        td:nth-child(3) {
+            text-align: left;
+            width: 226px; /*px*/
+            .barge {
+                margin-left: 30px; /*px*/
+            }
+            span {
+                width: 140px; /*px*/
+            }
+        }
+
+        th:last-child {
+            width: 120px; /*px*/
+        }
+
+    }
+
+    &.nba {
+        th:nth-child(6) {
+            width: 96px; /*px*/
+        }
+        th:last-child {
+            width: 112px; /*px*/
+        }
+    }
+
+    .barge {
+        width: 40px; /*px*/
+        height: 40px; /*px*/
+        margin-right: 6px; /*px*/
+        object-fit: cover;
+        display: inline-block;
+    }
+
+    tbody span {
+        height: 40px; /*px*/
+        line-height: 40px; /*px*/
+        display: inline-block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        vertical-align: middle !important;
+    }
+
+}

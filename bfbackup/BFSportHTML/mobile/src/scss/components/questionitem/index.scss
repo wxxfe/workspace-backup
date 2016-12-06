@@ -1,0 +1,36 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../button/index";
+@import "../footnote/index";
+
+.question-item {
+    .title {
+        margin-top: 68px;
+        @include font-em-1;
+        text-align: center;
+    }
+    .content {
+        margin-top: 36px;
+        text-align: center;
+        @include font-fade-2;
+    }
+    .answersheet {
+        margin-top: 68px;
+        @include fix-inline-block-space;
+        text-align: center;
+        .answer {
+            display: inline-block;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .button {
+            padding: 0;
+            width: 240px;
+            line-height: 78px;
+        }
+        .footnote {
+            margin-top: 10px;
+        }
+    }
+}
+

@@ -1,0 +1,111 @@
+@normal-width : 188px;
+@normal-height: 107px;
+
+.media-video{
+    .size(@normal-width,auto);
+    overflow: hidden;
+
+    .cover{
+        .size(@normal-width,@normal-height);
+        overflow: hidden;
+        position: relative;
+
+        span.tag{
+            .inline-block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 20px;
+
+            strong{
+                .inline-block;
+                .va(top);
+                font-style: normal;
+                font-size: 14px;
+                color: #fff;
+                padding: 0 5px;
+                line-height: 20px;
+                height: 20px;
+                &.tag-blue{
+                    .bgc(#178fff);
+                }
+                &.tag-red{
+                    .bgc(#ff2e0c);
+                }
+                &.tag-purple{
+                    .bgc(#6852c9);
+                }
+                &.tag-green{
+                    .bgc(#55a444);
+                }
+            }
+
+            i.icon-triangle{
+                .inline-block;
+                .size(10px,20px);
+                .va(top);
+
+                &.it-blue{
+                    .bg('sprite.png',no-repeat,-75px 0);
+                }
+                &.it-red{
+                    .bg('sprite.png',no-repeat,-85px 0);
+                }
+                &.it-purple{
+                    .bg('sprite.png',no-repeat,-95px 0);
+                }
+                &.it-green{
+                    .bg('sprite.png',no-repeat,-105px 0);
+                }
+
+            }
+        }
+
+        @m-top: 38px / 2 * -1;
+        @m-left: 38px / 2 * -1;
+
+        span.play-button{
+            display: block;
+            position: absolute;
+
+            &.large{
+                .square(38px);
+                .bg('sprite.png',no-repeat,-34px -16px);
+                left: 50%;
+                top: 50%;
+                margin: @m-top 0 0 @m-left;
+            }
+
+            &.medium{
+                .square(32px);
+                .bg('sprite.png',no-repeat,0 -16px);
+                left: 8px;
+                bottom: 8px;
+                margin: 0;
+            }
+        }
+
+
+        img{
+            width: 100%;
+        }
+    }
+
+    p.title{
+        height: 52px;
+        overflow: hidden;
+        font-size: @font-size-large - 2;
+        line-height: 24px;
+        padding-top: 5px;
+    }
+
+    a{
+        .text-n;
+        color: @gray-dark;
+        display: block;
+        &:hover{
+            color: @sports-yellow;
+        }
+    }
+
+}

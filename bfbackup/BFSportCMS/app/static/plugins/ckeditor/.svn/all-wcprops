@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/storm_wireless/!svn/ver/57229/server/branches/live_cms/static/plugins/ckeditor
+END
+ckeditor.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/storm_wireless/!svn/ver/57229/server/branches/live_cms/static/plugins/ckeditor/ckeditor.js
+END
+config.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/storm_wireless/!svn/ver/57229/server/branches/live_cms/static/plugins/ckeditor/config.js
+END
+LICENSE.md
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/storm_wireless/!svn/ver/57229/server/branches/live_cms/static/plugins/ckeditor/LICENSE.md
+END
+contents.css
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/storm_wireless/!svn/ver/57229/server/branches/live_cms/static/plugins/ckeditor/contents.css
+END
+CHANGES.md
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/storm_wireless/!svn/ver/57229/server/branches/live_cms/static/plugins/ckeditor/CHANGES.md
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/storm_wireless/!svn/ver/57229/server/branches/live_cms/static/plugins/ckeditor/README.md
+END
+build-config.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/storm_wireless/!svn/ver/57229/server/branches/live_cms/static/plugins/ckeditor/build-config.js
+END
+styles.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/storm_wireless/!svn/ver/57229/server/branches/live_cms/static/plugins/ckeditor/styles.js
+END

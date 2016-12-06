@@ -1,0 +1,16 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../sectiontitle/index";
+
+.section {
+    padding-top: 12px; /*px*/
+    .section-title {
+        padding: 30px; /*px*/
+    }
+    .section-content {
+        padding-top: 6px; /*px*/
+        padding-left: 30px; /*px*/
+        padding-right: 30px; /*px*/
+    }
+
+}

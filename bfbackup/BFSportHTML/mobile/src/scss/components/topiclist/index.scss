@@ -1,0 +1,54 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+
+.topic-list{
+    li,li a{
+        display: block;
+        height: 120px;/*px*/
+    }
+    li{
+        position: relative;
+        @include hairline-bottom;
+        a{
+            padding: 0 30px;/*px*/
+            img.badge{
+                width: 70px;/*px*/
+                height: 70px;/*px*/
+                background: #fff;
+                border: #ccc 1px solid;
+                border-radius: 50%;
+                padding: 5px;/*px*/
+                float: left;
+                margin-top: 18px;/*px*/
+                margin-right: 18px;/*px*/
+                display: block;
+            }
+
+            h4{
+                font-size: $font-size-paragraph;/*px*/
+                padding-top: 20px; /*px*/
+                color: lighten($color-text-base,35%);
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                small{
+                    display: block;
+                    margin-top: 0px; /*px*/
+                    color: lighten($color-text-base,60%);
+                }
+            }
+
+            &:active{
+                background: lighten($color-text-base,90%);
+            }
+        }
+    }
+
+    &.last-no-border{
+        li:last-child{
+            &:before{
+                background-color: transparent;
+            }
+        }
+    }
+}

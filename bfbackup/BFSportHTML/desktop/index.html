@@ -1,0 +1,938 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title></title>
+    <!-- build:css css/index.css -->
+    <link rel="stylesheet" href="src/css/index.css"/>
+    <!-- endbuild -->
+</head>
+<body>
+
+<!-- 导航 -->
+<div class="navigation" id="navigation">
+    <div class="nav-wrap one-row">
+        <div class="col-4 logo">
+            <a href="http://sports.baofeng.com/"></a>
+        </div>
+        <div class="col-16">
+            <ul class="nav-list" id="nav">
+                <li><a class="active" href="#">首页</a></li>
+                <li><a href="http://sports.baofeng.com/channel/csl/">中超</a></li>
+                <li><a href="http://sports.baofeng.com/channel/european_championship/">欧洲杯</a></li>
+                <li><a href="http://sports.baofeng.com/channel/premiership/">英超</a></li>
+                <li><a href="http://sports.baofeng.com/channel/la_liga/">西甲</a></li>
+                <li><a href="http://sports.baofeng.com/channel/serie_a/">意甲</a></li>
+                <li><a href="http://sports.baofeng.com/channel/bundes_liga/">德甲</a></li>
+                <li><a href="http://sports.baofeng.com/channel/afc/">亚冠</a></li>
+                <li><a href="http://sports.baofeng.com/match/data/1/">比赛</a></li>
+
+                <li class="nav-active"></li>
+            </ul>
+        </div>
+        <div class="col-4 top-bar">
+            <a class="download-app" href="#">
+                下载APP
+                <img src="../src/images/download_app/Qr_code.png" alt="下载APP"/>
+            </a>
+            <span class="login-btn" id="head">登录</span>
+            <ul class="user-info" id="user-manage">
+                <li id="username"></li>
+                <li><a href="javascript:void(0)" id="exit" class="logout">退出</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /导航 -->
+
+<!-- 赛程表 -->
+<div class="match-data" id="match-data">
+    <ul class="events-tab">
+        <li><a href="javascript:void(0)" data-eid="" class="active">今日</a></li>
+        <li><a href="javascript:void(0)" data-eid="7">中超</a></li>
+        <li><a href="javascript:void(0)" data-eid="2">英超</a></li>
+        <li><a href="javascript:void(0)" data-eid="3">德甲</a></li>
+        <li><a href="javascript:void(0)" data-eid="4">意甲</a></li>
+    </ul>
+    <div class="all"><span class="date">06-23</span>星期五</div>
+    <div class="data-wrap">
+        <a href="javascript:void(0)" class="prev flex-prev">&lt;</a>
+        <div class="slide-wrap flexslider0">
+            <ul class="matchs slides">
+                <li>
+                    <a href="#">
+                        <p class="info"><strong>已结束</strong>1欧洲杯半决赛</p>
+                        <p class="team"><strong>2</strong>德国</p>
+                        <p class="team"><strong>1</strong>意大利</p>
+                    </a>
+                    <a href="#" class="living">
+                        <p class="info"><strong>直播中</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>2</strong>德国</p>
+                        <p class="team"><strong>1</strong>意大利</p>
+                        <span class="living-layer"><i></i>直播中</span>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p class="info"><strong>已结束</strong>2欧洲杯半决赛</p>
+                        <p class="team"><strong>2</strong>德国</p>
+                        <p class="team"><strong>1</strong>意大利</p>
+                    </a>
+                    <a href="#" class="living">
+                        <p class="info"><strong>直播中</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>2</strong>德国</p>
+                        <p class="team"><strong>1</strong>意大利</p>
+                        <span class="living-layer"><i></i>直播中</span>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <p class="info"><strong>已结束</strong>3欧洲杯半决赛</p>
+                        <p class="team"><strong>2</strong>德国</p>
+                        <p class="team"><strong>1</strong>意大利</p>
+                    </a>
+                    <a href="#" class="living">
+                        <p class="info"><strong>直播中</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>2</strong>德国</p>
+                        <p class="team"><strong>1</strong>意大利</p>
+                        <span class="living-layer"><i></i>直播中</span>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                    <a href="#">
+                        <p class="info"><strong>未开始</strong>欧洲杯半决赛</p>
+                        <p class="team"><strong>6月13日</strong>德国</p>
+                        <p class="team"><strong>14:30</strong>意大利</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <a href="javascript:void(0)" class="next flex-next">&gt;</a>
+    </div>
+</div>
+<!-- /赛程表 -->
+
+<!-- 内容 -->
+<div class="container">
+
+    <div class="one-row slide-top">
+
+        <!-- 轮播图 -->
+        <div class="col-16 slide-pic-wrap">
+            <div class="slider-news">
+                <ul>
+                    <li>
+                        <a href="#" target="_blank">
+                            <img src="http://image.sports.baofeng.com/d784c707371151b53517448062f1cdc3" alt="xxx" />
+                            <p class="title">1山东鲁能官宣佩莱加盟 合同总额或达4000万欧元</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <img src="http://image.sports.baofeng.com/7e899f811e3373f37f2345490a0bad18" alt="xxx" />
+                            <p class="title">2山东鲁能官宣佩莱加盟 合同总额或达4000万欧元</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <img src="http://image.sports.baofeng.com/1b4664a02b5b668d4f044dc9880d0b29" alt="xxx" />
+                            <p class="title">3山东鲁能官宣佩莱加盟 合同总额或达4000万欧元</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <img src="http://image.sports.baofeng.com/aa50001565b8871781835635d5cde07d" alt="xxx" />
+                            <p class="title">4山东鲁能官宣佩莱加盟 合同总额或达4000万欧元</p>
+                        </a>
+                    </li>
+                </ul>
+                <div class="active-dot">
+                    <a class="active" href="javascript:void(0)"></a>
+                    <a href="javascript:void(0)"></a>
+                    <a href="javascript:void(0)"></a>
+                    <a href="javascript:void(0)"></a>
+                </div>
+            </div>
+        </div>
+        <!-- /轮播图 -->
+
+        <!-- 置顶新闻 -->
+        <div class="col-8 top-wrap">
+            <div class="mixins-text-news">
+                <ul class="mtn-list">
+                    <li class="strong-title">
+                        <a href="#" target="_blank">鲁能BUG级锋群!四个9谁来炸谁 媲美米兰10号共</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御用助手来华，金牌体能教练签约卓尔练签约卓</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank"><span class="tag tag-green">专访</span>卡佩罗御用助手来来华金牌体</a>
+                        <i></i>
+                        <a href="#" target="_blank">金牌体能教练签</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御签卓卓尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御教签约卓尔</a>
+                    </li>
+                    <li class="strong-title">
+                        <a href="#" target="_blank">鲁能BUG级锋群!四个9谁来炸谁 媲美米兰10号共</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御用助手来华，金牌体能教练签约卓尔练签约卓</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御用助手来来华金牌体</a>
+                        <i></i>
+                        <a href="#" target="_blank" class="text-yellow">金牌体能教练签约卓尔</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御签卓卓尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御教签约卓尔</a>
+                    </li>
+                    <li class="strong-title">
+                        <a href="#" target="_blank">鲁能BUG级锋群!四个9谁来炸谁 媲美米兰10号共</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御签卓卓尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御教签约卓尔</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">卡佩罗御签卓卓尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御尔</a>
+                        <i></i>
+                        <a href="#" target="_blank">卡佩罗御教签约卓尔</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /置顶新闻 -->
+
+    </div>
+
+    <div class="one-row video-section">
+
+        <!-- 精彩视频 -->
+        <div class="col-16 video-wrap">
+            <!-- tab title -->
+            <div class="main-title">
+                <h2>精彩视频</h2>
+                <a class="more" href="#" id="m-more">更多</a>
+                <ul class="tab-menu" id="tab-menu-moment">
+                    <li><a href="javascript:void(0)" class="active" data-mid="0">全部</a></li>
+                    <li><a href="javascript:void(0)" data-mid="7">中超</a></li>
+                    <li><a href="javascript:void(0)" data-mid="1">英超</a></li>
+                    <li><a href="javascript:void(0)" data-mid="2">西甲</a></li>
+                    <li><a href="javascript:void(0)" data-mid="4">意甲</a></li>
+                    <li><a href="javascript:void(0)" data-mid="3">德甲</a></li>
+                </ul>
+            </div>
+            <!-- /tab title -->
+            <ul class="one-row video_list" id="mv-0">
+                <li class="col-4">
+                    <div class="media small photo">
+                        <span class="tag b-blue">集锦</span>
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp_pic_small.png" alt="">
+
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media small photo">
+                        <span class="tag b-blue">集锦</span>
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp_pic_small.png" alt="">
+
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media small photo">
+                        <span class="tag b-blue">集锦</span>
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp_pic_small.png" alt="">
+
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media small photo">
+                        <span class="tag b-blue">集锦</span>
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp_pic_small.png" alt="">
+
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media small photo">
+                        <span class="tag b-blue">集锦</span>
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp_pic_small.png" alt="">
+
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media small photo">
+                        <span class="tag b-blue">集锦</span>
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp_pic_small.png" alt="">
+
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media small photo">
+                        <span class="tag b-blue">集锦</span>
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp_pic_small.png" alt="">
+
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                        </a>
+                    </div>
+                </li>
+                <li class="col-4">
+                    <div class="media small photo">
+                        <span class="tag b-blue">集锦</span>
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp_pic_small.png" alt="">
+
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="one-row video_list" id="mv-1" style="display: none;"></ul>
+            <ul class="one-row video_list" id="mv-2" style="display: none;"></ul>
+            <ul class="one-row video_list" id="mv-3" style="display: none;"></ul>
+            <ul class="one-row video_list" id="mv-4" style="display: none;"></ul>
+        </div>
+        <!-- /精彩视频 -->
+
+        <!-- 专栏推荐 -->
+        <div class="col-8 section-wrap" data-pages="1">
+
+            <!-- tab title -->
+            <div class="main-title">
+                <h2>专栏推荐</h2>
+                <a class="replace" href="#"><i class="loading"></i>换一批</a>
+            </div>
+            <!-- /tab title -->
+            <div class="replace-content">
+                <ul class="news-mixins-list">
+                    <li>
+                        <a href="#" target="_blank" class="active">
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            <div class="one-row detail">
+                                <div class="col-3 pic"><img src="../src/images/tmp.png" alt=""></div>
+                                <div class="col-5 info">
+                                    <h3>足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</h3>
+                                    <p class="desc">
+                                        <span class="time">2016-02-34</span>
+                                        <img src="../src/images/tmp.png" alt="">尝试策划
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            <div class="one-row detail">
+                                <div class="col-3 pic"><img src="../src/images/tmp.png" alt=""></div>
+                                <div class="col-5 info">
+                                    <h3>足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</h3>
+                                    <p class="desc">
+                                        <span class="time">2016-02-34</span>
+                                        <img src="../src/images/tmp.png" alt="">尝试策划
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            <div class="one-row detail">
+                                <div class="col-3 pic"><img src="../src/images/tmp.png" alt=""></div>
+                                <div class="col-5 info">
+                                    <h3>足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</h3>
+                                    <p class="desc">
+                                        <span class="time">2016-02-34</span>
+                                        <img src="../src/images/tmp.png" alt="">尝试策划
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            <div class="one-row detail">
+                                <div class="col-3 pic"><img src="../src/images/tmp.png" alt=""></div>
+                                <div class="col-5 info">
+                                    <h3>足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</h3>
+                                    <p class="desc">
+                                        <span class="time">2016-02-34</span>
+                                        <img src="../src/images/tmp.png" alt="">尝试策划
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            <div class="one-row detail">
+                                <div class="col-3 pic"><img src="../src/images/tmp.png" alt=""></div>
+                                <div class="col-5 info">
+                                    <h3>足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</h3>
+                                    <p class="desc">
+                                        <span class="time">2016-02-34</span>
+                                        <img src="../src/images/tmp.png" alt="">尝试策划
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            <div class="one-row detail">
+                                <div class="col-3 pic"><img src="../src/images/tmp.png" alt=""></div>
+                                <div class="col-5 info">
+                                    <h3>足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</h3>
+                                    <p class="desc">
+                                        <span class="time">2016-02-34</span>
+                                        <img src="../src/images/tmp.png" alt="">尝试策划
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 专栏推荐 -->
+
+    </div>
+
+    <div class="one-row news-other">
+        <div class="col-16 news-wrap">
+            <!-- large title -->
+            <div class="main-title">
+                <h2 class="large">国内足球</h2>
+                <a class="more" href="#">更多</a>
+            </div>
+            <!-- /large title -->
+
+            <!-- 赛事新闻块 -->
+            <div class="one-row event-wrap">
+                <div class="one-row">
+                    <div class="col-6">
+                        <div class="media medium photo fade">
+                            <span class="tag b-red">前瞻</span>
+                            <a href="#" target="_blank">
+                                <img src="../src/images/tmp_pic_small.png" alt="">
+
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-10">
+                        <!-- news text list -->
+                        <ul class="news-text-list">
+                            <li>
+                                <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                <span class="source">06-12 14:34</span>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                <span class="source">虎扑体育</span>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                <span class="source">虎扑体育</span>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                <span class="source">虎扑体育</span>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                <span class="source">虎扑体育</span>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                <span class="source">虎扑体育</span>
+                            </li>
+                        </ul>
+                        <!-- /news text list -->
+                    </div>
+                </div>
+                <div class="one-row">
+                    <div class="col-6">
+                        <div class="media medium photo fade">
+                            <span class="tag b-red">前瞻</span>
+                            <a href="#" target="_blank">
+                                <img src="../src/images/tmp_pic_small.png" alt="">
+
+                                <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-10">
+                        <!-- news text list -->
+                        <ul class="news-text-list">
+                            <li>
+                                <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                <span class="source">06-12 14:34</span>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                <span class="source">虎扑体育</span>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                <span class="source">虎扑体育</span>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                <span class="source">虎扑体育</span>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                <span class="source">虎扑体育</span>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                <span class="source">虎扑体育</span>
+                            </li>
+                        </ul>
+                        <!-- /news text list -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- /赛事新闻块 -->
+
+            <!-- tab title -->
+            <div class="main-title margin-top">
+                <h2>国际足球</h2>
+                <a class="more" href="#" id="n-more">更多</a>
+                <ul class="tab-menu" id="tab-menu-football">
+                    <li><a href="javascript:void(0)" class="active" data-mid="0">全部</a></li>
+                    <li><a href="javascript:void(0)" data-mid="1">英超</a></li>
+                    <li><a href="javascript:void(0)" data-mid="2">西甲</a></li>
+                    <li><a href="javascript:void(0)" data-mid="4">意甲</a></li>
+                    <li><a href="javascript:void(0)" data-mid="3">德甲</a></li>
+                </ul>
+            </div>
+            <!-- /tab title -->
+            <!-- 赛事新闻块 -->
+            <!--<div class="one-row event-wrap mt20">-->
+
+            <!--<div class="tab-news-content" id="tnc-0" style="display: block;">-->
+
+            <div class="one-row event-wrap">
+                <div id="tnc-0" style="display: block;">
+                    <div class="one-row football-row">
+                        <div class="col-6">
+                            <div class="media medium photo fade">
+                                <span class="tag b-red">前瞻</span>
+                                <a href="#" target="_blank">
+                                    <img src="../src/images/tmp_pic_small.png" alt="">
+
+                                    <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-10">
+                            <!-- news text list -->
+                            <ul class="news-text-list">
+                                <li>
+                                    <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                    <span class="source">06-12 14:34</span>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                    <span class="source">虎扑体育</span>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                    <span class="source">虎扑体育</span>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                    <span class="source">虎扑体育</span>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                    <span class="source">虎扑体育</span>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                    <span class="source">虎扑体育</span>
+                                </li>
+                            </ul>
+                            <!-- /news text list -->
+                        </div>
+                    </div>
+                    <div class="one-row football-row">
+                        <div class="col-6">
+                            <div class="media medium photo fade">
+                                <span class="tag b-red">前瞻</span>
+                                <a href="#" target="_blank">
+                                    <img src="../src/images/tmp_pic_small.png" alt="">
+
+                                    <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-10">
+                            <!-- news text list -->
+                            <ul class="news-text-list">
+                                <li>
+                                    <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                    <span class="source">06-12 14:34</span>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                    <span class="source">虎扑体育</span>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                    <span class="source">虎扑体育</span>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                    <span class="source">虎扑体育</span>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                    <span class="source">虎扑体育</span>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</a>
+                                    <span class="source">虎扑体育</span>
+                                </li>
+                            </ul>
+                            <!-- /news text list -->
+                        </div>
+                    </div>
+                </div>
+                <div id="tnc-1" style="display: none;"></div>
+                <div id="tnc-2" style="display: none;"></div>
+                <div id="tnc-3" style="display: none;"></div>
+                <div id="tnc-4" style="display: none;"></div>
+            </div>
+            <!-- /赛事新闻块 -->
+
+        </div>
+        <div class="col-8 other-wrap">
+
+            <!-- 节目推荐 -->
+            <div class="one-row program-wrap" data-pages="1">
+                <!-- tab title -->
+                <div class="main-title">
+                    <h2>节目推荐</h2>
+                    <a class="replace" href="#"><i class="loading"></i>换一批</a>
+                </div>
+                <!-- /tab title -->
+
+                <div class="replace-content">
+                    <div class="media large photo">
+                        <span class="bf-mark"></span>
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp_pic_small.png" alt="">
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                        </a>
+                    </div>
+
+                    <div class="media large photo">
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp_pic_small.png" alt="">
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                        </a>
+                    </div>
+
+                    <div class="media large photo">
+                        <a href="#" target="_blank">
+                            <img src="../src/images/tmp_pic_small.png" alt="">
+                            <p class="title">足总杯大捷引英超灾难 连伤5人枪手恐无缘4强</p>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /节目推荐 -->
+
+            <!-- 榜单 -->
+            <div class="one-row ranking-box ranking-wrap">
+                <ul class="tab-menu">
+                    <li><a href="#" class="active" data-eid="1">中超</a></li>
+                    <li><a href="#" data-eid="2">英超</a></li>
+                    <li><a href="#" data-eid="3">西甲</a></li>
+                    <li><a href="#" data-eid="4">意甲</a></li>
+                    <li class="end"><a href="#" data-eid="5">德甲</a></li>
+                </ul>
+                <ul class="tab-menu-two">
+                    <li><a href="#" class="active">积分榜</a></li>
+                    <li class="end"><a href="#">射手榜</a></li>
+                </ul>
+                <div class="replace-content">
+                    <div class="top-list">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th class="t1">名次</th>
+                                <th class="t2">球队</th>
+                                <th class="t3">胜/平/负</th>
+                                <th class="t4">积分</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr class="top-1">
+                                <td class="t1 top-highlight">1</td>
+                                <td class="t2"><img src="../src/images/tmp_pic_small.png" alt="">
+                                    <div>球队</div>
+                                </td>
+                                <td class="t3">1/1/1</td>
+                                <td class="t4">1</td>
+                            </tr>
+                            <tr>
+                                <td class="t1 top-highlight">2</td>
+                                <td class="t2">球队</td>
+                                <td class="t3">1/1/1</td>
+                                <td class="t4">1</td>
+                            </tr>
+                            <tr>
+                                <td class="t1 top-highlight">3</td>
+                                <td class="t2">球队</td>
+                                <td class="t3">1/1/1</td>
+                                <td class="t4">1</td>
+                            </tr>
+                            <tr>
+                                <td class="t1">4</td>
+                                <td class="t2">球队</td>
+                                <td class="t3">1/1/1</td>
+                                <td class="t4">1</td>
+                            </tr>
+                            <tr>
+                                <td class="t1">5</td>
+                                <td class="t2">球队</td>
+                                <td class="t3">1/1/1</td>
+                                <td class="t4">1</td>
+                            </tr>
+                            <tr>
+                                <td class="t1">6</td>
+                                <td class="t2">球队</td>
+                                <td class="t3">1/1/1</td>
+                                <td class="t4">1</td>
+                            </tr>
+                            <tr>
+                                <td class="t1">7</td>
+                                <td class="t2">球队</td>
+                                <td class="t3">1/1/1</td>
+                                <td class="t4">1</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <a href="#" target="_blank">查看更多 》</a>
+                    </div>
+                    <div class="top-list tow hide-display">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th class="t1">名次</th>
+                                <th class="t2">球员</th>
+                                <th class="t3">进球</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr class="top-1">
+                                <td class="t1 top-highlight">1</td>
+                                <td class="t2"><img src="../src/images/tmp_pic_small.png" alt="">
+                                    <div>球员</div>
+                                </td>
+                                <td class="t3">1</td>
+                            </tr>
+                            <tr>
+                                <td class="t1 top-highlight">2</td>
+                                <td class="t2">球员</td>
+                                <td class="t3">1</td>
+                            </tr>
+                            <tr>
+                                <td class="t1 top-highlight">3</td>
+                                <td class="t2">球员</td>
+                                <td class="t3">1</td>
+                            </tr>
+                            <tr>
+                                <td class="t1">4</td>
+                                <td class="t2">球员</td>
+                                <td class="t3">1</td>
+                            </tr>
+                            <tr>
+                                <td class="t1">5</td>
+                                <td class="t2">球员</td>
+                                <td class="t3">1</td>
+                            </tr>
+                            <tr>
+                                <td class="t1">6</td>
+                                <td class="t2">球员</td>
+                                <td class="t3">1</td>
+                            </tr>
+                            <tr>
+                                <td class="t1">7</td>
+                                <td class="t2">球员</td>
+                                <td class="t3">1</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <a href="#" target="_blank">查看更多 》</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /榜单 -->
+
+        </div>
+    </div>
+
+    <div class="top-and-app">
+        <div>
+            <a class="back-top" href="#"> ︿ </a>
+            <a class="go-to-app" href="#" target="_blank">暴风体育APP</a>
+        </div>
+        <img class="app-qr-code hide-display" src="../src/images/download_app/Qr_code.png" alt="下载暴风体育APP">
+    </div>
+</div>
+<!-- /内容 -->
+
+<!-- 页脚信息 -->
+<div class="footer">
+    <div class="one-row copyright">
+        <p>
+            <a href="http://home.baofeng.com/licence/icp.html" target="_blank" rel="nofollow">京ICP证070364号</a>
+            <a target="_blank" href="http://home.baofeng.com/licence/license.html" rel="nofollow">京网文【2014】0921-221号</a>
+            <a target="_blank" href="http://home.baofeng.com/licence/medicine_qual.html" rel="nofollow">互联网药品信息服务资格证书(京)-非经营性-2008-0039</a>
+            <a target="_blank" href="http://home.baofeng.com/licence/licence.html" rel="nofollow">广播电视节目制作经营许可证：(京)字第01166号</a>
+            <br>
+            <a target="_blank" style="text-decoration: none;">京公网安备：11010802020226</a>
+            <a target="_blank" href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action" rel=nofollow>京ICP备08011423号</a>
+            <a target="_blank" href="http://home.baofeng.com/licence/sah.html" rel="nofollow">信息网络传播视听许可证号：0108298</a>
+            <a target="_blank" href="http://home.baofeng.com/licence/performance_license.html" rel=nofollow>营业性演出许可证</a>
+        </p>
+        <p class="service">北京暴风科技股份有限公司 联系电话：010-62309066（工作日10:00—18:00） </p>
+    </div>
+</div>
+<!-- /页脚信息 -->
+
+
+<!-- build:js scripts/lib/jquery.min.js -->
+<script src="src/scripts/lib/require.js"></script>
+<script src="src/scripts/lib/jquery-1.12.1.min.js"></script>
+<script src="src/scripts/lib/jquery.lazyload.min.js"></script>
+<script src="src/scripts/lib/jquery.easing.min.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/index.js -->
+<script src="src/scripts/index.js"></script>
+<!-- endbuild -->
+</body>
+
+</html>

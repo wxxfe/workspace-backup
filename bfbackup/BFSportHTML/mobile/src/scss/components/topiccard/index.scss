@@ -1,0 +1,15 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../paragraphs/index";
+@import "../portrait/index";
+
+.topic-card {
+    padding: 24px;
+    border: solid 1px #e5e5e5;
+    background: #f6f6f6;
+    .post-time {
+        float: right;
+        line-height: 74px;
+        @include font-fade-2;
+    }
+}

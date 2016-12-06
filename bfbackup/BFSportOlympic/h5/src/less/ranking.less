@@ -1,0 +1,73 @@
+@import 'variable';
+@import 'mixins';
+@import 'lib/css3';
+
+body, ul, li {
+    margin: 0;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ul,li,ol{
+    list-style: none;
+}
+
+//金牌榜
+.j-ranking{
+    .bgc(#fff);
+    .ranking-wrap{
+        table{
+            width: 100%;
+            thead{
+                th{
+                    .pxTorem(height,30);
+                    .pxTorem(font-size,16);
+                    text-align: center;
+                    color: #999;
+                }
+            }
+            tbody{
+                td{
+                    .pxTorem(height,30);
+                    .pxTorem(font-size,16);
+                    text-align: center;
+                    color: #333;
+                    &.active-yellow{
+                        color: @sports-yellow;
+                    }
+                    &.num{
+                        color: #999;
+                    }
+                }
+            }
+        }
+    }
+}
+
+h2.j-title{
+    .pxTorem(height,38);
+    .pxTorem(line-height,38);
+    .pxTorem(font-size,20);
+    .pxTorem(padding-left,10);
+    .pxTorem(padding-right,10);
+    .bg('title-bg01.png',no-repeat,left top);
+    margin: 0;
+    margin-bottom: 0.3rem;
+    background-size: 100%;
+    color: #fff;
+    a{
+        .text-n;
+        .pxTorem(font-size,16);
+        color: #fff;
+        float: right;
+        i{
+            .inline-block;
+            .size(12px,14px);
+            .va();
+            .bgb('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAUCAYAAAHO9+yHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCMDBCRjFCQTREN0YxMUU2QThFMkQ2QUFCMDE0NEE5MSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCMDBCRjFCQjREN0YxMUU2QThFMkQ2QUFCMDE0NEE5MSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkIwMEJGMUI4NEQ3RjExRTZBOEUyRDZBQUIwMTQ0QTkxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkIwMEJGMUI5NEQ3RjExRTZBOEUyRDZBQUIwMTQ0QTkxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/V/kKQAAASZJREFUeNpi/P//PwMIMDFAwH8QgxmIGQECiAEkxQST+w8QQIxQlSCCEaaaHSQAEEAghTNAsjANgkDcB5KG6dkMxOcxDPgPsxYggEAaF/yHgMkwg8CqkThroQo6QHyYWTDABsQ/QQwWqADIB3+gbEaYH+KggkwwQRAACCCQ2YlAzIhsMcwOmCUw58I5MHv+IbsCJPEX6hoGdB0g8BsaZHBJJiTdv4B4G5TdgOyS9VCftyEHyWqoYA9yWC2DCk5AD8Q/QDwd3YMAAQYi4qCSIDANWyiga2BGsuY/knWMuDTAMDOSo/+jOx6bBhhmQwoCGGjFpwFZ41Y0jfX4FG9CU9yEzQZWIF6DprATmx9AHl6JprAfVygtQFM4BV9cwBiJ0IyHN9JAGACZcUoo1QYBYwAAAABJRU5ErkJggg==');
+            background-size: 60%;
+            margin-left: 5px;
+            .bgr();
+        }
+    }
+}
+

@@ -1,0 +1,25 @@
+@import "../../components/style/themes/default/index";
+@import "../../components/section/index";
+@import "../../components/downloadbar/index";
+@import "../../components/videoplayershare/index";
+@import "../../components/matchbar/index";
+@import "../../components/chatroom/index";
+@import "../../components/sharepage/index";
+@import "../../components/no-data/index";
+
+html, body {
+    height: 100%;
+    background: #f3f3f3;
+}
+.container {
+    width: 100%;
+    margin-top: 96px; /*px*/
+}
+
+.chatroom {
+    padding: 30px;
+}
+
+.no-data {
+    height: calc(100% - 500px); /*px*/
+}

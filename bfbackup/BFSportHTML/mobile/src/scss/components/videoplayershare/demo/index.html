@@ -1,0 +1,18 @@
+<!-- 视频播放器 开始 -->
+<div class="video-player embed-video">
+	<a href="javascript:void(0)" data-video='{"cid": "236D18B1E33647FD25DD8E91F1F0D80445B63FDB", "size": "36008850"}'>
+		<span class="embed-video-play"></span>
+		<img src="http://image.sports.baofeng.com/558c37407ff0d0d03a26b806b5f5df6a"/>
+	</a>
+</div>
+<!-- 视频播放器 结束 -->
+
+<script>
+	var videoPlayer = document.querySelector('.video-player'),
+		videoPlayerComp;
+	if(videoPlayer) {
+		videoPlayerComp = VideoPlayerShareFactory({
+			element: videoPlayer
+		});
+	};
+</script>

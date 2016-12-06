@@ -1,0 +1,231 @@
+/**
+ * 赛程表轮播
+ */
+.match-data {
+    .center-block();
+    width: 1200px;
+    height: 80px;
+    margin: 10px auto;
+    position: relative;
+
+    ul.events-tab{
+        width: 63px;
+        list-style: none;
+        position: absolute;
+        left: 0;
+        top: 80px;
+        border-bottom: @sports-yellow 2px solid;
+        z-index: 800;
+        display: none;
+        .bgc(#fff);
+        li,li a{
+            display: block;
+        }
+        li a{
+            .text-n;
+            text-align: center;
+            color: @gray-dark;
+            font-size: @font-size-base;
+            line-height: 26px;
+            &:hover{
+                .bgc(#eee);
+            }
+            &.active{
+                color: @sports-yellow;
+            }
+        }
+    }
+
+    ul.events-rounds{
+        list-style: none;
+        width: 360px;
+        position: absolute;
+        left: 0;
+        top: 78px;
+        border-top: @sports-yellow 2px solid;
+        border-bottom: @sports-yellow 2px solid;
+        z-index: 800;
+        display: none;
+        .bgc(#fff);
+        li,li a{
+            display: block;
+        }
+        li{
+            float: left;
+            margin: 5px;
+            a{
+                .square(26px);
+                .text-n;
+                .bgc(#eee);
+                text-align: center;
+                color: @gray-dark;
+                font-size: @font-size-base;
+                line-height: 26px;
+                &:hover,
+                &.active{
+                    .bgc(@sports-yellow);
+                    color: #fff;
+                }
+            }
+        }
+    }
+    
+    .all{
+        .size(63px,77px);
+        .bgc(#fff);
+        border: #e6e6e6 1px solid;
+        border-bottom: @sports-yellow 2px solid;
+        text-align: center;
+        float: left;
+        margin-right: 17px;
+        color: @sports-yellow;
+        span.date{
+            display: block;
+            font-size: @font-size-small;
+            margin-top: 15px;
+        }
+        font-size: 14px;
+        line-height: 20px;
+        span.event-name{
+            line-height: 77px;
+        }
+    }
+
+    .data-wrap{
+        width: 1118px;
+        height: 80px;
+        float: left;
+        a.prev,a.next{
+            display: block;
+            line-height: 80px;
+            text-align: center;
+            color: #ff6c00;
+            border: #e6e6e6 1px solid;
+            .bgc(#fff);
+            .size(20px,78px);
+            .text-n;
+            &:hover{
+                .bgc(#ff6c00);
+                color: #fff;
+            }
+        }
+        a.prev{
+            float: left;
+            margin-right: 13px;
+        }
+        a.next{
+            float: right;
+        }
+
+        .slide-wrap{
+            width: 1050px;
+            height: 80px;
+            float: left;
+            overflow: hidden;
+        }
+        ul.matchs{
+            min-width: 1300px;
+            li,li a{
+                display: block;
+            }
+            li{
+                float: left;
+                width: 1060px;
+                height: 80px;
+                a{
+                    .size(138px,78px);
+                    .bgc(#fff);
+                    .text-n;
+                    float: left;
+                    margin-right: 11px;
+                    color: @gray-dark;
+                    font-size: @font-size-small;
+                    border: #e6e6e6 1px solid;
+                    overflow: hidden;
+                    position: relative;
+
+                    &:last-child{
+                        margin: 0;
+                    }
+
+                    &.small-round{
+                        .size(119px,78px);
+                    }
+
+                    p{
+                        padding: 0 10px;
+                        display: block;
+                        strong{
+                            font-style: normal;
+                            float: right;
+                        }
+
+                        &.info{
+                            margin-top: 10px;
+                            margin-bottom: 12px;
+                        }
+
+                        &.round-info{
+                            text-align: center;
+                            strong{
+                                float: none;
+                            }
+                        }
+
+                        &.team{
+                            height: 18px;
+                            line-height: 18px;
+                        }
+
+                    }
+
+                    span.living-layer{
+                        .size(138px,80px);
+                        text-align: center;
+                        line-height: 80px;
+                        font-size: @font-size-base;
+                        background-color: rgba(255,108,0,.9);
+                        background-color: #ff6c00\9;
+                        *background-color: #ff6c00\9;
+                        color: #fff;
+                        display: none;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        i{
+                            .inline-block;
+                            .size(21px,12px);
+                            .bg('video_live.png',no-repeat,0 0);
+                            margin-right: 3px;
+                        }
+                    }
+
+                    &.small-round{
+                        span.living-layer{
+                            .size(119px,80px);
+                        }
+                    }
+
+                    &:hover{
+                        p.team strong{
+                            color: @sports-yellow;
+                        }
+                    }
+
+                    &.living{
+                        p.info strong,
+                        p.team strong{
+                            color: @sports-yellow;
+                        }
+                        &:hover{
+                            span.living-layer{
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

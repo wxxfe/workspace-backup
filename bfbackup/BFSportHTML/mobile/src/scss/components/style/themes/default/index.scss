@@ -1,0 +1,107 @@
+// 字体家族
+// ---
+@font-face {
+    font-family: 'pf_din_text_cond_promedium';
+    src: url('../fonts/pfdintextcondpro-medium-webfont.woff2') format('woff2'),
+         url('../fonts/pfdintextcondpro-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pf_din_text_cond_probold';
+    src: url('../fonts/pfdintextcondpro-bold-webfont.woff2') format('woff2'),
+         url('../fonts/pfdintextcondpro-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$font-family-base: sans-serif;
+$font-family-din-md: 'pf_din_text_cond_promedium';
+$font-family-din-bold: 'pf_din_text_cond_probold';
+// 色彩
+// ---
+// 全局/品牌色
+//$brand-primary: #d91717;
+//$brand-primary-tap: darken($brand-primary, 10%);
+
+$brand-primary: #e40010;
+$brand-primary-tap: darken($brand-primary, 10%);
+
+// 文字色
+$color-text-base: #000;                  // 基本
+$color-text-base-inverse: #fff;          // 基本 - 反色
+$color-text-heading: #666;               // 标题色
+$color-text-paragraph: #444;             // 段落
+$color-text-em: $brand-primary;          // 强调
+$color-text-secondary: #999;             // 辅助描述
+
+// 背景色
+$fill-body: #fff;                        // 页面背景
+$fill-mask-shallow: rgba(0, 0, 0, .3);           // 遮罩背景
+$fill-mask: rgba(0, 0, 0, .5);           // 遮罩背景
+$fill-mask-deep: rgba(0, 0, 0, .7);           // 遮罩背景
+$fill-mask-white-shallow: rgba(255, 255, 255, .3);           // 遮罩背景
+$fill-mask-white: rgba(255, 255, 255, .5);           // 遮罩背景
+$fill-mask-white-deep: rgba(255, 255, 255, .7);           // 遮罩背景
+$fill-gray: #f5f5f5;
+$fill-brand: $brand-primary;
+
+// 边框色
+$border-color-base: #ccc;
+
+// 屏幕尺寸
+$screen-width: 750px;
+
+// 字体尺寸
+// ---
+$font-size-base: 24px;
+$font-size-heading: 28px;
+$font-size-paragraph: 32px;
+$font-size-title: 36px;
+$font-size-headline: 42px;
+
+// 圆角
+// ---
+$radius-xs: 4px;
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 14px;
+
+// 边框尺寸
+// ---
+$border-width-sm: 1PX;
+$border-width-md: 2px;
+$border-width-lg: 4px;
+
+// 长度单位
+$width-unit: 8px;
+$u: $width-unit;
+
+// 间距
+// ---
+// 水平间距
+$h-spacing-xs: $u;
+$h-spacing-sm: $u*2;
+$h-spacing-md: $u*3;
+$h-spacing-lg: $u*4;
+$h-spacing-xl: $u*5;
+$h-spacing-xxl: $u*6;
+
+// 垂直间距
+$v-spacing-xs: $u;
+$v-spacing-sm: $u*2;
+$v-spacing-md: $u*3;
+$v-spacing-lg: $u*4;
+$v-spacing-xl: $u*5;
+$v-spacing-xxl: $u*6;
+
+// 页面两边间距
+$page-spacing: $u*4 - 2;
+
+// 分割线
+$divide-line-color: #e5e5e5;
+$divide-line-width: 1px;
+
+
+

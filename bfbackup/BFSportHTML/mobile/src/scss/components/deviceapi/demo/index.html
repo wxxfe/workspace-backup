@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			a {
+				display: block;
+				width: 200px;
+				height: 50px;
+				border: solid 1px red;
+				text-align: center;
+				margin: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="outApp">
+			<h1>APP外</h1>
+			<a href="javascript:void(0)" class="news" data-url="http://m.sports.baofeng.com/news/detail/3405" data-info='{"id" : 3405,"type" : "news","title" : "test","image" : "http://image.sports.baofeng.com/93c33e9c6ea47673f0154c46fafab560","large_image" : "http://image.sports.baofeng.com/", "column_id" : "", "publishTm" : 1476686596, "author_name" : ""}'>相关新闻</a>
+			<a href="javascript:void(0)" class="gallery" data-url="http://m.sports.baofeng.com/gallery/detail/100" data-info='{"id" : 100,"type" : "gallery","title" : "高清图：火箭媒体日拍写真 哈登秀球技内内杂耍11","image" : "http://image.sports.baofeng.com/", "brief" : "北京时间9月27日，NBA新赛季还有一个月就要开始，各支球队亮相媒体日，火箭全队也在媒体日拍摄写真。11111111", "publishTm" : 1474946639}'>
+	        </a>
+	        <p>
+				<div class="bfsports-topic-box">参与话题：
+					<span class="bfsports-topic" data-tid="56" data-info='{"id":56,"title":"历史回顾，96-97赛季的多特蒙德有多强？","type":"topic"}' data-url="/topic/detail/56">
+						历史回顾，96-97赛季的多特蒙德有多强？
+					</span>
+				</div>
+			</p>
+		</div>
+
+		<div id="inApp">
+			<h1>APP内</h1>
+			<a href="javascript:void(0)" class="news" data-info='{"id" : 3405,"type" : "news","title" : "test", "image" : "http://image.sports.baofeng.com/93c33e9c6ea47673f0154c46fafab560","large_image" : "", "publishTm" : 1476686596, "column" : {"id": ""}, "author" : {},"column":{}}'>相关新闻</a>
+			<a href="javascript:void(0)" class="gallery" data-url="http://m.sports.baofeng.com/gallery/detail/100" data-info='{"id" : 100,"type" : "gallery","title" : "高清图：火箭媒体日拍写真 哈登秀球技内内杂耍11","image" : "http://image.sports.baofeng.com/", "brief" : "北京时间9月27日，NBA新赛季还有一个月就要开始，各支球队亮相媒体日，火箭全队也在媒体日拍摄写真。11111111", "publishTm" : 1474946639}'>
+			<p>
+				<div class="bfsports-topic-box">参与话题：
+					<span class="bfsports-topic" data-tid="56" data-info='{"id":56,"title":"历史回顾，96-97赛季的多特蒙德有多强？","type":"topic"}' data-url="/topic/detail/56">
+						历史回顾，96-97赛季的多特蒙德有多强？
+					</span>
+				</div>
+			</p>
+		</div>
+		<script>
+			var outApp = document.querySelector('#outApp');
+			outApp.querySelector('.news').addEventListener('click', function() {
+				DeviceApi.jumpToInShare(this);
+			})
+			var inApp = document.querySelector('#inApp');
+			inApp.querySelector('.news').addEventListener('click', function() {
+				DeviceApi.jumpToInApp(this);
+			})
+		</script>
+	</body>
+
+</html>

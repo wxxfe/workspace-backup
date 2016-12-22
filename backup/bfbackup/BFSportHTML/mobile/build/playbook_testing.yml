@@ -1,0 +1,19 @@
+--- 
+- hosts: testing 
+  become: true
+  become_user: root
+  remote_user: "{{user}}"
+  vars: 
+    config_path: "{{sports_path}}/msports/application/config"
+    resource_path: "{{static_path}}/{{env}}"
+    sports_path: /opt/sports
+    static_path: "{{sports_path}}/static"
+    sync_path: "{{sports_path}}/msports/build"
+  tasks: 
+    - name: 设置写权限
+      file: path="{{item.path}}" mode="{{item.mode}}" owner="{{item.owner}}" group="{{item.group}}"
+      with_items:
+        - {path : "{{config_path}}/resource.php", mode : "0777", owner : "www", group : "www"}
+
+    - name: 替换静态资源文件
+      command: "/usr/local/bin/php {{sync_path}}/sync.php {{env}}"

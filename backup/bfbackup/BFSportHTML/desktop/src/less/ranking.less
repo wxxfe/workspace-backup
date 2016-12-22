@@ -1,0 +1,393 @@
+@import 'mixins';
+@import 'components/schedule-table';
+@import 'components/navigation';
+@import 'components/title';
+@import 'components/banner';
+@import 'components/footer-sports';
+@import 'components/sub-title';
+@import 'components/grid';
+
+body {
+	.bgc(#f5f5f5);
+
+}
+
+.fluid-grid(12, 1);
+
+#container {
+	width: 1200px;
+	.center-block();
+	margin-top: 10px;
+	padding: 0;
+}
+
+#navigation_list {
+	margin: 20px 0 30px 0;
+}
+.list_title {
+	list-style-type: none;
+	width: 100%;
+	li {
+		height: 60px;
+		text-align: center;
+		line-height: 60px;
+		font-size: 16px;
+		background: #282828;
+		float: left;
+		color: #ffffff;
+		font-weight: normal;
+	}
+}
+
+.list_common {
+	border-collapse: collapse;
+	border: 1px solid #e6e6e6;
+	width: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	td {
+		height: 60px;
+		text-align: center;
+		font-size: 16px;
+		img {
+			width: 34px;
+			height: 34px;
+			vertical-align: middle;
+		}
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	};
+	td {
+		border-collapse: collapse;
+		border-top: 1px solid #e6e6e6;
+		border-bottom: 1px solid #e6e6e6;
+	}
+}
+
+#intergrals {
+	width: 100%;
+	margin-bottom: 30px;
+	.column1 {
+		width: 10%
+	}
+	li.column2 {
+		width: 25%;
+		text-align: left;
+		text-indent: 120px;
+	}
+	td.column2 {
+		width: 25%;
+		text-align: left;
+		text-indent: 70px;
+	}
+	.column3 {
+		width: 10%
+	}
+	.column4 {
+		width: 15%
+	}
+	.column5 {
+		width: 10%
+	}
+	.column6 {
+		width: 10%
+	}
+	.column7 {
+		width: 10%
+	}
+	.column8 {
+		width: 10%
+	}
+	.first,
+	.second,
+	.third {
+		color: #ff7f18;
+	}
+}
+
+#striker,
+#assists {
+	width: 100%;
+	margin-bottom: 30px;
+	.column1 {
+		width: 10%
+	}
+	li.column2 {
+		width: 25%;
+		text-align: left;
+		text-indent: 70px;
+	}
+	td.column2 {
+		width: 25%;
+		text-align: left;
+		text-indent: 70px;
+	}
+	li.column3 {
+		width: 50%;
+		text-align: left;
+		text-indent: 120px;
+	}
+	td.column3 {
+		width: 50%;
+		text-align: left;
+		text-indent: 90px;
+	}
+	.column4 {
+		width: 15%
+	}
+	.first,
+	.second,
+	.third {
+		color: #ff7f18;
+	}
+}
+
+#schedule_title {
+	width: 1156px;
+	height: 60px;
+	line-height: 60px;
+	box-sizing: content-box;
+	padding: 0 22px;
+	font-size: 18px;
+	color: #ffffff;
+	background: #282828;
+	span {
+		float: left;
+	}
+	#date_select {
+		float: right;
+		margin-top: 15px;
+		background: url(../images/icon_demand.png) no-repeat scroll right top;
+	}
+}
+
+#schedule_all {
+	width: 100%;
+	height: 800px;
+	position: relative;
+	overflow: auto;
+	margin-bottom: 30px;
+    .bgc(#fff);
+	.scrollbar(5px, #555, #f5f5f5);
+	.schedule_data {
+		width: 100%;
+		border: 1px solid #e5e5e5;
+		caption {
+			height: 40px;
+			line-height: 40px;
+			text-indent: 20px;
+			text-align: left;
+			font-size: 14px;
+			background: #e7e7e7;
+		}
+		td {
+			height: 70px;
+			font-size: 16px;
+			border-bottom: 1px solid #e5e5e5;
+		}
+		.first {
+			width: 10%;
+			text-indent: 30px;
+		}
+		.second {
+			width: 15%;
+			text-indent: 50px;
+		}
+		.third {
+			width: 45%;
+			text-align: center;
+			img {
+				vertical-align: middle;
+				width: 35px;
+				height: 35px;
+			}
+		}
+		.fourth {
+			width: 30%;
+			text-align: right;
+			a {
+				display: inline-block;
+				text-decoration: none;
+				width: 80px;
+				height: 28px;
+				text-align: center;
+				margin-right: 20px;
+				line-height: 28px;
+
+				font-size: 16px;
+			}
+			a:link,
+			a:visited{
+				border: 1px solid #ff7f18;
+				color: #ff7f18;
+			}
+			a:hover{
+				background:#ff7f18 ;
+				border: 1px solid #ffffff;
+				color: #ffffff;
+			}
+			a.no_href {
+				border: none;
+				width: auto;
+				margin-right: 10px;
+			}
+			a.no_href:link,
+			a.no_href:visited{color: #333333;}
+			a.no_href:hover{color: #ff7f18;background: none;}
+		}
+	}
+}
+
+/**
+ * 赛事
+ */
+
+#navigation_list {
+	width: 420px;
+	height: 40px;
+	border-collapse: collapse;
+	td {
+		width: 130px;
+		height: 40px;
+		border-collapse: collapse;
+		border: 1px solid #d6d6d6;
+		a {
+			display: block;
+			box-sizing: content-box;
+			width: 130px;
+			height: 40px;
+			background: #ffffff;
+			text-align: center;
+			line-height: 40px;
+			font-size: 18px;
+			text-decoration: none;
+		}
+		a:link,
+		a:visited{color: #333333;}
+		a:hover{color:#ff7f18; }
+	}
+	.active {
+		border-color: #ff7f18;
+		a:link,
+		a:visited,
+		a:hover{
+			background: #ff7f18;
+			color: #ffffff;
+		}
+	}
+}
+
+#date_select {
+	width: 160px;
+	height: 30px;
+	position: relative;
+	input {
+		width: 100px;
+		height: 16px;
+		line-height: 16px;
+		box-sizing: content-box;
+		background: #ffffff;
+		float: left;
+		color: #999999;
+		font-size: 14px;
+		padding: 7px 15px;
+	}
+	img {
+		float: left;
+	}
+}
+/**
+ * 赛事
+ */
+
+#list_out {
+	width: 316px;
+	position: relative;
+	table {
+		background: #ffffff;
+		box-sizing: content-box;
+		width: 100%;
+		table-layout: fixed;
+		border-collapse: collapse;
+		border: 1px solid #e6e6e6;
+		td, th {
+			height: 36.5px;
+			font-size: 14px;
+			font-family: @font-family-zh;
+			font-weight: normal;
+			text-align: center;
+			overflow: hidden;
+		}
+		.blank {
+			height: 10px;
+			background: #ffffff;
+		}
+		td {
+			span, em {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				text-align: center;
+				line-height: 20px;
+				color: #ffffff;
+				background: #ff7f18;
+			}
+			em {
+				background: #bababa;
+				font-style: normal;
+			}
+		}
+		.caption {
+			height: 59px;
+			border-bottom: 1px solid #e6e6e6;
+			span, a {
+				width: auto;
+				display: inline-block;
+				height: 59px;
+				padding: 0 10px;
+				color: #333333;
+				background: none;
+			}
+			span {
+				float: left;
+				line-height: 66px;
+				font-size: 22px;
+			}
+			a {
+				float: right;
+				line-height: 76px;
+				font-size: 14px;
+			}
+		}
+		.first {
+			background: #f3f3f3;
+			td {
+				height: 103px;
+				img {
+					height: 60px;
+				}
+				p {
+					height: 27px;
+					line-height: 27px;
+					font-size: 14px;
+					color: #757575;
+					width: 100%;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					overflow: hidden;
+				}
+			}
+		}
+	}
+}
+
+#sports_listname {
+	width: 307px;
+	//height: 60px;
+	overflow: hidden;
+	position: absolute;
+	top: -14px;
+	left: 16px;
+}

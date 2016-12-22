@@ -1,0 +1,12 @@
+--- 
+- hosts: production 
+  become: true
+  become_user: root
+  remote_user: "{{user}}"
+  vars: 
+    config_path: "{{sports_path}}/website/application/config"
+    resource_path: "{{static_path}}/{{env}}"
+    sports_path: /opt/sports
+    static_path: "{{sports_path}}/static"
+    sync_path: "{{sports_path}}/website/build"
+  tasks: 

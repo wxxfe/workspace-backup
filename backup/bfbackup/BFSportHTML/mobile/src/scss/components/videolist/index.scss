@@ -1,0 +1,62 @@
+@import "../style/themes/default/index";
+@import "../style/mixin";
+@import "../tag/index";
+@import "../tab/index";
+
+.video-list {
+    @include clearfix;
+    height: 250px;
+    overflow:auto;
+    -webkit-overflow-scrolling: touch;
+
+    .swiper-slide {
+        float: left;
+//      margin-right: 20px;
+//      width: 250px;
+        width: 267px;
+        height: 250px;
+        // 因为用的swipper插件，所以设置为no
+        margin-right: 15px; /*px*/
+        .slide-video-wrapper {
+            position: relative;
+            box-sizing: border-box;
+//          width: 210px;
+            width: 267px;
+            height: 143px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+            .tag {
+                display: none;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                padding: 0;
+                width: 120px;
+                height: 40px; /*px*/
+                line-height: 40px; /*px*/
+                background: #000;
+                opacity: 0.8;
+                @include font-fade-2;
+                color: $color-text-base-inverse;
+                text-align: center;
+            }
+            &.playing {
+                border: solid 4px $brand-primary; /*px*/
+                .tag {
+                    display: block;
+                    background: $brand-primary;
+                }
+            }
+            
+        }
+        .title {
+            margin-top: $v-spacing-md;
+            font-size: 24px; /*px*/
+            @include text-ellipsis-multiline;
+        }
+    }
+}
+
+

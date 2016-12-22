@@ -1,0 +1,31 @@
+--- 
+- hosts: production_static
+  become: true
+  become_user: root
+  remote_user: "{{user}}"
+  vars: 
+    resource_path: "{{static_path}}/{{env}}"
+    resource_bak_path: "{{static_path}}/{{env}}_bak"
+    sports_path: /opt/sports
+    static_path: "{{sports_path}}/static/msports"
+  tasks: 
+    - name: 复制resource.json至服务器
+      copy: src=../dist/resource.json dest="{{static_path}}/resource.json" owner=www group=www mode=0644
+
+    - name: 删除资源目录下的所有文件
+      file: path="{{resource_bak_path}}/{{item}}" state=absent
+      with_items:
+        - ["css","scripts","images","fonts"]
+
+    - name: 删除资源目录下的所有文件
+      file: path="{{resource_path}}/{{item}}" state=absent
+      with_items:
+        - ["css","scripts","images","fonts"]
+
+    - name: 复制资源文件至服务器
+      copy: src="../dist/{{env}}/{{item}}" dest="{{resource_bak_path}}/" owner=www group=www mode=0755
+      with_items:
+        - ["css","scripts","images","fonts"]
+
+    - name: 替换上线
+      shell: "cp -rf {{resource_bak_path}}/* {{resource_path}}/"

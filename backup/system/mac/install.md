@@ -1,3 +1,29 @@
+# MAC
+
+
+## 去除安装应用来源限制
+
+`sudo spctl --master-disable`
+
+## 让Finder显示隐藏文件
+
+`defaults write com.apple.finder AppleShowAllFiles YES; killall Finder`
+
+
+## 禁止生成.DS_Store
+
+```
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+```
+
+
+## Remove all DS_Store files
+
+`sudo find / -name ".DS_Store" -depth -exec rm {} \;`
+
+
+
 # brew
 
 
@@ -23,33 +49,6 @@ cd到install.sh文件所在目录执行./install.sh指令安装所有Powerline�
 iTerm 2的Preferences——Profiles——Text——Regular Font/Non-ASCII Font设置成 Powerline的字体，比如Meslo LG M DZ
 
 iTerm 2的Preferences——Profiles——Colors——Load Presets——Solarized Dark
-
-
-
-# mac
-
-
-## 让Finder显示隐藏文件
-
-`defaults write com.apple.finder AppleShowAllFiles YES; killall Finder`
-
-
-## 禁止生成.DS_Store
-
-```
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-defaults write com.apple.desktopservices DSDontWriteNetworkStores true
-```
-
-
-## Remove all DS_Store files
-
-`sudo find / -name ".DS_Store" -depth -exec rm {} \;`
-
-
-## 去除安装应用来源限制
-
-`sudo spctl --master-disable`
 
 
 
@@ -177,7 +176,12 @@ Host github
 #https://help.github.com/articles/connecting-to-github-with-ssh/
 eval "$(ssh-agent -s)"
 ssh-add -K ~/.ssh/id_rsa
+
+#https://github.com/jirsbek/SSH-keys-in-macOS-Sierra-keychain
+curl -o ~/Library/LaunchAgents/ssh.add.a.plist https://raw.githubusercontent.com/jirsbek/SSH-keys-in-macOS-Sierra-keychain/master/ssh.add.a.plist
 ```
+
+
 
 ## 验证服务器和客户端是否握手成功
 `ssh -T x@x.com`

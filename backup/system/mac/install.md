@@ -136,7 +136,7 @@ export NVM_DIR="$HOME/.nvm"
 
 `nvm install node`
 
-`npm install -g nrm --registry=https://registry.npm.taobao.org/`
+`npm install -g nrm --registry=https://registry.npm.taobao.org/ && nrm use taobao`
 
 
 ## tldr node版 Installing
@@ -198,5 +198,56 @@ curl -o ~/Library/LaunchAgents/ssh.add.a.plist https://raw.githubusercontent.com
 ssh -T x@x.com
 ```
 
-`brew install nginx`
+## services
 
+https://github.com/Homebrew/homebrew-services
+
+
+```
+#Installation
+
+brew tap homebrew/services
+
+
+#List all services managed by brew services
+
+brew services list
+
+
+#Run/start/stop/restart all available services
+
+brew services run|start|stop|restart --all
+
+
+brew install nginx
+brew services start nginx
+
+#Docroot is: /usr/local/var/www
+
+#The default port has been set in /usr/local/etc/nginx/nginx.conf to 8080 so that nginx can run without sudo.
+
+#nginx will load all files in /usr/local/etc/nginx/servers/.
+
+#nginx: [error] open() "/usr/local/var/run/nginx.pid" failed
+sudo nginx
+
+#nginx: [emerg] bind() to 0.0.0.0:80 failed
+sudo nginx -s reload
+
+#check nginx config syntax
+sudo nginx -t
+
+brew install mysql
+brew services start mysql
+brew services stop mysql
+brew services restart mysql
+```
+
+
+## python
+
+```
+pip install virtualenv
+
+brew install autoenv
+```

@@ -197,3 +197,6 @@ curl -o ~/Library/LaunchAgents/ssh.add.a.plist https://raw.githubusercontent.com
 #验证服务器和客户端是否握手成功 可能需要有ssh文件传输操作才能永久保存私钥
 ssh -T x@x.com
 ```
+
+`brew install nginx`
+

@@ -14,6 +14,7 @@
 
 ```
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+#or
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 ```
 
@@ -35,16 +36,14 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 ## https://www.iterm2.com/
 
 ```
-brew install Caskroom/cask/iterm2
-
-brew install wget
-
-brew install git
+brew install Caskroom/cask/iterm2 wget git python
 
 pip install powerline-status
 ```
 
-cd到install.sh文件所在目录执行./install.sh指令安装所有Powerline字体
+https://github.com/powerline/fonts
+
+cd到install.sh文件所在目录执行`./install.sh`指令安装所有Powerline字体
 
 iTerm 2的Preferences——Profiles——Text——Regular Font/Non-ASCII Font设置成 Powerline的字体，比如Meslo LG M DZ
 
@@ -78,16 +77,30 @@ iTerm 2的Preferences——Profiles——Colors——Load Presets——Solarized
 `cat /etc/shells`
 
 
-## https://github.com/robbyrussell/oh-my-zsh
+To activate these completions, add the following to your .zshrc:
+
+`fpath=(/usr/local/share/zsh-completions $fpath)`
+
+You may also need to force rebuild `zcompdump`:
+
+`rm -f ~/.zcompdump; compinit`
+
+Additionally, if you receive "zsh compinit: insecure directories" warnings when attempting
+to load these completions, you may need to run this:
+
+`chmod go-w '/usr/local/share'`
+
+
+
+# oh-my-zsh
+
+https://github.com/robbyrussell/oh-my-zsh
 
 `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 
 
 ZSH_THEME="agnoster"
 
-
-
-# oh-my-zsh
 
 https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet
 
@@ -121,6 +134,7 @@ export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 ```
 
+`nvm install node`
 
 `npm install -g nrm --registry=https://registry.npm.taobao.org/`
 
@@ -137,23 +151,22 @@ npm install -g --ignore-scripts tldr
 tldr --update
 ```
 
+## git
 
 1. 取消global
 
-```
-git config --global --unset user.name
-git config --global --unset user.email
-```
+    `git config --global --unset user.name && git config --global --unset user.email`
 
-2. 设置每个项目repo的user.
 
-```
-git config user.name "x"
-git config user.email "x@x.com"
+2. 设置每个项目repo的user
 
-```
+    `git config user.name "x" && git config user.email "x@x.com"`
+
 
 ## 配置.ssh/config（如果没有就新建一个）
+
+`chmod -R 700 ~/.ssh`
+
 `vim ~/.ssh/config`
 
 ```
@@ -174,14 +187,13 @@ Host github
 
 ```
 #https://help.github.com/articles/connecting-to-github-with-ssh/
+ssh-add -l
 eval "$(ssh-agent -s)"
 ssh-add -K ~/.ssh/id_rsa
 
 #https://github.com/jirsbek/SSH-keys-in-macOS-Sierra-keychain
 curl -o ~/Library/LaunchAgents/ssh.add.a.plist https://raw.githubusercontent.com/jirsbek/SSH-keys-in-macOS-Sierra-keychain/master/ssh.add.a.plist
+
+#验证服务器和客户端是否握手成功 可能需要有ssh文件传输操作才能永久保存私钥
+ssh -T x@x.com
 ```
-
-
-
-## 验证服务器和客户端是否握手成功
-`ssh -T x@x.com`

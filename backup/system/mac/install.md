@@ -24,6 +24,35 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 `sudo find / -name ".DS_Store" -depth -exec rm {} \;`
 
 
+## App
+
+https://itunes.apple.com/cn/app/xcode/id497799835
+
+https://hbang.ws/apps/termhere/
+
+https://itunes.apple.com/cn/app/id921458519
+
+https://itunes.apple.com/cn/app/app-shredder-find-remove-applications/id1033808943
+
+http://oldj.github.io/SwitchHosts/#cn
+
+https://www.jetbrains.com/webstorm/download/#section=mac
+
+http://idea.lanyus.com
+
+https://www.dingtalk.com
+
+http://xclient.info/s/office-for-mac-2016.html
+
+http://xclient.info/s/airmail.html
+
+https://itunes.apple.com/cn/app/ou-lu-ying-yu-ci-dian-free/id434350458
+
+https://github.com/getlantern/forum/issues/833
+
+https://www.google.com/chrome/browser/canary.html
+
+
 
 # brew
 
@@ -251,3 +280,4 @@ pip install virtualenv
 
 brew install autoenv
 ```
+

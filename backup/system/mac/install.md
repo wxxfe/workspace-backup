@@ -28,6 +28,8 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 
 https://itunes.apple.com/cn/app/xcode/id497799835
 
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
 https://hbang.ws/apps/termhere/
 
 https://itunes.apple.com/cn/app/id921458519
@@ -52,7 +54,14 @@ https://github.com/getlantern/forum/issues/833
 
 https://www.google.com/chrome/browser/canary.html
 
+## 快捷键和手势
 
+https://support.apple.com/zh-cn/HT201236
+
+windows和mac的按键对照表
+https://support.microsoft.com/en-us/help/970299/keyboard-mappings-using-a-pc-keyboard-on-a-macintosh
+
+https://support.apple.com/zh-cn/HT204895
 
 # brew
 

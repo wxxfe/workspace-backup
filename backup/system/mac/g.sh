@@ -12,6 +12,6 @@ if [ "$start" == "c" ]; then
     git checkout -b $fullname $base && git push origin $fullname && git push --set-upstream origin $fullname && git fetch -pa && git branch -a
 else
     echo "${fullname} start delete"
-    git checkout master && git pull && git branch -d $fullname && git fetch -pa && git branch -a && git push origin --delete $fullname && git fetch -pa && git branch -a
+    git checkout master && git pull && git branch -D $fullname && git fetch -pa && git branch -a && git push origin --delete $fullname && git fetch -pa && git branch -a
 fi
 

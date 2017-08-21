@@ -236,6 +236,10 @@ curl -o ~/Library/LaunchAgents/ssh.add.a.plist https://raw.githubusercontent.com
 ssh -T x@x.com
 ```
 
+批量删除远程分支
+
+`git branch -r | awk -F/ '/\/feature\/fix.*/{printf"%s/%s\n",$2,$3}' | xargs git push origin --delete`
+
 ## services
 
 https://github.com/Homebrew/homebrew-services
@@ -289,4 +293,5 @@ pip install virtualenv
 
 brew install autoenv
 ```
+
 

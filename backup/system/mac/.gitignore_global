@@ -52,6 +52,7 @@ node_modules/
 *.swp
 *.retry
 Thumbs.db
+.vscode
 
 # Thumbnails
 ._*
@@ -59,4 +60,3 @@ Thumbs.db
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
-templocalnocommit.txt

@@ -9,3 +9,5 @@ let g:mapleader = ";"
 let g:NERDTreeWinPos = "left"
 let NERDTreeShowHidden=1
 map <leader>n :NERDTreeToggle<cr>
+
+colorscheme molokai

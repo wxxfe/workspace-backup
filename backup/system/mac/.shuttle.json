@@ -35,13 +35,9 @@
     {
       "git": [
         {
-          "cmd": "sh /Users/panhezeng/workspace/workspace-backup/mac/bf.sh",
-          "name": "0 暴风体育",
+          "cmd": "sh /Users/panhezeng/Workspace/workspace-backup/backup/system/mac/g.sh",
+          "name": "0 git 项目操作脚本",
           "inTerminal": "current"
-        },
-        {
-          "cmd": "cd /Users/panhezeng/workspace/BFSport && git checkout phzdev",
-          "name": "1 checkout phzdev"
         },
         {
           "cmd": "git add .",
@@ -77,51 +73,39 @@
           "cmd": "git log --oneline --graph",
           "name": "8 log",
           "inTerminal": "current"
-        },
-        {
-          "cmd": "cd /Users/panhezeng/workspace/BFSportH5 && git checkout master",
-          "name": "9 checkout phzh5"
-        },
-        {
-          "cmd": "cd /Users/panhezeng/workspace/BFSportCMS && git checkout phzdev",
-          "name": "10 checkout cmsphzdev"
         }
       ]
     },
     {
       "other":[   
         {
-          "cmd": "cd /Users/panhezeng/workspace && . venv/bin/activate",
-          "name": "venv activate"
+          "cmd": "cd /Users/panhezeng/Workspace/moocnd && source moocnd_env/bin/activate",
+          "name": "moocnd_env activate"
         },
         {
-          "cmd": "python manage.py runserver",
+          "cmd": "python manage.py runserver 0.0.0.0:8000",
           "name": "python manage.py runserver",
           "inTerminal": "current"
-        },
-        {
-          "cmd": "tmuxinator start sports_website",
-          "name": "tmuxinator BFSport"
-        },
-        {
-          "cmd": "cd /Users/panhezeng/workspace/BFSport && grunt",
-          "name": "grunt BFSport"
-        },
-        {
-          "cmd": "ssh panhezeng@192.168.200.192",
-          "name": "ssh BFSport 192.168.200.192"
-        },
-        {
-          "cmd": "ssh panhezeng@192.168.204.239",
-          "name": "ssh BFSport 192.168.204.239"
         },
         {
           "cmd": "sudo nginx -s reload && sudo nginx -t",
           "name": "nginx reload"    
         },
         {
-          "cmd": ". /Users/panhezeng/.ShadowsocksX/update_gfwlist.sh",
-          "name": "update_gfwlist"    
+          "cmd": "brew services start --all",
+          "name": "brew services start --all"    
+        },
+        {
+          "cmd": "brew services stop --all",
+          "name": "brew services stop --all"    
+        },
+        {
+          "cmd": "brew services restart --all",
+          "name": "brew services restart --all"    
+        },
+        {
+          "cmd": "/Applications/Torchlight2.app/Contents/MacOS/ModLauncher; exit;",
+          "name": "Torchlight2"
         }
       ]
     },   
@@ -132,12 +116,8 @@
           "name": "panhezeng ~"
         },
         {
-          "cmd": "cd /Users/panhezeng/workspace",
-          "name": "workspace"
-        },
-        {
-          "cmd": "cd /Users/panhezeng/workspace/BFSport",
-          "name": "BFSport"
+          "cmd": "cd /Users/panhezeng/Workspace",
+          "name": "Workspace"
         },
         {
           "cmd": "cd /usr/local/etc",
@@ -170,12 +150,7 @@
         {
           "cmd": "vim ~/.gitignore_global",
           "name": "gitignore_global"
-        },
-        {
-          "cmd": "vim ~/.tmuxinator/sports_website.yml",
-          "name": "tmuxinator sports_website"
         }
-
       ]
     }
   ]

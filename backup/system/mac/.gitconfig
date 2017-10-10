@@ -15,6 +15,7 @@
       lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
 [core]
 	excludesfile = /Users/panhezeng/.gitignore_global
+	editor = /usr/local/bin/vim
 [difftool "sourcetree"]
 	cmd = /usr/local/bin/bcomp -ro $LOCAL $REMOTE
 	path = 
@@ -30,5 +31,17 @@
 [mergetool]
 	bc3 = trus
 	bc3 = trustExitCode
+	keepBackup = false
+	bc3 = trustExitCode
 [push]
 	default = simple
+[user]
+	name = panhezeng
+	email = panhezeng@xuetangx.com
+[mergetool "bc3"]
+	trustExitCode = true
+[gui]
+	encoding = utf-8
+[i18n]
+	commitencoding = utf-8
+	logoutputencoding = utf-8
